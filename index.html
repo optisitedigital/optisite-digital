@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OptiSite Digital </title>
+    <title>OptiSite Digital</title>
     
     <meta name="description" content="OptiSite Digital : Partenaire de croissance virtuelle en RDC. Expertise en stratégie digitale, développement et solutions pour startups.">
     
     <link rel="icon" type="image/jpg" href="Logo Optisite.jpg">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -24,9 +23,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
 
+        /* --- HEADER & LOGO --- */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem 5%; /* Réduit pour laisser le logo déborder proprement */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -35,15 +35,36 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 90px; /* Assure une hauteur minimale pour le grand logo */
         }
 
-        .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem; color: var(--primary); }
-        .logo img { height: 80px; border-radius: 8px; }
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            font-weight: 700; 
+            font-size: 1.4rem; 
+            color: var(--primary); 
+            text-decoration: none;
+        }
+
+        /* MODIFICATION DU LOGO : Taille augmentée */
+        .logo img { 
+            height: 85px; /* Taille pro et visible */
+            width: auto;
+            border-radius: 5px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.05);
+        }
 
         nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 500; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
 
-        /* Section Accueil Hero */
+        /* --- SECTION HERO --- */
         .hero {
             height: 100vh;
             background: var(--gradient), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
@@ -73,20 +94,24 @@
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        /* Sections */
-        section { padding: 80px 5%; }
+        /* --- SECTIONS --- */
+        section { padding: 100px 5% 80px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
         .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
         .card:hover { transform: translateY(-10px); }
         .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
 
-        /* Mobile */
+        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 768px) {
+            header { min-height: 70px; padding: 0.5rem 2%; }
+            .logo img { height: 60px; } /* Un peu plus petit sur mobile pour l'espace */
+            .logo { font-size: 1.1rem; gap: 8px; }
             .hero h1 { font-size: 2.2rem; }
-            nav { display: none; } /* On simplifie pour le mobile */
+            nav { display: none; } 
         }
 
         footer { background: var(--dark); color: white; padding: 40px 5%; text-align: center; }
+        
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -102,16 +127,17 @@
             font-size: 30px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             z-index: 1000;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">
+        <a href="#accueil" class="logo">
             <img src="Logo Optisite.jpg" alt="Logo OptiSite Digital">
-            OptiSite Digital
-        </div>
+            <span>OptiSite Digital</span>
+        </a>
         <nav>
             <a href="#accueil">Accueil</a>
             <a href="#propos">À Propos</a>
@@ -157,8 +183,8 @@
     <section id="contact">
         <h2 style="text-align:center">Contactez-nous</h2>
         <div style="text-align:center; margin-top: 30px;">
-            <p><i class="fas fa-envelope"></i> optisitedigital@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +243 977 092 549</p>
+            <p style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color: var(--primary);"></i> optisitedigital@gmail.com</p>
+            <p><i class="fas fa-phone" style="color: var(--primary);"></i> +243 977 092 549</p>
         </div>
     </section>
 
