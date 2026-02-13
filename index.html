@@ -1,174 +1,190 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OptiSite Digital </title>
-    
-    <meta name="description" content="OptiSite Digital : Partenaire de croissance virtuelle en RDC. Expertise en stratégie digitale, développement et solutions pour startups.">
-    
-    <link rel="icon" type="image/jpg" href="Logo Optisite.jpg">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiSite Digital</title>
+    
+    <meta name="description" content="OptiSite Digital : Partenaire de croissance virtuelle en RDC. Expertise en stratégie digitale, développement et solutions pour startups.">
+    
+    <link rel="icon" type="image/jpg" href="Logo Optisite.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <style>
-        :root {
-            --primary: #2563eb;
-            --gradient: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
-            --dark: #0f172a;
-            --light: #f8fafc;
-        }
+    <style>
+        :root {
+            --primary: #2563eb;
+            --gradient: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
 
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 80px;
+        }
 
-        .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem; color: var(--primary); }
-        .logo img { height: 80px; border-radius: 8px; }
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            font-weight: 700; 
+            font-size: 1.3rem; 
+            color: var(--primary);
+            flex-shrink: 0;
+        }
 
-        nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
+        .logo img { 
+            height: 70px; /* Taille optimale pour ne pas casser le menu */
+            width: auto;
+            border-radius: 5px;
+            object-fit: contain;
+        }
 
-        /* Section Accueil Hero */
-        .hero {
-            height: 100vh;
-            background: var(--gradient), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
-            background-blend-mode: overlay;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 5%;
-        }
+        nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 2rem; opacity: 0.9; }
+        .hero {
+            height: 100vh;
+            background: var(--gradient), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+        }
 
-        .btn {
-            padding: 12px 30px;
-            background: white;
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin-bottom: 2rem; opacity: 0.9; }
 
-        /* Sections */
-        section { padding: 80px 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        .btn {
+            padding: 12px 35px;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav { display: none; } /* On simplifie pour le mobile */
-        }
+        section { padding: 100px 5% 60px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
 
-        footer { background: var(--dark); color: white; padding: 40px 5%; text-align: center; }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-    </style>
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { display: none; }
+            header { min-height: 70px; }
+            .logo img { height: 55px; }
+        }
+
+        footer { background: var(--dark); color: white; padding: 40px 5%; text-align: center; }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <img src="Logo Optisite.jpg" alt="Logo OptiSite Digital">
-            OptiSite Digital
-        </div>
-        <nav>
-            <a href="#accueil">Accueil</a>
-            <a href="#propos">À Propos</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <header>
+        <div class="logo">
+            <img src="Logo Optisite.jpg" alt="Logo OptiSite Digital">
+            <span>OptiSite Digital</span>
+        </div>
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#propos">À Propos</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-    <section id="accueil" class="hero">
-        <h1>L'Innovation Digitale à votre portée</h1>
-        <p>Expertise virtuelle 360° pour Startups et Entreprises Modernes. Nous transformons vos idées en succès numériques depuis la RDC.</p>
-        <a href="https://wa.me/243977092549" class="btn">Démarrer un projet</a>
-    </section>
+    <section id="accueil" class="hero">
+        <h1>L'Innovation Digitale à votre portée</h1>
+        <p>Expertise virtuelle 360° pour Startups et Entreprises Modernes. Nous transformons vos idées en succès numériques depuis la RDC.</p>
+        <a href="https://wa.me/243977092549" class="btn">Démarrer un projet</a>
+    </section>
 
-    <section id="propos">
-        <h2 style="text-align:center">À Propos de Nous</h2>
-        <p style="max-width: 800px; margin: 20px auto; text-align: center;">
-            OptiSite Digital est une entreprise moderne et agile qui opère virtuellement pour offrir le meilleur de la technologie sans frontières. Nous touchons à tout ce qui est numérique : de la création d'identité visuelle au déploiement de solutions cloud complexes. Notre mission est d'accompagner la nouvelle génération d'entrepreneurs.
-        </p>
-    </section>
+    <section id="propos">
+        <h2 style="text-align:center">À Propos de Nous</h2>
+        <p style="max-width: 800px; margin: 25px auto; text-align: center;">
+            OptiSite Digital est une entreprise moderne et agile qui opère virtuellement pour offrir le meilleur de la technologie sans frontières. Nous accompagnons la nouvelle génération d'entrepreneurs dans leur transformation numérique.
+        </p>
+    </section>
 
-    <section id="services" style="background: #f1f5f9;">
-        <h2 style="text-align:center">Nos Services</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-rocket"></i>
-                <h3>Accompagnement Startup</h3>
-                <p>Lancement de MVP et stratégie de croissance numérique sur mesure.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Développement Web</h3>
-                <p>Création de sites modernes, rapides et optimisés pour Google.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-cloud"></i>
-                <h3>Solutions Virtuelles</h3>
-                <p>Gestion de projets à distance et digitalisation de vos processus business.</p>
-            </div>
-        </div>
-    </section>
+    <section id="services" style="background: #f1f5f9;">
+        <h2 style="text-align:center">Nos Services</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-rocket"></i>
+                <h3>Accompagnement Startup</h3>
+                <p>Lancement de MVP et stratégie de croissance numérique sur mesure.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Développement Web</h3>
+                <p>Création de sites modernes, rapides et optimisés pour Google.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-cloud"></i>
+                <h3>Solutions Virtuelles</h3>
+                <p>Gestion de projets à distance et digitalisation de vos processus business.</p>
+            </div>
+        </div>
+    </section>
 
-    <section id="contact">
-        <h2 style="text-align:center">Contactez-nous</h2>
-        <div style="text-align:center; margin-top: 30px;">
-            <p><i class="fas fa-envelope"></i> optisitedigital@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +243 977 092 549</p>
-        </div>
-    </section>
+    <section id="contact">
+        <h2 style="text-align:center">Contactez-nous</h2>
+        <div style="text-align:center; margin-top: 35px;">
+            <p style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color:var(--primary)"></i> optisitedigital@gmail.com</p>
+            <p><i class="fas fa-phone" style="color:var(--primary)"></i> +243 977 092 549</p>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 OptiSite Digital. Tous droits réservés.</p>
-    </footer>
+    <footer>
+        <p>&copy; 2026 OptiSite Digital. Tous droits réservés.</p>
+    </footer>
 
-    <a href="https://wa.me/243977092549" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/243977092549" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
