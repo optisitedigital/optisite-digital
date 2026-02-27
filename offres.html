@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Offres d'Emploi - OptiSite Digital</title>
+    
+    <link rel="icon" type="image/jpg" href="Logo Optisite.jpg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root { 
             --primary: #2563eb; 
@@ -18,13 +23,14 @@
         
         .container { max-width: 900px; margin: auto; padding: 40px 20px; }
         
+        /* HEADER AVEC LE LOGO VISIBLE AUSSI SUR LA PAGE */
         .header { text-align: center; margin-bottom: 50px; }
+        .header img { height: 80px; margin-bottom: 15px; border-radius: 10px; }
         .header h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--dark); }
         .header p { color: var(--primary); font-weight: 600; letter-spacing: 1px; }
 
         #job-list { display: flex; flex-direction: column; gap: 40px; }
 
-        /* EFFET MODERNE DES CARTES */
         .job-card { 
             background: white; 
             border-radius: 20px; 
@@ -35,7 +41,6 @@
 
         .job-card:hover { transform: translateY(-5px); }
         
-        /* IMAGE EN GRAND FORMAT */
         .job-card img { 
             width: 100%; 
             display: block;
@@ -56,6 +61,7 @@
 
     <div class="container">
         <div class="header">
+            <img src="Logo Optisite.jpg" alt="Logo OptiSite Digital">
             <h1>Opportunités Recrutement</h1>
             <p>OPTISITE DIGITAL</p>
         </div>
@@ -70,15 +76,12 @@
     </div>
 
     <script>
-        // TON LIEN GOOGLE SHEET CSV
         const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTh4TLAZTOkTzKCfHk1RaDJ-Rs9I65QGB6XftGoKYZlXYGjRsnmopK7Z4WbC9mtFlgoRDFX8f_Yd9FN/pub?output=csv';
 
         async function loadJobs() {
             try {
                 const response = await fetch(sheetUrl);
                 const data = await response.text();
-                
-                // On découpe par ligne
                 const rows = data.split('\n').slice(1); 
                 const list = document.getElementById('job-list');
                 list.innerHTML = '';
@@ -86,7 +89,6 @@
                 let hasJobs = false;
 
                 rows.forEach(row => {
-                    // Gestion robuste des colonnes (évite les erreurs de virgules dans le texte)
                     const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
                     
                     if (cols.length >= 2 && cols[0].trim() !== "") {
@@ -112,12 +114,10 @@
                 }
 
             } catch (e) {
-                console.error(e);
-                document.getElementById('job-list').innerHTML = "<p class='error'>Erreur de connexion aux données. Vérifiez votre connexion internet.</p>";
+                document.getElementById('job-list').innerHTML = "<p class='error'>Erreur de connexion.</p>";
             }
         }
 
-        // Lancement automatique
         loadJobs();
     </script>
 </body>
