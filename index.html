@@ -1,19 +1,11 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="-_aNDFj2tGqemqJy4bAPqVS9438FSGOIACF2So6ZFVo" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>OptiSite Digital</title>
-    
-    <meta name="apple-mobile-web-app-title" content="OptiSite Digital">
-    <meta name="application-name" content="OptiSite Digital">
-    <meta property="og:site_name" content="OptiSite Digital">
-    <meta property="og:type" content="website">
-
-    <meta property="og:title" content="OptiSite Digital">
-    <meta property="og:description" content="Partenaire de croissance virtuelle en RDC. Expertise en stratégie digitale et développement.">
-    <meta property="og:image" content="Logo Optisite.jpg">
-
     <meta name="description" content="OptiSite Digital : Partenaire de croissance virtuelle en RDC. Expertise en stratégie digitale, développement et solutions pour startups.">
     
     <link rel="icon" type="image/jpg" href="Logo Optisite.jpg">
@@ -21,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <meta property="og:site_name" content="OptiSite Digital">
+    <meta property="og:title" content="OptiSite Digital - Innovation en RDC">
+    <meta property="og:image" content="Logo Optisite.jpg">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -39,7 +34,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; scroll-behavior: smooth; }
 
         header {
             background: rgba(255, 255, 255, 0.98);
@@ -62,7 +57,6 @@
             font-weight: 700; 
             font-size: 1.3rem; 
             color: var(--primary);
-            flex-shrink: 0;
         }
 
         .logo img { 
@@ -90,27 +84,33 @@
             padding: 0 5%;
         }
 
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.1rem; max-width: 700px; margin-bottom: 2rem; opacity: 0.9; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; max-width: 750px; margin-bottom: 2rem; opacity: 0.9; }
 
         .btn {
-            padding: 12px 35px;
+            padding: 15px 40px;
             background: white;
             color: var(--primary);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: 0.3s;
-            border: none;
-            cursor: pointer;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
 
         section { padding: 100px 5% 60px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
+        h2 { text-align: center; margin-bottom: 40px; font-size: 2.2rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; }
         .card:hover { transform: translateY(-10px); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        .card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+
+        /* STYLE POUR LA SECTION EMPLOI */
+        .job-section { background: #f1f5f9; text-align: center; border-radius: 30px; margin: 20px 5%; }
+        .btn-job { background: var(--primary); color: white !important; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
@@ -119,22 +119,22 @@
             .logo img { height: 55px; }
         }
 
-        footer { background: var(--dark); color: white; padding: 40px 5%; text-align: center; }
+        footer { background: var(--dark); color: white; padding: 50px 5%; text-align: center; }
 
         .whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background: #25d366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 32px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            font-size: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             z-index: 1000;
             text-decoration: none;
         }
@@ -151,49 +151,62 @@
             <a href="#accueil">Accueil</a>
             <a href="#propos">À Propos</a>
             <a href="#services">Services</a>
+            <a href="#emplois">Offres</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <section id="accueil" class="hero">
         <h1>L'Innovation Digitale à votre portée</h1>
-        <p>Expertise virtuelle 360° pour Startups et Entreprises Modernes. Nous transformons vos idées en succès numériques depuis la RDC.</p>
+        <p>Expertise virtuelle 360° pour Startups et Entreprises Modernes. Nous transformons vos idées en succès numériques.</p>
         <a href="https://wa.me/243977092549" class="btn">Démarrer un projet</a>
     </section>
 
     <section id="propos">
-        <h2 style="text-align:center">À Propos de Nous</h2>
-        <p style="max-width: 800px; margin: 25px auto; text-align: center;">
-            OptiSite Digital est une entreprise moderne et agile qui opère virtuellement pour offrir le meilleur de la technologie sans frontières. Nous accompagnons la nouvelle génération d'entrepreneurs dans leur transformation numérique.
+        <h2>À Propos de Nous</h2>
+        <p style="max-width: 850px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #475569;">
+            OptiSite Digital est une agence agile opérant virtuellement pour offrir le meilleur de la technologie sans frontières. Nous accompagnons la nouvelle génération d'entrepreneurs congolais dans leur succès numérique.
         </p>
     </section>
 
-    <section id="services" style="background: #f1f5f9;">
-        <h2 style="text-align:center">Nos Services</h2>
+    <section id="services" style="background: #f8fafc;">
+        <h2>Nos Services</h2>
         <div class="grid">
             <div class="card">
                 <i class="fas fa-rocket"></i>
                 <h3>Accompagnement Startup</h3>
-                <p>Lancement de MVP et stratégie de croissance numérique sur mesure.</p>
+                <p>Stratégie de croissance et lancement de projets numériques sur mesure.</p>
             </div>
             <div class="card">
                 <i class="fas fa-laptop-code"></i>
                 <h3>Développement Web</h3>
-                <p>Création de sites modernes, rapides et optimisés pour Google.</p>
+                <p>Création de sites modernes, rapides et optimisés pour les moteurs de recherche.</p>
             </div>
             <div class="card">
                 <i class="fas fa-cloud"></i>
                 <h3>Solutions Virtuelles</h3>
-                <p>Gestion de projets à distance et digitalisation de vos processus business.</p>
+                <p>Digitalisation des processus métier et gestion de projets à distance.</p>
             </div>
         </div>
     </section>
 
+    <section id="emplois" class="job-section">
+        <h2>Recrutement & Opportunités</h2>
+        <p style="margin-bottom: 30px; color: #475569;">Consultez nos dernières offres d'emploi et opportunités de collaboration.</p>
+        <a href="offres.html" target="_blank" class="btn btn-job">
+            <i class="fas fa-external-link-alt"></i> Voir les offres disponibles
+        </a>
+    </section>
+
     <section id="contact">
-        <h2 style="text-align:center">Contactez-nous</h2>
-        <div style="text-align:center; margin-top: 35px;">
-            <p style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color:var(--primary)"></i> optisitedigital@gmail.com</p>
-            <p><i class="fas fa-phone" style="color:var(--primary)"></i> +243 977 092 549</p>
+        <h2>Contactez-nous</h2>
+        <div style="text-align:center; margin-top: 20px;">
+            <p style="font-size: 1.2rem; margin-bottom: 15px;">
+                <i class="fas fa-envelope" style="color:var(--primary)"></i> optisitedigital@gmail.com
+            </p>
+            <p style="font-size: 1.2rem;">
+                <i class="fas fa-phone" style="color:var(--primary)"></i> +243 977 092 549
+            </p>
         </div>
     </section>
 
