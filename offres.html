@@ -4,31 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offres d'Emploi - OptiSite Digital</title>
-    
     <link rel="icon" type="image/jpg" href="Logo Optisite.jpg">
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root { 
-            --primary: #2563eb; 
-            --dark: #0f172a; 
-            --bg: #f4f7ff; 
-        }
-
+        :root { --primary: #2563eb; --dark: #0f172a; --bg: #f4f7ff; --success: #22c55e; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
-        
         .container { max-width: 800px; margin: auto; padding: 40px 15px; }
-        
         .header { text-align: center; margin-bottom: 40px; }
         .header img { height: 60px; margin-bottom: 10px; border-radius: 8px; }
         .header h1 { font-size: 2rem; color: var(--dark); }
-
         #job-list { display: flex; flex-direction: column; gap: 50px; }
 
-        /* CARTE D'OFFRE */
         .job-card { 
             background: white; 
             border-radius: 25px; 
@@ -36,8 +25,6 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
             border: 1px solid rgba(0,0,0,0.05);
         }
-
-        /* TITRE AU DESSUS EN GRAS */
         .job-header {
             padding: 20px 25px;
             background: white;
@@ -46,16 +33,7 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        .job-header h2 { 
-            font-size: 1.4rem; 
-            font-weight: 700; 
-            color: var(--dark);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* NUMÉRO ÉCRIT PROPRE */
+        .job-header h2 { font-size: 1.4rem; font-weight: 700; color: var(--dark); text-transform: uppercase; }
         .job-number {
             background: var(--primary);
             color: white;
@@ -63,24 +41,28 @@
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.85rem;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
         }
-        
-        /* PHOTO EN GRAND DIRECTE */
-        .job-card img { 
-            width: 100%; 
-            display: block;
-            height: auto; 
-            max-height: 600px; /* Évite que l'image soit trop longue */
-            object-fit: contain; /* Garde toute l'image visible sans couper */
-            background: #fafafa;
-        }
-
+        .job-card img { width: 100%; display: block; height: auto; max-height: 600px; object-fit: contain; background: #fafafa; }
         .job-content { padding: 25px; border-top: 5px solid var(--primary); }
-        .job-content p { color: #475569; font-size: 1.1rem; }
+        .job-content p { color: #475569; font-size: 1.1rem; margin-bottom: 20px; }
+
+        /* LE BOUTON POSTULER */
+        .btn-apply {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+            text-align: center;
+            width: 100%;
+        }
+        .btn-apply:hover { background: #16a34a; transform: scale(1.02); }
+        .btn-apply i { margin-right: 8px; }
 
         .loading { text-align: center; padding: 50px; font-weight: 600; color: #64748b; }
-
         footer { text-align: center; color: #94a3b8; padding: 50px 20px; font-size: 0.8rem; }
     </style>
 </head>
@@ -91,14 +73,10 @@
             <img src="Logo Optisite.jpg" alt="Logo">
             <h1>Opportunités Recrutement</h1>
         </div>
-
         <div id="job-list">
             <p class="loading"><i class="fas fa-circle-notch fa-spin"></i> Chargement des offres...</p>
         </div>
-
-        <footer>
-            &copy; 2026 OptiSite Digital. Expertise Digitale en RDC.
-        </footer>
+        <footer>&copy; 2026 OptiSite Digital. Expertise Digitale en RDC.</footer>
     </div>
 
     <script>
@@ -113,14 +91,18 @@
                 list.innerHTML = '';
 
                 rows.forEach(row => {
-                    // Analyse propre des colonnes (A, B, C, D...)
                     const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                    
                     if (cols.length >= 2 && cols[0].trim() !== "") {
-                        const numero = cols[0].replace(/"/g, "").trim(); // Colonne A: Numéro
-                        const titre = cols[1].replace(/"/g, "").trim();  // Colonne B: Titre
-                        const photo = cols[2].replace(/"/g, "").trim();  // Colonne C: Lien Photo
-                        const desc = cols[3] ? cols[3].replace(/"/g, "").trim() : ""; // Colonne D: Description
+                        const numero = cols[0].replace(/"/g, "").trim();
+                        const titre = cols[1].replace(/"/g, "").trim();
+                        const photo = cols[2].replace(/"/g, "").trim();
+                        const desc = cols[3] ? cols[3].replace(/"/g, "").trim() : "";
+                        const lienPostuler = cols[4] ? cols[4].replace(/"/g, "").trim() : ""; // Colonne E
+
+                        let boutonHTML = "";
+                        if (lienPostuler && lienPostuler !== "") {
+                            boutonHTML = `<a href="${lienPostuler}" target="_blank" class="btn-apply"><i class="fas fa-paper-plane"></i> Déposer mon CV / Postuler</a>`;
+                        }
 
                         list.innerHTML += `
                             <div class="job-card">
@@ -131,12 +113,12 @@
                                 <img src="${photo}" alt="${titre}" onerror="this.src='https://via.placeholder.com/800x500?text=Lien+Photo+Invalide'">
                                 <div class="job-content">
                                     <p>${desc}</p>
+                                    ${boutonHTML}
                                 </div>
                             </div>
                         `;
                     }
                 });
-
             } catch (e) {
                 document.getElementById('job-list').innerHTML = "<p style='text-align:center'>Erreur de chargement.</p>";
             }
