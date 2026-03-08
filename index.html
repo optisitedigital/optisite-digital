@@ -39,8 +39,9 @@
             --light: #f8fafc;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; scroll-behavior: smooth; }
+        /* RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
 
         header {
             background: rgba(255, 255, 255, 0.98);
@@ -52,21 +53,23 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
             min-height: 80px;
         }
 
         .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.3rem; color: var(--primary); }
         .logo img { height: 70px; width: auto; border-radius: 5px; object-fit: contain; }
 
+        /* NAV DESKTOP */
         nav { display: flex; align-items: center; }
-        nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 500; transition: 0.3s; }
+        nav a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 500; transition: 0.3s; position: relative; }
         nav a:hover { color: var(--primary); }
 
-        /* Menu Mobile */
-        .menu-toggle { display: none; cursor: pointer; z-index: 1001; }
-        .menu-toggle .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease; background: var(--dark); }
+        /* MENU TOGGLE (HAMBURGER) */
+        .menu-toggle { display: none; cursor: pointer; z-index: 1100; padding: 10px; }
+        .menu-toggle .bar { display: block; width: 28px; height: 3px; margin: 6px auto; transition: 0.4s; background: var(--dark); border-radius: 3px; }
 
+        /* HERO SECTION */
         .hero {
             height: 100vh;
             background: var(--gradient), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
@@ -81,42 +84,64 @@
             color: white;
             padding: 0 5%;
         }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 700; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin-bottom: 2.5rem; opacity: 0.9; }
 
-        .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.2rem; max-width: 750px; margin-bottom: 2rem; opacity: 0.9; }
+        .btn { padding: 16px 45px; background: white; color: var(--primary); text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: none; cursor: pointer; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
 
-        .btn { padding: 15px 40px; background: white; color: var(--primary); text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        section { padding: 120px 5% 80px; }
+        h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; font-weight: 700; position: relative; }
+        h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary); margin: 15px auto; border-radius: 2px; }
 
-        section { padding: 100px 5% 60px; }
-        h2 { text-align: center; margin-bottom: 40px; font-size: 2.2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
+        .card { background: white; padding: 45px; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); transition: 0.4s; text-align: center; border: 1px solid rgba(0,0,0,0.02); }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+        .card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 25px; display: block; }
+        .card h3 { margin-bottom: 15px; font-size: 1.5rem; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; }
-        .card:hover { transform: translateY(-10px); }
-        .card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
-
-        .job-section { background: #f1f5f9; text-align: center; border-radius: 30px; margin: 20px 5%; }
+        .job-section { background: #f1f5f9; text-align: center; border-radius: 40px; margin: 40px 5%; padding: 80px 5%; }
         .btn-job { background: var(--primary); color: white !important; }
 
-        footer { background: var(--dark); color: white; padding: 50px 5%; text-align: center; }
+        footer { background: var(--dark); color: white; padding: 60px 5%; text-align: center; }
 
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); z-index: 1000; text-decoration: none; transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* RESPONSIVE MODERNE */
+        /* MOBILE RESPONSIVE OPTIMISÉ */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
             .menu-toggle { display: block; }
-            .logo img { height: 55px; }
+            .logo img { height: 60px; }
             
             nav {
-                position: fixed; top: 0; right: -100%; width: 250px; height: 100vh;
-                background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px);
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px);
                 flex-direction: column; justify-content: center; align-items: center;
-                transition: 0.5s ease-in-out; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                padding: 40px 20px;
+                z-index: 1050;
             }
             nav.active { right: 0; }
-            nav a { display: block; margin: 20px 0; font-size: 1.3rem; }
+            nav a { 
+                margin: 15px 0; 
+                font-size: 1.2rem; 
+                width: 100%; 
+                text-align: center; 
+                padding: 15px; 
+                background: rgba(37, 99, 235, 0.05); 
+                border-radius: 15px;
+                color: var(--dark);
+                font-weight: 600;
+            }
+            nav a:active { background: var(--primary); color: white; transform: scale(0.95); }
+
+            /* Animation Hamburger vers X */
+            .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+            .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
         }
     </style>
 </head>
@@ -151,36 +176,55 @@
 
     <section id="propos">
         <h2>À Propos de Nous</h2>
-        <p style="max-width: 850px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #475569;">
-            OptiSite Digital est une agence agile opérant virtuellement. Nous accompagnons la nouvelle génération d'entrepreneurs congolais.<br><br>
-            <strong>Fondé par : <a href="https://www.facebook.com/profile.php?id=61588260623995" target="_blank" style="color:var(--primary); text-decoration:none;">Olivier Tshimbalanga</a></strong>
+        <p style="max-width: 850px; margin: 0 auto; text-align: center; font-size: 1.2rem; color: #475569; line-height: 1.8;">
+            OptiSite Digital est une agence agile opérant virtuellement pour offrir le meilleur de la technologie sans frontières. Nous accompagnons la nouvelle génération d'entrepreneurs congolais dans leur succès numérique.<br><br>
+            <strong>Fondé par : <a href="https://www.facebook.com/profile.php?id=61588260623995" target="_blank" style="color:var(--primary); text-decoration:none; border-bottom: 2px solid var(--primary);">Olivier Tshimbalanga</a></strong>
         </p>
     </section>
 
-    <section id="services" style="background: #f8fafc;">
+    <section id="services" style="background: #fcfdfe;">
         <h2>Nos Services</h2>
         <div class="grid">
-            <div class="card"><i class="fas fa-rocket"></i><h3>Accompagnement Startup</h3><p>Stratégie de croissance et lancement de projets.</p></div>
-            <div class="card"><i class="fas fa-laptop-code"></i><h3>Développement Web</h3><p>Sites modernes, rapides et optimisés.</p></div>
-            <div class="card"><i class="fas fa-cloud"></i><h3>Solutions Virtuelles</h3><p>Digitalisation des processus métier.</p></div>
+            <div class="card">
+                <i class="fas fa-rocket"></i>
+                <h3>Accompagnement Startup</h3>
+                <p>Stratégie de croissance et lancement de projets numériques sur mesure pour le marché local et international.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Développement Web</h3>
+                <p>Création de sites modernes, ultra-rapides et optimisés pour convertir vos visiteurs en clients fidèles.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-cloud"></i>
+                <h3>Solutions Virtuelles</h3>
+                <p>Digitalisation complète de vos processus métier et gestion experte de projets à distance.</p>
+            </div>
         </div>
     </section>
 
     <section id="emplois" class="job-section">
-        <h2>Recrutement</h2>
-        <a href="offres.html" target="_blank" class="btn btn-job">Voir les offres</a>
+        <h2>Recrutement & Opportunités</h2>
+        <p style="margin-bottom: 40px; color: #475569; font-size: 1.1rem;">Rejoignez une équipe dynamique. Consultez nos dernières offres d'emploi et collaborations.</p>
+        <a href="offres.html" target="_blank" class="btn btn-job">
+            <i class="fas fa-external-link-alt" style="margin-right: 10px; font-size: 1rem;"></i> Voir les offres disponibles
+        </a>
     </section>
 
     <section id="contact">
         <h2>Contactez-nous</h2>
         <div style="text-align:center; margin-top: 20px;">
-            <p><i class="fas fa-envelope"></i> optisitedigital@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +243 977 092 549</p>
+            <p style="font-size: 1.3rem; margin-bottom: 20px; font-weight: 500;">
+                <i class="fas fa-envelope" style="color:var(--primary); margin-right: 10px;"></i> optisitedigital@gmail.com
+            </p>
+            <p style="font-size: 1.3rem; font-weight: 500;">
+                <i class="fas fa-phone" style="color:var(--primary); margin-right: 10px;"></i> +243 977 092 549
+            </p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 OptiSite Digital. Tous droits réservés.</p>
+        <p style="font-weight: 500;">&copy; 2026 OptiSite Digital. Tous droits réservés.</p>
     </footer>
 
     <a href="https://wa.me/243977092549" class="whatsapp-float" target="_blank">
@@ -191,17 +235,20 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
 
-        // Ouvrir/Fermer le menu
+        // Toggle Menu + Animation Hamburger
         mobileMenu.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('is-active');
         });
 
-        // Fermer le menu après clic sur un lien et défilement fluide
+        // Fermeture automatique au clic sur un lien
         document.querySelectorAll('#nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                mobileMenu.classList.remove('is-active');
             });
         });
     </script>
+
 </body>
 </html>
