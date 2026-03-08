@@ -56,24 +56,16 @@
             min-height: 80px;
         }
 
-        .logo { 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            font-weight: 700; 
-            font-size: 1.3rem; 
-            color: var(--primary);
-        }
+        .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.3rem; color: var(--primary); }
+        .logo img { height: 70px; width: auto; border-radius: 5px; object-fit: contain; }
 
-        .logo img { 
-            height: 70px;
-            width: auto;
-            border-radius: 5px;
-            object-fit: contain;
-        }
-
+        nav { display: flex; align-items: center; }
         nav a { text-decoration: none; color: var(--dark); margin-left: 20px; font-weight: 500; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
+
+        /* Menu Mobile */
+        .menu-toggle { display: none; cursor: pointer; }
+        .menu-toggle .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease; background: var(--dark); }
 
         .hero {
             height: 100vh;
@@ -93,17 +85,7 @@
         .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; line-height: 1.2; }
         .hero p { font-size: 1.2rem; max-width: 750px; margin-bottom: 2rem; opacity: 0.9; }
 
-        .btn {
-            padding: 15px 40px;
-            background: white;
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
+        .btn { padding: 15px 40px; background: white; color: var(--primary); text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
 
         section { padding: 100px 5% 60px; }
@@ -114,35 +96,26 @@
         .card:hover { transform: translateY(-10px); }
         .card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
 
-        /* STYLE POUR LA SECTION EMPLOI */
         .job-section { background: #f1f5f9; text-align: center; border-radius: 30px; margin: 20px 5%; }
         .btn-job { background: var(--primary); color: white !important; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav { display: none; }
-            header { min-height: 70px; }
-            .logo img { height: 55px; }
-        }
-
         footer { background: var(--dark); color: white; padding: 50px 5%; text-align: center; }
 
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: white;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 35px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-            text-decoration: none;
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .menu-toggle { display: block; }
+            .logo img { height: 55px; }
+            
+            nav {
+                position: absolute; top: 80px; left: -100%; width: 100%; height: auto;
+                background: white; flex-direction: column; text-align: center;
+                transition: 0.4s; padding: 20px 0; box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+            nav.active { left: 0; }
+            nav a { display: block; margin: 20px 0; font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -153,7 +126,14 @@
             <img src="Logo Optisite.jpg" alt="Logo OptiSite Digital">
             <span>OptiSite Digital</span>
         </div>
-        <nav>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav id="nav-menu">
             <a href="#accueil">Accueil</a>
             <a href="#propos">À Propos</a>
             <a href="#services">Services</a>
@@ -171,7 +151,7 @@
     <section id="propos">
         <h2>À Propos de Nous</h2>
         <p style="max-width: 850px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #475569;">
-            OptiSite Digital est une agence agile opérant virtuellement pour offrir le meilleur de la technologie sans frontières. Nous accompagnons la nouvelle génération d'entrepreneurs congolais dans leur succès numérique.<br><br>
+            OptiSite Digital est une agence agile opérant virtuellement. Nous accompagnons la nouvelle génération d'entrepreneurs congolais.<br><br>
             <strong>Fondé par : <a href="https://www.facebook.com/profile.php?id=61588260623995" target="_blank" style="color:var(--primary); text-decoration:none;">Olivier Tshimbalanga</a></strong>
         </p>
     </section>
@@ -179,41 +159,22 @@
     <section id="services" style="background: #f8fafc;">
         <h2>Nos Services</h2>
         <div class="grid">
-            <div class="card">
-                <i class="fas fa-rocket"></i>
-                <h3>Accompagnement Startup</h3>
-                <p>Stratégie de croissance et lancement de projets numériques sur mesure.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Développement Web</h3>
-                <p>Création de sites modernes, rapides et optimisés pour les moteurs de recherche.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-cloud"></i>
-                <h3>Solutions Virtuelles</h3>
-                <p>Digitalisation des processus métier et gestion de projets à distance.</p>
-            </div>
+            <div class="card"><i class="fas fa-rocket"></i><h3>Accompagnement Startup</h3><p>Stratégie de croissance et lancement de projets.</p></div>
+            <div class="card"><i class="fas fa-laptop-code"></i><h3>Développement Web</h3><p>Sites modernes, rapides et optimisés.</p></div>
+            <div class="card"><i class="fas fa-cloud"></i><h3>Solutions Virtuelles</h3><p>Digitalisation des processus métier.</p></div>
         </div>
     </section>
 
     <section id="emplois" class="job-section">
-        <h2>Recrutement & Opportunités</h2>
-        <p style="margin-bottom: 30px; color: #475569;">Consultez nos dernières offres d'emploi et opportunités de collaboration.</p>
-        <a href="offres.html" target="_blank" class="btn btn-job">
-            <i class="fas fa-external-link-alt"></i> Voir les offres disponibles
-        </a>
+        <h2>Recrutement</h2>
+        <a href="offres.html" target="_blank" class="btn btn-job">Voir les offres</a>
     </section>
 
     <section id="contact">
         <h2>Contactez-nous</h2>
         <div style="text-align:center; margin-top: 20px;">
-            <p style="font-size: 1.2rem; margin-bottom: 15px;">
-                <i class="fas fa-envelope" style="color:var(--primary)"></i> optisitedigital@gmail.com
-            </p>
-            <p style="font-size: 1.2rem;">
-                <i class="fas fa-phone" style="color:var(--primary)"></i> +243 977 092 549
-            </p>
+            <p><i class="fas fa-envelope"></i> optisitedigital@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +243 977 092 549</p>
         </div>
     </section>
 
@@ -225,5 +186,19 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
