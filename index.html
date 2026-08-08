@@ -581,7 +581,7 @@
                         <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
-                        Trust RDC certifie aussi bien les <strong>vendeurs en ligne</strong> que les <strong>freelances</strong> et prestataires de services. Remplissez le formulaire « Obtenir mon Badge » (aucune photo à envoyer), acceptez les conditions d'inscription, puis notre équipe vous contacte sur WhatsApp pour programmer un court appel vidéo de vérification du visage, vérifier votre pièce d'identité (carte d'électeur ou carte d'élève) et récupérer le paiement de l'abonnement de 2000 FC/mois via Mobile Money. Une fois validé, votre badge certifié est activé.
+                        Trust RDC certifie aussi bien les <strong>vendeurs en ligne</strong> que les <strong>freelances</strong> et prestataires de services. Remplissez le formulaire « Obtenir mon Badge », acceptez les conditions d'inscription, et votre profil est activé pour 3 jours d'essai gratuit. Passé ce délai, un abonnement mensuel est requis pour rester vérifié.
                     </div>
                 </div>
 
@@ -720,9 +720,15 @@
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Compétences / Produits (séparés par une virgule)</label>
-                    <input type="text" id="v-skills" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Design graphique, Montage vidéo, Vente téléphones">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Email *</label>
+                        <input type="email" id="v-email" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: jean.kalala@gmail.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Compétences / Produits</label>
+                        <input type="text" id="v-skills" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Design graphique, Montage vidéo, Vente téléphones">
+                    </div>
                 </div>
 
                 <div>
@@ -730,27 +736,41 @@
                     <textarea id="v-bio" required rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500 resize-none" placeholder="Parlez brièvement de votre activité..."></textarea>
                 </div>
 
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Lien direct de votre photo *</label>
+                    <input type="url" id="v-photo" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: https://i.postimg.cc/xxxxxxxx/photo.jpg">
+                    <div class="mt-2 p-3 rounded-xl bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800/50 text-[11px] text-sky-800 dark:text-sky-300 leading-relaxed">
+                        <strong>Comment obtenir ce lien ?</strong>
+                        1) Allez sur <a href="https://postimages.org" target="_blank" class="underline font-semibold">postimages.org</a> (aussi appelé postimg.cc).
+                        2) Cliquez sur « Choose images », sélectionnez votre photo et téléversez-la.
+                        3) Une fois l'image en ligne, copiez le lien <strong>« Direct link »</strong>.
+                        4) Collez ce lien exactement dans le champ ci-dessus.
+                    </div>
+                </div>
+
                 <div class="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-[11px] sm:text-xs text-amber-800 dark:text-amber-300 leading-relaxed space-y-2">
                     <div class="flex items-center gap-2 font-bold uppercase tracking-wide text-[11px]">
                         <i class="fas fa-circle-info"></i> Conditions d'inscription Trust RDC
                     </div>
                     <ul class="list-disc list-inside space-y-1.5">
-                        <li>Aucune photo à envoyer maintenant : votre badge se finalise par <strong>appel vidéo</strong> avec notre équipe pour vérifier votre visage.</li>
-                        <li>Une <strong>pièce d'identité</strong> valide vous sera demandée pendant l'appel : carte d'électeur <strong>ou</strong> carte d'élève.</li>
-                        <li>Un <strong>abonnement de 2000 FC / mois</strong> est requis pour garder votre profil vérifié et actif (paiement via Mobile Money).</li>
-                        <li>Après l'envoi du formulaire, notre équipe vous contacte sur WhatsApp pour programmer l'appel vidéo et récupérer le paiement.</li>
+                        <li>Dès validation, votre profil est activé avec <strong>3 jours d'essai gratuit</strong> pendant lesquels vous apparaissez sur le site.</li>
+                        <li>Passé ce délai de 3 jours, un <strong>abonnement mensuel de 2000 FC</strong> (montant pouvant varier selon le taux de change) est requis pour rester vérifié(e) et visible auprès de vos futurs clients.</li>
+                        <li>Vous recevrez un <strong>email automatique</strong> à la fin de l'essai, avec un lien de paiement Chariow pour confirmer votre abonnement.</li>
+                        <li>Une fois le paiement effectué, contactez-nous sur WhatsApp ou par email : notre équipe réactive votre badge manuellement dans les meilleurs délais.</li>
                     </ul>
                 </div>
 
                 <label class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 cursor-pointer">
                     <input type="checkbox" id="v-terms" required class="mt-1 w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 shrink-0">
                     <span class="text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed">
-                        J'accepte les conditions d'inscription ci-dessus (appel vidéo de vérification, pièce d'identité — carte d'électeur ou carte d'élève — et abonnement de 2000 FC/mois via Mobile Money). Je comprends qu'un message pré-rédigé va s'ouvrir sur WhatsApp pour que l'équipe OptiSite Digital finalise mon inscription. *
+                        J'accepte les conditions d'inscription ci-dessus : 3 jours d'essai gratuit, puis abonnement mensuel de 2000 FC (pouvant varier selon le taux de change), à confirmer via le lien de paiement Chariow envoyé par email. *
                     </span>
                 </label>
 
-                <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp text-lg"></i> Envoyer ma demande sur WhatsApp
+                <div id="vendor-form-status" class="hidden text-xs sm:text-sm p-4 rounded-2xl leading-relaxed"></div>
+
+                <button type="submit" id="vendor-submit-btn" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription
                 </button>
             </form>
         </div>
@@ -1151,6 +1171,16 @@
                 vendorOverlay.addEventListener('click', (e) => { if (e.target === vendorOverlay) closeVendorModal(); });
             }
 
+            // ⚠️ Remplacez cette URL par celle de votre propre déploiement Google Apps Script (Code.gs fourni séparément)
+            const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/VOTRE_ID_DE_DEPLOIEMENT/exec";
+
+            function formatDateFR(d) {
+                const dd = String(d.getDate()).padStart(2, '0');
+                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                const yyyy = d.getFullYear();
+                return `${dd}/${mm}/${yyyy}`;
+            }
+
             if (vendorForm) {
                 vendorForm.addEventListener('submit', (e) => {
                     e.preventDefault();
@@ -1161,42 +1191,66 @@
                     const category = document.getElementById('v-category').value.trim();
                     const skills = document.getElementById('v-skills').value.trim();
                     const bio = document.getElementById('v-bio').value.trim();
+                    const email = document.getElementById('v-email').value.trim();
+                    const photo = document.getElementById('v-photo').value.trim();
                     const termsAccepted = document.getElementById('v-terms').checked;
+                    const statusBox = document.getElementById('vendor-form-status');
+                    const submitBtn = document.getElementById('vendor-submit-btn');
 
-                    if (!name || !phone || !city || !category || !bio) {
-                        alert("Merci de remplir tous les champs obligatoires (*) avant d'envoyer.");
+                    if (!name || !phone || !city || !category || !bio || !email || !photo) {
+                        alert("Merci de remplir tous les champs obligatoires (*) avant d'envoyer, y compris l'email et le lien direct de votre photo.");
                         return;
                     }
                     if (!termsAccepted) {
-                        alert("Merci de cocher la case d'acceptation des conditions d'inscription (appel vidéo, pièce d'identité, abonnement 2000 FC/mois) avant d'envoyer.");
+                        alert("Merci de cocher la case d'acceptation des conditions d'inscription avant d'envoyer.");
                         return;
                     }
 
-                    const siteProfileHint = `https://optisite-digital.onrender.com/trustrdc.html`;
+                    const today = new Date();
+                    const finDate = new Date();
+                    finDate.setDate(today.getDate() + 3);
 
-                    const message =
-`Bonjour OptiSite Digital, je souhaite obtenir mon Badge Vendeur/Freelance Trust RDC.
+                    // Ordre exact des colonnes du Google Sheet :
+                    // Nom complet | Numéro WhatsApp | Ville | Catégorie | Compétences / Produits | Courte bio / description | Email | badge | date | fin | photo
+                    const payload = {
+                        nom: name,
+                        telephone: phone,
+                        ville: city,
+                        categorie: category,
+                        competences: skills || 'Non précisé',
+                        bio: bio,
+                        email: email,
+                        badge: "Essai gratuit",
+                        date: formatDateFR(today),
+                        fin: formatDateFR(finDate),
+                        photo: photo
+                    };
 
-Nom complet : ${name}
-Numéro WhatsApp : ${phone}
-Ville : ${city}
-Catégorie : ${category}
-Compétences / Produits : ${skills || 'Non précisé'}
-Bio : ${bio}
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> Envoi en cours...`;
 
-J'ai lu et j'accepte les conditions d'inscription Trust RDC :
-- Appel vidéo de vérification de mon visage
-- Pièce d'identité valide (carte d'électeur OU carte d'élève)
-- Abonnement de 2000 FC / mois via Mobile Money pour la vérification et le maintien de mon profil
-
-Merci de me contacter pour programmer mon appel vidéo et finaliser le paiement de mon abonnement.
-Une fois validé, merci de m'ajouter sur ${siteProfileHint}`;
-
-                    const waUrl = `https://wa.me/243977092549?text=${encodeURIComponent(message)}`;
-
-                    window.open(waUrl, '_blank');
-                    closeVendorModal();
-                    vendorForm.reset();
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(() => {
+                        statusBox.classList.remove('hidden');
+                        statusBox.classList.add('bg-emerald-50', 'dark:bg-emerald-900/20', 'text-emerald-700', 'dark:text-emerald-300', 'border', 'border-emerald-200', 'dark:border-emerald-800/50');
+                        statusBox.innerHTML = `<i class="fas fa-check-circle mr-1"></i> Inscription envoyée ! Vous bénéficiez de 3 jours d'essai gratuit sur le site. Pensez à confirmer votre abonnement mensuel avant la fin de cette période (un email de rappel automatique vous sera envoyé).`;
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = `<i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription`;
+                        vendorForm.reset();
+                        setTimeout(closeVendorModal, 3500);
+                    })
+                    .catch(() => {
+                        statusBox.classList.remove('hidden');
+                        statusBox.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
+                        statusBox.innerHTML = `<i class="fas fa-triangle-exclamation mr-1"></i> Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous contacter directement sur WhatsApp.`;
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = `<i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription`;
+                    });
                 });
             }
 
