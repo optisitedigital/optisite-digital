@@ -4,27 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offres d'Emploi - OptiSite Digital</title>
+    <meta name="description" content="Découvrez les offres d'emploi publiées par OptiSite Digital et postulez directement, ou publiez votre propre offre.">
     <link rel="icon" type="image/jpg" href="Logo Optisite.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <style>
-        :root { --primary: #2563eb; --dark: #0f172a; --bg: #f4f7ff; --success: #22c55e; }
+        :root { --primary: #2563eb; --purple: #7c3aed; --dark: #0f172a; --bg: #f4f7ff; --success: #22c55e; --muted: #64748b; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
-        .container { max-width: 800px; margin: auto; padding: 40px 15px; }
-        .header { text-align: center; margin-bottom: 40px; }
+
+        .top-bar {
+            background: white; padding: 14px 5%; display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;
+        }
+        .top-bar a.back { color: var(--dark); text-decoration: none; font-weight: 600; font-size: .95rem; }
+        .top-bar a.back i { margin-right: 6px; }
+
+        .container { max-width: 800px; margin: auto; padding: 40px 15px 20px; }
+        .header { text-align: center; margin-bottom: 30px; }
         .header img { height: 60px; margin-bottom: 10px; border-radius: 8px; }
-        .header h1 { font-size: 2rem; color: var(--dark); }
+        .header h1 { font-size: 2rem; color: var(--dark); margin-bottom: 8px; }
+        .header p { color: var(--muted); font-size: 1rem; }
+
+        /* BANDEAU PUBLIER UNE OFFRE */
+        .publish-banner {
+            max-width: 800px; margin: 0 auto 40px; padding: 30px 25px; border-radius: 20px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%); color: white;
+            display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+            text-align: left;
+        }
+        .publish-banner h2 { font-size: 1.15rem; margin-bottom: 6px; }
+        .publish-banner p { font-size: .9rem; opacity: .9; }
+        .btn-publish {
+            background: white; color: var(--primary); text-decoration: none; padding: 13px 26px;
+            border-radius: 12px; font-weight: 700; white-space: nowrap; transition: .3s;
+            animation: pulseGlow 2.4s ease-in-out infinite; flex-shrink: 0;
+        }
+        .btn-publish i { margin-right: 8px; }
+        .btn-publish:hover { transform: translateY(-2px); }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+        }
+
         #job-list { display: flex; flex-direction: column; gap: 50px; }
 
-        .job-card { 
-            background: white; 
-            border-radius: 25px; 
-            overflow: hidden; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+        .reveal { opacity: 0; transform: translateY(25px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.show { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+        .job-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
             border: 1px solid rgba(0,0,0,0.05);
+            transition: transform .3s ease, box-shadow .3s ease;
         }
+        .job-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); }
         .job-header {
             padding: 20px 25px;
             background: white;
@@ -32,8 +71,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
-        .job-header h2 { font-size: 1.4rem; font-weight: 700; color: var(--dark); text-transform: uppercase; }
+        .job-header h2 { font-size: 1.3rem; font-weight: 700; color: var(--dark); text-transform: uppercase; }
         .job-number {
             background: var(--primary);
             color: white;
@@ -41,10 +82,11 @@
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.85rem;
+            white-space: nowrap;
         }
         .job-card img { width: 100%; display: block; height: auto; max-height: 600px; object-fit: contain; background: #fafafa; }
         .job-content { padding: 25px; border-top: 5px solid var(--primary); }
-        .job-content p { color: #475569; font-size: 1.1rem; margin-bottom: 20px; }
+        .job-content p { color: #475569; font-size: 1.05rem; margin-bottom: 20px; }
 
         /* LE BOUTON POSTULER */
         .btn-apply {
@@ -52,7 +94,7 @@
             background: var(--success);
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
+            padding: 13px 25px;
             border-radius: 12px;
             font-weight: 600;
             transition: 0.3s;
@@ -60,35 +102,94 @@
             width: 100%;
         }
         .btn-apply:hover { background: #16a34a; transform: scale(1.02); }
+        .btn-apply:active { transform: scale(0.98); }
         .btn-apply i { margin-right: 8px; }
 
         .loading { text-align: center; padding: 50px; font-weight: 600; color: #64748b; }
-        footer { text-align: center; color: #94a3b8; padding: 50px 20px; font-size: 0.8rem; }
+        .loading i { margin-right: 8px; }
+        .empty-state { text-align: center; padding: 40px; color: var(--muted); }
+
+        footer { text-align: center; color: #94a3b8; padding: 50px 20px 40px; font-size: 0.85rem; }
+
+        .whatsapp-float {
+            position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; font-size: 30px; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+            z-index: 1000; text-decoration: none; transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.5rem; }
+            .publish-banner { flex-direction: column; text-align: center; padding: 25px 20px; }
+            .job-header h2 { font-size: 1.1rem; }
+            .job-content { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
+    <div class="top-bar">
+        <a href="index.html" class="back"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+    </div>
+
     <div class="container">
-        <div class="header">
-            <img src="Logo Optisite.jpg" alt="Logo">
+        <div class="header reveal">
+            <img src="Logo Optisite.jpg" alt="Logo OptiSite Digital">
             <h1>Opportunités Recrutement</h1>
+            <p>Consultez nos offres et postulez en un clic.</p>
         </div>
+
+        <div class="publish-banner reveal">
+            <div>
+                <h2>Vous recrutez ?</h2>
+                <p>Publiez votre offre d'emploi sur notre site en quelques minutes.</p>
+            </div>
+            <a href="#" id="publish-btn" class="btn-publish" target="_blank">
+                <i class="fas fa-bullhorn"></i> Publier une offre
+            </a>
+        </div>
+
         <div id="job-list">
             <p class="loading"><i class="fas fa-circle-notch fa-spin"></i> Chargement des offres...</p>
         </div>
+
         <footer>&copy; 2026 OptiSite Digital. Expertise Digitale en RDC.</footer>
     </div>
 
+    <a href="https://wa.me/243977092549" class="whatsapp-float" target="_blank" aria-label="Contacter sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
+        const WHATSAPP_NUMBER = "243977092549";
+        const publishMsg = "Bonjour OptiSite Digital, j'aimerais publier mon offre d'emploi sur votre site.";
+        document.getElementById('publish-btn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(publishMsg)}`;
+
         const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTh4TLAZTOkTzKCfHk1RaDJ-Rs9I65QGB6XftGoKYZlXYGjRsnmopK7Z4WbC9mtFlgoRDFX8f_Yd9FN/pub?output=csv';
+
+        function setupReveal() {
+            const revealEls = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealEls.forEach(el => observer.observe(el));
+        }
 
         async function loadJobs() {
             try {
                 const response = await fetch(sheetUrl);
                 const data = await response.text();
-                const rows = data.split('\n').slice(1); 
+                const rows = data.split('\n').slice(1);
                 const list = document.getElementById('job-list');
                 list.innerHTML = '';
+
+                let count = 0;
 
                 rows.forEach(row => {
                     const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
@@ -105,22 +206,29 @@
                         }
 
                         list.innerHTML += `
-                            <div class="job-card">
+                            <div class="job-card reveal">
                                 <div class="job-header">
                                     <h2>${titre}</h2>
                                     <span class="job-number">N° ${numero}</span>
                                 </div>
-                                <img src="${photo}" alt="${titre}" onerror="this.src='https://via.placeholder.com/800x500?text=Lien+Photo+Invalide'">
+                                <img src="${photo}" alt="${titre}" loading="lazy" onerror="this.src='https://via.placeholder.com/800x500?text=Lien+Photo+Invalide'">
                                 <div class="job-content">
                                     <p>${desc}</p>
                                     ${boutonHTML}
                                 </div>
                             </div>
                         `;
+                        count++;
                     }
                 });
+
+                if (count === 0) {
+                    list.innerHTML = '<p class="empty-state"><i class="fas fa-inbox" style="font-size:2rem;display:block;margin-bottom:12px;"></i>Aucune offre disponible pour le moment.</p>';
+                }
+
+                setupReveal();
             } catch (e) {
-                document.getElementById('job-list').innerHTML = "<p style='text-align:center'>Erreur de chargement.</p>";
+                document.getElementById('job-list').innerHTML = "<p class='empty-state'>Erreur de chargement des offres. Merci de réessayer plus tard.</p>";
             }
         }
         loadJobs();
