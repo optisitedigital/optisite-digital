@@ -110,7 +110,7 @@
                 Trouvez un Vendeur ou Freelance <span class="text-gradient-trust">Certifié Trust RDC</span>
             </h1>
             <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
-                Chaque profil ci-dessous a été vérifié manuellement par notre équipe (pièce d'identité + photo) avant certification. Recherchez par nom, ville ou compétence.
+                Chaque profil ci-dessous a été vérifié par notre équipe avant certification. Recherchez par nom, ville ou compétence.
             </p>
 
             <div class="max-w-xl mx-auto space-y-3">
@@ -217,26 +217,26 @@
         /* ==========================================================================
            CONFIGURATION — À FAIRE UNE SEULE FOIS
            ==========================================================================
-           1. Dans votre Google Sheet, créez une feuille avec ces colonnes exactement
-              (l'ordre n'a pas d'importance, mais les EN-TÊTES doivent être identiques) :
+           Ce fichier lit directement votre Google Sheet "Trust-Rdc" (les mêmes colonnes
+           que le formulaire d'inscription du site principal) :
 
-              nom | ville | categorie | competences | bio | telephone | photo | badge | date
+           Nom complet | Numéro WhatsApp | Ville | Catégorie | Compétences / Produits |
+           Courte bio / description | Email | badge | date | fin | photo
 
-              - nom          : Nom complet du vendeur
-              - ville        : Ville (Kinshasa, Lubumbashi, ...)
-              - categorie    : Vendeur / Boutique, Freelance, Service / Agence...
-              - competences  : compétences séparées par des virgules
-              - bio          : courte description
-              - telephone    : numéro WhatsApp (ex: 243977092549, sans le +)
-              - photo        : lien direct vers une photo publique (ex: lien Google Drive
-                                "partagé à tous" converti en lien direct, ou Imgur, etc.)
-              - badge        : "Or", "Argent" ou "Vérifié" (libre, juste pour l'affichage)
-              - date         : date de validation (texte libre, ex: "Août 2026")
+           - badge : mis à jour par vous manuellement dans le Sheet, valeur "Payé"
+                     quand la personne a confirmé son abonnement.
+           - fin   : date de fin d'essai gratuit (calculée automatiquement par le
+                     formulaire d'inscription, format jj/mm/aaaa).
 
-           2. Fichier > Partager > Publier sur le web > choisissez la feuille concernée
-              et le format "Valeurs séparées par une virgule (.csv)" > Publier.
+           RÈGLE D'AFFICHAGE : un profil n'apparaît dans cet annuaire que s'il est
+           marqué "Payé", OU s'il est encore dans sa période d'essai gratuit de 3
+           jours (date du jour <= date "fin"). Passé ce délai sans paiement, le
+           profil disparaît automatiquement de l'annuaire public.
 
-           3. Collez le lien obtenu ci-dessous, à la place de l'exemple.
+           Pour connecter ce fichier à votre Sheet :
+           1. Dans Google Sheets : Fichier > Partager > Publier sur le web >
+              choisissez l'onglet "Trust-Rdc" > format CSV > Publier.
+           2. Collez le lien obtenu ci-dessous, à la place de l'exemple.
            ========================================================================== */
         const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdMGkhmyoflnlC4iFEG2xvoAIyv0Vu1x7Ca842rbrKifFv7QWodgkLj-Nk-sDIjyrKfmt4msdHZbCM/pub?output=csv";
 
@@ -259,15 +259,35 @@
             let ALL_VENDORS = [];
             let activeCategory = 'Tous';
 
-            function badgeColor(badge) {
-                const b = (badge || '').toLowerCase();
-                if (b.includes('or')) return { bg: 'bg-amber-100 dark:bg-amber-900/40', text: 'text-amber-700 dark:text-amber-300', icon: 'fa-trophy' };
-                if (b.includes('argent')) return { bg: 'bg-slate-200 dark:bg-slate-700', text: 'text-slate-700 dark:text-slate-200', icon: 'fa-medal' };
-                return { bg: 'bg-emerald-100 dark:bg-emerald-900/40', text: 'text-emerald-700 dark:text-emerald-300', icon: 'fa-shield-check' };
+            /* ---- Utilitaire : parse une date "jj/mm/aaaa" ---- */
+            function parseDateFR(str) {
+                if (!str) return null;
+                const parts = String(str).trim().split('/');
+                if (parts.length !== 3) return null;
+                const day = parseInt(parts[0], 10);
+                const month = parseInt(parts[1], 10) - 1;
+                const year = parseInt(parts[2], 10);
+                if (isNaN(day) || isNaN(month) || isNaN(year)) return null;
+                return new Date(year, month, day);
+            }
+
+            /* ---- Détermine si un profil doit être visible + son badge affiché ---- */
+            function computeStatus(v) {
+                if ((v.badge || '').trim().toLowerCase() === 'payé') {
+                    return { active: true, label: 'Vérifié', bg: 'bg-emerald-100 dark:bg-emerald-900/40', text: 'text-emerald-700 dark:text-emerald-300', icon: 'fa-shield-check' };
+                }
+                const finDate = parseDateFR(v.fin);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (finDate) finDate.setHours(0, 0, 0, 0);
+
+                if (finDate && today <= finDate) {
+                    return { active: true, label: 'Essai gratuit', bg: 'bg-sky-100 dark:bg-sky-900/40', text: 'text-sky-700 dark:text-sky-300', icon: 'fa-clock' };
+                }
+                return { active: false };
             }
 
             function vendorCardHTML(v) {
-                const badge = badgeColor(v.badge);
                 const skills = (v.competences || '').split(',').map(s => s.trim()).filter(Boolean).slice(0, 4);
                 const photo = v.photo && v.photo.trim() ? v.photo.trim() : `https://placehold.co/200x200/065f46/ffffff?text=${encodeURIComponent((v.nom || '?').charAt(0))}`;
                 const waMsg = encodeURIComponent(`Bonjour ${v.nom || ''}, je vous ai trouvé via l'annuaire Trust RDC et je suis intéressé(e) par vos services.`);
@@ -282,8 +302,8 @@
                         <div class="min-w-0">
                             <h3 class="font-heading font-bold text-slate-900 dark:text-white text-base truncate">${v.nom || 'Profil'}</h3>
                             <p class="text-xs text-slate-500 dark:text-slate-400 truncate"><i class="fas fa-location-dot mr-1"></i>${v.ville || 'RDC'}</p>
-                            <span class="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full ${badge.bg} ${badge.text} text-[10px] font-bold uppercase tracking-wide">
-                                <i class="fas ${badge.icon}"></i> ${v.badge || 'Vérifié'}
+                            <span class="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full ${v.status.bg} ${v.status.text} text-[10px] font-bold uppercase tracking-wide">
+                                <i class="fas ${v.status.icon}"></i> ${v.status.label}
                             </span>
                         </div>
                     </div>
@@ -359,13 +379,32 @@
                         const rows = (results.data || []).map(r => {
                             const clean = {};
                             Object.keys(r).forEach(k => { clean[k.trim().toLowerCase()] = (r[k] || '').toString().trim(); });
-                            return clean;
+
+                            return {
+                                nom: clean['nom complet'] || '',
+                                telephone: clean['numéro whatsapp'] || '',
+                                ville: clean['ville'] || '',
+                                categorie: clean['catégorie'] || '',
+                                competences: clean['compétences / produits'] || '',
+                                bio: clean['courte bio / description'] || '',
+                                email: clean['email'] || '',
+                                badge: clean['badge'] || '',
+                                date: clean['date'] || '',
+                                fin: clean['fin'] || '',
+                                photo: clean['photo'] || ''
+                            };
                         }).filter(r => r.nom);
 
-                        loadingGrid.classList.add('hidden');
-                        if (rows.length === 0) { showError(); return; }
+                        // On calcule le statut de chaque profil et on ne garde que les actifs
+                        // (payés OU encore dans les 3 jours d'essai gratuit)
+                        const activeRows = rows
+                            .map(r => ({ ...r, status: computeStatus(r) }))
+                            .filter(r => r.status.active);
 
-                        ALL_VENDORS = rows;
+                        loadingGrid.classList.add('hidden');
+                        if (activeRows.length === 0) { showError(); return; }
+
+                        ALL_VENDORS = activeRows;
                         lastUpdated.textContent = `Mis à jour automatiquement depuis Google Sheets`;
                         buildCategoryFilters(ALL_VENDORS);
                         render();
