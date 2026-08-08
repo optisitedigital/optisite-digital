@@ -1,255 +1,1021 @@
-
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="-_aNDFj2tGqemqJy4bAPqVS9438FSGOIACF2So6ZFVo" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>OptiSite Digital</title>
-    <meta name="description" content="OptiSite Digital : Partenaire de croissance virtuelle en RDC. Expertise en stratégie digitale, développement et solutions pour startups.">
-    
-    <link rel="icon" type="image/jpg" href="Logo Optisite.jpg">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-    <meta property="og:site_name" content="OptiSite Digital">
-    <meta property="og:title" content="OptiSite Digital - Innovation en RDC">
-    <meta property="og:image" content="Logo Optisite.jpg">
+    <title>OptiSite Digital — Création Web, Formations IA & Certification Trust RDC</title>
+    <meta name="description" content="OptiSite Digital : Agence Web agile à Kinshasa. Création de sites internet, formations IA WhatsApp & Marketing, certifications anti-escroqueries Trust RDC.">
 
+    <!-- Preconnect & CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome & TailwindCSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb',
+                            700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a', 950: '#0f172a',
+                        },
+                        trust: {
+                            50: '#f0fdf4', 100: '#dcfce7', 500: '#10b981', 600: '#059669',
+                            700: '#047857', 800: '#065f46', 900: '#064e3b',
+                        },
+                        ai: { 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9' }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'infinite-scroll': 'infinite-scroll 35s linear infinite',
+                        'infinite-scroll-fast': 'infinite-scroll 28s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                    },
+                    keyframes: {
+                        'infinite-scroll': {
+                            from: { transform: 'translateX(0)' },
+                            to: { transform: 'translateX(-50%)' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        'pulseGlow': {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "OptiSite Digital",
       "url": "https://optisite-digital.onrender.com",
-      "founder": {
-        "@type": "Person",
-        "name": "Olivier Tshimbalanga",
-        "sameAs": "https://www.facebook.com/profile.php?id=61588260623995"
-      }
+      "logo": "https://optisite-digital.onrender.com/Logo%20Optisite.jpg",
+      "founder": { "@type": "Person", "name": "Olivier Tshimbalanga", "sameAs": "https://www.facebook.com/profile.php?id=61588260623995" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Kinshasa", "addressCountry": "CD" },
+      "contactPoint": { "@type": "ContactPoint", "telephone": "+243977092549", "contactType": "customer service" }
     }
     </script>
 
     <style>
-        :root {
-            --primary: #2563eb;
-            --gradient: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
-            --dark: #0f172a;
-            --light: #f8fafc;
+        /* ===== Base ===== */
+        * { box-sizing: border-box; }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .dark .glass-panel {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* RESET & BASE */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
 
-        header {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 0.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            min-height: 80px;
+        /* Gradient text (kept only for dark-background sections) */
+        .text-gradient-brand {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-trust {
+            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.3rem; color: var(--primary); }
-        .logo img { height: 70px; width: auto; border-radius: 5px; object-fit: contain; }
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-6px); }
 
-        /* NAV DESKTOP */
-        nav { display: flex; align-items: center; }
-        nav a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 500; transition: 0.3s; position: relative; }
-        nav a:hover { color: var(--primary); }
+        .infinite-track:hover { animation-play-state: paused; }
 
-        /* MENU TOGGLE (HAMBURGER) */
-        .menu-toggle { display: none; cursor: pointer; z-index: 1100; padding: 10px; }
-        .menu-toggle .bar { display: block; width: 28px; height: 3px; margin: 6px auto; transition: 0.4s; background: var(--dark); border-radius: 3px; }
-
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            background: var(--gradient), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
-            background-blend-mode: overlay;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 5%;
+        /* ===== Interactive hamburger menu ===== */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: max-height 0.45s cubic-bezier(0.65,0,0.35,1), opacity 0.3s ease, transform 0.35s ease;
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 700; }
-        .hero p { font-size: 1.3rem; max-width: 800px; margin-bottom: 2.5rem; opacity: 0.9; }
-
-        .btn { padding: 16px 45px; background: white; color: var(--primary); text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: none; cursor: pointer; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-
-        section { padding: 120px 5% 80px; }
-        h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; font-weight: 700; position: relative; }
-        h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary); margin: 15px auto; border-radius: 2px; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
-        .card { background: white; padding: 45px; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); transition: 0.4s; text-align: center; border: 1px solid rgba(0,0,0,0.02); }
-        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
-        .card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 25px; display: block; }
-        .card h3 { margin-bottom: 15px; font-size: 1.5rem; }
-
-        .job-section { background: #f1f5f9; text-align: center; border-radius: 40px; margin: 40px 5%; padding: 80px 5%; }
-        .btn-job { background: var(--primary); color: white !important; }
-
-        footer { background: var(--dark); color: white; padding: 60px 5%; text-align: center; }
-
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); z-index: 1000; text-decoration: none; transition: 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-
-        /* MOBILE RESPONSIVE OPTIMISÉ */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            .menu-toggle { display: block; }
-            .logo img { height: 60px; }
-            
-            nav {
-                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px);
-                flex-direction: column; justify-content: center; align-items: center;
-                transition: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-                padding: 40px 20px;
-                z-index: 1050;
-            }
-            nav.active { right: 0; }
-            nav a { 
-                margin: 15px 0; 
-                font-size: 1.2rem; 
-                width: 100%; 
-                text-align: center; 
-                padding: 15px; 
-                background: rgba(37, 99, 235, 0.05); 
-                border-radius: 15px;
-                color: var(--dark);
-                font-weight: 600;
-            }
-            nav a:active { background: var(--primary); color: white; transform: scale(0.95); }
-
-            /* Animation Hamburger vers X */
-            .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
-            .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-            .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        #mobile-menu.open {
+            max-height: 640px;
+            opacity: 1;
+            transform: translateY(0);
         }
+        #menu-icon { transition: transform 0.35s cubic-bezier(0.65,0,0.35,1); }
+        #mobile-menu-btn[aria-expanded="true"] #menu-icon { transform: rotate(90deg); }
+        .mobile-link {
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        #mobile-menu.open .mobile-link { opacity: 1; transform: translateX(0); }
+        #mobile-menu.open .mobile-link:nth-child(1) { transition-delay: .03s; }
+        #mobile-menu.open .mobile-link:nth-child(2) { transition-delay: .07s; }
+        #mobile-menu.open .mobile-link:nth-child(3) { transition-delay: .11s; }
+        #mobile-menu.open .mobile-link:nth-child(4) { transition-delay: .15s; }
+        #mobile-menu.open .mobile-link:nth-child(5) { transition-delay: .19s; }
+        #mobile-menu.open .mobile-link:nth-child(6) { transition-delay: .23s; }
+        #mobile-menu.open .mobile-link:nth-child(7) { transition-delay: .27s; }
+
+        /* ===== Image-only realisations carousel ===== */
+        .realisations-track { animation: infinite-scroll 30s linear infinite; }
+        .realisations-track:hover { animation-play-state: paused; }
+        .realisation-frame {
+            position: relative;
+            flex-shrink: 0;
+            width: 280px;
+            height: 340px;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 12px 30px -8px rgba(0,0,0,0.25);
+        }
+        .realisation-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .realisation-frame:hover img { transform: scale(1.08); }
     </style>
 </head>
-<body>
 
-    <header>
-        <div class="logo">
-            <img src="Logo Optisite.jpg" alt="Logo OptiSite Digital">
-            <span>OptiSite Digital</span>
-        </div>
-        
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
+
+    <!-- ============================================================ -->
+    <!-- HEADER / NAVIGATION                                            -->
+    <!-- ============================================================ -->
+    <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <a href="#accueil" class="flex items-center gap-3 group">
+                <div class="relative w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 p-0.5 shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <img src="Logo Optisite.jpg" alt="OptiSite Digital Logo" class="w-full h-full object-cover rounded-[10px]" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1e40af/ffffff?text=OSD';">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-none">OptiSite <span class="text-brand-600 dark:text-brand-400">Digital</span></span>
+                    <span class="text-[10px] font-medium text-slate-600 dark:text-slate-400 tracking-wider uppercase mt-1">RDC Agence & Trust</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-1">
+                <a href="#accueil" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Accueil</a>
+                <a href="#services-formations" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Services & Formations</a>
+                <a href="#trust-rdc" class="px-3 py-2 text-sm font-semibold rounded-full bg-trust-50 dark:bg-trust-900/30 text-trust-700 dark:text-trust-400 border border-trust-200 dark:border-trust-800/50 hover:bg-trust-100 dark:hover:bg-trust-900/50 transition-colors flex items-center gap-1.5">
+                    <i class="fas fa-shield-alt text-trust-600"></i> Trust RDC
+                </a>
+                <a href="#demo-ia" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Démo Bot IA</a>
+                <a href="#realisations" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Réalisations</a>
+                <a href="#emplois" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Emplois</a>
+                <a href="#contact" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Actions & Theme Toggle -->
+            <div class="flex items-center gap-2">
+                <button id="theme-toggle" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-600 transition-colors" aria-label="Changer le thème">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block text-amber-400"></i>
+                </button>
+
+                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20un%20devis%20gratuit." target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md shadow-brand-600/25 transition-all hover:shadow-lg hover:shadow-brand-600/35">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>Devis Gratuit</span>
+                </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
         </div>
 
-        <nav id="nav-menu">
-            <a href="#accueil">Accueil</a>
-            <a href="#propos">À Propos</a>
-            <a href="#services">Services</a>
-            <a href="#emplois">Offres</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div id="mobile-menu" class="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 shadow-xl">
+            <div class="pt-3 pb-6 space-y-2 mt-2">
+                <a href="#accueil" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Accueil</a>
+                <a href="#services-formations" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Services & Formations</a>
+                <a href="#trust-rdc" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl bg-trust-50 dark:bg-trust-900/30 text-trust-700 dark:text-trust-400 border border-trust-200 dark:border-trust-800">
+                    <i class="fas fa-shield-alt text-trust-600 mr-2"></i> Trust RDC (Anti-Escroqueries)
+                </a>
+                <a href="#demo-ia" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Démo Bot WhatsApp IA</a>
+                <a href="#realisations" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Nos Réalisations</a>
+                <a href="#emplois" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Offres d'Emploi</a>
+                <a href="#contact" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+
+                <div class="mobile-link pt-3 border-t border-slate-200 dark:border-slate-800">
+                    <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20un%20devis." target="_blank" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 text-white font-bold text-center shadow-lg">
+                        <i class="fab fa-whatsapp text-xl"></i> Discuter sur WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section id="accueil" class="hero">
-        <h1>L'Innovation Digitale à votre portée</h1>
-        <p>Expertise virtuelle 360° pour Startups et Entreprises Modernes. Nous transformons vos idées en succès numériques.</p>
-        <a href="#contact" class="btn">Démarrer un projet</a>
-    </section>
+    <!-- ============================================================ -->
+    <!-- HERO                                                           -->
+    <!-- ============================================================ -->
+    <section id="accueil" class="relative min-h-screen pt-28 pb-20 flex items-center overflow-hidden bg-slate-950 text-white">
+        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-60"></canvas>
 
-    <section id="propos">
-        <h2>À Propos de Nous</h2>
-        <p style="max-width: 850px; margin: 0 auto; text-align: center; font-size: 1.2rem; color: #475569; line-height: 1.8;">
-            OptiSite Digital est une agence agile opérant virtuellement pour offrir le meilleur de la technologie sans frontières. Nous accompagnons la nouvelle génération d'entrepreneurs congolais dans leur succès numérique.<br><br>
-            <strong>Fondé par : <a href="" target="_blank" style="color:var(--primary); text-decoration:none; border-bottom: 2px solid var(--primary);">Tshilikufi</a></strong>
-        </p>
-    </section>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-600/30 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none"></div>
 
-    <section id="services" style="background: #fcfdfe;">
-        <h2>Nos Services</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-rocket"></i>
-                <h3>Accompagnement Startup</h3>
-                <p>Stratégie de croissance et lancement de projets numériques sur mesure pour le marché local et international.</p>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-700/80 backdrop-blur-md shadow-2xl mb-8">
+                <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                <i class="fas fa-bolt text-amber-400"></i>
+                <span class="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
+                    Leader Digital & IA en République Démocratique du Congo
+                </span>
             </div>
-            <div class="card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Développement Web</h3>
-                <p>Création de sites modernes, ultra-rapides et optimisés pour convertir vos visiteurs en clients fidèles.</p>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight max-w-5xl mx-auto leading-none mb-6">
+                Propulsez Votre Business Avec <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent">Des Sites Web & Agents IA</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed mb-10">
+                L'agence web agile à Kinshasa. Nous créons des vitrines numériques haute performance, formons sur l'IA WhatsApp et certifions les vendeurs sérieux via notre label <strong class="text-trust-400 font-semibold">Trust RDC</strong>.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+                <a href="#services-formations" class="px-8 py-4 rounded-full bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-base shadow-xl shadow-brand-600/30 hover:scale-105 transition-all flex items-center gap-3">
+                    <i class="fas fa-rocket text-amber-300"></i>
+                    <span>Nos Services & Offres</span>
+                </a>
+
+                <a href="trustrdc.html" target="_blank" class="px-8 py-4 rounded-full bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/50 backdrop-blur-md font-bold text-base hover:scale-105 transition-all flex items-center gap-3">
+                    <i class="fas fa-shield-alt text-emerald-400"></i>
+                    <span>Espace Trust RDC</span>
+                </a>
+
+                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital" target="_blank" class="px-8 py-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-base shadow-xl shadow-emerald-500/20 hover:scale-105 transition-all flex items-center gap-3">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span>WhatsApp Direct</span>
+                </a>
             </div>
-            <div class="card">
-                <i class="fas fa-cloud"></i>
-                <h3>Solutions Virtuelles</h3>
-                <p>Digitalisation complète de vos processus métier et gestion experte de projets à distance.</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
+                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-400">120+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Projets Web Conçus</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-emerald-400">350+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Vendeurs Trust RDC</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-purple-400">500+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Élèves Formés IA</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-amber-400">99%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Satisfaction Client</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="emplois" class="job-section">
-        <h2>Recrutement & Opportunités</h2>
-        <p style="margin-bottom: 40px; color: #475569; font-size: 1.1rem;">Rejoignez une équipe dynamique. Consultez nos dernières offres d'emploi et collaborations.</p>
-        <a href="offres.html" target="_blank" class="btn btn-job">
-            <i class="fas fa-external-link-alt" style="margin-right: 10px; font-size: 1rem;"></i> Voir les offres disponibles
-        </a>
-    </section>
+    <!-- ============================================================ -->
+    <!-- SERVICES & FORMATIONS (infinite ticker)                       -->
+    <!-- ============================================================ -->
+    <section id="services-formations" class="py-24 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
+            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Solutions Évolutives</span>
+            <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
+                Nos Services & <span class="text-gradient-brand">Formations d'Élite</span>
+            </h2>
+            <p class="text-slate-800 dark:text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
+                Faites défiler ou survolez les cartes pour découvrir nos programmes de création web, automatisation IA et stratégies de vente en ligne.
+            </p>
+        </div>
 
-    <section id="contact">
-        <h2>Contactez-nous</h2>
-        <div style="text-align:center; margin-top: 20px;">
-            <p style="font-size: 1.3rem; margin-bottom: 20px; font-weight: 500;">
-                <i class="fas fa-envelope" style="color:var(--primary); margin-right: 10px;"></i> optisitedigital@gmail.com
-            </p>
-            <p style="font-size: 1.3rem; font-weight: 500;">
-                <i class="fas fa-phone" style="color:var(--primary); margin-right: 10px;"></i> +243 977 092 549
-            </p>
+        <div class="relative w-full overflow-hidden py-4">
+            <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-100 dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-100 dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
+
+            <div id="services-track" class="flex gap-6 w-max animate-infinite-scroll infinite-track px-4"></div>
         </div>
     </section>
 
-    <footer>
-        <p style="font-weight: 500;">&copy; 2026 OptiSite Digital. Tous droits réservés.</p>
+    <!-- ============================================================ -->
+    <!-- TRUST RDC                                                      -->
+    <!-- ============================================================ -->
+    <section id="trust-rdc" class="py-24 bg-gradient-to-b from-emerald-950 via-slate-950 to-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                        <i class="fas fa-shield-alt text-emerald-400"></i> Label Officiel Anti-Escroquerie RDC
+                    </div>
+
+                    <h2 class="text-3xl sm:text-5xl font-heading font-extrabold leading-tight">
+                        Achetez & Vendez en Toute Sécurité Avec <span class="text-gradient-trust">Trust RDC</span>
+                    </h2>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        Fini la peur des arnaques en ligne ! <strong>Trust RDC</strong> est la première base de données vérifiée en République Démocratique du Congo permettant d'authentifier les vendeurs, freelances et boutiques virtuelles.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 py-2">
+                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-emerald-900/50 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Pour les Acheteurs</h4>
+                                <p class="text-xs text-slate-400 mt-1">Vérifiez un numéro avant d'effectuer tout paiement Mobile Money.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-emerald-900/50 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Pour les Vendeurs</h4>
+                                <p class="text-xs text-slate-400 mt-1">Obtenez votre badge certifié officiel et multipliez votre crédibilité.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="trustrdc.html" target="_blank" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> Ouvrir le Portail Trust RDC
+                        </a>
+                        <a href="https://wa.me/243977092549?text=Bonjour,%20je%20souhaite%20faire%20certifier%20mon%20entreprise%20sur%20Trust%20RDC." target="_blank" class="px-7 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm transition-all flex items-center gap-2">
+                            <i class="fab fa-whatsapp text-emerald-400"></i> Obtenir mon Badge Vendeur
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-emerald-500/30 shadow-2xl backdrop-blur-xl relative">
+
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+                                <span class="font-heading font-bold text-sm tracking-wider uppercase text-slate-300">Testeur de Vérification</span>
+                            </div>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">ID / TEL SEARCH</span>
+                        </div>
+
+                        <p class="text-xs text-slate-400 mb-4">
+                            Saisissez un numéro de téléphone ou un identifiant de test (ex: <code class="text-emerald-400 font-mono">+243 977 092 549</code> ou <code class="text-emerald-400 font-mono">OPTISITE</code>) :
+                        </p>
+
+                        <form id="trust-search-form" class="space-y-4">
+                            <div class="relative">
+                                <input type="text" id="trust-input" placeholder="Ex: 0977092549 ou OPTISITE" class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono text-sm transition-colors" required>
+                                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
+                                <i class="fas fa-shield-check"></i> Vérifier le vendeur maintenant
+                            </button>
+                        </form>
+
+                        <div id="trust-result-box" class="mt-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hidden transition-all"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- DEMO IA                                                        -->
+    <!-- ============================================================ -->
+    <section id="demo-ia" class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300">Démonstration En Direct</span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
+                    Testez un <span class="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Agent IA WhatsApp</span>
+                </h2>
+                <p class="text-slate-800 dark:text-slate-400 text-base sm:text-lg">
+                    Découvrez concrètement comment l'assistant IA réagit instantanément aux questions de vos prospects et convertit les ventes automatiquement.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+                <div class="lg:col-span-5 space-y-3">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 mb-2">Cliquez pour simuler une question :</h3>
+
+                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Quels sont vos prix pour un site web ?">
+                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Quels sont vos prix pour un site web ?"</span>
+                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Comment fonctionne la certification Trust RDC ?">
+                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Comment fonctionne Trust RDC ?"</span>
+                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Quels sont les modes de paiement acceptés ?">
+                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Quels modes de paiement acceptés ?"</span>
+                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Où se trouvent vos bureaux à Kinshasa ?">
+                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Où se trouvent vos bureaux ?"</span>
+                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/243977092549?text=Bonjour,%20je%20veux%20configurer%20un%20Agent%20IA%20pour%20mon%20entreprise." target="_blank" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-center text-sm shadow-lg block">
+                            <i class="fab fa-whatsapp mr-2"></i> Configurer un Bot pour mon Agence
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="max-w-sm mx-auto rounded-[36px] bg-slate-900 border-8 border-slate-800 shadow-2xl overflow-hidden text-slate-900">
+                        <div class="bg-emerald-800 text-white p-3.5 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="relative w-9 h-9 rounded-full bg-emerald-700 flex items-center justify-center font-bold text-xs border border-emerald-500">
+                                    <i class="fas fa-robot text-base"></i>
+                                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-emerald-900"></span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold leading-tight">OptiBot IA — Assistant OptiSite</h4>
+                                    <p class="text-[10px] text-emerald-200">En ligne 24h/24 • Réponse instantanée</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-ellipsis-v text-xs text-emerald-200"></i>
+                        </div>
+
+                        <div id="chat-box-display" class="p-4 h-80 overflow-y-auto bg-[#efeae2] dark:bg-[#0b141a] space-y-3 font-sans text-xs">
+                            <div class="flex flex-col items-start max-w-[85%]">
+                                <div class="bg-white dark:bg-[#202c33] dark:text-slate-100 p-3 rounded-2xl rounded-tl-none shadow-sm leading-relaxed">
+                                    Bonjour ! 👋 Je suis l'Agent IA d'OptiSite Digital. Comment puis-je vous aider aujourd'hui ? Saisissez un message ou choisissez une question à gauche !
+                                    <span class="block text-[9px] text-slate-400 text-right mt-1">10:00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-2.5 bg-[#f0f2f5] dark:bg-[#202c33] flex items-center gap-2">
+                            <input type="text" id="user-chat-input" placeholder="Tapez un message..." class="flex-1 px-3 py-2 rounded-full bg-white dark:bg-[#2a3942] dark:text-white text-xs focus:outline-none">
+                            <button id="send-chat-btn" class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs shrink-0">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- RÉALISATIONS — image-only infinite carousel                   -->
+    <!-- ============================================================ -->
+    <section id="realisations" class="py-24 bg-white dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Notre Travail</span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
+                    Nos <span class="text-gradient-brand">Réalisations RDC</span>
+                </h2>
+                <p class="text-slate-800 dark:text-slate-400 text-base sm:text-lg">
+                    Un aperçu de nos créations de sites web, bots intelligents et plateformes déployées à Kinshasa et en province.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative w-full overflow-hidden py-2">
+            <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+
+            <div id="realisations-track" class="flex gap-6 w-max realisations-track px-4"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TÉMOIGNAGES — seamless infinite loop                          -->
+    <!-- ============================================================ -->
+    <section class="py-24 bg-slate-950 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
+            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">Témoignages</span>
+            <h2 class="text-3xl sm:text-5xl font-heading font-extrabold mt-3 mb-4">
+                Ce Que Disent <span class="text-gradient-brand">Nos Clients</span>
+            </h2>
+            <p class="text-slate-400 max-w-2xl mx-auto text-base">
+                Découvrez les retours d'expérience des entrepreneurs et élèves ayant fait confiance à OptiSite Digital.
+            </p>
+        </div>
+
+        <div class="relative w-full overflow-hidden py-4">
+            <div id="testimonials-track" class="flex gap-6 w-max animate-infinite-scroll infinite-track px-4"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- EMPLOIS                                                        -->
+    <!-- ============================================================ -->
+    <section id="emplois" class="py-20 bg-slate-100 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white shadow-2xl relative overflow-hidden border border-slate-800">
+                <div class="relative z-10">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-wider mb-4">
+                        <i class="fas fa-briefcase mr-1"></i> Carrières & Opportunités
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold mb-4">Recrutement & Offres d'Emploi</h2>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8">
+                        Consultez nos postes ouverts au sein d'OptiSite Digital ou publiez directement votre propre annonce de recrutement.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href="offres.html" target="_blank" class="px-7 py-3.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2">
+                            <i class="fas fa-list-ul"></i> Voir les offres disponibles
+                        </a>
+                        <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20publier%20une%20offre%20d'emploi." target="_blank" class="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm transition-all flex items-center gap-2">
+                            <i class="fas fa-bullhorn text-amber-400"></i> Publier une offre
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FAQ                                                            -->
+    <!-- ============================================================ -->
+    <section class="py-24 bg-white dark:bg-slate-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Aide & Réponses</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">Questions Fréquemment Posées</h2>
+                <p class="text-slate-800 dark:text-slate-400 text-sm sm:text-base">
+                    Tout ce que vous devez savoir sur nos services web, Trust RDC et nos formations.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
+                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
+                        <span>Quels moyens de paiement sont acceptés en RDC ?</span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
+                        Nous acceptons les paiements via Mobile Money (M-Pesa, Orange Money, Airtel Money) ainsi que les virements et paiements en espèces à nos bureaux à Kinshasa.
+                    </div>
+                </div>
+
+                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
+                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
+                        <span>Combien de temps faut-il pour créer un site web ?</span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
+                        En général, un site vitrine est livré sous 3 à 5 jours ouvrés. Les projets plus complexes (e-commerce ou applications spécifiques) prennent entre 7 et 14 jours.
+                    </div>
+                </div>
+
+                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
+                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
+                        <span>Comment s'inscrire sur la plateforme Trust RDC ?</span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
+                        Rendez-vous sur la section Trust RDC, soumettez votre pièce d'identité et les informations de votre activité. Après vérification par notre équipe d'audit, votre badge certifié est attribué.
+                    </div>
+                </div>
+
+                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
+                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
+                        <span>Faut-il savoir coder pour suivre la formation Agent IA WhatsApp ?</span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
+                        Non, absolument pas ! La formation est conçue pour les débutants. Nous vous apprenons à configurer des outils visuels "No-Code" pour que votre bot réponde automatiquement.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- À PROPOS                                                       -->
+    <!-- ============================================================ -->
+    <section id="propos" class="py-20 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">À Propos d'<span>OptiSite Digital</span></h2>
+            <p class="text-slate-800 dark:text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+                OptiSite Digital est une agence numérique basée en RDC dédiée au développement du commerce électronique, à la formation en intelligence artificielle et à la sécurisation des échanges commerciaux sur Internet.
+            </p>
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md">
+                <i class="fas fa-user-tie text-brand-600 text-lg"></i>
+                <span class="text-sm font-semibold text-slate-900 dark:text-slate-200">
+                    Fondateur & Dirigeant :
+                    <a href="https://www.facebook.com/profile.php?id=61588260623995" target="_blank" class="text-brand-600 dark:text-brand-400 hover:underline font-bold">
+                        Olivier Tshimbalanga (Tshilikufi)
+                    </a>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTACT                                                        -->
+    <!-- ============================================================ -->
+    <section id="contact" class="py-24 bg-white dark:bg-slate-950">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300">Restons en contact</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-2">Contactez Notre Équipe</h2>
+                <p class="text-slate-800 dark:text-slate-400 text-sm sm:text-base">Une question ou un projet ? Nous répondons sous 30 minutes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
+                <a href="mailto:optisitedigital@gmail.com" class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center hover-lift block">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="text-xs uppercase font-bold text-slate-600 dark:text-slate-400 mb-1">Email Officiel</h4>
+                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-200">optisitedigital@gmail.com</span>
+                </a>
+
+                <a href="https://wa.me/243977092549" target="_blank" class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center hover-lift block">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h4 class="text-xs uppercase font-bold text-slate-600 dark:text-slate-400 mb-1">WhatsApp & Appels</h4>
+                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-200">+243 977 092 549</span>
+                </a>
+
+                <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="text-xs uppercase font-bold text-slate-600 dark:text-slate-400 mb-1">Siège Social</h4>
+                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-200">Kinshasa, RDC</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-4">
+                <a href="https://www.facebook.com/profile.php?id=61588260623995" target="_blank" aria-label="Facebook" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-colors">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://wa.me/243977092549" target="_blank" aria-label="WhatsApp" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-colors">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="TikTok" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-slate-900 hover:text-white transition-colors">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-slate-950 text-slate-400 text-xs border-t border-slate-800 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; 2026 OptiSite Digital — Tous droits réservés. Innovation, Sécurité & IA en RDC.</p>
+        </div>
     </footer>
 
-    <a href="https://wa.me/243977092549" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform shadow-emerald-500/50" aria-label="Contact WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
+        document.addEventListener('DOMContentLoaded', () => {
 
-        // Toggle Menu + Animation Hamburger
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenu.classList.toggle('is-active');
-        });
+            /* ===== 1. DARK / LIGHT THEME TOGGLE ===== */
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                });
+            }
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
 
-        // Fermeture automatique au clic sur un lien
-        document.querySelectorAll('#nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenu.classList.remove('is-active');
+            /* ===== 2. INTERACTIVE HAMBURGER MENU ===== */
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            function closeMenu() {
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+            function openMenu() {
+                mobileMenu.classList.add('open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isOpen = mobileMenu.classList.contains('open');
+                    isOpen ? closeMenu() : openMenu();
+                });
+                document.querySelectorAll('.mobile-link').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+                document.addEventListener('click', (e) => {
+                    if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        closeMenu();
+                    }
+                });
+            }
+
+            /* ===== 3. HERO PARTICLES CANVAS ===== */
+            const canvas = document.getElementById('hero-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+
+                function resize() {
+                    canvas.width = canvas.parentElement.clientWidth;
+                    canvas.height = canvas.parentElement.clientHeight;
+                }
+                resize();
+                window.addEventListener('resize', resize);
+
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.vx = (Math.random() - 0.5) * 0.8;
+                        this.vy = (Math.random() - 0.5) * 0.8;
+                        this.radius = Math.random() * 2 + 1;
+                    }
+                    update() {
+                        this.x += this.vx; this.y += this.vy;
+                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                    }
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                        ctx.fillStyle = '#3b82f6';
+                        ctx.fill();
+                    }
+                }
+
+                function initParticles() {
+                    particles = [];
+                    const count = Math.min(Math.floor(canvas.width * 0.04), 50);
+                    for (let i = 0; i < count; i++) particles.push(new Particle());
+                }
+                initParticles();
+
+                function render() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    for (let i = 0; i < particles.length; i++) {
+                        particles[i].update();
+                        particles[i].draw();
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < 100) {
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = `rgba(59, 130, 246, ${1 - dist / 100})`;
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(render);
+                }
+                render();
+            }
+
+            /* ===== 4. TRUST RDC VERIFICATION SEARCH SIMULATOR ===== */
+            const trustForm = document.getElementById('trust-search-form');
+            const trustInput = document.getElementById('trust-input');
+            const trustResult = document.getElementById('trust-result-box');
+
+            if (trustForm && trustInput && trustResult) {
+                trustForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const val = trustInput.value.trim().toLowerCase();
+                    trustResult.classList.remove('hidden');
+
+                    if (val.includes('optisite') || val.includes('0977092549') || val.includes('243977092549')) {
+                        trustResult.innerHTML = `
+                            <div class="flex items-center gap-3 text-emerald-400 font-bold mb-2">
+                                <i class="fas fa-check-circle text-lg"></i>
+                                <span>VENDEUR CERTIFIÉ & VÉRIFIÉ TRUST RDC</span>
+                            </div>
+                            <p class="text-xs text-slate-300"><strong>Nom :</strong> OptiSite Digital (Olivier Tshimbalanga)</p>
+                            <p class="text-xs text-slate-300"><strong>Statut :</strong> Badge Or Anti-Escroquerie</p>
+                            <p class="text-xs text-slate-300"><strong>Localisation :</strong> Kinshasa, RDC</p>
+                            <div class="mt-3 pt-2 border-t border-slate-800 text-[10px] text-emerald-300">
+                                100% Fiable. Vous pouvez effectuer votre transaction en toute sécurité.
+                            </div>`;
+                    } else {
+                        trustResult.innerHTML = `
+                            <div class="flex items-center gap-3 text-amber-400 font-bold mb-2">
+                                <i class="fas fa-exclamation-triangle text-lg"></i>
+                                <span>VENDEUR NON ENREGISTRÉ</span>
+                            </div>
+                            <p class="text-xs text-slate-300">Le numéro ou l'identifiant <code class="text-white font-mono">${trustInput.value}</code> ne figure pas encore dans notre base de données.</p>
+                            <a href="https://wa.me/243977092549?text=Bonjour,%20je%20souhaite%20demander%20la%20vérification%20du%20vendeur%20${encodeURIComponent(trustInput.value)}" target="_blank" class="inline-block mt-3 text-xs text-emerald-400 hover:underline font-bold">
+                                Demander une vérification manuelle &rarr;
+                            </a>`;
+                    }
+                });
+            }
+
+            /* ===== 5. INTERACTIVE CHATBOT SIMULATOR ===== */
+            const chatBoxDisplay = document.getElementById('chat-box-display');
+            const userChatInput = document.getElementById('user-chat-input');
+            const sendChatBtn = document.getElementById('send-chat-btn');
+            const demoBtns = document.querySelectorAll('.ai-demo-btn');
+
+            function getCurrentTime() {
+                const d = new Date();
+                return `${d.getHours()}:${d.getMinutes() < 10 ? '0' : ''}${d.getMinutes()}`;
+            }
+            function appendUserMsg(text) {
+                chatBoxDisplay.insertAdjacentHTML('beforeend', `
+                    <div class="flex flex-col items-end ml-auto max-w-[85%]">
+                        <div class="bg-emerald-700 text-white p-3 rounded-2xl rounded-tr-none shadow-sm leading-relaxed">
+                            ${text}<span class="block text-[9px] text-emerald-200 text-right mt-1">${getCurrentTime()}</span>
+                        </div>
+                    </div>`);
+                chatBoxDisplay.scrollTop = chatBoxDisplay.scrollHeight;
+            }
+            function appendBotMsg(text) {
+                chatBoxDisplay.insertAdjacentHTML('beforeend', `
+                    <div class="flex flex-col items-start max-w-[85%]">
+                        <div class="bg-white dark:bg-[#202c33] dark:text-slate-100 p-3 rounded-2xl rounded-tl-none shadow-sm leading-relaxed">
+                            ${text}<span class="block text-[9px] text-slate-400 text-right mt-1">${getCurrentTime()}</span>
+                        </div>
+                    </div>`);
+                chatBoxDisplay.scrollTop = chatBoxDisplay.scrollHeight;
+            }
+            function generateBotAnswer(q) {
+                const query = q.toLowerCase();
+                if (query.includes('prix') || query.includes('tarif') || query.includes('combien')) {
+                    return "Nos tarifs dépendent de vos besoins ! Contactez notre équipe sur WhatsApp pour recevoir un devis détaillé et personnalisé ! 🚀";
+                } else if (query.includes('trust') || query.includes('escroque') || query.includes('certification')) {
+                    return "Trust RDC permet de vérifier les vendeurs via leur numéro Mobile Money avant tout paiement. Vous êtes protégé contre les fraudes ! 🛡️";
+                } else if (query.includes('paiement') || query.includes('payer')) {
+                    return "Nous acceptons M-Pesa, Orange Money, Airtel Money ainsi que les paiements directs à nos bureaux de Kinshasa ! 💳";
+                } else if (query.includes('bureau') || query.includes('adresse') || query.includes('kinshasa')) {
+                    return "Nos bureaux sont situés à Kinshasa, RDC. Nous offrons également un accompagnement à distance dans toute la sous-région ! 📍";
+                } else {
+                    return "Merci pour votre message ! Je suis un bot de démo. Discutez directement avec un conseiller humain sur notre WhatsApp officiel (+243 977 092 549) ! ✨";
+                }
+            }
+            function handleSend(text) {
+                if (!text.trim()) return;
+                appendUserMsg(text);
+                setTimeout(() => appendBotMsg(generateBotAnswer(text)), 600);
+            }
+            demoBtns.forEach(btn => btn.addEventListener('click', () => handleSend(btn.getAttribute('data-q'))));
+            if (sendChatBtn && userChatInput) {
+                sendChatBtn.addEventListener('click', () => { handleSend(userChatInput.value); userChatInput.value = ''; });
+                userChatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') { handleSend(userChatInput.value); userChatInput.value = ''; }
+                });
+            }
+
+            /* ===== 6. FAQ ACCORDION ===== */
+            document.querySelectorAll('.faq-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const answer = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+                    const isHidden = answer.classList.contains('hidden');
+                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+                    document.querySelectorAll('.faq-toggle i').forEach(i => i.classList.remove('rotate-180'));
+                    if (isHidden) { answer.classList.remove('hidden'); icon.classList.add('rotate-180'); }
+                });
             });
+
+            /* ===== 7. SERVICES TICKER (built + duplicated for a seamless loop) ===== */
+            const services = [
+                { icon: 'fa-laptop-code', color: 'brand', tag: 'Service Agence', title: 'Création de Sites Web Pro', desc: "Sites vitrines, e-commerce et e-learning ultra-rapides, adaptés à tous les écrans de téléphones et optimisés pour le réseau RDC.", cta: 'Commander mon site', msg: "Bonjour OptiSite Digital, je souhaite commander un site web." },
+                { icon: 'fa-whatsapp', brand: true, color: 'purple', tag: 'Formation IA Stars', title: 'Agent Chatbot IA WhatsApp', desc: "Concevez un assistant IA virtuel autonome capable de répondre à vos prospects, prendre les commandes et vendre 24h/24.", cta: "S'inscrire à l'IA", msg: "Bonjour, je souhaite m'inscrire à la formation Agent IA WhatsApp." },
+                { icon: 'fa-layer-group', color: 'amber', tag: 'Formation Web', title: 'Création de Sites Sans Code', desc: "Apprenez à concevoir des sites web captivants et fonctionnels pour vous-même ou pour vos clients sans toucher une seule ligne de code.", cta: "S'inscrire", msg: "Bonjour, je veux la formation Création de sites sans code." },
+                { icon: 'fa-bullseye', color: 'emerald', tag: 'Formation Business', title: 'Trouver des Clients Qualifiés', desc: "Méthodes concrètes et prospection directe pour attirer un flux constant d'acheteurs en RDC et monétiser vos compétences.", cta: "S'inscrire", msg: "Bonjour, je souhaite m'inscrire à la formation Trouver des clients." },
+                { icon: 'fa-cart-arrow-down', color: 'sky', tag: 'E-Commerce & Digital', title: 'Vendre sur Chariow', desc: "Plateforme pour commercialiser vos e-books, cours vidéos et produits numériques de façon automatisée.", cta: "S'inscrire", msg: "Bonjour, je veux la formation Vendre sur Chariow." },
+                { icon: 'fa-facebook-f', brand: true, color: 'indigo', tag: 'Formation Ads', title: 'Facebook & Instagram Ads', desc: "Maîtrisez le gestionnaire de publicités pour générer des prospects ciblés avec un budget optimisé.", cta: "S'inscrire", msg: "Bonjour, je souhaite suivre la formation Facebook Ads." }
+            ];
+
+            const serviceColorMap = {
+                brand: ['bg-brand-100 dark:bg-brand-900/50', 'text-brand-600 dark:text-brand-400', 'bg-brand-50 dark:bg-brand-900/30', 'text-brand-700 dark:text-brand-300', 'bg-brand-600 hover:bg-brand-700'],
+                purple: ['bg-purple-100 dark:bg-purple-900/50', 'text-purple-600 dark:text-purple-400', 'bg-purple-50 dark:bg-purple-900/30', 'text-purple-700 dark:text-purple-300', 'bg-purple-600 hover:bg-purple-700'],
+                amber: ['bg-amber-100 dark:bg-amber-900/50', 'text-amber-600 dark:text-amber-400', 'bg-amber-50 dark:bg-amber-900/30', 'text-amber-700 dark:text-amber-300', 'bg-amber-600 hover:bg-amber-700'],
+                emerald: ['bg-emerald-100 dark:bg-emerald-900/50', 'text-emerald-600 dark:text-emerald-400', 'bg-emerald-50 dark:bg-emerald-900/30', 'text-emerald-700 dark:text-emerald-300', 'bg-emerald-600 hover:bg-emerald-700'],
+                sky: ['bg-sky-100 dark:bg-sky-900/50', 'text-sky-600 dark:text-sky-400', 'bg-sky-50 dark:bg-sky-900/30', 'text-sky-700 dark:text-sky-300', 'bg-sky-600 hover:bg-sky-700'],
+                indigo: ['bg-indigo-100 dark:bg-indigo-900/50', 'text-indigo-600 dark:text-indigo-400', 'bg-indigo-50 dark:bg-indigo-900/30', 'text-indigo-700 dark:text-indigo-300', 'bg-indigo-600 hover:bg-indigo-700']
+            };
+
+            function serviceCardHTML(s) {
+                const [iconBg, iconText, tagBg, tagText, btnBg] = serviceColorMap[s.color];
+                const iconClass = s.brand ? `fab ${s.icon}` : `fas ${s.icon}`;
+                return `
+                <div class="w-80 sm:w-96 p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shadow-lg hover-lift flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl ${iconBg} ${iconText} flex items-center justify-center text-2xl mb-4"><i class="${iconClass}"></i></div>
+                        <span class="inline-block px-3 py-1 rounded-full ${tagBg} ${tagText} text-xs font-bold mb-3 uppercase tracking-wider">${s.tag}</span>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white mb-2">${s.title}</h3>
+                        <p class="text-sm text-slate-800 dark:text-slate-400 leading-relaxed mb-6">${s.desc}</p>
+                    </div>
+                    <a href="https://wa.me/243977092549?text=${encodeURIComponent(s.msg)}" target="_blank" class="w-full py-3 rounded-xl ${btnBg} text-white font-bold text-center text-sm transition-colors flex items-center justify-center gap-2 shadow-md">
+                        <i class="fab fa-whatsapp"></i> ${s.cta}
+                    </a>
+                </div>`;
+            }
+
+            const servicesTrack = document.getElementById('services-track');
+            if (servicesTrack) {
+                const html = services.map(serviceCardHTML).join('');
+                servicesTrack.innerHTML = html + html; // duplicate once = perfect seamless -50% loop
+            }
+
+            /* ===== 8. RÉALISATIONS — image-only infinite carousel ===== */
+            const realisationImages = [
+                { src: 'site1.jpg', alt: 'Boutique Mode & Tech RDC', fallback: 'https://placehold.co/560x680/1e293b/ffffff?text=Boutique+E-Commerce' },
+                { src: 'site2.jpg', alt: "Site Agence de Services Kinshasa", fallback: 'https://placehold.co/560x680/1e40af/ffffff?text=Vitrine+Entreprise' },
+                { src: 'site3.jpg', alt: 'Plateforme Trust RDC', fallback: 'https://placehold.co/560x680/065f46/ffffff?text=Plateforme+Trust+RDC' },
+                { src: 'site4.jpg', alt: 'Chatbot Vendeur Immo & Auto', fallback: 'https://placehold.co/560x680/5b21b6/ffffff?text=Agent+IA+WhatsApp' },
+                { src: 'site5.jpg', alt: 'Portail de Cours Numériques', fallback: 'https://placehold.co/560x680/0f172a/ffffff?text=Portail+Formation' }
+            ];
+
+            function realisationFrameHTML(r) {
+                return `
+                <div class="realisation-frame">
+                    <img src="${r.src}" alt="${r.alt}" loading="lazy" onerror="this.onerror=null; this.src='${r.fallback}';">
+                </div>`;
+            }
+
+            const realisationsTrack = document.getElementById('realisations-track');
+            if (realisationsTrack) {
+                const html = realisationImages.map(realisationFrameHTML).join('');
+                realisationsTrack.innerHTML = html + html; // duplicated for seamless -50% loop
+            }
+
+            /* ===== 9. TESTIMONIALS — seamless infinite loop ===== */
+            const testimonials = [
+                { initials: 'CK', color: 'bg-brand-600', name: 'Christian K.', role: 'Commerçant — Kinshasa', quote: "Grâce au site créé par OptiSite Digital, mes ventes sur WhatsApp ont triplé à Kinshasa en 2 semaines. Service réactif et professionnel !" },
+                { initials: 'MN', color: 'bg-purple-600', name: 'Mireille N.', role: 'Freelance — Lubumbashi', quote: "La formation Agent IA WhatsApp m'a fait gagner un temps précieux. Mon bot répond désormais seul à mes clients même pendant la nuit !" },
+                { initials: 'PT', color: 'bg-emerald-600', name: 'Patrick T.', role: 'Vendeur Tech — Goma', quote: "Je me suis fait certifier sur Trust RDC. Depuis, mes nouveaux acheteurs n'hésitent plus avant de m'envoyer les acomptes." },
+                { initials: 'SB', color: 'bg-pink-600', name: 'Sarah B.', role: 'Entrepreneuse — Kinshasa', quote: "La formation Facebook Ads m'a permis d'atteindre exactement ma cible sur Kinshasa sans gaspiller de budget. Je recommande !" }
+            ];
+
+            function testimonialCardHTML(t) {
+                return `
+                <div class="w-80 sm:w-96 p-6 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm gap-1 mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed mb-6">"${t.quote}"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full ${t.color} font-bold flex items-center justify-center text-xs">${t.initials}</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">${t.name}</h4>
+                            <p class="text-[10px] text-slate-400">${t.role}</p>
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+            const testimonialsTrack = document.getElementById('testimonials-track');
+            if (testimonialsTrack) {
+                const html = testimonials.map(testimonialCardHTML).join('');
+                testimonialsTrack.innerHTML = html + html; // duplicated for seamless -50% loop
+            }
+
         });
     </script>
-
 </body>
 </html>
