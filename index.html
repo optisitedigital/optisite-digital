@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- PapaParse (lecture du Google Sheet Trust RDC en CSV) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -407,12 +410,12 @@
                         </div>
 
                         <p class="text-xs text-slate-400 mb-4">
-                            Saisissez un numéro de téléphone ou un identifiant de test (ex: <code class="text-emerald-400 font-mono">+243 977 092 549</code> ou <code class="text-emerald-400 font-mono">OPTISITE</code>) :
+                            Saisissez le numéro WhatsApp du vendeur à vérifier (ex: <code class="text-emerald-400 font-mono">+243 977 092 549</code>) :
                         </p>
 
                         <form id="trust-search-form" class="space-y-4">
                             <div class="relative">
-                                <input type="text" id="trust-input" placeholder="Ex: 0977092549 ou OPTISITE" class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono text-sm transition-colors" required>
+                                <input type="text" id="trust-input" placeholder="Ex: 0977092549" class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono text-sm transition-colors" required>
                                 <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
                             </div>
                             <button type="submit" class="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
@@ -928,40 +931,111 @@
                 render();
             }
 
-            /* ===== 4. TRUST RDC VERIFICATION SEARCH SIMULATOR ===== */
+            /* ===== 4. TRUST RDC — VÉRIFICATION CONNECTÉE AU GOOGLE SHEET ===== */
             const trustForm = document.getElementById('trust-search-form');
             const trustInput = document.getElementById('trust-input');
             const trustResult = document.getElementById('trust-result-box');
+            const trustSubmitBtn = trustForm ? trustForm.querySelector('button[type="submit"]') : null;
+
+            // Même lien CSV publié que trustrdc.html — une seule source de vérité.
+            const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdMGkhmyoflnlC4iFEG2xvoAIyv0Vu1x7Ca842rbrKifFv7QWodgkLj-Nk-sDIjyrKfmt4msdHZbCM/pub?output=csv";
+
+            let TRUST_VENDORS_CACHE = null;
+
+            function loadTrustVendors(callback) {
+                if (TRUST_VENDORS_CACHE) { callback(TRUST_VENDORS_CACHE); return; }
+                if (typeof Papa === 'undefined') { callback(null); return; }
+                Papa.parse(SHEET_CSV_URL, {
+                    download: true,
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: (results) => {
+                        const rows = (results.data || []).map(r => {
+                            const clean = {};
+                            Object.keys(r).forEach(k => { clean[k.trim().toLowerCase()] = (r[k] || '').toString().trim(); });
+                            return clean;
+                        }).filter(r => r.nom);
+                        TRUST_VENDORS_CACHE = rows;
+                        callback(rows);
+                    },
+                    error: () => callback(null)
+                });
+            }
+
+            function digitsOnly(str) { return (str || '').replace(/[^0-9]/g, ''); }
+
+            // Compare les 9 derniers chiffres pour ignorer les différences +243 / 0 / espaces
+            function findVendorMatch(vendors, query) {
+                const qDigits = digitsOnly(query);
+                const qText = query.trim().toLowerCase();
+
+                return vendors.find(v => {
+                    const vDigits = digitsOnly(v.telephone);
+                    if (qDigits.length >= 8 && vDigits.length >= 8) {
+                        if (qDigits.slice(-9) === vDigits.slice(-9)) return true;
+                    }
+                    if (qText && v.nom && v.nom.toLowerCase() === qText) return true;
+                    return false;
+                });
+            }
+
+            function escapeHtml(str) {
+                return (str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+            }
 
             if (trustForm && trustInput && trustResult) {
                 trustForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-                    const val = trustInput.value.trim().toLowerCase();
-                    trustResult.classList.remove('hidden');
+                    const query = trustInput.value.trim();
+                    if (!query) return;
 
-                    if (val.includes('optisite') || val.includes('0977092549') || val.includes('243977092549')) {
-                        trustResult.innerHTML = `
-                            <div class="flex items-center gap-3 text-emerald-400 font-bold mb-2">
-                                <i class="fas fa-check-circle text-lg"></i>
-                                <span>VENDEUR CERTIFIÉ & VÉRIFIÉ TRUST RDC</span>
-                            </div>
-                            <p class="text-xs text-slate-300"><strong>Nom :</strong> OptiSite Digital (Olivier Tshimbalanga)</p>
-                            <p class="text-xs text-slate-300"><strong>Statut :</strong> Badge Or Anti-Escroquerie</p>
-                            <p class="text-xs text-slate-300"><strong>Localisation :</strong> Kinshasa, RDC</p>
-                            <div class="mt-3 pt-2 border-t border-slate-800 text-[10px] text-emerald-300">
-                                100% Fiable. Vous pouvez effectuer votre transaction en toute sécurité.
-                            </div>`;
-                    } else {
-                        trustResult.innerHTML = `
-                            <div class="flex items-center gap-3 text-amber-400 font-bold mb-2">
-                                <i class="fas fa-exclamation-triangle text-lg"></i>
-                                <span>VENDEUR NON ENREGISTRÉ</span>
-                            </div>
-                            <p class="text-xs text-slate-300">Le numéro ou l'identifiant <code class="text-white font-mono">${trustInput.value}</code> ne figure pas encore dans notre base de données.</p>
-                            <a href="https://wa.me/243977092549?text=Bonjour,%20je%20souhaite%20demander%20la%20vérification%20du%20vendeur%20${encodeURIComponent(trustInput.value)}" target="_blank" class="inline-block mt-3 text-xs text-emerald-400 hover:underline font-bold">
-                                Demander une vérification manuelle &rarr;
-                            </a>`;
-                    }
+                    trustResult.classList.remove('hidden');
+                    trustResult.innerHTML = `
+                        <div class="flex items-center gap-3 text-slate-400 font-semibold text-xs">
+                            <i class="fas fa-circle-notch fa-spin"></i>
+                            <span>Vérification en cours dans la base Trust RDC...</span>
+                        </div>`;
+                    if (trustSubmitBtn) trustSubmitBtn.disabled = true;
+
+                    loadTrustVendors((vendors) => {
+                        if (trustSubmitBtn) trustSubmitBtn.disabled = false;
+
+                        if (!vendors) {
+                            trustResult.innerHTML = `
+                                <div class="flex items-center gap-3 text-amber-400 font-bold mb-2">
+                                    <i class="fas fa-triangle-exclamation text-lg"></i>
+                                    <span>VÉRIFICATION INDISPONIBLE</span>
+                                </div>
+                                <p class="text-xs text-slate-300">Impossible de contacter la base de données Trust RDC pour le moment. Réessayez dans un instant.</p>`;
+                            return;
+                        }
+
+                        const match = findVendorMatch(vendors, query);
+
+                        if (match) {
+                            trustResult.innerHTML = `
+                                <div class="flex items-center gap-3 text-emerald-400 font-bold mb-2">
+                                    <i class="fas fa-check-circle text-lg"></i>
+                                    <span>VENDEUR CERTIFIÉ & VÉRIFIÉ TRUST RDC</span>
+                                </div>
+                                <p class="text-xs text-slate-300"><strong>Nom :</strong> ${escapeHtml(match.nom)}</p>
+                                <p class="text-xs text-slate-300"><strong>Ville :</strong> ${escapeHtml(match.ville) || 'RDC'}</p>
+                                <p class="text-xs text-slate-300"><strong>Statut :</strong> Badge ${escapeHtml(match.badge) || 'Vérifié'}</p>
+                                <div class="mt-3 pt-2 border-t border-slate-800 text-[10px] text-emerald-300">
+                                    100% Fiable. Vous pouvez effectuer votre transaction en toute sécurité.
+                                </div>`;
+                        } else {
+                            trustResult.innerHTML = `
+                                <div class="flex items-center gap-3 text-red-400 font-bold mb-2">
+                                    <i class="fas fa-circle-xmark text-lg"></i>
+                                    <span>NUMÉRO INVALIDE / NON ENREGISTRÉ</span>
+                                </div>
+                                <p class="text-xs text-slate-300">Le numéro <code class="text-white font-mono">${escapeHtml(query)}</code> ne figure pas dans notre base Trust RDC. Restez prudent avant tout paiement.</p>
+                                <a href="https://wa.me/243977092549?text=Bonjour,%20je%20souhaite%20demander%20la%20vérification%20du%20vendeur%20${encodeURIComponent(query)}" target="_blank" class="inline-block mt-3 text-xs text-emerald-400 hover:underline font-bold">
+                                    Demander une vérification manuelle &rarr;
+                                </a>`;
+                        }
+                    });
                 });
             }
 
