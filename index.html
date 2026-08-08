@@ -8,22 +8,17 @@
     <title>OptiSite Digital — Création Web, Formations IA & Certification Trust RDC</title>
     <meta name="description" content="OptiSite Digital : Agence Web agile à Kinshasa. Création de sites internet, formations IA WhatsApp & Marketing, certifications anti-escroqueries Trust RDC.">
 
-    <!-- Favicon (utilise le logo — doit être à la racine du repo, à côté de ce fichier) -->
     <link rel="icon" type="image/jpeg" href="Logo Optisite.jpg">
     <link rel="apple-touch-icon" href="Logo Optisite.jpg">
 
-    <!-- Preconnect & CDNs -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome & TailwindCSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- PapaParse (lecture du Google Sheet Trust RDC en CSV) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -76,7 +71,6 @@
         }
     </script>
 
-    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -91,10 +85,8 @@
     </script>
 
     <style>
-        /* ===== Base ===== */
         * { box-sizing: border-box; }
 
-        /* Glassmorphism */
         .glass-panel {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(16px);
@@ -107,13 +99,11 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
 
-        /* Gradient text (kept only for dark-background sections) */
         .text-gradient-brand {
             background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -128,7 +118,6 @@
 
         .infinite-track:hover { animation-play-state: paused; }
 
-        /* ===== Interactive hamburger menu ===== */
         #mobile-menu {
             max-height: 0;
             overflow: hidden;
@@ -157,7 +146,6 @@
         #mobile-menu.open .mobile-link:nth-child(6) { transition-delay: .23s; }
         #mobile-menu.open .mobile-link:nth-child(7) { transition-delay: .27s; }
 
-        /* ===== Image-only realisations carousel ===== */
         .realisations-track { animation: infinite-scroll 30s linear infinite; }
         .realisations-track:hover { animation-play-state: paused; }
         .realisation-frame {
@@ -172,7 +160,6 @@
         .realisation-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
         .realisation-frame:hover img { transform: scale(1.08); }
 
-        /* ===== Registration modal ===== */
         #vendor-modal-overlay {
             position: fixed; inset: 0; z-index: 100;
             background: rgba(2, 6, 23, 0.75);
@@ -184,20 +171,11 @@
             padding: 5rem 1rem 3rem;
         }
         #vendor-modal-overlay.open { display: flex; }
-        .photo-drop {
-            border: 2px dashed rgba(148,163,184,0.4);
-            transition: border-color .2s ease, background-color .2s ease;
-        }
-        .photo-drop:hover { border-color: #10b981; background-color: rgba(16,185,129,0.06); }
-        .photo-drop.has-image { border-style: solid; border-color: #10b981; }
     </style>
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
 
-    <!-- ============================================================ -->
-    <!-- HEADER / NAVIGATION                                            -->
-    <!-- ============================================================ -->
     <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             <a href="#accueil" class="flex items-center gap-3 group">
@@ -210,7 +188,6 @@
                 </div>
             </a>
 
-            <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center gap-1">
                 <a href="#accueil" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Accueil</a>
                 <a href="#services-formations" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Services & Formations</a>
@@ -223,7 +200,6 @@
                 <a href="#contact" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Contact</a>
             </nav>
 
-            <!-- Actions & Theme Toggle -->
             <div class="flex items-center gap-2">
                 <button id="theme-toggle" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-600 transition-colors" aria-label="Changer le thème">
                     <i class="fas fa-moon dark:hidden"></i>
@@ -235,7 +211,6 @@
                     <span>Devis Gratuit</span>
                 </a>
 
-                <!-- Mobile Hamburger Button -->
                 <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false">
                     <i class="fas fa-bars text-xl" id="menu-icon"></i>
                 </button>
@@ -263,9 +238,6 @@
         </div>
     </header>
 
-    <!-- ============================================================ -->
-    <!-- HERO                                                           -->
-    <!-- ============================================================ -->
     <section id="accueil" class="relative min-h-screen pt-28 pb-20 flex items-center overflow-hidden bg-slate-950 text-white">
         <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-60"></canvas>
 
@@ -329,9 +301,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SERVICES & FORMATIONS (infinite ticker)                       -->
-    <!-- ============================================================ -->
     <section id="services-formations" class="py-24 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 overflow-hidden relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
             <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Solutions Évolutives</span>
@@ -351,9 +320,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- TRUST RDC                                                      -->
-    <!-- ============================================================ -->
     <section id="trust-rdc" class="py-24 bg-gradient-to-b from-emerald-950 via-slate-950 to-slate-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
 
@@ -366,11 +332,11 @@
                     </div>
 
                     <h2 class="text-3xl sm:text-5xl font-heading font-extrabold leading-tight">
-                        Achetez & Vendez en Toute Sécurité Avec <span class="text-gradient-trust">Trust RDC</span>
+                        Achetez, Vendez & Collaborez en Toute Sécurité Avec <span class="text-gradient-trust">Trust RDC</span>
                     </h2>
 
                     <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-                        Fini la peur des arnaques en ligne ! <strong>Trust RDC</strong> est la première base de données vérifiée en République Démocratique du Congo permettant d'authentifier les vendeurs, freelances et boutiques virtuelles.
+                        Fini la peur des arnaques en ligne ! <strong>Trust RDC</strong> est la première base de données vérifiée en République Démocratique du Congo. Elle ne certifie pas que des « vendeurs » : elle permet d'authentifier <strong>tous les prestataires en ligne</strong> — vendeurs de produits, <strong>freelances</strong> (graphistes, développeurs, monteurs vidéo...), prestataires de services et boutiques virtuelles — avant tout paiement ou collaboration.
                     </p>
 
                     <div class="grid sm:grid-cols-2 gap-4 py-2">
@@ -379,8 +345,8 @@
                                 <i class="fas fa-user-shield"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">Pour les Acheteurs</h4>
-                                <p class="text-xs text-slate-400 mt-1">Vérifiez un numéro avant d'effectuer tout paiement Mobile Money.</p>
+                                <h4 class="font-bold text-white text-sm">Pour les Acheteurs & Clients</h4>
+                                <p class="text-xs text-slate-400 mt-1">Vérifiez un numéro (vendeur ou freelance) avant d'effectuer tout paiement Mobile Money.</p>
                             </div>
                         </div>
 
@@ -389,8 +355,8 @@
                                 <i class="fas fa-certificate"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">Pour les Vendeurs</h4>
-                                <p class="text-xs text-slate-400 mt-1">Obtenez votre badge certifié officiel et multipliez votre crédibilité.</p>
+                                <h4 class="font-bold text-white text-sm">Pour les Vendeurs & Freelances</h4>
+                                <p class="text-xs text-slate-400 mt-1">Obtenez votre badge certifié officiel (en ligne ET freelance) et multipliez votre crédibilité.</p>
                             </div>
                         </div>
                     </div>
@@ -400,7 +366,7 @@
                             <i class="fas fa-external-link-alt"></i> Ouvrir le Portail Trust RDC
                         </a>
                         <button type="button" id="open-vendor-modal-btn" class="px-7 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm transition-all flex items-center gap-2">
-                            <i class="fas fa-id-badge text-emerald-400"></i> Obtenir mon Badge Vendeur
+                            <i class="fas fa-id-badge text-emerald-400"></i> Obtenir mon Badge Vendeur / Freelance
                         </button>
                     </div>
                 </div>
@@ -417,7 +383,7 @@
                         </div>
 
                         <p class="text-xs text-slate-400 mb-4">
-                            Saisissez le numéro WhatsApp du vendeur à vérifier (ex: <code class="text-emerald-400 font-mono">+243 977 092 549</code>) :
+                            Saisissez le numéro WhatsApp du vendeur ou du freelance à vérifier (ex: <code class="text-emerald-400 font-mono">+243 977 092 549</code>) :
                         </p>
 
                         <form id="trust-search-form" class="space-y-4">
@@ -426,7 +392,7 @@
                                 <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
                             </div>
                             <button type="submit" class="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
-                                <i class="fas fa-shield-check"></i> Vérifier le vendeur maintenant
+                                <i class="fas fa-shield-check"></i> Vérifier le profil maintenant
                             </button>
                         </form>
 
@@ -437,9 +403,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- DEMO IA                                                        -->
-    <!-- ============================================================ -->
     <section id="demo-ia" class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -520,9 +483,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- RÉALISATIONS — image-only infinite carousel                   -->
-    <!-- ============================================================ -->
     <section id="realisations" class="py-24 bg-white dark:bg-slate-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -544,9 +504,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- TÉMOIGNAGES — seamless infinite loop                          -->
-    <!-- ============================================================ -->
     <section class="py-24 bg-slate-950 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
             <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">Témoignages</span>
@@ -563,9 +520,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- EMPLOIS                                                        -->
-    <!-- ============================================================ -->
     <section id="emplois" class="py-20 bg-slate-100 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white shadow-2xl relative overflow-hidden border border-slate-800">
@@ -590,9 +544,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- FAQ                                                            -->
-    <!-- ============================================================ -->
     <section class="py-24 bg-white dark:bg-slate-950">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -630,7 +581,7 @@
                         <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
                     </button>
                     <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
-                        Rendez-vous sur la section Trust RDC, soumettez votre pièce d'identité et les informations de votre activité. Après vérification par notre équipe d'audit, votre badge certifié est attribué.
+                        Trust RDC certifie aussi bien les <strong>vendeurs en ligne</strong> que les <strong>freelances</strong> et prestataires de services. Remplissez le formulaire « Obtenir mon Badge » (aucune photo à envoyer), acceptez les conditions d'inscription, puis notre équipe vous contacte sur WhatsApp pour programmer un court appel vidéo de vérification du visage, vérifier votre pièce d'identité (carte d'électeur ou carte d'élève) et récupérer le paiement de l'abonnement de 2000 FC/mois via Mobile Money. Une fois validé, votre badge certifié est activé.
                     </div>
                 </div>
 
@@ -647,9 +598,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- À PROPOS                                                       -->
-    <!-- ============================================================ -->
     <section id="propos" class="py-20 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">À Propos d'<span>OptiSite Digital</span></h2>
@@ -668,9 +616,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- CONTACT                                                        -->
-    <!-- ============================================================ -->
     <section id="contact" class="py-24 bg-white dark:bg-slate-950">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -732,16 +677,13 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ============================================================ -->
-    <!-- MODAL — Inscription Vendeur Trust RDC                          -->
-    <!-- ============================================================ -->
     <div id="vendor-modal-overlay">
         <div class="w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 relative">
 
             <div class="sticky top-0 z-10 flex items-center justify-between px-6 sm:px-8 py-5 border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur rounded-t-3xl">
                 <div>
-                    <h3 class="font-heading font-extrabold text-lg sm:text-xl text-slate-900 dark:text-white">Inscription Badge Vendeur Trust RDC</h3>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Remplissez ce formulaire pour démarrer votre certification.</p>
+                    <h3 class="font-heading font-extrabold text-lg sm:text-xl text-slate-900 dark:text-white">Inscription Badge Vendeur / Freelance Trust RDC</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Remplissez ce formulaire pour démarrer votre certification (vendeurs en ligne ET freelances).</p>
                 </div>
                 <button type="button" id="close-vendor-modal-btn" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0">
                     <i class="fas fa-times"></i>
@@ -770,7 +712,7 @@
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Catégorie *</label>
                         <select id="v-category" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500">
                             <option value="">Choisir...</option>
-                            <option value="Vendeur / Boutique">Vendeur / Boutique</option>
+                            <option value="Vendeur / Boutique en ligne">Vendeur / Boutique en ligne</option>
                             <option value="Freelance">Freelance</option>
                             <option value="Service / Agence">Service / Agence</option>
                             <option value="Autre">Autre</option>
@@ -788,33 +730,24 @@
                     <textarea id="v-bio" required rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500 resize-none" placeholder="Parlez brièvement de votre activité..."></textarea>
                 </div>
 
-                <div class="grid sm:grid-cols-2 gap-4 pt-2">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Photo du visage *</label>
-                        <label for="v-face" class="photo-drop cursor-pointer rounded-2xl flex flex-col items-center justify-center gap-2 h-36 text-center px-3">
-                            <img id="v-face-preview" class="hidden w-20 h-20 object-cover rounded-full">
-                            <i id="v-face-icon" class="fas fa-camera text-2xl text-slate-400"></i>
-                            <span id="v-face-label" class="text-[11px] text-slate-500 dark:text-slate-400">Cliquez pour prendre / choisir une photo de votre visage</span>
-                        </label>
-                        <input type="file" id="v-face" accept="image/*" capture="user" required class="hidden">
+                <div class="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-[11px] sm:text-xs text-amber-800 dark:text-amber-300 leading-relaxed space-y-2">
+                    <div class="flex items-center gap-2 font-bold uppercase tracking-wide text-[11px]">
+                        <i class="fas fa-circle-info"></i> Conditions d'inscription Trust RDC
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Photo carte d'identité *</label>
-                        <label for="v-id" class="photo-drop cursor-pointer rounded-2xl flex flex-col items-center justify-center gap-2 h-36 text-center px-3">
-                            <img id="v-id-preview" class="hidden w-full h-20 object-cover rounded-lg">
-                            <i id="v-id-icon" class="fas fa-id-card text-2xl text-slate-400"></i>
-                            <span id="v-id-label" class="text-[11px] text-slate-500 dark:text-slate-400">Cliquez pour prendre / choisir une photo de votre pièce d'identité</span>
-                        </label>
-                        <input type="file" id="v-id" accept="image/*" capture="environment" required class="hidden">
-                    </div>
+                    <ul class="list-disc list-inside space-y-1.5">
+                        <li>Aucune photo à envoyer maintenant : votre badge se finalise par <strong>appel vidéo</strong> avec notre équipe pour vérifier votre visage.</li>
+                        <li>Une <strong>pièce d'identité</strong> valide vous sera demandée pendant l'appel : carte d'électeur <strong>ou</strong> carte d'élève.</li>
+                        <li>Un <strong>abonnement de 2000 FC / mois</strong> est requis pour garder votre profil vérifié et actif (paiement via Mobile Money).</li>
+                        <li>Après l'envoi du formulaire, notre équipe vous contacte sur WhatsApp pour programmer l'appel vidéo et récupérer le paiement.</li>
+                    </ul>
                 </div>
 
-                <div class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-[11px] sm:text-xs text-amber-800 dark:text-amber-300 leading-relaxed flex gap-2.5">
-                    <i class="fas fa-circle-info mt-0.5 shrink-0"></i>
-                    <span>
-                        Après validation du formulaire, WhatsApp s'ouvrira avec vos informations déjà rédigées. Comme WhatsApp n'autorise pas l'envoi automatique de photos depuis un site web, vos <strong>2 photos seront téléchargées automatiquement</strong> sur votre téléphone/ordinateur — il vous suffira de les joindre en pièces jointes dans la conversation WhatsApp qui s'ouvre, puis d'envoyer.
+                <label class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 cursor-pointer">
+                    <input type="checkbox" id="v-terms" required class="mt-1 w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 shrink-0">
+                    <span class="text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed">
+                        J'accepte les conditions d'inscription ci-dessus (appel vidéo de vérification, pièce d'identité — carte d'électeur ou carte d'élève — et abonnement de 2000 FC/mois via Mobile Money). Je comprends qu'un message pré-rédigé va s'ouvrir sur WhatsApp pour que l'équipe OptiSite Digital finalise mon inscription. *
                     </span>
-                </div>
+                </label>
 
                 <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
                     <i class="fab fa-whatsapp text-lg"></i> Envoyer ma demande sur WhatsApp
@@ -826,7 +759,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            /* ===== 1. DARK / LIGHT THEME TOGGLE ===== */
             const themeToggleBtn = document.getElementById('theme-toggle');
             if (themeToggleBtn) {
                 themeToggleBtn.addEventListener('click', () => {
@@ -840,7 +772,6 @@
                 document.documentElement.classList.remove('dark');
             }
 
-            /* ===== 2. INTERACTIVE HAMBURGER MENU ===== */
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
@@ -873,7 +804,6 @@
                 });
             }
 
-            /* ===== 3. HERO PARTICLES CANVAS ===== */
             const canvas = document.getElementById('hero-canvas');
             if (canvas) {
                 const ctx = canvas.getContext('2d');
@@ -938,13 +868,11 @@
                 render();
             }
 
-            /* ===== 4. TRUST RDC — VÉRIFICATION CONNECTÉE AU GOOGLE SHEET ===== */
             const trustForm = document.getElementById('trust-search-form');
             const trustInput = document.getElementById('trust-input');
             const trustResult = document.getElementById('trust-result-box');
             const trustSubmitBtn = trustForm ? trustForm.querySelector('button[type="submit"]') : null;
 
-            // Même lien CSV publié que trustrdc.html — une seule source de vérité.
             const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdMGkhmyoflnlC4iFEG2xvoAIyv0Vu1x7Ca842rbrKifFv7QWodgkLj-Nk-sDIjyrKfmt4msdHZbCM/pub?output=csv";
 
             let TRUST_VENDORS_CACHE = null;
@@ -971,7 +899,6 @@
 
             function digitsOnly(str) { return (str || '').replace(/[^0-9]/g, ''); }
 
-            // Compare les 9 derniers chiffres pour ignorer les différences +243 / 0 / espaces
             function findVendorMatch(vendors, query) {
                 const qDigits = digitsOnly(query);
                 const qText = query.trim().toLowerCase();
@@ -1023,13 +950,13 @@
                             trustResult.innerHTML = `
                                 <div class="flex items-center gap-3 text-emerald-400 font-bold mb-2">
                                     <i class="fas fa-check-circle text-lg"></i>
-                                    <span>VENDEUR CERTIFIÉ & VÉRIFIÉ TRUST RDC</span>
+                                    <span>PROFIL CERTIFIÉ & VÉRIFIÉ TRUST RDC</span>
                                 </div>
                                 <p class="text-xs text-slate-300"><strong>Nom :</strong> ${escapeHtml(match.nom)}</p>
                                 <p class="text-xs text-slate-300"><strong>Ville :</strong> ${escapeHtml(match.ville) || 'RDC'}</p>
                                 <p class="text-xs text-slate-300"><strong>Statut :</strong> Badge ${escapeHtml(match.badge) || 'Vérifié'}</p>
                                 <div class="mt-3 pt-2 border-t border-slate-800 text-[10px] text-emerald-300">
-                                    100% Fiable. Vous pouvez effectuer votre transaction en toute sécurité.
+                                    100% Fiable. Vous pouvez effectuer votre transaction ou collaboration en toute sécurité.
                                 </div>`;
                         } else {
                             trustResult.innerHTML = `
@@ -1037,8 +964,8 @@
                                     <i class="fas fa-circle-xmark text-lg"></i>
                                     <span>NUMÉRO INVALIDE / NON ENREGISTRÉ</span>
                                 </div>
-                                <p class="text-xs text-slate-300">Le numéro <code class="text-white font-mono">${escapeHtml(query)}</code> ne figure pas dans notre base Trust RDC. Restez prudent avant tout paiement.</p>
-                                <a href="https://wa.me/243977092549?text=Bonjour,%20je%20souhaite%20demander%20la%20vérification%20du%20vendeur%20${encodeURIComponent(query)}" target="_blank" class="inline-block mt-3 text-xs text-emerald-400 hover:underline font-bold">
+                                <p class="text-xs text-slate-300">Le numéro <code class="text-white font-mono">${escapeHtml(query)}</code> ne figure pas dans notre base Trust RDC. Restez prudent avant tout paiement ou collaboration.</p>
+                                <a href="https://wa.me/243977092549?text=Bonjour,%20je%20souhaite%20demander%20la%20vérification%20du%20profil%20${encodeURIComponent(query)}" target="_blank" class="inline-block mt-3 text-xs text-emerald-400 hover:underline font-bold">
                                     Demander une vérification manuelle &rarr;
                                 </a>`;
                         }
@@ -1046,7 +973,6 @@
                 });
             }
 
-            /* ===== 5. INTERACTIVE CHATBOT SIMULATOR ===== */
             const chatBoxDisplay = document.getElementById('chat-box-display');
             const userChatInput = document.getElementById('user-chat-input');
             const sendChatBtn = document.getElementById('send-chat-btn');
@@ -1079,7 +1005,7 @@
                 if (query.includes('prix') || query.includes('tarif') || query.includes('combien')) {
                     return "Nos tarifs dépendent de vos besoins ! Contactez notre équipe sur WhatsApp pour recevoir un devis détaillé et personnalisé ! 🚀";
                 } else if (query.includes('trust') || query.includes('escroque') || query.includes('certification')) {
-                    return "Trust RDC permet de vérifier les vendeurs via leur numéro Mobile Money avant tout paiement. Vous êtes protégé contre les fraudes ! 🛡️";
+                    return "Trust RDC vérifie aussi bien les <strong>vendeurs en ligne</strong> que les <strong>freelances</strong> (graphistes, développeurs, monteurs vidéo, etc.) via leur numéro Mobile Money avant tout paiement ou collaboration. Vous êtes protégé contre les fraudes ! 🛡️";
                 } else if (query.includes('paiement') || query.includes('payer')) {
                     return "Nous acceptons M-Pesa, Orange Money, Airtel Money ainsi que les paiements directs à nos bureaux de Kinshasa ! 💳";
                 } else if (query.includes('bureau') || query.includes('adresse') || query.includes('kinshasa')) {
@@ -1101,7 +1027,6 @@
                 });
             }
 
-            /* ===== 6. FAQ ACCORDION ===== */
             document.querySelectorAll('.faq-toggle').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const answer = btn.nextElementSibling;
@@ -1113,7 +1038,6 @@
                 });
             });
 
-            /* ===== 7. SERVICES TICKER (built + duplicated for a seamless loop) ===== */
             const services = [
                 { icon: 'fa-laptop-code', color: 'brand', tag: 'Service Agence', title: 'Création de Sites Web Pro', desc: "Sites vitrines, e-commerce et e-learning ultra-rapides, adaptés à tous les écrans de téléphones et optimisés pour le réseau RDC.", cta: 'Commander mon site', msg: "Bonjour OptiSite Digital, je souhaite commander un site web." },
                 { icon: 'fa-whatsapp', brand: true, color: 'purple', tag: 'Formation IA Stars', title: 'Agent Chatbot IA WhatsApp', desc: "Concevez un assistant IA virtuel autonome capable de répondre à vos prospects, prendre les commandes et vendre 24h/24.", cta: "S'inscrire à l'IA", msg: "Bonjour, je souhaite m'inscrire à la formation Agent IA WhatsApp." },
@@ -1152,10 +1076,9 @@
             const servicesTrack = document.getElementById('services-track');
             if (servicesTrack) {
                 const html = services.map(serviceCardHTML).join('');
-                servicesTrack.innerHTML = html + html; // duplicate once = perfect seamless -50% loop
+                servicesTrack.innerHTML = html + html;
             }
 
-            /* ===== 8. RÉALISATIONS — image-only infinite carousel ===== */
             const realisationImages = [
                 { src: 'site1.jpg', alt: 'Boutique Mode & Tech RDC', fallback: 'https://placehold.co/560x680/1e293b/ffffff?text=Boutique+E-Commerce' },
                 { src: 'site2.jpg', alt: "Site Agence de Services Kinshasa", fallback: 'https://placehold.co/560x680/1e40af/ffffff?text=Vitrine+Entreprise' },
@@ -1174,10 +1097,9 @@
             const realisationsTrack = document.getElementById('realisations-track');
             if (realisationsTrack) {
                 const html = realisationImages.map(realisationFrameHTML).join('');
-                realisationsTrack.innerHTML = html + html; // duplicated for seamless -50% loop
+                realisationsTrack.innerHTML = html + html;
             }
 
-            /* ===== 9. TESTIMONIALS — seamless infinite loop ===== */
             const testimonials = [
                 { initials: 'CK', color: 'bg-brand-600', name: 'Christian K.', role: 'Commerçant — Kinshasa', quote: "Grâce au site créé par OptiSite Digital, mes ventes sur WhatsApp ont triplé à Kinshasa en 2 semaines. Service réactif et professionnel !" },
                 { initials: 'MN', color: 'bg-purple-600', name: 'Mireille N.', role: 'Freelance — Lubumbashi', quote: "La formation Agent IA WhatsApp m'a fait gagner un temps précieux. Mon bot répond désormais seul à mes clients même pendant la nuit !" },
@@ -1207,10 +1129,9 @@
             const testimonialsTrack = document.getElementById('testimonials-track');
             if (testimonialsTrack) {
                 const html = testimonials.map(testimonialCardHTML).join('');
-                testimonialsTrack.innerHTML = html + html; // duplicated for seamless -50% loop
+                testimonialsTrack.innerHTML = html + html;
             }
 
-            /* ===== 10. VENDOR REGISTRATION MODAL + WHATSAPP HANDOFF ===== */
             const vendorOverlay = document.getElementById('vendor-modal-overlay');
             const openVendorBtn = document.getElementById('open-vendor-modal-btn');
             const closeVendorBtn = document.getElementById('close-vendor-modal-btn');
@@ -1230,43 +1151,6 @@
                 vendorOverlay.addEventListener('click', (e) => { if (e.target === vendorOverlay) closeVendorModal(); });
             }
 
-            // Live preview for the two photo inputs
-            function wirePhotoInput(inputId, previewId, iconId, labelId, roundPreview) {
-                const input = document.getElementById(inputId);
-                const preview = document.getElementById(previewId);
-                const icon = document.getElementById(iconId);
-                const label = document.getElementById(labelId);
-                const dropZone = input ? input.previousElementSibling : null;
-                if (!input) return;
-                input.addEventListener('change', () => {
-                    const file = input.files && input.files[0];
-                    if (!file) return;
-                    const reader = new FileReader();
-                    reader.onload = (ev) => {
-                        preview.src = ev.target.result;
-                        preview.classList.remove('hidden');
-                        icon.classList.add('hidden');
-                        label.textContent = file.name;
-                        if (dropZone) dropZone.classList.add('has-image');
-                    };
-                    reader.readAsDataURL(file);
-                });
-            }
-            wirePhotoInput('v-face', 'v-face-preview', 'v-face-icon', 'v-face-label');
-            wirePhotoInput('v-id', 'v-id-preview', 'v-id-icon', 'v-id-label');
-
-            // Triggers a browser download of a File object with a clean filename
-            function downloadFile(file, filename) {
-                const url = URL.createObjectURL(file);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                setTimeout(() => URL.revokeObjectURL(url), 4000);
-            }
-
             if (vendorForm) {
                 vendorForm.addEventListener('submit', (e) => {
                     e.preventDefault();
@@ -1277,23 +1161,21 @@
                     const category = document.getElementById('v-category').value.trim();
                     const skills = document.getElementById('v-skills').value.trim();
                     const bio = document.getElementById('v-bio').value.trim();
-                    const faceFile = document.getElementById('v-face').files[0];
-                    const idFile = document.getElementById('v-id').files[0];
+                    const termsAccepted = document.getElementById('v-terms').checked;
 
-                    if (!name || !phone || !city || !category || !bio || !faceFile || !idFile) {
-                        alert("Merci de remplir tous les champs obligatoires (*) et d'ajouter vos 2 photos avant d'envoyer.");
+                    if (!name || !phone || !city || !category || !bio) {
+                        alert("Merci de remplir tous les champs obligatoires (*) avant d'envoyer.");
                         return;
                     }
-
-                    // Clean, ready-to-paste filenames for the vendor to attach on WhatsApp
-                    const slug = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-                    downloadFile(faceFile, `${slug || 'vendeur'}-visage.jpg`);
-                    setTimeout(() => downloadFile(idFile, `${slug || 'vendeur'}-carte-identite.jpg`), 400);
+                    if (!termsAccepted) {
+                        alert("Merci de cocher la case d'acceptation des conditions d'inscription (appel vidéo, pièce d'identité, abonnement 2000 FC/mois) avant d'envoyer.");
+                        return;
+                    }
 
                     const siteProfileHint = `https://optisite-digital.onrender.com/trustrdc.html`;
 
                     const message =
-`Bonjour OptiSite Digital, je souhaite obtenir mon Badge Vendeur Trust RDC.
+`Bonjour OptiSite Digital, je souhaite obtenir mon Badge Vendeur/Freelance Trust RDC.
 
 Nom complet : ${name}
 Numéro WhatsApp : ${phone}
@@ -1302,21 +1184,19 @@ Catégorie : ${category}
 Compétences / Produits : ${skills || 'Non précisé'}
 Bio : ${bio}
 
-Mes 2 photos (visage + carte d'identité) viennent d'être téléchargées sur mon appareil, je les joins juste après ce message.
+J'ai lu et j'accepte les conditions d'inscription Trust RDC :
+- Appel vidéo de vérification de mon visage
+- Pièce d'identité valide (carte d'électeur OU carte d'élève)
+- Abonnement de 2000 FC / mois via Mobile Money pour la vérification et le maintien de mon profil
+
+Merci de me contacter pour programmer mon appel vidéo et finaliser le paiement de mon abonnement.
 Une fois validé, merci de m'ajouter sur ${siteProfileHint}`;
 
                     const waUrl = `https://wa.me/243977092549?text=${encodeURIComponent(message)}`;
 
-                    setTimeout(() => {
-                        window.open(waUrl, '_blank');
-                        closeVendorModal();
-                        vendorForm.reset();
-                        ['v-face-preview','v-id-preview'].forEach(id => document.getElementById(id).classList.add('hidden'));
-                        document.getElementById('v-face-icon').classList.remove('hidden');
-                        document.getElementById('v-id-icon').classList.remove('hidden');
-                        document.getElementById('v-face-label').textContent = 'Cliquez pour prendre / choisir une photo de votre visage';
-                        document.getElementById('v-id-label').textContent = "Cliquez pour prendre / choisir une photo de votre pièce d'identité";
-                    }, 900);
+                    window.open(waUrl, '_blank');
+                    closeVendorModal();
+                    vendorForm.reset();
                 });
             }
 
