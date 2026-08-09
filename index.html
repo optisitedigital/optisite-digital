@@ -160,17 +160,38 @@
         .realisation-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
         .realisation-frame:hover img { transform: scale(1.08); }
 
+        /* ============================================================
+           MODALE VENDEUR / FREELANCE — CORRIGÉE
+           L'ancien code faisait défiler toute la modale (y compris le
+           titre) dans l'overlay, avec un header "sticky" qui ne
+           s'accrochait pas correctement. Maintenant :
+           - l'overlay centre juste la boîte, il ne scrolle plus lui-même
+           - la boîte a une hauteur max et devient un flex-column
+           - le header est HORS de la zone de scroll => il ne bouge plus
+           - seul le formulaire (zone du bas) défile
+           ============================================================ */
         #vendor-modal-overlay {
             position: fixed; inset: 0; z-index: 100;
             background: rgba(2, 6, 23, 0.75);
             backdrop-filter: blur(6px);
             display: none;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
-            overflow-y: auto;
-            padding: 5rem 1rem 3rem;
+            padding: 1rem;
         }
         #vendor-modal-overlay.open { display: flex; }
+        #vendor-modal-box {
+            width: 100%;
+            max-width: 42rem; /* ~ max-w-2xl */
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        #vendor-modal-scroll {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
     </style>
 </head>
 
@@ -677,10 +698,17 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- ============================================================
+         MODALE VENDEUR / FREELANCE — structure corrigée :
+         #vendor-modal-overlay  -> centre la boîte, ne défile plus
+         #vendor-modal-box      -> hauteur max, flex-column
+           #vendor-modal-header -> FIXE, ne bouge jamais
+           #vendor-modal-scroll -> seule zone qui défile (le formulaire)
+         ============================================================ -->
     <div id="vendor-modal-overlay">
-        <div class="w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 relative">
+        <div id="vendor-modal-box" class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800">
 
-            <div class="sticky top-0 z-10 flex items-center justify-between px-6 sm:px-8 py-5 border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur rounded-t-3xl">
+            <div id="vendor-modal-header" class="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-t-3xl shrink-0">
                 <div>
                     <h3 class="font-heading font-extrabold text-lg sm:text-xl text-slate-900 dark:text-white">Inscription Badge Vendeur / Freelance Trust RDC</h3>
                     <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Remplissez ce formulaire pour démarrer votre certification (vendeurs en ligne ET freelances).</p>
@@ -690,89 +718,91 @@
                 </button>
             </div>
 
-            <form id="vendor-form" class="px-6 sm:px-8 py-6 space-y-5">
+            <div id="vendor-modal-scroll">
+                <form id="vendor-form" class="px-6 sm:px-8 py-6 space-y-5">
 
-                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Nom complet *</label>
+                            <input type="text" id="v-name" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Jean Kalala">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Numéro WhatsApp *</label>
+                            <input type="tel" id="v-phone" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: 0977092549">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Ville *</label>
+                            <input type="text" id="v-city" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Kinshasa">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Catégorie *</label>
+                            <select id="v-category" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500">
+                                <option value="">Choisir...</option>
+                                <option value="Vendeur / Boutique en ligne">Vendeur / Boutique en ligne</option>
+                                <option value="Freelance">Freelance</option>
+                                <option value="Service / Agence">Service / Agence</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Email *</label>
+                            <input type="email" id="v-email" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: jean.kalala@gmail.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Compétences / Produits</label>
+                            <input type="text" id="v-skills" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Design graphique, Montage vidéo, Vente téléphones">
+                        </div>
+                    </div>
+
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Nom complet *</label>
-                        <input type="text" id="v-name" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Jean Kalala">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Courte bio / description *</label>
+                        <textarea id="v-bio" required rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500 resize-none" placeholder="Parlez brièvement de votre activité..."></textarea>
                     </div>
+
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Numéro WhatsApp *</label>
-                        <input type="tel" id="v-phone" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: 0977092549">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Lien direct de votre photo *</label>
+                        <input type="url" id="v-photo" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: https://i.postimg.cc/xxxxxxxx/photo.jpg">
+                        <div class="mt-2 p-3 rounded-xl bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800/50 text-[11px] text-sky-800 dark:text-sky-300 leading-relaxed">
+                            <strong>Comment obtenir ce lien ?</strong>
+                            1) Allez sur <a href="https://postimages.org" target="_blank" class="underline font-semibold">postimages.org</a> (aussi appelé postimg.cc).
+                            2) Cliquez sur « Choose images », sélectionnez votre photo et téléversez-la.
+                            3) Une fois l'image en ligne, copiez le lien <strong>« Direct link »</strong>.
+                            4) Collez ce lien exactement dans le champ ci-dessus.
+                        </div>
                     </div>
-                </div>
 
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Ville *</label>
-                        <input type="text" id="v-city" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Kinshasa">
+                    <div class="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-[11px] sm:text-xs text-amber-800 dark:text-amber-300 leading-relaxed space-y-2">
+                        <div class="flex items-center gap-2 font-bold uppercase tracking-wide text-[11px]">
+                            <i class="fas fa-circle-info"></i> Conditions d'inscription Trust RDC
+                        </div>
+                        <ul class="list-disc list-inside space-y-1.5">
+                            <li>Dès validation, votre profil est activé avec <strong>3 jours d'essai gratuit</strong> pendant lesquels vous apparaissez sur le site.</li>
+                            <li>Passé ce délai de 3 jours, un <strong>abonnement mensuel de 2000 FC</strong> (montant pouvant varier selon le taux de change) est requis pour rester vérifié(e) et visible auprès de vos futurs clients.</li>
+                            <li>Vous recevrez un <strong>email automatique</strong> à la fin de l'essai, avec un lien de paiement Chariow pour confirmer votre abonnement.</li>
+                            <li>Une fois le paiement effectué, contactez-nous sur WhatsApp ou par email : notre équipe réactive votre badge manuellement dans les meilleurs délais.</li>
+                        </ul>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Catégorie *</label>
-                        <select id="v-category" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500">
-                            <option value="">Choisir...</option>
-                            <option value="Vendeur / Boutique en ligne">Vendeur / Boutique en ligne</option>
-                            <option value="Freelance">Freelance</option>
-                            <option value="Service / Agence">Service / Agence</option>
-                            <option value="Autre">Autre</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Email *</label>
-                        <input type="email" id="v-email" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: jean.kalala@gmail.com">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Compétences / Produits</label>
-                        <input type="text" id="v-skills" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Design graphique, Montage vidéo, Vente téléphones">
-                    </div>
-                </div>
+                    <label class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 cursor-pointer">
+                        <input type="checkbox" id="v-terms" required class="mt-1 w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 shrink-0">
+                        <span class="text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed">
+                            J'accepte les conditions d'inscription ci-dessus : 3 jours d'essai gratuit, puis abonnement mensuel de 2000 FC (pouvant varier selon le taux de change), à confirmer via le lien de paiement Chariow envoyé par email. *
+                        </span>
+                    </label>
 
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Courte bio / description *</label>
-                    <textarea id="v-bio" required rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500 resize-none" placeholder="Parlez brièvement de votre activité..."></textarea>
-                </div>
+                    <div id="vendor-form-status" class="hidden text-xs sm:text-sm p-4 rounded-2xl leading-relaxed"></div>
 
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Lien direct de votre photo *</label>
-                    <input type="url" id="v-photo" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: https://i.postimg.cc/xxxxxxxx/photo.jpg">
-                    <div class="mt-2 p-3 rounded-xl bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800/50 text-[11px] text-sky-800 dark:text-sky-300 leading-relaxed">
-                        <strong>Comment obtenir ce lien ?</strong>
-                        1) Allez sur <a href="https://postimages.org" target="_blank" class="underline font-semibold">postimages.org</a> (aussi appelé postimg.cc).
-                        2) Cliquez sur « Choose images », sélectionnez votre photo et téléversez-la.
-                        3) Une fois l'image en ligne, copiez le lien <strong>« Direct link »</strong>.
-                        4) Collez ce lien exactement dans le champ ci-dessus.
-                    </div>
-                </div>
-
-                <div class="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-[11px] sm:text-xs text-amber-800 dark:text-amber-300 leading-relaxed space-y-2">
-                    <div class="flex items-center gap-2 font-bold uppercase tracking-wide text-[11px]">
-                        <i class="fas fa-circle-info"></i> Conditions d'inscription Trust RDC
-                    </div>
-                    <ul class="list-disc list-inside space-y-1.5">
-                        <li>Dès validation, votre profil est activé avec <strong>3 jours d'essai gratuit</strong> pendant lesquels vous apparaissez sur le site.</li>
-                        <li>Passé ce délai de 3 jours, un <strong>abonnement mensuel de 2000 FC</strong> (montant pouvant varier selon le taux de change) est requis pour rester vérifié(e) et visible auprès de vos futurs clients.</li>
-                        <li>Vous recevrez un <strong>email automatique</strong> à la fin de l'essai, avec un lien de paiement Chariow pour confirmer votre abonnement.</li>
-                        <li>Une fois le paiement effectué, contactez-nous sur WhatsApp ou par email : notre équipe réactive votre badge manuellement dans les meilleurs délais.</li>
-                    </ul>
-                </div>
-
-                <label class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 cursor-pointer">
-                    <input type="checkbox" id="v-terms" required class="mt-1 w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 shrink-0">
-                    <span class="text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed">
-                        J'accepte les conditions d'inscription ci-dessus : 3 jours d'essai gratuit, puis abonnement mensuel de 2000 FC (pouvant varier selon le taux de change), à confirmer via le lien de paiement Chariow envoyé par email. *
-                    </span>
-                </label>
-
-                <div id="vendor-form-status" class="hidden text-xs sm:text-sm p-4 rounded-2xl leading-relaxed"></div>
-
-                <button type="submit" id="vendor-submit-btn" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
-                    <i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription
-                </button>
-            </form>
+                    <button type="submit" id="vendor-submit-btn" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
