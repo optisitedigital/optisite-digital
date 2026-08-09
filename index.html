@@ -1252,13 +1252,51 @@
                         if (json.result !== 'success') {
                             throw new Error(json.message || "Erreur inconnue côté serveur.");
                         }
+
+                        /* ============================================================
+                           ÉTAPE EMAIL OBLIGATOIRE — anti-spam
+                           Une fois l'inscription enregistrée, on prépare un mailto:
+                           vers optisitedigital@gmail.com avec un objet + message
+                           pré-remplis ("J'aimerais m'inscrire..."). Le client email
+                           de l'utilisateur s'ouvre automatiquement ; il ne reste plus
+                           qu'à cliquer sur "Envoyer" dans son app mail.
+                           Comme c'est LUI qui écrit à optisitedigital@gmail.com en
+                           premier, sa boîte mail considère ensuite notre adresse comme
+                           un contact connu : le futur email automatique de fin d'essai
+                           / rappel d'abonnement a beaucoup moins de risque de tomber
+                           dans ses spams.
+                           ============================================================ */
+                        const emailSubject = `Je veux finaliser mon inscription`;
+                        const emailBody =
+                            `Bonjour OptiSite Digital,\n\n` +
+                            `Je veux finaliser mon inscription. Je vous ai enregistré au contact.\n\n` +
+                            `Nom complet : ${name}\n` +
+                            `Numéro WhatsApp : ${phone}\n` +
+                            `Ville : ${city}\n` +
+                            `Catégorie : ${category}\n\n` +
+                            `Cordialement,\n${name}`;
+                        const mailtoLink = `mailto:optisitedigital@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
                         statusBox.classList.remove('hidden');
                         statusBox.classList.add('bg-emerald-50', 'dark:bg-emerald-900/20', 'text-emerald-700', 'dark:text-emerald-300', 'border', 'border-emerald-200', 'dark:border-emerald-800/50');
-                        statusBox.innerHTML = `<i class="fas fa-check-circle mr-1"></i> Inscription envoyée ! Vous bénéficiez de 3 jours d'essai gratuit sur le site. Pensez à confirmer votre abonnement mensuel avant la fin de cette période (un email de rappel automatique vous sera envoyé).`;
+                        statusBox.innerHTML = `
+                            <i class="fas fa-check-circle mr-1"></i> Inscription envoyée avec succès ! Vous bénéficiez de 3 jours d'essai gratuit sur le site.
+                            <br><br>
+                            <div class="p-3 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-amber-800 dark:text-amber-300 text-xs leading-relaxed">
+                                <strong><i class="fas fa-circle-info mr-1"></i> Pour continuer votre inscription :</strong><br>
+                                1. Enregistrez manuellement <strong>optisitedigital@gmail.com</strong> dans vos contacts.<br>
+                                2. Cliquez sur le bouton ci-dessous pour ouvrir votre email (message déjà rédigé) puis cliquez sur « Envoyer ».<br><br>
+                                <strong>⚠️ Vérifiez aussi régulièrement votre dossier spam / courrier indésirable</strong>, en cas d'absence de nos messages (rappel de fin d'essai, confirmation d'abonnement, etc.).
+                            </div>
+                            <a href="${mailtoLink}" id="vendor-mailto-link" class="inline-flex items-center gap-2 mt-3 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md">
+                                <i class="fas fa-envelope"></i> Envoyer mon message pour finaliser
+                            </a>`;
+
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = `<i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription`;
                         vendorForm.reset();
-                        setTimeout(closeVendorModal, 3500);
+                        // On ne ferme plus automatiquement la modale : l'utilisateur doit
+                        // encore envoyer l'email obligatoire depuis son application mail.
                     })
                     .catch((err) => {
                         statusBox.classList.remove('hidden');
