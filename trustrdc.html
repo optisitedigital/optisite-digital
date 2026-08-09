@@ -53,19 +53,32 @@
         @keyframes pulseDot { 0%,100%{opacity:1;} 50%{opacity:.35;} }
         .skeleton { background: linear-gradient(90deg, rgba(148,163,184,.15) 25%, rgba(148,163,184,.28) 37%, rgba(148,163,184,.15) 63%); background-size: 400% 100%; animation: skeletonShine 1.4s ease infinite; }
         @keyframes skeletonShine { 0%{background-position:100% 50%;} 100%{background-position:0 50%;} }
+        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-        /* ===== Modal signalement vendeur ===== */
+        /* ===== Modal signalement vendeur — même correction que la modale badge :
+           overlay centré, hauteur max, header fixe, seul le formulaire défile ===== */
         #report-modal-overlay {
             position: fixed; inset: 0; z-index: 100;
             background: rgba(2, 6, 23, 0.75);
             backdrop-filter: blur(6px);
             display: none;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
-            overflow-y: auto;
-            padding: 5rem 1rem 3rem;
+            padding: 1rem;
         }
         #report-modal-overlay.open { display: flex; }
+        #report-modal-box {
+            width: 100%;
+            max-width: 28rem;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        #report-modal-scroll {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
     </style>
 </head>
 
@@ -153,7 +166,7 @@
             <div id="error-state" class="hidden text-center py-16">
                 <i class="fas fa-triangle-exclamation text-4xl text-amber-400 mb-4"></i>
                 <p class="text-slate-600 dark:text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
-                    L'annuaire n'a pas pu être chargé. Vérifiez que le lien Google Sheet (variable <code class="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">SHEET_CSV_URL</code> dans le script) est bien publié sur le web au format CSV.
+                    L'annuaire n'a pas pu être chargé. Vérifiez que le lien Google Sheet (variable <code class="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">SHEET_CSV_URL</code> dans le script) est bien publié sur le web au format CSV, et que la feuille n'est pas vide.
                 </p>
             </div>
 
@@ -172,11 +185,11 @@
     </a>
 
     <!-- ============================================================ -->
-    <!-- MODAL — Signaler un vendeur                                    -->
+    <!-- MODAL — Signaler un vendeur (envoi direct sur WhatsApp RDC)     -->
     <!-- ============================================================ -->
     <div id="report-modal-overlay">
-        <div class="w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 relative">
-            <div class="flex items-center justify-between px-6 py-5 border-b border-slate-200 dark:border-slate-800">
+        <div id="report-modal-box" class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between px-6 py-5 border-b border-slate-200 dark:border-slate-800 shrink-0">
                 <div>
                     <h3 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white">Signaler un vendeur</h3>
                     <p id="report-vendor-name" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5"></p>
@@ -186,30 +199,32 @@
                 </button>
             </div>
 
-            <form id="report-form" class="px-6 py-6 space-y-4">
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Motif du signalement *</label>
-                    <select id="report-reason" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-red-500">
-                        <option value="">Choisir...</option>
-                        <option value="Escroquerie / Arnaque">Escroquerie / Arnaque</option>
-                        <option value="Produit non reçu">Produit non reçu</option>
-                        <option value="Faux profil / usurpation">Faux profil / usurpation</option>
-                        <option value="Comportement abusif">Comportement abusif</option>
-                        <option value="Autre">Autre</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Votre nom *</label>
-                    <input type="text" id="report-name" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-red-500" placeholder="Votre nom">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Détails *</label>
-                    <textarea id="report-details" required rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-red-500 resize-none" placeholder="Décrivez ce qui s'est passé..."></textarea>
-                </div>
-                <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp text-lg"></i> Envoyer le signalement sur WhatsApp
-                </button>
-            </form>
+            <div id="report-modal-scroll">
+                <form id="report-form" class="px-6 py-6 space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Motif du signalement *</label>
+                        <select id="report-reason" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-red-500">
+                            <option value="">Choisir...</option>
+                            <option value="Escroquerie / Arnaque">Escroquerie / Arnaque</option>
+                            <option value="Produit non reçu">Produit non reçu</option>
+                            <option value="Faux profil / usurpation">Faux profil / usurpation</option>
+                            <option value="Comportement abusif">Comportement abusif</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Votre nom *</label>
+                        <input type="text" id="report-name" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-red-500" placeholder="Votre nom">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Détails *</label>
+                        <textarea id="report-details" required rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-red-500 resize-none" placeholder="Décrivez ce qui s'est passé..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> Envoyer le signalement sur WhatsApp
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -217,14 +232,15 @@
         /* ==========================================================================
            CONFIGURATION — À FAIRE UNE SEULE FOIS
            ==========================================================================
-           Ce fichier lit directement votre Google Sheet "Trust-Rdc" (les mêmes colonnes
-           que le formulaire d'inscription du site principal) :
+           Ce fichier lit directement votre Google Sheet "Trust-Rdc". Les en-têtes
+           réelles de la feuille (générées automatiquement par le script d'inscription)
+           sont, dans cet ordre exact :
 
-           Nom complet | Numéro WhatsApp | Ville | Catégorie | Compétences / Produits |
-           Courte bio / description | Email | badge | date | fin | photo
+           nom | telephone | ville | categorie | competences | bio | email | badge |
+           date | fin | photo
 
-           - badge : mis à jour par vous manuellement dans le Sheet, valeur "Payé"
-                     quand la personne a confirmé son abonnement.
+           - badge : mis à jour manuellement par vous dans le Sheet ("Payé" quand la
+                     personne a confirmé son abonnement).
            - fin   : date de fin d'essai gratuit (calculée automatiquement par le
                      formulaire d'inscription, format jj/mm/aaaa).
 
@@ -238,7 +254,7 @@
               choisissez l'onglet "Trust-Rdc" > format CSV > Publier.
            2. Collez le lien obtenu ci-dessous, à la place de l'exemple.
            ========================================================================== */
-        const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdMGkhmyoflnlC4iFEG2xvoAIyv0Vu1x7Ca842rbrKifFv7QWodgkLj-Nk-sDIjyrKfmt4msdHZbCM/pub?output=csv";
+        const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdMGkhmyoflnlC4iFEG2xvoAIyv0Vu1x7Ca842rbrKifFv7QWodgkLj-Nk-sDIjyrKfmt4msdHZbCM/pub?gid=2113243796&single=true&output=csv";
 
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -366,6 +382,33 @@
                 resultsCount.textContent = '0';
             }
 
+            /* ---- Mapping des colonnes CSV -> objet vendeur
+               Les en-têtes réelles de la feuille sont en minuscules, sans accent :
+               nom, telephone, ville, categorie, competences, bio, email, badge, date, fin, photo
+               (c'est exactement ce que produit le script Apps Script). On les lit
+               donc directement, en étant tolérant sur la casse/espaces au cas où
+               quelqu'un aurait retapé les en-têtes à la main dans le Sheet. ---- */
+            function normalizeRow(r) {
+                const clean = {};
+                Object.keys(r).forEach(k => {
+                    clean[k.trim().toLowerCase()] = (r[k] || '').toString().trim();
+                });
+
+                return {
+                    nom: clean['nom'] || '',
+                    telephone: clean['telephone'] || clean['téléphone'] || clean['numéro whatsapp'] || '',
+                    ville: clean['ville'] || '',
+                    categorie: clean['categorie'] || clean['catégorie'] || '',
+                    competences: clean['competences'] || clean['compétences'] || clean['compétences / produits'] || '',
+                    bio: clean['bio'] || clean['courte bio / description'] || '',
+                    email: clean['email'] || '',
+                    badge: clean['badge'] || '',
+                    date: clean['date'] || '',
+                    fin: clean['fin'] || '',
+                    photo: clean['photo'] || ''
+                };
+            }
+
             function loadVendors() {
                 if (!SHEET_CSV_URL || SHEET_CSV_URL.includes('VOTRE_ID_DE_PUBLICATION')) {
                     showError();
@@ -376,24 +419,7 @@
                     header: true,
                     skipEmptyLines: true,
                     complete: (results) => {
-                        const rows = (results.data || []).map(r => {
-                            const clean = {};
-                            Object.keys(r).forEach(k => { clean[k.trim().toLowerCase()] = (r[k] || '').toString().trim(); });
-
-                            return {
-                                nom: clean['nom complet'] || '',
-                                telephone: clean['numéro whatsapp'] || '',
-                                ville: clean['ville'] || '',
-                                categorie: clean['catégorie'] || '',
-                                competences: clean['compétences / produits'] || '',
-                                bio: clean['courte bio / description'] || '',
-                                email: clean['email'] || '',
-                                badge: clean['badge'] || '',
-                                date: clean['date'] || '',
-                                fin: clean['fin'] || '',
-                                photo: clean['photo'] || ''
-                            };
-                        }).filter(r => r.nom);
+                        const rows = (results.data || []).map(normalizeRow).filter(r => r.nom);
 
                         // On calcule le statut de chaque profil et on ne garde que les actifs
                         // (payés OU encore dans les 3 jours d'essai gratuit)
@@ -416,11 +442,12 @@
             searchInput.addEventListener('input', render);
             loadVendors();
 
-            /* ---- Signaler un vendeur — modal + envoi WhatsApp ---- */
+            /* ---- Signaler un vendeur — modal + envoi WhatsApp vers Trust RDC ---- */
             const reportOverlay = document.getElementById('report-modal-overlay');
             const closeReportBtn = document.getElementById('close-report-modal-btn');
             const reportForm = document.getElementById('report-form');
             const reportVendorNameEl = document.getElementById('report-vendor-name');
+            const TRUST_RDC_WHATSAPP = "243977092549";
             let reportTarget = { nom: '', telephone: '' };
 
             function openReportModal(nom, telephone) {
@@ -462,7 +489,7 @@ Motif : ${reason}
 Mon nom : ${reporterName}
 Détails : ${details}`;
 
-                    window.open(`https://wa.me/243977092549?text=${encodeURIComponent(message)}`, '_blank');
+                    window.open(`https://wa.me/${TRUST_RDC_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
                     closeReportModal();
                     reportForm.reset();
                 });
