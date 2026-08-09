@@ -2,17 +2,23 @@
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="-_aNDFj2tGqemqJy4bAPqVS9438FSGOIACF2So6ZFVo" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Trust RDC — Annuaire des Vendeurs & Freelances Certifiés | OptiSite Digital</title>
-    <meta name="description" content="Trust RDC : recherchez et vérifiez un vendeur, freelance ou boutique certifié en République Démocratique du Congo avant tout paiement.">
+
+    <title>OptiSite Digital — Création Web, Formations IA & Certification Trust RDC</title>
+    <meta name="description" content="OptiSite Digital : Agence Web agile à Kinshasa. Création de sites internet, formations IA WhatsApp & Marketing, certifications anti-escroqueries Trust RDC.">
+
+    <link rel="icon" type="image/jpeg" href="Logo Optisite.jpg">
+    <link rel="apple-touch-icon" href="Logo Optisite.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -26,38 +32,145 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: { 50:'#eff6ff',100:'#dbeafe',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a',950:'#0f172a' },
-                        trust: { 50:'#f0fdf4',100:'#dcfce7',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b' }
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb',
+                            700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a', 950: '#0f172a',
+                        },
+                        trust: {
+                            50: '#f0fdf4', 100: '#dcfce7', 500: '#10b981', 600: '#059669',
+                            700: '#047857', 800: '#065f46', 900: '#064e3b',
+                        },
+                        ai: { 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9' }
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                         heading: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'infinite-scroll': 'infinite-scroll 35s linear infinite',
+                        'infinite-scroll-fast': 'infinite-scroll 28s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                    },
+                    keyframes: {
+                        'infinite-scroll': {
+                            from: { transform: 'translateX(0)' },
+                            to: { transform: 'translateX(-50%)' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        'pulseGlow': {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        }
                     }
                 }
             }
         }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OptiSite Digital",
+      "url": "https://optisite-digital.onrender.com",
+      "logo": "https://optisite-digital.onrender.com/Logo%20Optisite.jpg",
+      "founder": { "@type": "Person", "name": "Olivier Tshimbalanga", "sameAs": "https://www.facebook.com/profile.php?id=61588260623995" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Kinshasa", "addressCountry": "CD" },
+      "contactPoint": { "@type": "ContactPoint", "telephone": "+243977092549", "contactType": "customer service" }
+    }
+    </script>
+
     <style>
         * { box-sizing: border-box; }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .dark .glass-panel {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+        .text-gradient-brand {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
         .text-gradient-trust {
             background: linear-gradient(135deg, #10b981 0%, #047857 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .hover-lift { transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease; }
-        .hover-lift:hover { transform: translateY(-4px); }
-        .badge-pulse { animation: pulseDot 2s infinite; }
-        @keyframes pulseDot { 0%,100%{opacity:1;} 50%{opacity:.35;} }
-        .skeleton { background: linear-gradient(90deg, rgba(148,163,184,.15) 25%, rgba(148,163,184,.28) 37%, rgba(148,163,184,.15) 63%); background-size: 400% 100%; animation: skeletonShine 1.4s ease infinite; }
-        @keyframes skeletonShine { 0%{background-position:100% 50%;} 100%{background-position:0 50%;} }
-        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-        /* ===== Modal signalement vendeur — même correction que la modale badge :
-           overlay centré, hauteur max, header fixe, seul le formulaire défile ===== */
-        #report-modal-overlay {
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-6px); }
+
+        .infinite-track:hover { animation-play-state: paused; }
+
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: max-height 0.45s cubic-bezier(0.65,0,0.35,1), opacity 0.3s ease, transform 0.35s ease;
+        }
+        #mobile-menu.open {
+            max-height: 640px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #menu-icon { transition: transform 0.35s cubic-bezier(0.65,0,0.35,1); }
+        #mobile-menu-btn[aria-expanded="true"] #menu-icon { transform: rotate(90deg); }
+        .mobile-link {
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        #mobile-menu.open .mobile-link { opacity: 1; transform: translateX(0); }
+        #mobile-menu.open .mobile-link:nth-child(1) { transition-delay: .03s; }
+        #mobile-menu.open .mobile-link:nth-child(2) { transition-delay: .07s; }
+        #mobile-menu.open .mobile-link:nth-child(3) { transition-delay: .11s; }
+        #mobile-menu.open .mobile-link:nth-child(4) { transition-delay: .15s; }
+        #mobile-menu.open .mobile-link:nth-child(5) { transition-delay: .19s; }
+        #mobile-menu.open .mobile-link:nth-child(6) { transition-delay: .23s; }
+        #mobile-menu.open .mobile-link:nth-child(7) { transition-delay: .27s; }
+
+        .realisations-track { animation: infinite-scroll 30s linear infinite; }
+        .realisations-track:hover { animation-play-state: paused; }
+        .realisation-frame {
+            position: relative;
+            flex-shrink: 0;
+            width: 280px;
+            height: 340px;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 12px 30px -8px rgba(0,0,0,0.25);
+        }
+        .realisation-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .realisation-frame:hover img { transform: scale(1.08); }
+
+        /* ============================================================
+           MODALE VENDEUR / FREELANCE — CORRIGÉE
+           L'ancien code faisait défiler toute la modale (y compris le
+           titre) dans l'overlay, avec un header "sticky" qui ne
+           s'accrochait pas correctement. Maintenant :
+           - l'overlay centre juste la boîte, il ne scrolle plus lui-même
+           - la boîte a une hauteur max et devient un flex-column
+           - le header est HORS de la zone de scroll => il ne bouge plus
+           - seul le formulaire (zone du bas) défile
+           ============================================================ */
+        #vendor-modal-overlay {
             position: fixed; inset: 0; z-index: 100;
             background: rgba(2, 6, 23, 0.75);
             backdrop-filter: blur(6px);
@@ -66,162 +179,627 @@
             justify-content: center;
             padding: 1rem;
         }
-        #report-modal-overlay.open { display: flex; }
-        #report-modal-box {
+        #vendor-modal-overlay.open { display: flex; }
+        #vendor-modal-box {
             width: 100%;
-            max-width: 28rem;
+            max-width: 42rem; /* ~ max-w-2xl */
             max-height: 90vh;
             display: flex;
             flex-direction: column;
             overflow: hidden;
         }
-        #report-modal-scroll {
+        #vendor-modal-scroll {
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
 
-    <!-- ============================================================ -->
-    <!-- HEADER                                                         -->
-    <!-- ============================================================ -->
-    <header class="sticky top-0 z-50 py-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80">
+    <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 group">
-                <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-600 p-0.5 shadow-md">
-                    <img src="Logo Optisite.jpg" alt="OptiSite Digital Logo" class="w-full h-full object-cover rounded-[9px]" onerror="this.onerror=null; this.src='https://placehold.co/100x100/065f46/ffffff?text=OSD';">
+            <a href="#accueil" class="flex items-center gap-3 group">
+                <div class="relative w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 p-0.5 shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <img src="Logo Optisite.jpg" alt="OptiSite Digital Logo" class="w-full h-full object-cover rounded-[10px]" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1e40af/ffffff?text=OSD';">
                 </div>
-                <div class="flex flex-col leading-none">
-                    <span class="font-heading text-base font-bold text-slate-900 dark:text-white">Trust <span class="text-emerald-600 dark:text-emerald-400">RDC</span></span>
-                    <span class="text-[10px] font-medium text-slate-500 dark:text-slate-400 tracking-wider uppercase mt-1">par OptiSite Digital</span>
+                <div class="flex flex-col">
+                    <span class="font-heading text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-none">OptiSite <span class="text-brand-600 dark:text-brand-400">Digital</span></span>
+                    <span class="text-[10px] font-medium text-slate-600 dark:text-slate-400 tracking-wider uppercase mt-1">RDC Agence & Trust</span>
                 </div>
             </a>
+
+            <nav class="hidden lg:flex items-center gap-1">
+                <a href="#accueil" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Accueil</a>
+                <a href="#services-formations" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Services & Formations</a>
+                <a href="#trust-rdc" class="px-3 py-2 text-sm font-semibold rounded-full bg-trust-50 dark:bg-trust-900/30 text-trust-700 dark:text-trust-400 border border-trust-200 dark:border-trust-800/50 hover:bg-trust-100 dark:hover:bg-trust-900/50 transition-colors flex items-center gap-1.5">
+                    <i class="fas fa-shield-alt text-trust-600"></i> Trust RDC
+                </a>
+                <a href="#demo-ia" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Démo Bot IA</a>
+                <a href="#realisations" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Réalisations</a>
+                <a href="#emplois" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Emplois</a>
+                <a href="#contact" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Contact</a>
+            </nav>
+
             <div class="flex items-center gap-2">
-                <a href="index.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                    <i class="fas fa-arrow-left text-xs"></i> Retour au site
+                <button id="theme-toggle" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-600 transition-colors" aria-label="Changer le thème">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block text-amber-400"></i>
+                </button>
+
+                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20un%20devis%20gratuit." target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md shadow-brand-600/25 transition-all hover:shadow-lg hover:shadow-brand-600/35">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>Devis Gratuit</span>
                 </a>
-                <a href="https://wa.me/243977092549?text=Bonjour,%20je%20souhaite%20obtenir%20mon%20Badge%20Vendeur%20Trust%20RDC." target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all">
-                    <i class="fas fa-id-badge"></i> <span class="hidden sm:inline">Devenir Certifié</span><span class="sm:hidden">Certifier</span>
+
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 shadow-xl">
+            <div class="pt-3 pb-6 space-y-2 mt-2">
+                <a href="#accueil" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Accueil</a>
+                <a href="#services-formations" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Services & Formations</a>
+                <a href="#trust-rdc" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl bg-trust-50 dark:bg-trust-900/30 text-trust-700 dark:text-trust-400 border border-trust-200 dark:border-trust-800">
+                    <i class="fas fa-shield-alt text-trust-600 mr-2"></i> Trust RDC (Anti-Escroqueries)
                 </a>
+                <a href="#demo-ia" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Démo Bot WhatsApp IA</a>
+                <a href="#realisations" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Nos Réalisations</a>
+                <a href="#emplois" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Offres d'Emploi</a>
+                <a href="#contact" class="mobile-link block px-4 py-2.5 text-base font-semibold rounded-xl text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+
+                <div class="mobile-link pt-3 border-t border-slate-200 dark:border-slate-800">
+                    <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20un%20devis." target="_blank" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 text-white font-bold text-center shadow-lg">
+                        <i class="fab fa-whatsapp text-xl"></i> Discuter sur WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- ============================================================ -->
-    <!-- HERO / SEARCH                                                  -->
-    <!-- ============================================================ -->
-    <section class="relative py-14 sm:py-20 bg-gradient-to-b from-emerald-950 via-slate-950 to-slate-950 text-white overflow-hidden">
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+    <section id="accueil" class="relative min-h-screen pt-28 pb-20 flex items-center overflow-hidden bg-slate-950 text-white">
+        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-60"></canvas>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 badge-pulse"></span> Annuaire Officiel Vérifié
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-600/30 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-700/80 backdrop-blur-md shadow-2xl mb-8">
+                <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                <i class="fas fa-bolt text-amber-400"></i>
+                <span class="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
+                    Leader Digital & IA en République Démocratique du Congo
+                </span>
             </div>
-            <h1 class="text-3xl sm:text-5xl font-heading font-extrabold leading-tight mb-4">
-                Trouvez un Vendeur ou Freelance <span class="text-gradient-trust">Certifié Trust RDC</span>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight max-w-5xl mx-auto leading-none mb-6">
+                Propulsez Votre Business Avec <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent">Des Sites Web & Agents IA</span>
             </h1>
-            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
-                Chaque profil ci-dessous a été vérifié par notre équipe avant certification. Recherchez par nom, ville ou compétence.
+
+            <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed mb-10">
+                L'agence web agile à Kinshasa. Nous créons des vitrines numériques haute performance, formons sur l'IA WhatsApp et certifions les vendeurs sérieux via notre label <strong class="text-trust-400 font-semibold">Trust RDC</strong>.
             </p>
 
-            <div class="max-w-xl mx-auto space-y-3">
-                <div class="relative">
-                    <input type="text" id="search-input" placeholder="Ex: designer graphique, Kinshasa, Jean..." class="w-full pl-12 pr-4 py-4 rounded-2xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 text-sm transition-colors">
-                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+                <a href="#services-formations" class="px-8 py-4 rounded-full bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-base shadow-xl shadow-brand-600/30 hover:scale-105 transition-all flex items-center gap-3">
+                    <i class="fas fa-rocket text-amber-300"></i>
+                    <span>Nos Services & Offres</span>
+                </a>
+
+                <a href="trustrdc.html" target="_blank" class="px-8 py-4 rounded-full bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/50 backdrop-blur-md font-bold text-base hover:scale-105 transition-all flex items-center gap-3">
+                    <i class="fas fa-shield-alt text-emerald-400"></i>
+                    <span>Espace Trust RDC</span>
+                </a>
+
+                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital" target="_blank" class="px-8 py-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-base shadow-xl shadow-emerald-500/20 hover:scale-105 transition-all flex items-center gap-3">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span>WhatsApp Direct</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
+                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-400">120+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Projets Web Conçus</div>
                 </div>
-                <div id="category-filters" class="flex flex-wrap items-center justify-center gap-2"></div>
+                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-emerald-400">350+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Vendeurs Trust RDC</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-purple-400">500+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Élèves Formés IA</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
+                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-amber-400">99%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Satisfaction Client</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- DIRECTORY                                                      -->
-    <!-- ============================================================ -->
-    <section class="py-14 sm:py-20 bg-white dark:bg-slate-950">
+    <section id="services-formations" class="py-24 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
+            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Solutions Évolutives</span>
+            <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
+                Nos Services & <span class="text-gradient-brand">Formations d'Élite</span>
+            </h2>
+            <p class="text-slate-800 dark:text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
+                Faites défiler ou survolez les cartes pour découvrir nos programmes de création web, automatisation IA et stratégies de vente en ligne.
+            </p>
+        </div>
+
+        <div class="relative w-full overflow-hidden py-4">
+            <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-100 dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-100 dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
+
+            <div id="services-track" class="flex gap-6 w-max animate-infinite-scroll infinite-track px-4"></div>
+        </div>
+    </section>
+
+    <section id="trust-rdc" class="py-24 bg-gradient-to-b from-emerald-950 via-slate-950 to-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                        <i class="fas fa-shield-alt text-emerald-400"></i> Label Officiel Anti-Escroquerie RDC
+                    </div>
+
+                    <h2 class="text-3xl sm:text-5xl font-heading font-extrabold leading-tight">
+                        Achetez, Vendez & Collaborez en Toute Sécurité Avec <span class="text-gradient-trust">Trust RDC</span>
+                    </h2>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        Fini la peur des arnaques en ligne ! <strong>Trust RDC</strong> est la première base de données vérifiée en République Démocratique du Congo. Elle ne certifie pas que des « vendeurs » : elle permet d'authentifier <strong>tous les prestataires en ligne</strong> — vendeurs de produits, <strong>freelances</strong> (graphistes, développeurs, monteurs vidéo...), prestataires de services et boutiques virtuelles — avant tout paiement ou collaboration.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 py-2">
+                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-emerald-900/50 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Pour les Acheteurs & Clients</h4>
+                                <p class="text-xs text-slate-400 mt-1">Vérifiez un numéro (vendeur ou freelance) avant d'effectuer tout paiement Mobile Money.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-emerald-900/50 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Pour les Vendeurs & Freelances</h4>
+                                <p class="text-xs text-slate-400 mt-1">Obtenez votre badge certifié officiel (en ligne ET freelance) et multipliez votre crédibilité.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="trustrdc.html" target="_blank" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> Ouvrir le Portail Trust RDC
+                        </a>
+                        <button type="button" id="open-vendor-modal-btn" class="px-7 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm transition-all flex items-center gap-2">
+                            <i class="fas fa-id-badge text-emerald-400"></i> Obtenir mon Badge Vendeur / Freelance
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-emerald-500/30 shadow-2xl backdrop-blur-xl relative">
+
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+                                <span class="font-heading font-bold text-sm tracking-wider uppercase text-slate-300">Testeur de Vérification</span>
+                            </div>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">ID / TEL SEARCH</span>
+                        </div>
+
+                        <p class="text-xs text-slate-400 mb-4">
+                            Saisissez le numéro WhatsApp du vendeur ou du freelance à vérifier (ex: <code class="text-emerald-400 font-mono">+243 977 092 549</code>) :
+                        </p>
+
+                        <form id="trust-search-form" class="space-y-4">
+                            <div class="relative">
+                                <input type="text" id="trust-input" placeholder="Ex: 0977092549" class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono text-sm transition-colors" required>
+                                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
+                                <i class="fas fa-shield-check"></i> Vérifier le profil maintenant
+                            </button>
+                        </form>
+
+                        <div id="trust-result-box" class="mt-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hidden transition-all"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo-ia" class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="flex items-center justify-between mb-8">
-                <h2 class="font-heading font-bold text-lg sm:text-xl text-slate-900 dark:text-white">
-                    <span id="results-count">—</span> profils certifiés
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300">Démonstration En Direct</span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
+                    Testez un <span class="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Agent IA WhatsApp</span>
                 </h2>
-                <span id="last-updated" class="text-xs text-slate-500 dark:text-slate-400"></span>
-            </div>
-
-            <!-- Loading skeleton -->
-            <div id="loading-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="h-64 rounded-3xl skeleton"></div>
-                <div class="h-64 rounded-3xl skeleton"></div>
-                <div class="h-64 rounded-3xl skeleton"></div>
-            </div>
-
-            <!-- Empty state -->
-            <div id="empty-state" class="hidden text-center py-16">
-                <i class="fas fa-user-slash text-4xl text-slate-300 dark:text-slate-700 mb-4"></i>
-                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-sm mx-auto">Aucun profil ne correspond à votre recherche. Essayez un autre nom, ville ou compétence.</p>
-            </div>
-
-            <!-- Error state (sheet not configured / unreachable) -->
-            <div id="error-state" class="hidden text-center py-16">
-                <i class="fas fa-triangle-exclamation text-4xl text-amber-400 mb-4"></i>
-                <p class="text-slate-600 dark:text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
-                    L'annuaire n'a pas pu être chargé. Vérifiez que le lien Google Sheet (variable <code class="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">SHEET_CSV_URL</code> dans le script) est bien publié sur le web au format CSV, et que la feuille n'est pas vide.
+                <p class="text-slate-800 dark:text-slate-400 text-base sm:text-lg">
+                    Découvrez concrètement comment l'assistant IA réagit instantanément aux questions de vos prospects et convertit les ventes automatiquement.
                 </p>
             </div>
 
-            <div id="vendors-grid" class="hidden grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <div class="grid lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+                <div class="lg:col-span-5 space-y-3">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 mb-2">Cliquez pour simuler une question :</h3>
+
+                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Quels sont vos prix pour un site web ?">
+                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Quels sont vos prix pour un site web ?"</span>
+                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Comment fonctionne la certification Trust RDC ?">
+                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Comment fonctionne Trust RDC ?"</span>
+                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Quels sont les modes de paiement acceptés ?">
+                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Quels modes de paiement acceptés ?"</span>
+                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Où se trouvent vos bureaux à Kinshasa ?">
+                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Où se trouvent vos bureaux ?"</span>
+                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/243977092549?text=Bonjour,%20je%20veux%20configurer%20un%20Agent%20IA%20pour%20mon%20entreprise." target="_blank" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-center text-sm shadow-lg block">
+                            <i class="fab fa-whatsapp mr-2"></i> Configurer un Bot pour mon Agence
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="max-w-sm mx-auto rounded-[36px] bg-slate-900 border-8 border-slate-800 shadow-2xl overflow-hidden text-slate-900">
+                        <div class="bg-emerald-800 text-white p-3.5 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="relative w-9 h-9 rounded-full bg-emerald-700 flex items-center justify-center font-bold text-xs border border-emerald-500">
+                                    <i class="fas fa-robot text-base"></i>
+                                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-emerald-900"></span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold leading-tight">OptiBot IA — Assistant OptiSite</h4>
+                                    <p class="text-[10px] text-emerald-200">En ligne 24h/24 • Réponse instantanée</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-ellipsis-v text-xs text-emerald-200"></i>
+                        </div>
+
+                        <div id="chat-box-display" class="p-4 h-80 overflow-y-auto bg-[#efeae2] dark:bg-[#0b141a] space-y-3 font-sans text-xs">
+                            <div class="flex flex-col items-start max-w-[85%]">
+                                <div class="bg-white dark:bg-[#202c33] dark:text-slate-100 p-3 rounded-2xl rounded-tl-none shadow-sm leading-relaxed">
+                                    Bonjour ! 👋 Je suis l'Agent IA d'OptiSite Digital. Comment puis-je vous aider aujourd'hui ? Saisissez un message ou choisissez une question à gauche !
+                                    <span class="block text-[9px] text-slate-400 text-right mt-1">10:00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-2.5 bg-[#f0f2f5] dark:bg-[#202c33] flex items-center gap-2">
+                            <input type="text" id="user-chat-input" placeholder="Tapez un message..." class="flex-1 px-3 py-2 rounded-full bg-white dark:bg-[#2a3942] dark:text-white text-xs focus:outline-none">
+                            <button id="send-chat-btn" class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs shrink-0">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="py-8 bg-slate-950 text-slate-500 text-xs border-t border-slate-800 text-center">
+    <section id="realisations" class="py-24 bg-white dark:bg-slate-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p>&copy; 2026 OptiSite Digital — Trust RDC. Vérifiez toujours avant de payer.</p>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Notre Travail</span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
+                    Nos <span class="text-gradient-brand">Réalisations RDC</span>
+                </h2>
+                <p class="text-slate-800 dark:text-slate-400 text-base sm:text-lg">
+                    Un aperçu de nos créations de sites web, bots intelligents et plateformes déployées à Kinshasa et en province.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative w-full overflow-hidden py-2">
+            <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+
+            <div id="realisations-track" class="flex gap-6 w-max realisations-track px-4"></div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-950 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
+            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">Témoignages</span>
+            <h2 class="text-3xl sm:text-5xl font-heading font-extrabold mt-3 mb-4">
+                Ce Que Disent <span class="text-gradient-brand">Nos Clients</span>
+            </h2>
+            <p class="text-slate-400 max-w-2xl mx-auto text-base">
+                Découvrez les retours d'expérience des entrepreneurs et élèves ayant fait confiance à OptiSite Digital.
+            </p>
+        </div>
+
+        <div class="relative w-full overflow-hidden py-4">
+            <div id="testimonials-track" class="flex gap-6 w-max animate-infinite-scroll infinite-track px-4"></div>
+        </div>
+    </section>
+
+    <section id="emplois" class="py-20 bg-slate-100 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white shadow-2xl relative overflow-hidden border border-slate-800">
+                <div class="relative z-10">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-wider mb-4">
+                        <i class="fas fa-briefcase mr-1"></i> Carrières & Opportunités
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold mb-4">Recrutement & Offres d'Emploi</h2>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8">
+                        Consultez nos postes ouverts au sein d'OptiSite Digital ou publiez directement votre propre annonce de recrutement.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href="offres.html" target="_blank" class="px-7 py-3.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2">
+                            <i class="fas fa-list-ul"></i> Voir les offres disponibles
+                        </a>
+                        <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20publier%20une%20offre%20d'emploi." target="_blank" class="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm transition-all flex items-center gap-2">
+                            <i class="fas fa-bullhorn text-amber-400"></i> Publier une offre
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-slate-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Aide & Réponses</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">Questions Fréquemment Posées</h2>
+                <p class="text-slate-800 dark:text-slate-400 text-sm sm:text-base">
+                    Tout ce que vous devez savoir sur nos services web, Trust RDC et nos formations.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
+                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
+                        <span>Quels moyens de paiement sont acceptés en RDC ?</span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
+                        Nous acceptons les paiements via Mobile Money (M-Pesa, Orange Money, Airtel Money) ainsi que les virements et paiements en espèces à nos bureaux à Kinshasa.
+                    </div>
+                </div>
+
+                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
+                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
+                        <span>Combien de temps faut-il pour créer un site web ?</span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
+                        En général, un site vitrine est livré sous 3 à 5 jours ouvrés. Les projets plus complexes (e-commerce ou applications spécifiques) prennent entre 7 et 14 jours.
+                    </div>
+                </div>
+
+                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
+                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
+                        <span>Comment s'inscrire sur la plateforme Trust RDC ?</span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
+                        Trust RDC certifie aussi bien les <strong>vendeurs en ligne</strong> que les <strong>freelances</strong> et prestataires de services. Remplissez le formulaire « Obtenir mon Badge », acceptez les conditions d'inscription, et votre profil est activé pour 3 jours d'essai gratuit. Passé ce délai, un abonnement mensuel est requis pour rester vérifié.
+                    </div>
+                </div>
+
+                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
+                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
+                        <span>Faut-il savoir coder pour suivre la formation Agent IA WhatsApp ?</span>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
+                        Non, absolument pas ! La formation est conçue pour les débutants. Nous vous apprenons à configurer des outils visuels "No-Code" pour que votre bot réponde automatiquement.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="propos" class="py-20 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">À Propos d'<span>OptiSite Digital</span></h2>
+            <p class="text-slate-800 dark:text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+                OptiSite Digital est une agence numérique basée en RDC dédiée au développement du commerce électronique, à la formation en intelligence artificielle et à la sécurisation des échanges commerciaux sur Internet.
+            </p>
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md">
+                <i class="fas fa-user-tie text-brand-600 text-lg"></i>
+                <span class="text-sm font-semibold text-slate-900 dark:text-slate-200">
+                    Fondateur & Dirigeant :
+                    <a href="https://www.facebook.com/profile.php?id=61588260623995" target="_blank" class="text-brand-600 dark:text-brand-400 hover:underline font-bold">
+                        Olivier Tshimbalanga 
+                    </a>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-white dark:bg-slate-950">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300">Restons en contact</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-2">Contactez Notre Équipe</h2>
+                <p class="text-slate-800 dark:text-slate-400 text-sm sm:text-base">Une question ou un projet ? Nous répondons sous 30 minutes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
+                <a href="mailto:optisitedigital@gmail.com" class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center hover-lift block">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="text-xs uppercase font-bold text-slate-600 dark:text-slate-400 mb-1">Email Officiel</h4>
+                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-200">optisitedigital@gmail.com</span>
+                </a>
+
+                <a href="https://wa.me/243977092549" target="_blank" class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center hover-lift block">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h4 class="text-xs uppercase font-bold text-slate-600 dark:text-slate-400 mb-1">WhatsApp & Appels</h4>
+                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-200">+243 977 092 549</span>
+                </a>
+
+                <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="text-xs uppercase font-bold text-slate-600 dark:text-slate-400 mb-1">Siège Social</h4>
+                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-200">Kinshasa, RDC</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-4">
+                <a href="https://www.facebook.com/profile.php?id=61588260623995" target="_blank" aria-label="Facebook" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-colors">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://wa.me/243977092549" target="_blank" aria-label="WhatsApp" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-colors">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="TikTok" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-slate-900 hover:text-white transition-colors">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-slate-950 text-slate-400 text-xs border-t border-slate-800 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; 2026 OptiSite Digital — Tous droits réservés. Innovation, Sécurité & IA en RDC.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform" aria-label="Contact WhatsApp">
+    <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform shadow-emerald-500/50" aria-label="Contact WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- ============================================================ -->
-    <!-- MODAL — Signaler un vendeur (envoi direct sur WhatsApp RDC)     -->
-    <!-- ============================================================ -->
-    <div id="report-modal-overlay">
-        <div id="report-modal-box" class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800">
-            <div class="flex items-center justify-between px-6 py-5 border-b border-slate-200 dark:border-slate-800 shrink-0">
+    <!-- ============================================================
+         MODALE VENDEUR / FREELANCE — structure corrigée :
+         #vendor-modal-overlay  -> centre la boîte, ne défile plus
+         #vendor-modal-box      -> hauteur max, flex-column
+           #vendor-modal-header -> FIXE, ne bouge jamais
+           #vendor-modal-scroll -> seule zone qui défile (le formulaire)
+         ============================================================ -->
+    <div id="vendor-modal-overlay">
+        <div id="vendor-modal-box" class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800">
+
+            <div id="vendor-modal-header" class="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-t-3xl shrink-0">
                 <div>
-                    <h3 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white">Signaler un vendeur</h3>
-                    <p id="report-vendor-name" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5"></p>
+                    <h3 class="font-heading font-extrabold text-lg sm:text-xl text-slate-900 dark:text-white">Inscription Badge Vendeur / Freelance Trust RDC</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Remplissez ce formulaire pour démarrer votre certification (vendeurs en ligne ET freelances).</p>
                 </div>
-                <button type="button" id="close-report-modal-btn" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0">
+                <button type="button" id="close-vendor-modal-btn" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
 
-            <div id="report-modal-scroll">
-                <form id="report-form" class="px-6 py-6 space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Motif du signalement *</label>
-                        <select id="report-reason" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-red-500">
-                            <option value="">Choisir...</option>
-                            <option value="Escroquerie / Arnaque">Escroquerie / Arnaque</option>
-                            <option value="Produit non reçu">Produit non reçu</option>
-                            <option value="Faux profil / usurpation">Faux profil / usurpation</option>
-                            <option value="Comportement abusif">Comportement abusif</option>
-                            <option value="Autre">Autre</option>
-                        </select>
+            <div id="vendor-modal-scroll">
+                <form id="vendor-form" class="px-6 sm:px-8 py-6 space-y-5">
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Nom complet *</label>
+                            <input type="text" id="v-name" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Jean Kalala">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Numéro WhatsApp *</label>
+                            <input type="tel" id="v-phone" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: 0977092549">
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Votre nom *</label>
-                        <input type="text" id="report-name" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-red-500" placeholder="Votre nom">
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Ville *</label>
+                            <input type="text" id="v-city" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Kinshasa">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Catégorie *</label>
+                            <select id="v-category" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500">
+                                <option value="">Choisir...</option>
+                                <option value="Vendeur / Boutique en ligne">Vendeur / Boutique en ligne</option>
+                                <option value="Freelance">Freelance</option>
+                                <option value="Service / Agence">Service / Agence</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Détails *</label>
-                        <textarea id="report-details" required rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-red-500 resize-none" placeholder="Décrivez ce qui s'est passé..."></textarea>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Email *</label>
+                            <input type="email" id="v-email" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: jean.kalala@gmail.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Compétences / Produits</label>
+                            <input type="text" id="v-skills" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Design graphique, Montage vidéo, Vente téléphones">
+                        </div>
                     </div>
-                    <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp text-lg"></i> Envoyer le signalement sur WhatsApp
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Courte bio / description *</label>
+                        <textarea id="v-bio" required rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500 resize-none" placeholder="Parlez brièvement de votre activité..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Lien direct de votre photo *</label>
+                        <input type="url" id="v-photo" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: https://i.postimg.cc/xxxxxxxx/photo.jpg">
+                        <div class="mt-2 p-3 rounded-xl bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800/50 text-[11px] text-sky-800 dark:text-sky-300 leading-relaxed">
+                            <strong>Comment obtenir ce lien ?</strong>
+                            1) Allez sur <a href="https://postimages.org" target="_blank" class="underline font-semibold">postimages.org</a> (aussi appelé postimg.cc).
+                            2) Cliquez sur « Choose images », sélectionnez votre photo et téléversez-la.
+                            3) Une fois l'image en ligne, copiez le lien <strong>« Direct link »</strong>.
+                            4) Collez ce lien exactement dans le champ ci-dessus.
+                        </div>
+                    </div>
+
+                    <div class="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-[11px] sm:text-xs text-amber-800 dark:text-amber-300 leading-relaxed space-y-2">
+                        <div class="flex items-center gap-2 font-bold uppercase tracking-wide text-[11px]">
+                            <i class="fas fa-circle-info"></i> Conditions d'inscription Trust RDC
+                        </div>
+                        <ul class="list-disc list-inside space-y-1.5">
+                            <li>Dès validation, votre profil est activé avec <strong>3 jours d'essai gratuit</strong> pendant lesquels vous apparaissez sur le site.</li>
+                            <li>Passé ce délai de 3 jours, un <strong>abonnement mensuel de 2000 FC</strong> (montant pouvant varier selon le taux de change) est requis pour rester vérifié(e) et visible auprès de vos futurs clients.</li>
+                            <li>Vous recevrez un <strong>email automatique</strong> à la fin de l'essai, avec un lien de paiement Chariow pour confirmer votre abonnement.</li>
+                            <li>Une fois le paiement effectué, contactez-nous sur WhatsApp ou par email : notre équipe réactive votre badge manuellement dans les meilleurs délais.</li>
+                        </ul>
+                    </div>
+
+                    <label class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 cursor-pointer">
+                        <input type="checkbox" id="v-terms" required class="mt-1 w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 shrink-0">
+                        <span class="text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed">
+                            J'accepte les conditions d'inscription ci-dessus : 3 jours d'essai gratuit, puis abonnement mensuel de 2000 FC (pouvant varier selon le taux de change), à confirmer via le lien de paiement Chariow envoyé par email. *
+                        </span>
+                    </label>
+
+                    <div id="vendor-form-status" class="hidden text-xs sm:text-sm p-4 rounded-2xl leading-relaxed"></div>
+
+                    <button type="submit" id="vendor-submit-btn" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription
                     </button>
                 </form>
             </div>
@@ -229,271 +807,509 @@
     </div>
 
     <script>
-        /* ==========================================================================
-           CONFIGURATION — À FAIRE UNE SEULE FOIS
-           ==========================================================================
-           Ce fichier lit directement votre Google Sheet "Trust-Rdc". Les en-têtes
-           réelles de la feuille (générées automatiquement par le script d'inscription)
-           sont, dans cet ordre exact :
-
-           nom | telephone | ville | categorie | competences | bio | email | badge |
-           date | fin | photo
-
-           - badge : mis à jour manuellement par vous dans le Sheet ("Payé" quand la
-                     personne a confirmé son abonnement).
-           - fin   : date de fin d'essai gratuit (calculée automatiquement par le
-                     formulaire d'inscription, format jj/mm/aaaa).
-
-           RÈGLE D'AFFICHAGE : un profil n'apparaît dans cet annuaire que s'il est
-           marqué "Payé", OU s'il est encore dans sa période d'essai gratuit de 3
-           jours (date du jour <= date "fin"). Passé ce délai sans paiement, le
-           profil disparaît automatiquement de l'annuaire public.
-
-           Pour connecter ce fichier à votre Sheet :
-           1. Dans Google Sheets : Fichier > Partager > Publier sur le web >
-              choisissez l'onglet "Trust-Rdc" > format CSV > Publier.
-           2. Collez le lien obtenu ci-dessous, à la place de l'exemple.
-           ========================================================================== */
-        const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdMGkhmyoflnlC4iFEG2xvoAIyv0Vu1x7Ca842rbrKifFv7QWodgkLj-Nk-sDIjyrKfmt4msdHZbCM/pub?gid=2113243796&single=true&output=csv";
-
         document.addEventListener('DOMContentLoaded', () => {
 
-            /* ---- Theme (kept in sync with the main site) ---- */
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                });
+            }
             if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
             }
 
-            const loadingGrid   = document.getElementById('loading-grid');
-            const emptyState    = document.getElementById('empty-state');
-            const errorState    = document.getElementById('error-state');
-            const vendorsGrid   = document.getElementById('vendors-grid');
-            const resultsCount  = document.getElementById('results-count');
-            const lastUpdated   = document.getElementById('last-updated');
-            const searchInput   = document.getElementById('search-input');
-            const categoryBar   = document.getElementById('category-filters');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
 
-            let ALL_VENDORS = [];
-            let activeCategory = 'Tous';
-
-            /* ---- Utilitaire : parse une date "jj/mm/aaaa" ---- */
-            function parseDateFR(str) {
-                if (!str) return null;
-                const parts = String(str).trim().split('/');
-                if (parts.length !== 3) return null;
-                const day = parseInt(parts[0], 10);
-                const month = parseInt(parts[1], 10) - 1;
-                const year = parseInt(parts[2], 10);
-                if (isNaN(day) || isNaN(month) || isNaN(year)) return null;
-                return new Date(year, month, day);
+            function closeMenu() {
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+            function openMenu() {
+                mobileMenu.classList.add('open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
             }
 
-            /* ---- Détermine si un profil doit être visible + son badge affiché ---- */
-            function computeStatus(v) {
-                if ((v.badge || '').trim().toLowerCase() === 'payé') {
-                    return { active: true, label: 'Vérifié', bg: 'bg-emerald-100 dark:bg-emerald-900/40', text: 'text-emerald-700 dark:text-emerald-300', icon: 'fa-shield-check' };
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isOpen = mobileMenu.classList.contains('open');
+                    isOpen ? closeMenu() : openMenu();
+                });
+                document.querySelectorAll('.mobile-link').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+                document.addEventListener('click', (e) => {
+                    if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        closeMenu();
+                    }
+                });
+            }
+
+            const canvas = document.getElementById('hero-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+
+                function resize() {
+                    canvas.width = canvas.parentElement.clientWidth;
+                    canvas.height = canvas.parentElement.clientHeight;
                 }
-                const finDate = parseDateFR(v.fin);
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                if (finDate) finDate.setHours(0, 0, 0, 0);
+                resize();
+                window.addEventListener('resize', resize);
 
-                if (finDate && today <= finDate) {
-                    return { active: true, label: 'Essai gratuit', bg: 'bg-sky-100 dark:bg-sky-900/40', text: 'text-sky-700 dark:text-sky-300', icon: 'fa-clock' };
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.vx = (Math.random() - 0.5) * 0.8;
+                        this.vy = (Math.random() - 0.5) * 0.8;
+                        this.radius = Math.random() * 2 + 1;
+                    }
+                    update() {
+                        this.x += this.vx; this.y += this.vy;
+                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                    }
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                        ctx.fillStyle = '#3b82f6';
+                        ctx.fill();
+                    }
                 }
-                return { active: false };
+
+                function initParticles() {
+                    particles = [];
+                    const count = Math.min(Math.floor(canvas.width * 0.04), 50);
+                    for (let i = 0; i < count; i++) particles.push(new Particle());
+                }
+                initParticles();
+
+                function render() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    for (let i = 0; i < particles.length; i++) {
+                        particles[i].update();
+                        particles[i].draw();
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < 100) {
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = `rgba(59, 130, 246, ${1 - dist / 100})`;
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(render);
+                }
+                render();
             }
 
-            function vendorCardHTML(v) {
-                const skills = (v.competences || '').split(',').map(s => s.trim()).filter(Boolean).slice(0, 4);
-                const photo = v.photo && v.photo.trim() ? v.photo.trim() : `https://placehold.co/200x200/065f46/ffffff?text=${encodeURIComponent((v.nom || '?').charAt(0))}`;
-                const waMsg = encodeURIComponent(`Bonjour ${v.nom || ''}, je vous ai trouvé via l'annuaire Trust RDC et je suis intéressé(e) par vos services.`);
-                const waLink = v.telephone ? `https://wa.me/${v.telephone.replace(/[^0-9]/g, '')}?text=${waMsg}` : null;
-                const nomAttr = (v.nom || '').replace(/"/g, '&quot;');
-                const telAttr = (v.telephone || '').replace(/"/g, '&quot;');
+            /* ============================================================
+               TRUST RDC — Vérification par numéro
+               Interroge directement l'Apps Script avec ?phone=XXXX (doGet)
+               au lieu de charger tout le CSV. Plus rapide, plus fiable,
+               et les erreurs réseau/serveur sont maintenant visibles.
+               ============================================================ */
+            const trustForm = document.getElementById('trust-search-form');
+            const trustInput = document.getElementById('trust-input');
+            const trustResult = document.getElementById('trust-result-box');
+            const trustSubmitBtn = trustForm ? trustForm.querySelector('button[type="submit"]') : null;
 
-                return `
-                <div class="hover-lift rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 flex flex-col">
-                    <div class="flex items-start gap-4 mb-4">
-                        <img src="${photo}" alt="${v.nom || 'Profil'}" class="w-16 h-16 rounded-2xl object-cover border-2 border-white dark:border-slate-800 shadow" onerror="this.onerror=null;this.src='https://placehold.co/200x200/065f46/ffffff?text=${encodeURIComponent((v.nom||'?').charAt(0))}';">
-                        <div class="min-w-0">
-                            <h3 class="font-heading font-bold text-slate-900 dark:text-white text-base truncate">${v.nom || 'Profil'}</h3>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate"><i class="fas fa-location-dot mr-1"></i>${v.ville || 'RDC'}</p>
-                            <span class="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full ${v.status.bg} ${v.status.text} text-[10px] font-bold uppercase tracking-wide">
-                                <i class="fas ${v.status.icon}"></i> ${v.status.label}
-                            </span>
+            // ⚠️ Doit être IDENTIQUE à l'URL /exec de ton déploiement Apps Script à jour
+            const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzL38amTp-JF8g-WYJEAyGwC9hmAy6kh8dJ-dceiuuFznCF8ju9gd1oD5aAXGMHgKE/exec";
+
+            function escapeHtml(str) {
+                return (str || '').toString().replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+            }
+
+            if (trustForm && trustInput && trustResult) {
+                trustForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const query = trustInput.value.trim();
+                    if (!query) return;
+
+                    trustResult.classList.remove('hidden');
+                    trustResult.innerHTML = `
+                        <div class="flex items-center gap-3 text-slate-400 font-semibold text-xs">
+                            <i class="fas fa-circle-notch fa-spin"></i>
+                            <span>Vérification en cours dans la base Trust RDC...</span>
+                        </div>`;
+                    if (trustSubmitBtn) trustSubmitBtn.disabled = true;
+
+                    fetch(`${APPS_SCRIPT_URL}?phone=${encodeURIComponent(query)}`)
+                        .then(res => {
+                            if (!res.ok) throw new Error("Réponse serveur invalide (" + res.status + ")");
+                            return res.json();
+                        })
+                        .then(json => {
+                            if (trustSubmitBtn) trustSubmitBtn.disabled = false;
+
+                            if (json.found && json.vendor) {
+                                const v = json.vendor;
+                                trustResult.innerHTML = `
+                                    <div class="flex items-center gap-3 text-emerald-400 font-bold mb-2">
+                                        <i class="fas fa-check-circle text-lg"></i>
+                                        <span>PROFIL CERTIFIÉ & VÉRIFIÉ TRUST RDC</span>
+                                    </div>
+                                    <p class="text-xs text-slate-300"><strong>Nom :</strong> ${escapeHtml(v.nom)}</p>
+                                    <p class="text-xs text-slate-300"><strong>Ville :</strong> ${escapeHtml(v.ville) || 'RDC'}</p>
+                                    <p class="text-xs text-slate-300"><strong>Catégorie :</strong> ${escapeHtml(v.categorie) || 'Non précisée'}</p>
+                                    <p class="text-xs text-slate-300"><strong>Statut :</strong> Badge ${escapeHtml(v.badge) || 'Vérifié'}</p>
+                                    <div class="mt-3 pt-2 border-t border-slate-800 text-[10px] text-emerald-300">
+                                        100% Fiable. Vous pouvez effectuer votre transaction ou collaboration en toute sécurité.
+                                    </div>`;
+                            } else {
+                                trustResult.innerHTML = `
+                                    <div class="flex items-center gap-3 text-red-400 font-bold mb-2">
+                                        <i class="fas fa-circle-xmark text-lg"></i>
+                                        <span>NUMÉRO INVALIDE / NON ENREGISTRÉ</span>
+                                    </div>
+                                    <p class="text-xs text-slate-300">Le numéro <code class="text-white font-mono">${escapeHtml(query)}</code> ne figure pas dans notre base Trust RDC. Restez prudent avant tout paiement ou collaboration.</p>
+                                    <a href="https://wa.me/243977092549?text=Bonjour,%20je%20souhaite%20demander%20la%20vérification%20du%20profil%20${encodeURIComponent(query)}" target="_blank" class="inline-block mt-3 text-xs text-emerald-400 hover:underline font-bold">
+                                        Demander une vérification manuelle &rarr;
+                                    </a>`;
+                            }
+                        })
+                        .catch((err) => {
+                            if (trustSubmitBtn) trustSubmitBtn.disabled = false;
+                            trustResult.innerHTML = `
+                                <div class="flex items-center gap-3 text-amber-400 font-bold mb-2">
+                                    <i class="fas fa-triangle-exclamation text-lg"></i>
+                                    <span>VÉRIFICATION INDISPONIBLE</span>
+                                </div>
+                                <p class="text-xs text-slate-300">Impossible de contacter la base de données Trust RDC pour le moment (${escapeHtml(err.message)}). Vérifie que le script Apps Script est bien redéployé et accessible à "Tout le monde".</p>`;
+                        });
+                });
+            }
+
+            const chatBoxDisplay = document.getElementById('chat-box-display');
+            const userChatInput = document.getElementById('user-chat-input');
+            const sendChatBtn = document.getElementById('send-chat-btn');
+            const demoBtns = document.querySelectorAll('.ai-demo-btn');
+
+            function getCurrentTime() {
+                const d = new Date();
+                return `${d.getHours()}:${d.getMinutes() < 10 ? '0' : ''}${d.getMinutes()}`;
+            }
+            function appendUserMsg(text) {
+                chatBoxDisplay.insertAdjacentHTML('beforeend', `
+                    <div class="flex flex-col items-end ml-auto max-w-[85%]">
+                        <div class="bg-emerald-700 text-white p-3 rounded-2xl rounded-tr-none shadow-sm leading-relaxed">
+                            ${text}<span class="block text-[9px] text-emerald-200 text-right mt-1">${getCurrentTime()}</span>
                         </div>
+                    </div>`);
+                chatBoxDisplay.scrollTop = chatBoxDisplay.scrollHeight;
+            }
+            function appendBotMsg(text) {
+                chatBoxDisplay.insertAdjacentHTML('beforeend', `
+                    <div class="flex flex-col items-start max-w-[85%]">
+                        <div class="bg-white dark:bg-[#202c33] dark:text-slate-100 p-3 rounded-2xl rounded-tl-none shadow-sm leading-relaxed">
+                            ${text}<span class="block text-[9px] text-slate-400 text-right mt-1">${getCurrentTime()}</span>
+                        </div>
+                    </div>`);
+                chatBoxDisplay.scrollTop = chatBoxDisplay.scrollHeight;
+            }
+            function generateBotAnswer(q) {
+                const query = q.toLowerCase();
+                if (query.includes('prix') || query.includes('tarif') || query.includes('combien')) {
+                    return "Nos tarifs dépendent de vos besoins ! Contactez notre équipe sur WhatsApp pour recevoir un devis détaillé et personnalisé ! 🚀";
+                } else if (query.includes('trust') || query.includes('escroque') || query.includes('certification')) {
+                    return "Trust RDC vérifie aussi bien les <strong>vendeurs en ligne</strong> que les <strong>freelances</strong> (graphistes, développeurs, monteurs vidéo, etc.) via leur numéro Mobile Money avant tout paiement ou collaboration. Vous êtes protégé contre les fraudes ! 🛡️";
+                } else if (query.includes('paiement') || query.includes('payer')) {
+                    return "Nous acceptons M-Pesa, Orange Money, Airtel Money ainsi que les paiements directs à nos bureaux de Kinshasa ! 💳";
+                } else if (query.includes('bureau') || query.includes('adresse') || query.includes('kinshasa')) {
+                    return "Nos bureaux sont situés à Kinshasa, RDC. Nous offrons également un accompagnement à distance dans toute la sous-région ! 📍";
+                } else {
+                    return "Merci pour votre message ! Je suis un bot de démo. Discutez directement avec un conseiller humain sur notre WhatsApp officiel (+243 977 092 549) ! ✨";
+                }
+            }
+            function handleSend(text) {
+                if (!text.trim()) return;
+                appendUserMsg(text);
+                setTimeout(() => appendBotMsg(generateBotAnswer(text)), 600);
+            }
+            demoBtns.forEach(btn => btn.addEventListener('click', () => handleSend(btn.getAttribute('data-q'))));
+            if (sendChatBtn && userChatInput) {
+                sendChatBtn.addEventListener('click', () => { handleSend(userChatInput.value); userChatInput.value = ''; });
+                userChatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') { handleSend(userChatInput.value); userChatInput.value = ''; }
+                });
+            }
+
+            document.querySelectorAll('.faq-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const answer = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+                    const isHidden = answer.classList.contains('hidden');
+                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+                    document.querySelectorAll('.faq-toggle i').forEach(i => i.classList.remove('rotate-180'));
+                    if (isHidden) { answer.classList.remove('hidden'); icon.classList.add('rotate-180'); }
+                });
+            });
+
+            const services = [
+                { icon: 'fa-laptop-code', color: 'brand', tag: 'Service Agence', title: 'Création de Sites Web Pro', desc: "Sites vitrines, e-commerce et e-learning ultra-rapides, adaptés à tous les écrans de téléphones et optimisés pour le réseau RDC.", cta: 'Commander mon site', msg: "Bonjour OptiSite Digital, je souhaite commander un site web." },
+                { icon: 'fa-whatsapp', brand: true, color: 'purple', tag: 'Formation IA Stars', title: 'Agent Chatbot IA WhatsApp', desc: "Concevez un assistant IA virtuel autonome capable de répondre à vos prospects, prendre les commandes et vendre 24h/24.", cta: "S'inscrire à l'IA", msg: "Bonjour, je souhaite m'inscrire à la formation Agent IA WhatsApp." },
+                { icon: 'fa-layer-group', color: 'amber', tag: 'Formation Web', title: 'Création de Sites Sans Code', desc: "Apprenez à concevoir des sites web captivants et fonctionnels pour vous-même ou pour vos clients sans toucher une seule ligne de code.", cta: "S'inscrire", msg: "Bonjour, je veux la formation Création de sites sans code." },
+                { icon: 'fa-bullseye', color: 'emerald', tag: 'Formation Business', title: 'Trouver des Clients Qualifiés', desc: "Méthodes concrètes et prospection directe pour attirer un flux constant d'acheteurs en RDC et monétiser vos compétences.", cta: "S'inscrire", msg: "Bonjour, je souhaite m'inscrire à la formation Trouver des clients." },
+                { icon: 'fa-cart-arrow-down', color: 'sky', tag: 'E-Commerce & Digital', title: 'Vendre sur Chariow', desc: "Plateforme pour commercialiser vos e-books, cours vidéos et produits numériques de façon automatisée.", cta: "S'inscrire", msg: "Bonjour, je veux la formation Vendre sur Chariow." },
+                { icon: 'fa-facebook-f', brand: true, color: 'indigo', tag: 'Formation Ads', title: 'Facebook & Instagram Ads', desc: "Maîtrisez le gestionnaire de publicités pour générer des prospects ciblés avec un budget optimisé.", cta: "S'inscrire", msg: "Bonjour, je souhaite suivre la formation Facebook Ads." }
+            ];
+
+            const serviceColorMap = {
+                brand: ['bg-brand-100 dark:bg-brand-900/50', 'text-brand-600 dark:text-brand-400', 'bg-brand-50 dark:bg-brand-900/30', 'text-brand-700 dark:text-brand-300', 'bg-brand-600 hover:bg-brand-700'],
+                purple: ['bg-purple-100 dark:bg-purple-900/50', 'text-purple-600 dark:text-purple-400', 'bg-purple-50 dark:bg-purple-900/30', 'text-purple-700 dark:text-purple-300', 'bg-purple-600 hover:bg-purple-700'],
+                amber: ['bg-amber-100 dark:bg-amber-900/50', 'text-amber-600 dark:text-amber-400', 'bg-amber-50 dark:bg-amber-900/30', 'text-amber-700 dark:text-amber-300', 'bg-amber-600 hover:bg-amber-700'],
+                emerald: ['bg-emerald-100 dark:bg-emerald-900/50', 'text-emerald-600 dark:text-emerald-400', 'bg-emerald-50 dark:bg-emerald-900/30', 'text-emerald-700 dark:text-emerald-300', 'bg-emerald-600 hover:bg-emerald-700'],
+                sky: ['bg-sky-100 dark:bg-sky-900/50', 'text-sky-600 dark:text-sky-400', 'bg-sky-50 dark:bg-sky-900/30', 'text-sky-700 dark:text-sky-300', 'bg-sky-600 hover:bg-sky-700'],
+                indigo: ['bg-indigo-100 dark:bg-indigo-900/50', 'text-indigo-600 dark:text-indigo-400', 'bg-indigo-50 dark:bg-indigo-900/30', 'text-indigo-700 dark:text-indigo-300', 'bg-indigo-600 hover:bg-indigo-700']
+            };
+
+            function serviceCardHTML(s) {
+                const [iconBg, iconText, tagBg, tagText, btnBg] = serviceColorMap[s.color];
+                const iconClass = s.brand ? `fab ${s.icon}` : `fas ${s.icon}`;
+                return `
+                <div class="w-80 sm:w-96 p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shadow-lg hover-lift flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl ${iconBg} ${iconText} flex items-center justify-center text-2xl mb-4"><i class="${iconClass}"></i></div>
+                        <span class="inline-block px-3 py-1 rounded-full ${tagBg} ${tagText} text-xs font-bold mb-3 uppercase tracking-wider">${s.tag}</span>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white mb-2">${s.title}</h3>
+                        <p class="text-sm text-slate-800 dark:text-slate-400 leading-relaxed mb-6">${s.desc}</p>
                     </div>
+                    <a href="https://wa.me/243977092549?text=${encodeURIComponent(s.msg)}" target="_blank" class="w-full py-3 rounded-xl ${btnBg} text-white font-bold text-center text-sm transition-colors flex items-center justify-center gap-2 shadow-md">
+                        <i class="fab fa-whatsapp"></i> ${s.cta}
+                    </a>
+                </div>`;
+            }
 
-                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 line-clamp-3">${v.bio || ''}</p>
+            const servicesTrack = document.getElementById('services-track');
+            if (servicesTrack) {
+                const html = services.map(serviceCardHTML).join('');
+                servicesTrack.innerHTML = html + html;
+            }
 
-                    ${skills.length ? `<div class="flex flex-wrap gap-1.5 mb-5">${skills.map(s => `<span class="px-2.5 py-1 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 text-[10px] font-semibold">${s}</span>`).join('')}</div>` : '<div class="mb-5"></div>'}
+            const realisationImages = [
+                { src: 'site1.jpg', alt: 'Boutique Mode & Tech RDC', fallback: 'https://placehold.co/560x680/1e293b/ffffff?text=Boutique+E-Commerce' },
+                { src: 'site2.jpg', alt: "Site Agence de Services Kinshasa", fallback: 'https://placehold.co/560x680/1e40af/ffffff?text=Vitrine+Entreprise' },
+                { src: 'site3.jpg', alt: 'Plateforme Trust RDC', fallback: 'https://placehold.co/560x680/065f46/ffffff?text=Plateforme+Trust+RDC' },
+                { src: 'site4.jpg', alt: 'Chatbot Vendeur Immo & Auto', fallback: 'https://placehold.co/560x680/5b21b6/ffffff?text=Agent+IA+WhatsApp' },
+                { src: 'site5.jpg', alt: 'Portail de Cours Numériques', fallback: 'https://placehold.co/560x680/0f172a/ffffff?text=Portail+Formation' }
+            ];
 
-                    <div class="mt-auto flex items-center gap-2">
-                        ${waLink ? `<a href="${waLink}" target="_blank" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold text-center transition-colors flex items-center justify-center gap-1.5"><i class="fab fa-whatsapp"></i> Contacter</a>` : ''}
-                        <button type="button" class="report-vendor-btn shrink-0 w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800/50 flex items-center justify-center hover:bg-red-100 dark:hover:bg-red-900/40 transition-colors" data-nom="${nomAttr}" data-telephone="${telAttr}" title="Signaler ce vendeur" aria-label="Signaler ce vendeur">
-                            <i class="fas fa-flag text-xs"></i>
-                        </button>
+            function realisationFrameHTML(r) {
+                return `
+                <div class="realisation-frame">
+                    <img src="${r.src}" alt="${r.alt}" loading="lazy" onerror="this.onerror=null; this.src='${r.fallback}';">
+                </div>`;
+            }
+
+            const realisationsTrack = document.getElementById('realisations-track');
+            if (realisationsTrack) {
+                const html = realisationImages.map(realisationFrameHTML).join('');
+                realisationsTrack.innerHTML = html + html;
+            }
+
+            const testimonials = [
+                { initials: 'CK', color: 'bg-brand-600', name: 'Christian K.', role: 'Commerçant — Kinshasa', quote: "Grâce au site créé par OptiSite Digital, mes ventes sur WhatsApp ont triplé à Kinshasa en 2 semaines. Service réactif et professionnel !" },
+                { initials: 'MN', color: 'bg-purple-600', name: 'Mireille N.', role: 'Freelance — Lubumbashi', quote: "La formation Agent IA WhatsApp m'a fait gagner un temps précieux. Mon bot répond désormais seul à mes clients même pendant la nuit !" },
+                { initials: 'PT', color: 'bg-emerald-600', name: 'Patrick T.', role: 'Vendeur Tech — Goma', quote: "Je me suis fait certifier sur Trust RDC. Depuis, mes nouveaux acheteurs n'hésitent plus avant de m'envoyer les acomptes." },
+                { initials: 'SB', color: 'bg-pink-600', name: 'Sarah B.', role: 'Entrepreneuse — Kinshasa', quote: "La formation Facebook Ads m'a permis d'atteindre exactement ma cible sur Kinshasa sans gaspiller de budget. Je recommande !" }
+            ];
+
+            function testimonialCardHTML(t) {
+                return `
+                <div class="w-80 sm:w-96 p-6 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm gap-1 mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed mb-6">"${t.quote}"</p>
                     </div>
-                    <div class="mt-2 text-right">
-                        <span class="text-[10px] text-slate-400 dark:text-slate-600">${v.date || ''}</span>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full ${t.color} font-bold flex items-center justify-center text-xs">${t.initials}</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">${t.name}</h4>
+                            <p class="text-[10px] text-slate-400">${t.role}</p>
+                        </div>
                     </div>
                 </div>`;
             }
 
-            function buildCategoryFilters(vendors) {
-                const cats = ['Tous', ...new Set(vendors.map(v => (v.categorie || '').trim()).filter(Boolean))];
-                categoryBar.innerHTML = cats.map(c => `
-                    <button data-cat="${c}" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold border transition-colors ${c === activeCategory ? 'bg-emerald-600 border-emerald-600 text-white' : 'bg-slate-900/60 border-slate-700 text-slate-300 hover:border-emerald-500'}">${c}</button>
-                `).join('');
-                categoryBar.querySelectorAll('.cat-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        activeCategory = btn.getAttribute('data-cat');
-                        buildCategoryFilters(vendors);
-                        render();
+            const testimonialsTrack = document.getElementById('testimonials-track');
+            if (testimonialsTrack) {
+                const html = testimonials.map(testimonialCardHTML).join('');
+                testimonialsTrack.innerHTML = html + html;
+            }
+
+            const vendorOverlay = document.getElementById('vendor-modal-overlay');
+            const openVendorBtn = document.getElementById('open-vendor-modal-btn');
+            const closeVendorBtn = document.getElementById('close-vendor-modal-btn');
+            const vendorForm = document.getElementById('vendor-form');
+
+            function openVendorModal() {
+                vendorOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeVendorModal() {
+                vendorOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+            if (openVendorBtn) openVendorBtn.addEventListener('click', openVendorModal);
+            if (closeVendorBtn) closeVendorBtn.addEventListener('click', closeVendorModal);
+            if (vendorOverlay) {
+                vendorOverlay.addEventListener('click', (e) => { if (e.target === vendorOverlay) closeVendorModal(); });
+            }
+
+            // ⚠️ Doit être la MÊME URL que APPS_SCRIPT_URL plus haut (le même déploiement gère formulaire + vérification)
+            const GOOGLE_SCRIPT_URL = APPS_SCRIPT_URL;
+
+            function formatDateFR(d) {
+                const dd = String(d.getDate()).padStart(2, '0');
+                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                const yyyy = d.getFullYear();
+                return `${dd}/${mm}/${yyyy}`;
+            }
+
+            if (vendorForm) {
+                vendorForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('v-name').value.trim();
+                    const phone = document.getElementById('v-phone').value.trim();
+                    const city = document.getElementById('v-city').value.trim();
+                    const category = document.getElementById('v-category').value.trim();
+                    const skills = document.getElementById('v-skills').value.trim();
+                    const bio = document.getElementById('v-bio').value.trim();
+                    const email = document.getElementById('v-email').value.trim();
+                    const photo = document.getElementById('v-photo').value.trim();
+                    const termsAccepted = document.getElementById('v-terms').checked;
+                    const statusBox = document.getElementById('vendor-form-status');
+                    const submitBtn = document.getElementById('vendor-submit-btn');
+
+                    if (!name || !phone || !city || !category || !bio || !email || !photo) {
+                        alert("Merci de remplir tous les champs obligatoires (*) avant d'envoyer, y compris l'email et le lien direct de votre photo.");
+                        return;
+                    }
+                    if (!termsAccepted) {
+                        alert("Merci de cocher la case d'acceptation des conditions d'inscription avant d'envoyer.");
+                        return;
+                    }
+
+                    const today = new Date();
+                    const finDate = new Date();
+                    finDate.setDate(today.getDate() + 3);
+
+                    // Ordre exact des colonnes du Google Sheet :
+                    // Nom complet | Numéro WhatsApp | Ville | Catégorie | Compétences / Produits | Courte bio / description | Email | badge | date | fin | photo
+                    const payload = {
+                        nom: name,
+                        telephone: phone,
+                        ville: city,
+                        categorie: category,
+                        competences: skills || 'Non précisé',
+                        bio: bio,
+                        email: email,
+                        badge: "Essai gratuit",
+                        date: formatDateFR(today),
+                        fin: formatDateFR(finDate),
+                        photo: photo
+                    };
+
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> Envoi en cours...`;
+
+                    /* IMPORTANT :
+                       - Content-Type "text/plain" évite le preflight CORS (OPTIONS) que
+                         Apps Script ne gère pas nativement, tout en laissant doPost()
+                         parser le JSON normalement via e.postData.contents.
+                       - On n'utilise PLUS mode:'no-cors', donc on peut enfin lire la
+                         vraie réponse du serveur et afficher un vrai message d'erreur
+                         si l'envoi échoue (au lieu d'un faux succès systématique). */
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(res => {
+                        if (!res.ok) throw new Error("Réponse serveur invalide (" + res.status + ")");
+                        return res.json();
+                    })
+                    .then(json => {
+                        if (json.result !== 'success') {
+                            throw new Error(json.message || "Erreur inconnue côté serveur.");
+                        }
+
+                        /* ============================================================
+                           ÉTAPE EMAIL OBLIGATOIRE — anti-spam
+                           Une fois l'inscription enregistrée, on prépare un mailto:
+                           vers optisitedigital@gmail.com avec un objet + message
+                           pré-remplis ("J'aimerais m'inscrire..."). Le client email
+                           de l'utilisateur s'ouvre automatiquement ; il ne reste plus
+                           qu'à cliquer sur "Envoyer" dans son app mail.
+                           Comme c'est LUI qui écrit à optisitedigital@gmail.com en
+                           premier, sa boîte mail considère ensuite notre adresse comme
+                           un contact connu : le futur email automatique de fin d'essai
+                           / rappel d'abonnement a beaucoup moins de risque de tomber
+                           dans ses spams.
+                           ============================================================ */
+                        const emailSubject = `Inscription Trust RDC - ${name}`;
+                        const emailBody =
+                            `Bonjour OptiSite Digital,\n\n` +
+                            `J'aimerais m'inscrire sur Trust RDC pour finaliser mon inscription.\n\n` +
+                            `Nom complet : ${name}\n` +
+                            `Numéro WhatsApp : ${phone}\n` +
+                            `Ville : ${city}\n` +
+                            `Catégorie : ${category}\n\n` +
+                            `Merci de confirmer la validation de mon profil.\n\n` +
+                            `Cordialement,\n${name}`;
+                        const mailtoLink = `mailto:optisitedigital@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+                        statusBox.classList.remove('hidden');
+                        statusBox.classList.add('bg-emerald-50', 'dark:bg-emerald-900/20', 'text-emerald-700', 'dark:text-emerald-300', 'border', 'border-emerald-200', 'dark:border-emerald-800/50');
+                        statusBox.innerHTML = `
+                            <i class="fas fa-check-circle mr-1"></i> Inscription enregistrée ! Vous bénéficiez de 3 jours d'essai gratuit sur le site.
+                            <br><br>
+                            <div class="p-3 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-amber-800 dark:text-amber-300 text-xs leading-relaxed mb-3">
+                                <strong><i class="fas fa-circle-info mr-1"></i> Dernière étape OBLIGATOIRE :</strong><br>
+                                1. Enregistrez d'abord notre adresse <strong>optisitedigital@gmail.com</strong> dans vos contacts.<br>
+                                2. Cliquez ensuite sur le bouton ci-dessous : votre application email s'ouvrira avec un message déjà rédigé.<br>
+                                3. Cliquez sur « Envoyer » dans votre boîte mail.<br><br>
+                                <strong>⚠️ Si vous n'enregistrez pas ce contact et n'envoyez pas cet email, votre profil n'apparaîtra pas sur le site.</strong>
+                            </div>
+                            <a href="${mailtoLink}" id="vendor-mailto-link" class="inline-flex items-center gap-2 mt-1 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md">
+                                <i class="fas fa-envelope"></i> Ouvrir mon email pour finaliser (obligatoire)
+                            </a>`;
+
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = `<i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription`;
+                        vendorForm.reset();
+                        // On ne ferme plus automatiquement la modale : l'utilisateur doit
+                        // encore envoyer l'email obligatoire depuis son application mail.
+                    })
+                    .catch((err) => {
+                        statusBox.classList.remove('hidden');
+                        statusBox.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
+                        statusBox.innerHTML = `<i class="fas fa-triangle-exclamation mr-1"></i> Erreur lors de l'envoi : ${escapeHtml(err.message)}. Vérifie que le script Apps Script est bien redéployé (Déployer > Gérer les déploiements > Nouvelle version) et accessible à "Tout le monde", ou contacte-nous sur WhatsApp.`;
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = `<i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription`;
                     });
                 });
             }
 
-            function render() {
-                const q = (searchInput.value || '').trim().toLowerCase();
-                const filtered = ALL_VENDORS.filter(v => {
-                    const matchesCat = activeCategory === 'Tous' || (v.categorie || '').trim() === activeCategory;
-                    if (!matchesCat) return false;
-                    if (!q) return true;
-                    const haystack = [v.nom, v.ville, v.categorie, v.competences, v.bio].join(' ').toLowerCase();
-                    return haystack.includes(q);
-                });
-
-                resultsCount.textContent = filtered.length;
-
-                if (filtered.length === 0) {
-                    vendorsGrid.classList.add('hidden');
-                    emptyState.classList.remove('hidden');
-                    return;
-                }
-                emptyState.classList.add('hidden');
-                vendorsGrid.classList.remove('hidden');
-                vendorsGrid.innerHTML = filtered.map(vendorCardHTML).join('');
-            }
-
-            function showError() {
-                loadingGrid.classList.add('hidden');
-                errorState.classList.remove('hidden');
-                resultsCount.textContent = '0';
-            }
-
-            /* ---- Mapping des colonnes CSV -> objet vendeur
-               Les en-têtes réelles de la feuille sont en minuscules, sans accent :
-               nom, telephone, ville, categorie, competences, bio, email, badge, date, fin, photo
-               (c'est exactement ce que produit le script Apps Script). On les lit
-               donc directement, en étant tolérant sur la casse/espaces au cas où
-               quelqu'un aurait retapé les en-têtes à la main dans le Sheet. ---- */
-            function normalizeRow(r) {
-                const clean = {};
-                Object.keys(r).forEach(k => {
-                    clean[k.trim().toLowerCase()] = (r[k] || '').toString().trim();
-                });
-
-                return {
-                    nom: clean['nom'] || '',
-                    telephone: clean['telephone'] || clean['téléphone'] || clean['numéro whatsapp'] || '',
-                    ville: clean['ville'] || '',
-                    categorie: clean['categorie'] || clean['catégorie'] || '',
-                    competences: clean['competences'] || clean['compétences'] || clean['compétences / produits'] || '',
-                    bio: clean['bio'] || clean['courte bio / description'] || '',
-                    email: clean['email'] || '',
-                    badge: clean['badge'] || '',
-                    date: clean['date'] || '',
-                    fin: clean['fin'] || '',
-                    photo: clean['photo'] || ''
-                };
-            }
-
-            function loadVendors() {
-                if (!SHEET_CSV_URL || SHEET_CSV_URL.includes('VOTRE_ID_DE_PUBLICATION')) {
-                    showError();
-                    return;
-                }
-                Papa.parse(SHEET_CSV_URL, {
-                    download: true,
-                    header: true,
-                    skipEmptyLines: true,
-                    complete: (results) => {
-                        const rows = (results.data || []).map(normalizeRow).filter(r => r.nom);
-
-                        // On calcule le statut de chaque profil et on ne garde que les actifs
-                        // (payés OU encore dans les 3 jours d'essai gratuit)
-                        const activeRows = rows
-                            .map(r => ({ ...r, status: computeStatus(r) }))
-                            .filter(r => r.status.active);
-
-                        loadingGrid.classList.add('hidden');
-                        if (activeRows.length === 0) { showError(); return; }
-
-                        ALL_VENDORS = activeRows;
-                        lastUpdated.textContent = `Mis à jour automatiquement depuis Google Sheets`;
-                        buildCategoryFilters(ALL_VENDORS);
-                        render();
-                    },
-                    error: () => showError()
-                });
-            }
-
-            searchInput.addEventListener('input', render);
-            loadVendors();
-
-            /* ---- Signaler un vendeur — modal + envoi WhatsApp vers Trust RDC ---- */
-            const reportOverlay = document.getElementById('report-modal-overlay');
-            const closeReportBtn = document.getElementById('close-report-modal-btn');
-            const reportForm = document.getElementById('report-form');
-            const reportVendorNameEl = document.getElementById('report-vendor-name');
-            const TRUST_RDC_WHATSAPP = "243977092549";
-            let reportTarget = { nom: '', telephone: '' };
-
-            function openReportModal(nom, telephone) {
-                reportTarget = { nom: nom || '', telephone: telephone || '' };
-                reportVendorNameEl.textContent = nom ? `Vendeur concerné : ${nom}` : '';
-                reportOverlay.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            }
-            function closeReportModal() {
-                reportOverlay.classList.remove('open');
-                document.body.style.overflow = '';
-            }
-            if (closeReportBtn) closeReportBtn.addEventListener('click', closeReportModal);
-            if (reportOverlay) {
-                reportOverlay.addEventListener('click', (e) => { if (e.target === reportOverlay) closeReportModal(); });
-            }
-
-            // Délégation d'évènements car les cartes vendeurs sont générées dynamiquement
-            document.addEventListener('click', (e) => {
-                const btn = e.target.closest('.report-vendor-btn');
-                if (btn) openReportModal(btn.getAttribute('data-nom'), btn.getAttribute('data-telephone'));
-            });
-
-            if (reportForm) {
-                reportForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const reason = document.getElementById('report-reason').value.trim();
-                    const reporterName = document.getElementById('report-name').value.trim();
-                    const details = document.getElementById('report-details').value.trim();
-                    if (!reason || !reporterName || !details) return;
-
-                    const message =
-`Bonjour OptiSite Digital, je souhaite signaler un vendeur sur Trust RDC.
-
-Vendeur signalé : ${reportTarget.nom || 'Non précisé'}
-Téléphone du vendeur : ${reportTarget.telephone || 'Non précisé'}
-Motif : ${reason}
-
-Mon nom : ${reporterName}
-Détails : ${details}`;
-
-                    window.open(`https://wa.me/${TRUST_RDC_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
-                    closeReportModal();
-                    reportForm.reset();
-                });
-            }
         });
     </script>
 </body>
