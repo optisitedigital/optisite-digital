@@ -19,6 +19,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <!-- GSAP + ScrollTrigger : animations d'entrée & au défilement (effet "wahou") -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -33,8 +36,8 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb',
-                            700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a', 950: '#0f172a',
+                            50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706',
+                            700: '#b45309', 800: '#92400e', 900: '#78350f', 950: '#451a03',
                         },
                         trust: {
                             50: '#f0fdf4', 100: '#dcfce7', 500: '#10b981', 600: '#059669',
@@ -105,7 +108,7 @@
         ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
 
         .text-gradient-brand {
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #f59e0b 0%, #8b5cf6 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .text-gradient-trust {
@@ -223,6 +226,66 @@
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
+
+        /* ============================================================
+           HERO — Image de fond + voile de couleur (effet "wahou")
+           ============================================================ */
+        #hero-bg-wrap { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+        #hero-bg-img {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center;
+            opacity: 0.55;
+            transform: scale(1.08);
+            will-change: transform;
+        }
+        #hero-bg-wrap::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(2,6,23,0.55) 0%, rgba(2,6,23,0.80) 55%, #020617 100%),
+                        radial-gradient(ellipse 70% 55% at 50% 30%, rgba(37,99,235,0.35), transparent 70%);
+        }
+
+        /* ============================================================
+           BOUTONS PRINCIPAUX — format rectangle (coins légèrement
+           arrondis) au lieu du format "pilule" (rounded-full), pour
+           un rendu plus moderne et plus "cliquable".
+           ============================================================ */
+        .btn-rect { border-radius: 0.9rem; }
+
+        /* Bouton "Commander" héro : glow pulsé pour capter l'oeil direct */
+        .btn-order-glow {
+            position: relative;
+            box-shadow: 0 0 0 0 rgba(16,185,129,0.55);
+            animation: orderPulse 2.4s ease-out infinite;
+        }
+        @keyframes orderPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.55); }
+            70%  { box-shadow: 0 0 0 18px rgba(16,185,129,0); }
+            100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .btn-order-glow { animation: none; }
+            #hero-bg-img { transform: none; }
+        }
+
+        /* ============================================================
+           BARRE DE COMMANDE FIXE — MOBILE UNIQUEMENT
+           Toujours visible en bas d'écran sur mobile pour pousser au
+           passage de commande immédiat, sans gêner le bouton WhatsApp
+           flottant (repositionné plus haut sur mobile, voir classes).
+           ============================================================ */
+        #mobile-order-bar {
+            position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+            padding: 0.65rem 0.9rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+            background: rgba(2, 6, 23, 0.92);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        @media (min-width: 1024px) { #mobile-order-bar { display: none; } }
+
+        /* Cartes/en-têtes de section : révélées au scroll via GSAP (JS ci-dessous).
+           Fallback : visibles par défaut si JS/GSAP indisponible. */
+        .reveal-up, .reveal-stagger > * { opacity: 1; }
     </style>
 </head>
 
@@ -231,7 +294,7 @@
     <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             <a href="#accueil" class="flex items-center gap-3 group">
-                <div class="relative w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 p-0.5 shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                <div class="relative w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-500 to-purple-600 p-0.5 shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
                     <img src="Logo Optisite.jpg" alt="OptiSite Digital Logo" class="w-full h-full object-cover rounded-[10px]" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1e40af/ffffff?text=OSD';">
                 </div>
                 <div class="flex flex-col">
@@ -258,9 +321,9 @@
                     <i class="fas fa-sun hidden dark:block text-amber-400"></i>
                 </button>
 
-                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20un%20devis%20gratuit." target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md shadow-brand-600/25 transition-all hover:shadow-lg hover:shadow-brand-600/35">
+                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20commander%20un%20service." target="_blank" class="btn-rect hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md shadow-brand-600/25 transition-all hover:shadow-lg hover:shadow-brand-600/35">
                     <i class="fab fa-whatsapp text-lg"></i>
-                    <span>Devis Gratuit</span>
+                    <span>Commander</span>
                 </a>
 
                 <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -283,7 +346,7 @@
     <aside id="mobile-menu" class="lg:hidden bg-white dark:bg-slate-900" role="dialog" aria-modal="true" aria-label="Menu de navigation">
         <div class="flex items-center justify-between px-5 py-5 border-b border-slate-200 dark:border-slate-800 shrink-0">
             <a href="#accueil" class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brand-600 to-indigo-600 p-0.5 shadow-md shadow-brand-500/20">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brand-500 to-purple-600 p-0.5 shadow-md shadow-brand-500/20">
                     <img src="Logo Optisite.jpg" alt="OptiSite Digital Logo" class="w-full h-full object-cover rounded-[7px]" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1e40af/ffffff?text=OSD';">
                 </div>
                 <span class="font-heading text-base font-bold tracking-tight text-slate-900 dark:text-white leading-none">OptiSite <span class="text-brand-600 dark:text-brand-400">Digital</span></span>
@@ -338,15 +401,20 @@
         </div>
     </aside>
 
-    <section id="accueil" class="relative min-h-screen pt-28 pb-20 flex items-center overflow-hidden bg-slate-950 text-white">
+    <section id="accueil" class="relative min-h-screen pt-28 pb-24 sm:pb-20 flex items-center overflow-hidden bg-slate-950 text-white">
+        <!-- Image de fond héro (Unsplash, libre de droits — Norbert Kowalczyk) -->
+        <div id="hero-bg-wrap">
+            <img id="hero-bg-img" src="https://images.unsplash.com/photo-1754401817883-a6749295b0b4?auto=format&fit=crop&w=2000&q=80" alt="" aria-hidden="true">
+        </div>
+
         <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-60"></canvas>
 
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-600/30 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-purple-600/20 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
 
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-700/80 backdrop-blur-md shadow-2xl mb-8">
+            <div class="hero-anim inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-700/80 backdrop-blur-md shadow-2xl mb-8">
                 <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping"></span>
                 <i class="fas fa-bolt text-amber-400"></i>
                 <span class="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
@@ -354,33 +422,35 @@
                 </span>
             </div>
 
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight max-w-5xl mx-auto leading-none mb-6">
+            <h1 class="hero-anim text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight max-w-5xl mx-auto leading-none mb-6">
                 Propulsez Votre Business Avec <br class="hidden sm:inline">
-                <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent">Des Sites Web & Agents IA</span>
+                <span class="bg-gradient-to-r from-amber-300 via-orange-200 to-purple-400 bg-clip-text text-transparent">Des Sites Web & Agents IA</span>
             </h1>
 
-            <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed mb-10">
+            <p class="hero-anim text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed mb-10">
                 L'agence web agile à Kinshasa. Nous créons des vitrines numériques haute performance, formons sur l'IA WhatsApp et certifions les vendeurs sérieux via notre label <strong class="text-trust-400 font-semibold">Trust RDC</strong>.
             </p>
 
-            <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
-                <a href="#services-formations" class="px-8 py-4 rounded-full bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-base shadow-xl shadow-brand-600/30 hover:scale-105 transition-all flex items-center gap-3">
-                    <i class="fas fa-rocket text-amber-300"></i>
-                    <span>Nos Services & Offres</span>
-                </a>
-
-                <a href="trustrdc.html" target="_blank" class="px-8 py-4 rounded-full bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/50 backdrop-blur-md font-bold text-base hover:scale-105 transition-all flex items-center gap-3">
-                    <i class="fas fa-shield-alt text-emerald-400"></i>
-                    <span>Espace Trust RDC</span>
-                </a>
-
-                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital" target="_blank" class="px-8 py-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-base shadow-xl shadow-emerald-500/20 hover:scale-105 transition-all flex items-center gap-3">
-                    <i class="fab fa-whatsapp text-xl"></i>
-                    <span>WhatsApp Direct</span>
+            <div class="hero-anim flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-4">
+                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital%2C%20je%20souhaite%20passer%20commande%20pour%20un%20service%20(site%20web%2C%20formation%20ou%20Trust%20RDC)." target="_blank" class="btn-rect btn-order-glow w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-extrabold text-base shadow-xl shadow-emerald-500/30 hover:scale-105 transition-all flex items-center justify-center gap-3">
+                    <i class="fas fa-cart-shopping"></i>
+                    <span>Commander un Service Maintenant</span>
                 </a>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
+            <div class="hero-anim flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-16">
+                <a href="#services-formations" class="btn-rect px-6 py-3 bg-gradient-to-r from-brand-500 to-purple-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-brand-600/30 hover:scale-105 transition-all flex items-center gap-2">
+                    <i class="fas fa-rocket text-amber-300"></i>
+                    <span>Voir Nos Services & Offres</span>
+                </a>
+
+                <a href="trustrdc.html" target="_blank" class="btn-rect px-6 py-3 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/50 backdrop-blur-md font-bold text-sm hover:scale-105 transition-all flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-emerald-400"></i>
+                    <span>Espace Trust RDC</span>
+                </a>
+            </div>
+
+            <div class="hero-anim grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
                 <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
                     <div class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-400">120+</div>
                     <div class="text-xs sm:text-sm text-slate-400 mt-1">Projets Web Conçus</div>
@@ -402,7 +472,7 @@
     </section>
 
     <section id="services-formations" class="py-24 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
+        <div class="reveal-up max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
             <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Solutions Évolutives</span>
             <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
                 Nos Services & <span class="text-gradient-brand">Formations d'Élite</span>
@@ -424,7 +494,7 @@
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="reveal-stagger grid lg:grid-cols-12 gap-12 items-center">
 
                 <div class="lg:col-span-7 space-y-6">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
@@ -462,10 +532,10 @@
                     </div>
 
                     <div class="flex flex-wrap items-center gap-4 pt-4">
-                        <a href="trustrdc.html" target="_blank" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2">
+                        <a href="trustrdc.html" target="_blank" class="btn-rect px-7 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2">
                             <i class="fas fa-external-link-alt"></i> Ouvrir le Portail Trust RDC
                         </a>
-                        <button type="button" id="open-vendor-modal-btn" class="px-7 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm transition-all flex items-center gap-2">
+                        <button type="button" id="open-vendor-modal-btn" class="btn-rect px-7 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm transition-all flex items-center gap-2">
                             <i class="fas fa-id-badge text-emerald-400"></i> Obtenir mon Badge Vendeur / Freelance
                         </button>
                     </div>
@@ -505,7 +575,7 @@
 
     <section id="demo-ia" class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="reveal-up text-center max-w-3xl mx-auto mb-16">
                 <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300">Démonstration En Direct</span>
                 <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
                     Testez un <span class="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Agent IA WhatsApp</span>
@@ -515,7 +585,7 @@
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+            <div class="reveal-stagger grid lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
                 <div class="lg:col-span-5 space-y-3">
                     <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 mb-2">Cliquez pour simuler une question :</h3>
 
@@ -585,7 +655,7 @@
 
     <section id="realisations" class="py-24 bg-white dark:bg-slate-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
+            <div class="reveal-up text-center max-w-3xl mx-auto mb-12">
                 <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Notre Travail</span>
                 <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
                     Nos <span class="text-gradient-brand">Réalisations RDC</span>
@@ -622,8 +692,8 @@
 
     <section id="emplois" class="py-20 bg-slate-100 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white shadow-2xl relative overflow-hidden border border-slate-800">
-                <div class="relative z-10">
+            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-slate-900 via-purple-950 to-slate-900 text-white shadow-2xl relative overflow-hidden border border-slate-800">
+                <div class="reveal-up relative z-10">
                     <span class="inline-block px-3.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-wider mb-4">
                         <i class="fas fa-briefcase mr-1"></i> Carrières & Opportunités
                     </span>
@@ -632,10 +702,10 @@
                         Consultez nos postes ouverts au sein d'OptiSite Digital ou publiez directement votre propre annonce de recrutement.
                     </p>
                     <div class="flex flex-wrap items-center justify-center gap-4">
-                        <a href="offres.html" target="_blank" class="px-7 py-3.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2">
+                        <a href="offres.html" target="_blank" class="btn-rect px-7 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2">
                             <i class="fas fa-list-ul"></i> Voir les offres disponibles
                         </a>
-                        <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20publier%20une%20offre%20d'emploi." target="_blank" class="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm transition-all flex items-center gap-2">
+                        <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20publier%20une%20offre%20d'emploi." target="_blank" class="btn-rect px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm transition-all flex items-center gap-2">
                             <i class="fas fa-bullhorn text-amber-400"></i> Publier une offre
                         </a>
                     </div>
@@ -646,7 +716,7 @@
 
     <section class="py-24 bg-white dark:bg-slate-950">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="reveal-up text-center mb-16">
                 <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Aide & Réponses</span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">Questions Fréquemment Posées</h2>
                 <p class="text-slate-800 dark:text-slate-400 text-sm sm:text-base">
@@ -718,13 +788,13 @@
 
     <section id="contact" class="py-24 bg-white dark:bg-slate-950">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="reveal-up text-center mb-12">
                 <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300">Restons en contact</span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-2">Contactez Notre Équipe</h2>
                 <p class="text-slate-800 dark:text-slate-400 text-sm sm:text-base">Une question ou un projet ? Nous répondons sous 30 minutes.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
+            <div class="reveal-stagger grid md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
                 <a href="mailto:optisitedigital@gmail.com" class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center hover-lift block">
                     <div class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mx-auto mb-3">
                         <i class="fas fa-envelope"></i>
@@ -773,9 +843,20 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform shadow-emerald-500/50" aria-label="Contact WhatsApp">
+    <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital" target="_blank" class="hidden lg:flex fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform shadow-emerald-500/50" aria-label="Contact WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- ============================================================
+         BARRE DE COMMANDE FIXE (MOBILE) — pousse au passage de
+         commande immédiat dès l'arrivée sur le site, sur tout l'écran.
+         ============================================================ -->
+    <div id="mobile-order-bar" class="lg:hidden">
+        <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital%2C%20je%20souhaite%20passer%20commande%20pour%20un%20service." target="_blank" class="btn-rect w-full py-3.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-extrabold text-sm shadow-lg flex items-center justify-center gap-2">
+            <i class="fas fa-cart-shopping"></i>
+            <span>Commander un service maintenant</span>
+        </a>
+    </div>
 
     <!-- ============================================================
          MODALE VENDEUR / FREELANCE — structure corrigée :
@@ -1462,6 +1543,55 @@
                 });
             }
 
+            /* ============================================================
+               ANIMATIONS "WAHOU" — GSAP
+               1) Entrée du héro en cascade dès l'ouverture du site
+               2) Révélation au défilement pour toutes les autres sections
+               Respecte prefers-reduced-motion (aucune animation si activé).
+               ============================================================ */
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (window.gsap && !reduceMotion) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // --- 1) Entrée du héro : badge -> titre -> texte -> boutons -> stats ---
+                gsap.timeline({ defaults: { ease: 'power2.out' } })
+                    .from('#hero-bg-img', { opacity: 0, scale: 1.18, duration: 1.4, ease: 'power1.out' }, 0)
+                    .from('.hero-anim', { opacity: 0, y: 26, duration: 0.6, stagger: 0.12 }, 0.15);
+
+                // Léger parallaxe de l'image de fond au défilement (effet premium)
+                gsap.to('#hero-bg-img', {
+                    yPercent: 12,
+                    ease: 'none',
+                    scrollTrigger: { trigger: '#accueil', start: 'top top', end: 'bottom top', scrub: 0.6 }
+                });
+
+                // --- 2) Révélation au scroll pour le reste du site ---
+                document.querySelectorAll('.reveal-up').forEach((el) => {
+                    gsap.from(el, {
+                        opacity: 0, y: 28, duration: 0.6, ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none reverse' }
+                    });
+                });
+
+                document.querySelectorAll('.reveal-stagger').forEach((el) => {
+                    gsap.from(el.children, {
+                        opacity: 0, y: 24, duration: 0.5, stagger: 0.1, ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' }
+                    });
+                });
+
+                // Cartes générées dynamiquement (services, réalisations, avis) : petit effet d'entrée
+                ['#services-track', '#realisations-track', '#testimonials-track'].forEach((sel) => {
+                    const track = document.querySelector(sel);
+                    if (track && track.children.length) {
+                        gsap.from(track.children, {
+                            opacity: 0, y: 20, duration: 0.5, stagger: 0.06, ease: 'power2.out',
+                            scrollTrigger: { trigger: track, start: 'top 90%' }
+                        });
+                    }
+                });
+            }
         });
     </script>
 </body>
