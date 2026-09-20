@@ -1,1598 +1,636 @@
-<!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<!doctype html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="-_aNDFj2tGqemqJy4bAPqVS9438FSGOIACF2So6ZFVo" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Optisite Digital — Création de sites web, applications web et formation en ligne</title>
+<meta name="description" content="Optisite Digital crée votre site web et vos applications web, et vous forme en ligne à la création de sites et d'applications. Devis et commande directement sur WhatsApp.">
+<meta name="theme-color" content="#0A1230">
 
-    <title>OptiSite Digital — Création Web, Formations IA & Certification Trust RDC</title>
-    <meta name="description" content="OptiSite Digital : Agence Web agile à Kinshasa. Création de sites internet, formations IA WhatsApp & Marketing, certifications anti-escroqueries Trust RDC.">
+<!-- ============ FAVICON & LOGO (fichiers de ton repo) ============ -->
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <link rel="icon" type="image/jpeg" href="Logo Optisite.jpg">
-    <link rel="apple-touch-icon" href="Logo Optisite.jpg">
+<!-- ============ APERÇU QUAND ON PARTAGE LE LIEN ============
+     Remplace VOTRE-DOMAINE.com par ton vrai domaine (5 endroits) -->
+<link rel="canonical" href="https://VOTRE-DOMAINE.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Optisite Digital">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Optisite Digital — Sites web, applications web et formation en ligne">
+<meta property="og:description" content="Un site web qui fait dire « wahou » à vos clients. Devis et commande directement sur WhatsApp.">
+<meta property="og:url" content="https://VOTRE-DOMAINE.com/">
+<meta property="og:image" content="https://VOTRE-DOMAINE.com/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Optisite Digital — Sites web, applications web et formation en ligne">
+<meta name="twitter:description" content="Un site web qui fait dire « wahou » à vos clients. Devis et commande directement sur WhatsApp.">
+<meta name="twitter:image" content="https://VOTRE-DOMAINE.com/logo.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+/* ==========================================================
+   Optisite Digital — style
+   Palette : nuit #0A1230 · bleu ciel #2D8CFF · jaune soleil #F7D618
+   (clin d'œil aux couleurs du drapeau de la RDC)
+   ========================================================== */
+:root {
+  --night: #0A1230;
+  --night-2: #0F1B45;
+  --sky: #2D8CFF;
+  --sky-soft: #8CC0FF;
+  --sun: #F7D618;
+  --mist: #EEF3FC;
+  --paper: #FFFFFF;
+  --ink: #0A1230;
+  --ink-2: #44507A;
+  --wa: #25D366;
+  --wa-ink: #052E16;
+  --violet: #5B3FE0;
+  --violet-deep: #3B25B0;
+  --line: rgba(10, 18, 48, .12);
+  --line-light: rgba(255, 255, 255, .16);
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <!-- GSAP + ScrollTrigger : animations d'entrée & au défilement (effet "wahou") -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
-   gtag('config', 'G-NJ4ZZS8D8F');
-   </script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706',
-                            700: '#b45309', 800: '#92400e', 900: '#78350f', 950: '#451a03',
-                        },
-                        trust: {
-                            50: '#f0fdf4', 100: '#dcfce7', 500: '#10b981', 600: '#059669',
-                            700: '#047857', 800: '#065f46', 900: '#064e3b',
-                        },
-                        ai: { 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9' }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        heading: ['Space Grotesk', 'sans-serif'],
-                    },
-                    animation: {
-                        'infinite-scroll': 'infinite-scroll 35s linear infinite',
-                        'infinite-scroll-fast': 'infinite-scroll 28s linear infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-glow': 'pulseGlow 3s infinite',
-                    },
-                    keyframes: {
-                        'infinite-scroll': {
-                            from: { transform: 'translateX(0)' },
-                            to: { transform: 'translateX(-50%)' },
-                        },
-                        'float': {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' },
-                        },
-                        'pulseGlow': {
-                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+  --f-display: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --f-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "OptiSite Digital",
-      "url": "https://optisite-digital.onrender.com",
-      "logo": "https://optisite-digital.onrender.com/Logo%20Optisite.jpg",
-      "founder": { "@type": "Person", "name": "Olivier Tshimbalanga", "sameAs": "https://www.facebook.com/profile.php?id=61588260623995" },
-      "address": { "@type": "PostalAddress", "addressLocality": "Kinshasa", "addressCountry": "CD" },
-      "contactPoint": { "@type": "ContactPoint", "telephone": "+243977092549", "contactType": "customer service" }
-    }
-    </script>
+  --r-xl: 22px;
+  --r-md: 14px;
+  --wrap: 1200px;
+  --pad: clamp(20px, 5vw, 56px);
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
 
-    <style>
-        * { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(76px + env(safe-area-inset-top, 0px)); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--f-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--night);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; padding: 0; }
+h1, h2, h3, p, ul, ol, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
 
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-        .dark .glass-panel {
-            background: rgba(30, 41, 59, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
+.wrap { width: min(100% - 2 * var(--pad), var(--wrap)); margin-inline: auto; }
 
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--f-display); font-weight: 700; letter-spacing: -.01em;
+  border-radius: 999px; cursor: pointer; white-space: nowrap;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), background-color .2s, color .2s, border-color .2s;
+}
+.btn--sm { padding: 10px 18px; font-size: .95rem; }
+.btn--lg { padding: 16px 28px; font-size: 1.05rem; }
+.btn--block { width: 100%; }
+.btn--wa { background: var(--wa); color: var(--wa-ink); box-shadow: 0 10px 30px -10px rgba(37, 211, 102, .7); }
+.btn--wa:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -10px rgba(37, 211, 102, .85); background: #2FE070; }
+.btn--sun { background: var(--sun); color: var(--night); }
+.btn--sun:hover { transform: translateY(-2px); background: #FFE23B; }
+.btn--ghost { color: #fff; border: 1.5px solid var(--line-light); }
+.btn--ghost:hover { border-color: #fff; background: rgba(255, 255, 255, .08); }
+.btn--ghost-light { color: #fff; border: 1.5px solid rgba(255, 255, 255, .45); }
+.btn--ghost-light:hover { background: rgba(255, 255, 255, .14); border-color: #fff; }
+.linkbtn { display: block; margin: 14px auto 0; color: var(--ink-2); text-decoration: underline; text-underline-offset: 4px; font-size: .95rem; }
+.linkbtn:hover { color: var(--ink); }
 
-        .text-gradient-brand {
-            background: linear-gradient(135deg, #f59e0b 0%, #8b5cf6 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .text-gradient-trust {
-            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+/* ---------- Marque ---------- */
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-display); font-weight: 700; font-size: 1.3rem; letter-spacing: -.02em; }
+.brand--light { color: #fff; }
+.brand img { object-fit: contain; }
+.brand__name span { font-weight: 500; color: var(--sky-soft); }
 
-        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
-        .hover-lift:hover { transform: translateY(-6px); }
+/* ---------- En-tête ---------- */
+.hdr { position: fixed; inset: 0 0 auto 0; z-index: 50; padding-top: env(safe-area-inset-top, 0px); }
+/* Le fond flou est sur un pseudo-élément (un backdrop-filter sur .hdr enfermerait les éléments fixed). */
+.hdr::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: rgba(10, 18, 48, .86); box-shadow: 0 1px 0 var(--line-light);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  opacity: 0; transition: opacity .3s;
+}
+.hdr--solid::before { opacity: 1; }
+.hdr__in { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 20px; }
+.nav { display: none; gap: 30px; font-weight: 500; }
+.nav a { color: rgba(255, 255, 255, .78); position: relative; padding: 6px 0; transition: color .2s; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--sun); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
+.nav a:hover { color: #fff; }
+.nav a:hover::after { transform: scaleX(1); }
+.hdr__cta { display: none; }
+/* Hamburger : tout à droite */
+.burger { width: 44px; height: 44px; display: grid; place-items: center; color: #fff; border-radius: 12px; background: rgba(255, 255, 255, .08); border: 1px solid var(--line-light); transition: background-color .2s; }
+.burger:hover { background: rgba(255, 255, 255, .16); }
 
-        .infinite-track:hover { animation-play-state: paused; }
+/* Panneau qui sort de la gauche */
+.scrim {
+  position: fixed; inset: 0; z-index: 60; background: rgba(4, 8, 24, .62);
+  opacity: 0; visibility: hidden; transition: opacity .35s, visibility 0s .35s;
+}
+.scrim.is-on { opacity: 1; visibility: visible; transition-delay: 0s; }
+.drawer {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 70;
+  width: min(84vw, 330px);
+  display: flex; flex-direction: column; gap: 8px; overflow-y: auto; overscroll-behavior: contain;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) 20px calc(20px + env(safe-area-inset-bottom, 0px));
+  background: var(--night); border-right: 1px solid var(--line-light);
+  box-shadow: 30px 0 60px -20px rgba(0, 0, 0, .7);
+  transform: translateX(-104%); visibility: hidden;
+  transition: transform .45s var(--ease), visibility 0s .45s;
+}
+.drawer.is-open { transform: none; visibility: visible; transition-delay: 0s; }
+.drawer__top { display: flex; align-items: center; justify-content: space-between; height: 48px; }
+.drawer__close { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; color: #fff; border: 1px solid var(--line-light); }
+.drawer__close:hover { background: rgba(255, 255, 255, .1); }
+.drawer__nav { display: flex; flex-direction: column; margin-top: 14px; }
+.drawer__nav a {
+  font-family: var(--f-display); font-weight: 700; font-size: 1.3rem; letter-spacing: -.02em; color: #fff;
+  padding: 15px 4px; border-bottom: 1px solid var(--line-light);
+  opacity: 0; transform: translateX(-18px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease), color .2s;
+}
+.drawer.is-open .drawer__nav a { opacity: 1; transform: none; transition-delay: calc(var(--i) * 55ms + 160ms); }
+.drawer__nav a:hover { color: var(--sun); }
+.drawer__foot { margin-top: auto; display: grid; gap: 12px; padding-top: 24px; }
+.drawer__mail { display: flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, .82); font-size: .95rem; overflow-wrap: anywhere; }
+.drawer__tel { color: rgba(255, 255, 255, .6); font-size: .9rem; }
 
-        /* ============================================================
-           MENU MOBILE — TIROIR LATÉRAL GAUCHE (OFF-CANVAS)
-           Remplace l'ancien menu déroulant sous le header par un panneau
-           qui glisse depuis la gauche, par-dessus un fond assombri.
-           - #mobile-menu-overlay : fond sombre cliquable pour fermer
-           - #mobile-menu         : panneau fixe, translateX(-100%) -> 0
-           - .mobile-link         : apparition en cascade légère
-           ============================================================ */
-        #mobile-menu-overlay {
-            position: fixed; inset: 0; z-index: 90;
-            background: rgba(2, 6, 23, 0.6);
-            backdrop-filter: blur(3px);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.35s ease;
-        }
-        #mobile-menu-overlay.open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        #mobile-menu {
-            position: fixed;
-            top: 0; left: 0; bottom: 0;
-            z-index: 100;
-            width: 86%;
-            max-width: 340px;
-            transform: translateX(-100%);
-            transition: transform 0.4s cubic-bezier(0.65,0,0.35,1);
-            display: flex;
-            flex-direction: column;
-            box-shadow: 20px 0 60px -15px rgba(0,0,0,0.4);
-        }
-        #mobile-menu.open { transform: translateX(0); }
-        #mobile-menu-scroll { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+@media (min-width: 900px) {
+  .hdr__in { height: 72px; }
+  .nav { display: flex; }
+  .hdr__cta { display: inline-flex; }
+  .burger, .drawer, .scrim { display: none; }
+}
 
-        .mobile-link {
-            opacity: 0;
-            transform: translateX(-14px);
-            transition: opacity 0.35s ease, transform 0.35s ease;
-        }
-        #mobile-menu.open .mobile-link { opacity: 1; transform: translateX(0); }
-        #mobile-menu.open .mobile-link:nth-child(1) { transition-delay: .05s; }
-        #mobile-menu.open .mobile-link:nth-child(2) { transition-delay: .09s; }
-        #mobile-menu.open .mobile-link:nth-child(3) { transition-delay: .13s; }
-        #mobile-menu.open .mobile-link:nth-child(4) { transition-delay: .17s; }
-        #mobile-menu.open .mobile-link:nth-child(5) { transition-delay: .21s; }
-        #mobile-menu.open .mobile-link:nth-child(6) { transition-delay: .25s; }
-        #mobile-menu.open .mobile-link:nth-child(7) { transition-delay: .29s; }
+/* ---------- Hero ---------- */
+.hero {
+  --mx: 75%; --my: 30%;
+  position: relative; isolation: isolate; overflow: clip;
+  min-height: 100svh; display: flex; align-items: center;
+  padding: calc(110px + env(safe-area-inset-top, 0px)) 0 72px;
+  color: #fff; background: var(--night);
+}
+.hero__glow {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(520px circle at var(--mx) var(--my), rgba(45, 140, 255, .32), transparent 65%),
+    radial-gradient(700px 400px at 90% 10%, rgba(45, 140, 255, .18), transparent 70%),
+    radial-gradient(500px 300px at 0% 100%, rgba(247, 214, 24, .08), transparent 70%);
+}
+.hero__glow::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 30% 40%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 30% 40%, #000 20%, transparent 75%);
+}
+.hero__in { display: grid; gap: 56px; align-items: center; }
+.hero h1 {
+  font-family: var(--f-display); font-weight: 700;
+  font-size: clamp(2.6rem, 7.4vw, 5.2rem); line-height: 1.02; letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.hw { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.hw__in { display: inline-block; transform: translateY(110%); animation: rise .95s var(--ease) forwards; animation-delay: calc(var(--i) * 75ms + 150ms); }
+@keyframes rise { to { transform: none; } }
 
-        .mobile-link-icon {
-            width: 2.5rem; height: 2.5rem; border-radius: 0.85rem;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0; font-size: 0.95rem;
-            transition: transform 0.25s ease;
-        }
-        .mobile-link:hover .mobile-link-icon { transform: scale(1.08); }
-        #menu-icon { transition: transform 0.35s cubic-bezier(0.65,0,0.35,1); }
-        #mobile-menu-btn[aria-expanded="true"] #menu-icon { transform: rotate(90deg); }
+.hero__type { margin-top: 26px; font-family: var(--f-display); font-weight: 500; font-size: clamp(1.1rem, 2.4vw, 1.45rem); color: #fff; min-height: 1.6em; }
+.typer { color: var(--sky-soft); }
+.typer__caret { display: inline-block; width: 2px; height: 1.05em; margin-left: 3px; vertical-align: -.15em; background: var(--sun); animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.hero__lead { margin-top: 18px; max-width: 34em; color: rgba(255, 255, 255, .74); font-size: 1.1rem; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.hero__note { margin-top: 22px; display: flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, .62); font-size: .95rem; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 4px rgba(37, 211, 102, .25); }
 
-        .realisations-track { animation: infinite-scroll 30s linear infinite; }
-        .realisations-track:hover { animation-play-state: paused; }
-        .realisation-frame {
-            position: relative;
-            flex-shrink: 0;
-            width: 280px;
-            height: 340px;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 12px 30px -8px rgba(0,0,0,0.25);
-        }
-        .realisation-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
-        .realisation-frame:hover img { transform: scale(1.08); }
+.hero__copy > * { animation: fadein .8s var(--ease) both; }
+.hero__copy > h1 { animation: none; }
+.hero__type { animation-delay: .9s !important; }
+.hero__lead { animation-delay: 1s !important; }
+.hero__cta { animation-delay: 1.1s !important; }
+.hero__note { animation-delay: 1.2s !important; }
+@keyframes fadein { from { opacity: 0; transform: translateY(14px); } }
 
-        /* ============================================================
-           MODALE VENDEUR / FREELANCE — CORRIGÉE
-           L'ancien code faisait défiler toute la modale (y compris le
-           titre) dans l'overlay, avec un header "sticky" qui ne
-           s'accrochait pas correctement. Maintenant :
-           - l'overlay centre juste la boîte, il ne scrolle plus lui-même
-           - la boîte a une hauteur max et devient un flex-column
-           - le header est HORS de la zone de scroll => il ne bouge plus
-           - seul le formulaire (zone du bas) défile
-           ============================================================ */
-        #vendor-modal-overlay {
-            position: fixed; inset: 0; z-index: 100;
-            background: rgba(2, 6, 23, 0.75);
-            backdrop-filter: blur(6px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-        #vendor-modal-overlay.open { display: flex; }
-        #vendor-modal-box {
-            width: 100%;
-            max-width: 42rem; /* ~ max-w-2xl */
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        #vendor-modal-scroll {
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
+/* Fenêtre 3D */
+.stage { perspective: 1500px; padding: 26px 18px; animation: stagein 1.2s var(--ease) .5s both; }
+@keyframes stagein { from { opacity: 0; transform: translateY(40px) scale(.96); } }
+.win {
+  --rx: 4deg; --ry: -8deg;
+  position: relative; transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform .35s var(--ease);
+  border-radius: 18px; background: #101a40; border: 1px solid rgba(255, 255, 255, .16);
+  box-shadow: 0 50px 90px -30px rgba(0, 0, 0, .75), 0 0 0 1px rgba(45, 140, 255, .12), 0 0 140px -30px rgba(45, 140, 255, .55);
+}
+.win__bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; background: #131f4d; border-radius: 18px 18px 0 0; }
+.win__bar > i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255, 255, 255, .22); }
+.win__url { margin-left: 10px; flex: 1; display: flex; align-items: center; gap: 8px; padding: 5px 14px; border-radius: 999px; background: rgba(255, 255, 255, .08); color: var(--sky-soft); font-size: .8rem; }
+.win__url svg { color: var(--wa); }
+.win__screen { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #0c1433; }
+.slide { position: absolute; inset: 0; display: block; opacity: 0; transform: scale(1.06); transition: opacity .8s var(--ease), transform 1.4s var(--ease); }
+.slide.is-on { opacity: 1; transform: none; z-index: 1; }
+.slide img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.win__dots { display: flex; justify-content: center; gap: 4px; padding: 6px 0 10px; background: #101a40; border-radius: 0 0 18px 18px; }
+.win__dots button { padding: 10px 6px; }
+.win__dots span { display: block; width: 26px; height: 4px; border-radius: 4px; background: rgba(255, 255, 255, .22); position: relative; overflow: hidden; }
+.win__dots .is-on span::after { content: ""; position: absolute; inset: 0; background: var(--sun); transform-origin: left; animation: prog 4.2s linear forwards; }
+.stage:hover .win__dots .is-on span::after { animation-play-state: paused; }
+@keyframes prog { from { transform: scaleX(0); } }
 
-        /* ============================================================
-           HERO — Image de fond + voile de couleur (effet "wahou")
-           ============================================================ */
-        #hero-bg-wrap { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-        #hero-bg-img {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            object-fit: cover; object-position: center;
-            opacity: 0.95;
-            transform: scale(1.08);
-            will-change: transform;
-        }
-        #hero-bg-wrap::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(180deg, rgba(2,6,23,0.25) 0%, rgba(2,6,23,0.55) 55%, #020617 92%),
-                        radial-gradient(ellipse 70% 55% at 50% 30%, rgba(217,119,6,0.20), transparent 70%);
-        }
+.chip {
+  position: absolute; display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px;
+  border-radius: 999px; font-family: var(--f-display); font-weight: 700; font-size: .85rem; white-space: nowrap;
+  background: #fff; color: var(--night); box-shadow: 0 16px 36px -10px rgba(0, 0, 0, .55);
+}
+.chip svg { color: var(--wa-ink); }
+.chip--a { left: -10px; bottom: 14%; transform: translateZ(70px); }
+.chip--b { right: -6px; top: -18px; transform: translateZ(90px); background: var(--wa); color: var(--wa-ink); }
 
-        /* ============================================================
-           BOUTONS PRINCIPAUX — format rectangle (coins légèrement
-           arrondis) au lieu du format "pilule" (rounded-full), pour
-           un rendu plus moderne et plus "cliquable".
-           ============================================================ */
-        .btn-rect { border-radius: 0.9rem; }
+@media (min-width: 960px) {
+  .hero__in { grid-template-columns: 1.02fr .98fr; gap: 40px; }
+  .stage { padding: 30px 26px 30px 6px; }
+  .chip--a { left: -34px; }
+  .chip--b { right: -8px; }
+}
+@media (max-width: 520px) {
+  .chip--a { left: 4px; }
+  .chip--b { right: 4px; }
+  .chip { font-size: .78rem; padding: 7px 11px; }
+  .win { --rx: 0deg; --ry: 0deg; }
+}
 
-        /* Bouton "Commander" héro : glow pulsé pour capter l'oeil direct */
-        .btn-order-glow {
-            position: relative;
-            box-shadow: 0 0 0 0 rgba(16,185,129,0.55);
-            animation: orderPulse 2.4s ease-out infinite;
-        }
-        @keyframes orderPulse {
-            0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.55); }
-            70%  { box-shadow: 0 0 0 18px rgba(16,185,129,0); }
-            100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .btn-order-glow { animation: none; }
-            #hero-bg-img { transform: none; }
-        }
+/* ---------- Sections ---------- */
+.sect { padding: clamp(72px, 10vw, 128px) 0; }
+.sect--light { background: var(--mist); color: var(--ink); }
+.sect--paper { background: var(--paper); color: var(--ink); }
+.sect--dark { background: var(--night-2); color: #fff; }
+.sect--violet { background: linear-gradient(160deg, var(--violet) 0%, var(--violet-deep) 100%); color: #fff; }
+.sect__head { max-width: 46rem; margin-bottom: clamp(36px, 6vw, 64px); }
+.sect__sub { margin-top: 18px; font-size: 1.15rem; color: var(--ink-2); max-width: 40em; }
+.sect--dark .sect__sub, .sect--violet .sect__sub { color: rgba(255, 255, 255, .78); }
 
-        /* ============================================================
-           BARRE DE COMMANDE FIXE — MOBILE UNIQUEMENT
-           Toujours visible en bas d'écran sur mobile pour pousser au
-           passage de commande immédiat, sans gêner le bouton WhatsApp
-           flottant (repositionné plus haut sur mobile, voir classes).
-           ============================================================ */
-        #mobile-order-bar {
-            position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-            padding: 0.65rem 0.9rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
-            background: rgba(2, 6, 23, 0.92);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-        @media (min-width: 1024px) { #mobile-order-bar { display: none; } }
+.split {
+  font-family: var(--f-display); font-weight: 700; letter-spacing: -.03em; line-height: 1.06;
+  font-size: clamp(2rem, 5vw, 3.4rem); text-wrap: balance;
+}
+.split__mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.split__word { display: inline-block; transform: translateY(110%); transition: transform .9s var(--ease); transition-delay: calc(var(--i) * 55ms); }
+.split.is-in .split__word { transform: none; }
 
-        /* Cartes/en-têtes de section : révélées au scroll via GSAP (JS ci-dessous).
-           Fallback : visibles par défaut si JS/GSAP indisponible. */
-        .reveal-up, .reveal-stagger > * { opacity: 1; }
-    </style>
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease) var(--d, 0ms), transform .8s var(--ease) var(--d, 0ms); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* Services */
+.svc__row { display: flex; flex-direction: column; gap: 14px; padding: 22px; border-radius: var(--r-xl); background: #fff; border: 1px solid var(--line); position: relative; }
+.svc__icon { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--night); color: var(--sun); transition: transform .4s var(--ease); }
+.svc__main strong { display: block; font-family: var(--f-display); font-size: 1.3rem; letter-spacing: -.02em; line-height: 1.15; }
+.svc__main span { display: block; margin-top: 6px; color: var(--ink-2); font-size: .98rem; line-height: 1.5; }
+.svc__tags { display: none; }
+.svc__go { position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--line); }
+@media (min-width: 900px) {
+  .svc { display: block; border-top: 1px solid var(--line); }
+  .svc__row {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 8px 22px; align-items: start;
+    padding: 30px 8px; border-radius: 0; background: transparent; border: 0; border-bottom: 1px solid var(--line);
+    transition: background-color .3s, padding .4s var(--ease);
+  }
+  .svc__row:hover { background: #fff; padding-inline: 22px; }
+  .svc__icon { grid-row: span 2; width: 56px; height: 56px; border-radius: 16px; }
+  .svc__row:hover .svc__icon { transform: rotate(-8deg) scale(1.06); }
+  .svc__main strong { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+  .svc__main span { margin-top: 8px; max-width: 44em; font-size: 1.0625rem; }
+  .svc__tags { display: flex; grid-column: 2; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .svc__tags em { font-style: normal; font-size: .85rem; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-2); background: rgba(255, 255, 255, .6); }
+  .svc__go { position: static; grid-column: 3; grid-row: 1; width: 44px; height: 44px; transition: background-color .25s, color .25s, border-color .25s, transform .4s var(--ease); }
+  .svc__row:hover .svc__go { background: var(--wa); border-color: var(--wa); color: var(--wa-ink); transform: rotate(45deg); }
+}
+
+/* Réalisations */
+@media (min-width: 900px) {
+  .prj { display: grid; grid-template-columns: repeat(6, 1fr); gap: 28px; }
+  .prj__cell { grid-column: span 2; }
+  .prj__cell--0, .prj__cell--1 { grid-column: span 3; }
+}
+.card { display: block; }
+.card__shot {
+  position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: var(--r-xl);
+  background: #0c1433; border: 1px solid var(--line-light);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .7);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .3s;
+}
+.card__shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .8s var(--ease); }
+.card__shot .mock { transition: transform .8s var(--ease); }
+.card:hover .card__shot { transform: translateY(-6px); border-color: rgba(247, 214, 24, .6); box-shadow: 0 40px 70px -30px rgba(45, 140, 255, .55); }
+.card:hover .card__shot img, .card:hover .card__shot .mock { transform: scale(1.05); }
+.card__open {
+  position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: 999px; background: var(--sun); color: var(--night);
+  font-family: var(--f-display); font-weight: 700; font-size: .92rem;
+  opacity: 0; transform: translateY(10px); transition: opacity .3s, transform .4s var(--ease);
+}
+.card:hover .card__open, .card:focus-visible .card__open { opacity: 1; transform: none; }
+.card__meta { display: none; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 4px 0; }
+.card__meta strong { font-family: var(--f-display); font-size: 1.2rem; letter-spacing: -.01em; }
+.card__meta span { color: rgba(255, 255, 255, .6); font-size: .95rem; }
+.prj__more { margin-top: clamp(44px, 6vw, 72px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; padding: clamp(24px, 4vw, 36px); border-radius: var(--r-xl); border: 1px solid var(--line-light); background: rgba(255, 255, 255, .04); }
+.prj__more p { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.3rem, 2.6vw, 1.8rem); letter-spacing: -.02em; max-width: 20em; line-height: 1.2; }
+
+/* Maquette de secours (quand l'image n'existe pas encore) */
+.mock { --tone: #2D8CFF; width: 100%; height: 100%; padding: 6% 7%; display: flex; flex-direction: column; gap: 6%; background: linear-gradient(180deg, #16234f, #0d1638); }
+.mock__nav { display: flex; align-items: center; gap: 4%; }
+.mock__nav i { width: 8%; aspect-ratio: 1; border-radius: 50%; background: var(--tone); }
+.mock__nav b { width: 10%; height: 5px; border-radius: 4px; background: rgba(255, 255, 255, .28); }
+.mock__nav b:nth-of-type(1) { margin-left: auto; }
+.mock__nav em { width: 14%; height: 12px; border-radius: 99px; background: var(--tone); }
+.mock__hero { flex: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 8%; align-items: center; }
+.mock__hero > div:first-child { display: flex; flex-direction: column; gap: 10px; }
+.mock__hero span { display: block; height: 12px; border-radius: 6px; background: rgba(255, 255, 255, .88); }
+.mock__hero u { display: block; width: 44%; height: 16px; border-radius: 99px; background: var(--tone); margin-top: 6px; }
+.mock__art { height: 100%; min-height: 60px; border-radius: 14px; background: linear-gradient(135deg, var(--tone), rgba(255, 255, 255, .18)); }
+.mock__row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5%; height: 22%; }
+.mock__row i { border-radius: 10px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .1); }
+
+/* Formation */
+.train { display: grid; gap: 28px; }
+.train__card { margin-top: 20px; padding: 18px; border-radius: var(--r-xl); background: var(--night); color: #fff; display: grid; gap: 14px; }
+.train__card ul { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.train__card li { display: flex; gap: 8px; align-items: center; font-size: .95rem; }
+.train__card li svg { color: var(--sun); flex: none; }
+.steps__item { padding: 22px; border-radius: var(--r-xl); background: var(--mist); border: 1px solid var(--line); }
+.steps__n { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 12px; font-family: var(--f-display); font-weight: 700; background: var(--sun); color: var(--night); }
+.steps h3 { font-family: var(--f-display); font-size: 1.3rem; letter-spacing: -.02em; line-height: 1.2; }
+.steps p { margin-top: 6px; color: var(--ink-2); font-size: .98rem; line-height: 1.5; }
+@media (min-width: 900px) {
+  .train { grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .train__side { position: sticky; top: 110px; }
+  .train__card { margin-top: 32px; padding: 26px; gap: 22px; }
+  .train__card ul { display: block; }
+  .train__card li { padding: 6px 0; gap: 12px; font-size: 1.0625rem; }
+  .steps { position: relative; display: grid; gap: 8px; }
+  .steps::before { content: ""; position: absolute; left: 21px; top: 24px; bottom: 24px; width: 2px; background: linear-gradient(var(--sky), var(--sun)); opacity: .5; }
+  .steps__item { position: relative; padding: 0 0 26px 68px; background: transparent; border: 0; border-radius: 0; }
+  .steps__n { position: absolute; left: 0; top: 0; width: 44px; height: 44px; margin: 0; box-shadow: 0 0 0 6px var(--paper); }
+  .steps h3 { font-size: 1.45rem; padding-top: 8px; }
+  .steps p { margin-top: 8px; max-width: 32em; font-size: 1.0625rem; }
+}
+
+/* Kontra Africa */
+.kon { display: grid; gap: 32px; align-items: center; }
+.kon__feats { margin-top: 0; }
+.kon__feat { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 18px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .2); }
+.kon__feat > span { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .22); }
+.kon__feat strong { font-family: var(--f-display); font-size: 1.1rem; }
+.kon__feat p { color: rgba(255, 255, 255, .8); font-size: .95rem; line-height: 1.45; margin-top: 2px; }
+@media (min-width: 900px) {
+  .kon__feats { display: grid; gap: 18px; margin-top: 32px; }
+  .kon__feat { flex-direction: row; gap: 16px; align-items: flex-start; padding: 0; background: none; border: 0; border-radius: 0; }
+  .kon__feat > span { width: 46px; height: 46px; border-radius: 14px; }
+  .kon__feat p { font-size: 1rem; }
+}
+.kon__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.kon__price { margin-top: 18px; color: rgba(255, 255, 255, .8); font-size: .98rem; }
+.kon__visual { display: grid; place-items: center; }
+.phone { width: min(320px, 100%); padding: 16px 14px 20px; border-radius: 38px; background: #14112e; border: 8px solid #0b0920; box-shadow: 0 50px 80px -30px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .18); display: grid; gap: 12px; transform: rotate(3deg); }
+.phone__top { text-align: center; font-family: var(--f-display); font-weight: 700; font-size: .95rem; padding: 6px 0 8px; color: #fff; }
+.ph-card { padding: 14px; border-radius: 16px; background: #fff; color: var(--night); }
+.ph-card--sign { background: linear-gradient(135deg, #fff, #ECE8FF); }
+.ph-line { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-weight: 700; font-size: .92rem; }
+.ph-line b { font-size: .74rem; padding: 3px 10px; border-radius: 99px; background: var(--mist); }
+.ph-line .ph-ok { display: inline-flex; align-items: center; gap: 4px; background: #D4F7E1; color: #0B6B33; }
+.ph-line .ph-low { background: #FFE2DA; color: #A3290F; }
+.ph-sub { margin-top: 10px; display: flex; align-items: center; gap: 6px; font-size: .8rem; color: var(--ink-2); }
+.ph-sub svg { color: #1FA855; }
+.ph-bar { margin-top: 12px; height: 8px; border-radius: 8px; background: #EEF0F8; overflow: hidden; }
+.ph-bar i { display: block; height: 100%; background: #F0553A; border-radius: 8px; }
+.ph-chart { margin-top: 12px; height: 70px; display: flex; align-items: flex-end; gap: 8px; }
+.ph-chart i { flex: 1; border-radius: 6px 6px 2px 2px; background: linear-gradient(var(--violet), #8E78FF); }
+@media (min-width: 960px) { .kon { grid-template-columns: 1.1fr .9fr; gap: 80px; } }
+
+/* Commande */
+.ord { display: grid; gap: 48px; }
+.ord__contact { margin-top: 36px; display: grid; gap: 14px; }
+.ord__contact a { display: flex; align-items: center; gap: 16px; padding: 16px 18px; border-radius: var(--r-md); background: #fff; border: 1px solid var(--line); transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .2s; }
+.ord__contact a:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -20px rgba(10, 18, 48, .35); border-color: rgba(10, 18, 48, .3); }
+.ord__contact small { display: block; color: var(--ink-2); font-size: .85rem; line-height: 1.2; }
+.ord__contact strong { font-family: var(--f-display); font-size: 1.1rem; overflow-wrap: anywhere; }
+.ico { flex: none; width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; }
+.ico--wa { background: var(--wa); color: var(--wa-ink); }
+.ico--mail { background: var(--night); color: var(--sun); }
+.ord__form { padding: clamp(22px, 4vw, 36px); border-radius: var(--r-xl); background: #fff; border: 1px solid var(--line); box-shadow: 0 40px 70px -40px rgba(10, 18, 48, .45); }
+.fld { display: block; margin: 0 0 20px; padding: 0; border: 0; min-width: 0; }
+.fld > span, .fld > legend { display: block; margin-bottom: 8px; font-weight: 700; font-size: .98rem; padding: 0; }
+.fld small { font-weight: 400; color: var(--ink-2); }
+.fld input, .fld textarea {
+  width: 100%; font: inherit; color: var(--ink); background: var(--mist);
+  border: 1.5px solid transparent; border-radius: 12px; padding: 14px 16px; resize: vertical;
+  transition: border-color .2s, background-color .2s, box-shadow .2s;
+}
+.fld input::placeholder, .fld textarea::placeholder { color: #7A86A8; }
+.fld input:hover, .fld textarea:hover { background: #E6EDFA; }
+.fld input:focus, .fld textarea:focus { outline: none; background: #fff; border-color: var(--sky); box-shadow: 0 0 0 4px rgba(45, 140, 255, .18); }
+.fld input[aria-invalid="true"] { border-color: #D93A1C; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { padding: 9px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: #fff; font-weight: 500; transition: background-color .2s, color .2s, border-color .2s, transform .2s var(--ease); }
+.chips button:hover { border-color: var(--ink); }
+.chips button.is-on { background: var(--night); color: #fff; border-color: var(--night); }
+.chips button:active { transform: scale(.96); }
+.bubble { margin: 4px 0 18px; padding: 14px 16px 14px; border-radius: 16px 16px 16px 4px; background: #DCF8C6; color: #0B2A14; }
+.bubble small { display: block; font-size: .78rem; color: #3E6B4B; margin-bottom: 4px; font-weight: 700; }
+.bubble p { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .98rem; line-height: 1.5; }
+.ord__err { min-height: 1.4em; margin-bottom: 8px; color: #C0311A; font-weight: 500; font-size: .95rem; }
+@media (min-width: 960px) { .ord { grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: start; } .ord__copy { position: sticky; top: 110px; } }
+
+/* Pied de page */
+.ftr { background: var(--night); color: #fff; padding: 64px 0 calc(28px + env(safe-area-inset-bottom, 0px)); }
+.ftr__in { display: grid; gap: 36px; }
+.ftr__tag { margin-top: 14px; color: rgba(255, 255, 255, .62); max-width: 22em; }
+.ftr__nav, .ftr__contact { display: flex; flex-direction: column; gap: 10px; }
+.ftr__nav a, .ftr__contact a { color: rgba(255, 255, 255, .78); width: fit-content; transition: color .2s; }
+.ftr__nav a:hover, .ftr__contact a:hover { color: var(--sun); }
+.ftr__copy { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line-light); color: rgba(255, 255, 255, .5); font-size: .92rem; }
+@media (min-width: 800px) { .ftr__in { grid-template-columns: 1.4fr 1fr 1.2fr; } }
+
+/* Bouton WhatsApp flottant */
+.fab {
+  position: fixed; z-index: 40; right: calc(18px + env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--wa); color: var(--wa-ink); box-shadow: 0 16px 34px -8px rgba(37, 211, 102, .75);
+  opacity: 0; transform: translateY(20px) scale(.8); pointer-events: none;
+  transition: opacity .4s var(--ease), transform .5s var(--ease);
+}
+.fab.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.fab:hover { transform: scale(1.08); }
+
+
+/* ---------- Image d'accueil (lien direct) ---------- */
+.hero__bg { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: var(--night); }
+.hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(1.05); animation: bgin 1.8s var(--ease) both; }
+@keyframes bgin { from { opacity: 0; transform: scale(1.12); } }
+.hero__bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10, 18, 48, .80) 0%, rgba(10, 18, 48, .88) 55%, var(--night) 100%);
+}
+@media (min-width: 900px) {
+  .hero__bg::after {
+    background:
+      linear-gradient(90deg, rgba(10, 18, 48, .95) 0%, rgba(10, 18, 48, .78) 48%, rgba(10, 18, 48, .55) 100%),
+      linear-gradient(180deg, transparent 65%, var(--night) 100%);
+  }
+}
+
+/* ---------- Bandeau qui défile ---------- */
+.ticker { background: var(--sun); color: var(--night); overflow: hidden; }
+.ticker__track { display: flex; width: max-content; animation: marquee 34s linear infinite; }
+.ticker:hover .ticker__track { animation-play-state: paused; }
+.ticker span { display: inline-flex; align-items: center; gap: 22px; padding: 13px 22px 13px 0; font-family: var(--f-display); font-weight: 700; font-size: 1.05rem; letter-spacing: -.01em; white-space: nowrap; }
+.ticker i { display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--night); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ---------- Rail : défilement horizontal sur mobile ---------- */
+.railwrap { position: relative; }
+.dots { display: none; }
+.train > *, .kon > *, .ord > *, .hero__in > * { min-width: 0; }
+@media (max-width: 899px) {
+  .rail {
+    position: relative; display: flex; gap: 12px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--pad)); padding: 4px var(--pad) 6px; scroll-padding-inline: var(--pad);
+  }
+  .rail::-webkit-scrollbar { display: none; }
+  .rail > * { flex: 0 0 min(80%, 340px); scroll-snap-align: start; }
+  .rail .reveal { opacity: 1; transform: none; }
+  .dots { display: flex; justify-content: center; gap: 0; margin-top: 4px; color: inherit; }
+  .dots button { padding: 10px 4px; }
+  .dots span { display: block; width: 8px; height: 8px; border-radius: 99px; background: currentColor; opacity: .25; transition: width .35s var(--ease), opacity .35s; }
+  .dots .is-on span { width: 24px; opacity: 1; }
+  .sect--light .dots, .sect--paper .dots { color: var(--night); }
+}
+
+/* ---------- Mobile : plus compact, moins de scroll ---------- */
+@media (max-width: 899px) {
+  html { scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px)); }
+  .sect { padding: clamp(40px, 9vw, 72px) 0; }
+  .sect__head { margin-bottom: 22px; }
+  .sect__sub { margin-top: 10px; font-size: 1rem; }
+  .split { font-size: clamp(1.7rem, 7.4vw, 2.4rem); }
+
+  .hero { min-height: 0; padding: calc(84px + env(safe-area-inset-top, 0px)) 0 30px; }
+  .hero__in { gap: 20px; }
+  .hero h1 { font-size: clamp(2.2rem, 10.4vw, 3.2rem); }
+  .hero__type { margin-top: 12px; font-size: 1.08rem; }
+  .hero__lead, .hero__note { display: none; }
+  .hero__cta { display: grid; grid-template-columns: 1.3fr 1fr; gap: 10px; margin-top: 18px; }
+  .hero__cta .btn { width: 100%; padding: 14px 8px; font-size: .95rem; gap: 8px; }
+  .stage { padding: 14px 4px 6px; }
+  .win { --rx: 0deg; --ry: 0deg; }
+  .chip { font-size: .74rem; padding: 6px 10px; }
+  .chip--a { left: 2px; bottom: 16%; }
+  .chip--b { right: 2px; top: -14px; }
+
+  .ticker span { font-size: .95rem; padding-block: 11px; }
+
+  .prj__more { margin-top: 22px; padding: 18px; gap: 14px; }
+  .prj__more p { font-size: 1.15rem; }
+  .prj__more .btn { width: 100%; }
+  .card__shot { border-radius: 18px; }
+
+  .kon__cta .btn { width: 100%; }
+  .kon__price { margin-top: 12px; font-size: .92rem; }
+  .phone { width: 250px; transform: rotate(2deg); padding: 12px 10px 14px; gap: 10px; }
+  .phone .ph-card:nth-of-type(4) { display: none; }
+  .kon .railwrap { margin-top: 16px; }
+
+  .ord { gap: 22px; }
+  .ord__form { padding: 18px; }
+  .fld { margin-bottom: 14px; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; margin-inline: -4px; padding: 2px 4px 6px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips button { flex: none; }
+
+  .ftr { padding: 36px 0 calc(22px + env(safe-area-inset-bottom, 0px)); }
+  .ftr__in { gap: 20px; }
+  .ftr__nav { flex-direction: row; flex-wrap: wrap; gap: 8px 18px; }
+  .ftr__copy { margin-top: 24px; padding-top: 16px; }
+  .fab { width: 54px; height: 54px; right: calc(14px + env(safe-area-inset-right, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (max-width: 639px) {
+  .ord__contact, .bubble { display: none; }
+}
+@media (min-width: 900px) {
+  .hero { min-height: 100svh; }
+}
+
+/* Mouvement réduit : tout est affiché tout de suite */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0ms !important; }
+  .hw__in, .split__word { transform: none; }
+  .ticker__track { animation: none; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
 </head>
-
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
-
-    <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            <a href="#accueil" class="flex items-center gap-3 group">
-                <div class="relative w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-500 to-purple-600 p-0.5 shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
-                    <img src="Logo Optisite.jpg" alt="OptiSite Digital Logo" class="w-full h-full object-cover rounded-[10px]" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1e40af/ffffff?text=OSD';">
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-heading text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-none">OptiSite <span class="text-brand-600 dark:text-brand-400">Digital</span></span>
-                    <span class="text-[10px] font-medium text-slate-600 dark:text-slate-400 tracking-wider uppercase mt-1">RDC Agence & Trust</span>
-                </div>
-            </a>
-
-            <nav class="hidden lg:flex items-center gap-1">
-                <a href="#accueil" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Accueil</a>
-                <a href="#services-formations" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Services & Formations</a>
-                <a href="#trust-rdc" class="px-3 py-2 text-sm font-semibold rounded-full bg-trust-50 dark:bg-trust-900/30 text-trust-700 dark:text-trust-400 border border-trust-200 dark:border-trust-800/50 hover:bg-trust-100 dark:hover:bg-trust-900/50 transition-colors flex items-center gap-1.5">
-                    <i class="fas fa-shield-alt text-trust-600"></i> Trust RDC
-                </a>
-                <a href="#demo-ia" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Démo Bot IA</a>
-                <a href="#realisations" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Réalisations</a>
-                <a href="#emplois" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Emplois</a>
-                <a href="#contact" class="px-3 py-2 text-sm font-semibold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 transition-colors">Contact</a>
-            </nav>
-
-            <div class="flex items-center gap-2">
-                <button id="theme-toggle" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-600 transition-colors" aria-label="Changer le thème">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block text-amber-400"></i>
-                </button>
-
-                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20commander%20un%20service." target="_blank" class="btn-rect hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md shadow-brand-600/25 transition-all hover:shadow-lg hover:shadow-brand-600/35">
-                    <i class="fab fa-whatsapp text-lg"></i>
-                    <span>Commander</span>
-                </a>
-
-                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <i class="fas fa-bars text-xl" id="menu-icon"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- ============================================================
-         MENU MOBILE — TIROIR LATÉRAL GAUCHE
-         #mobile-menu-overlay : fond assombri, cliquable pour fermer
-         #mobile-menu          : panneau qui glisse depuis la gauche
-           - en-tête avec logo + bouton fermer (fixe)
-           - #mobile-menu-scroll : liens (zone qui défile si besoin)
-           - pied de tiroir avec CTA WhatsApp (fixe)
-         ============================================================ -->
-    <div id="mobile-menu-overlay"></div>
-
-    <aside id="mobile-menu" class="lg:hidden bg-white dark:bg-slate-900" role="dialog" aria-modal="true" aria-label="Menu de navigation">
-        <div class="flex items-center justify-between px-5 py-5 border-b border-slate-200 dark:border-slate-800 shrink-0">
-            <a href="#accueil" class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brand-500 to-purple-600 p-0.5 shadow-md shadow-brand-500/20">
-                    <img src="Logo Optisite.jpg" alt="OptiSite Digital Logo" class="w-full h-full object-cover rounded-[7px]" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1e40af/ffffff?text=OSD';">
-                </div>
-                <span class="font-heading text-base font-bold tracking-tight text-slate-900 dark:text-white leading-none">OptiSite <span class="text-brand-600 dark:text-brand-400">Digital</span></span>
-            </a>
-            <button id="close-mobile-menu-btn" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Fermer le menu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <div id="mobile-menu-scroll" class="flex-1 px-4 py-5 space-y-1.5">
-            <a href="#accueil" class="mobile-link flex items-center gap-3.5 px-3 py-3 rounded-2xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="mobile-link-icon bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400"><i class="fas fa-house"></i></span>
-                <span class="font-semibold text-sm">Accueil</span>
-            </a>
-            <a href="#services-formations" class="mobile-link flex items-center gap-3.5 px-3 py-3 rounded-2xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="mobile-link-icon bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400"><i class="fas fa-layer-group"></i></span>
-                <span class="font-semibold text-sm">Services & Formations</span>
-            </a>
-            <a href="#trust-rdc" class="mobile-link flex items-center gap-3.5 px-3 py-3 rounded-2xl bg-trust-50 dark:bg-trust-900/30 border border-trust-200 dark:border-trust-800/50 hover:bg-trust-100 dark:hover:bg-trust-900/50 transition-colors">
-                <span class="mobile-link-icon bg-trust-100 dark:bg-trust-900/50 text-trust-600 dark:text-trust-400"><i class="fas fa-shield-alt"></i></span>
-                <span class="font-semibold text-sm text-trust-700 dark:text-trust-400">Trust RDC <span class="block text-[10px] font-normal text-trust-600/80 dark:text-trust-400/70">Anti-escroqueries</span></span>
-            </a>
-            <a href="#demo-ia" class="mobile-link flex items-center gap-3.5 px-3 py-3 rounded-2xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="mobile-link-icon bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400"><i class="fas fa-robot"></i></span>
-                <span class="font-semibold text-sm">Démo Bot WhatsApp IA</span>
-            </a>
-            <a href="#realisations" class="mobile-link flex items-center gap-3.5 px-3 py-3 rounded-2xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="mobile-link-icon bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400"><i class="fas fa-images"></i></span>
-                <span class="font-semibold text-sm">Nos Réalisations</span>
-            </a>
-            <a href="#emplois" class="mobile-link flex items-center gap-3.5 px-3 py-3 rounded-2xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="mobile-link-icon bg-sky-100 dark:bg-sky-900/40 text-sky-600 dark:text-sky-400"><i class="fas fa-briefcase"></i></span>
-                <span class="font-semibold text-sm">Offres d'Emploi</span>
-            </a>
-            <a href="#contact" class="mobile-link flex items-center gap-3.5 px-3 py-3 rounded-2xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="mobile-link-icon bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400"><i class="fas fa-envelope"></i></span>
-                <span class="font-semibold text-sm">Contact</span>
-            </a>
-        </div>
-
-        <div class="mobile-link px-5 py-5 border-t border-slate-200 dark:border-slate-800 space-y-3 shrink-0">
-            <div class="flex items-center justify-between px-1">
-                <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Thème</span>
-                <button id="theme-toggle-mobile" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300" aria-label="Changer le thème">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block text-amber-400"></i>
-                </button>
-            </div>
-            <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20un%20devis." target="_blank" class="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-center text-sm shadow-lg shadow-emerald-600/25">
-                <i class="fab fa-whatsapp text-xl"></i> Discuter sur WhatsApp
-            </a>
-        </div>
-    </aside>
-
-    <section id="accueil" class="relative min-h-screen pt-28 pb-24 sm:pb-20 flex items-center overflow-hidden bg-slate-950 text-white">
-        <!-- Image de fond héro (Unsplash, libre de droits — Norbert Kowalczyk) -->
-        <div id="hero-bg-wrap">
-            <img id="hero-bg-img" src="https://images.unsplash.com/photo-1754401817883-a6749295b0b4?auto=format&fit=crop&w=2000&q=80" alt="" aria-hidden="true" onerror="this.style.display='none'; console.warn('Image de fond hero: échec de chargement depuis Unsplash');">
-        </div>
-
-        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-60"></canvas>
-
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-600/30 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-purple-600/20 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-
-            <div class="hero-anim inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-700/80 backdrop-blur-md shadow-2xl mb-8">
-                <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                <i class="fas fa-bolt text-amber-400"></i>
-                <span class="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
-                    Leader Digital & IA en République Démocratique du Congo
-                </span>
-            </div>
-
-            <h1 class="hero-anim text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight max-w-5xl mx-auto leading-none mb-6">
-                Propulsez Votre Business Avec <br class="hidden sm:inline">
-                <span class="bg-gradient-to-r from-amber-300 via-orange-200 to-purple-400 bg-clip-text text-transparent">Des Sites Web & Agents IA</span>
-            </h1>
-
-            <p class="hero-anim text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed mb-10">
-                L'agence web agile à Kinshasa. Nous créons des vitrines numériques haute performance, formons sur l'IA WhatsApp et certifions les vendeurs sérieux via notre label <strong class="text-trust-400 font-semibold">Trust RDC</strong>.
-            </p>
-
-            <div class="hero-anim flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-4">
-                <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital%2C%20je%20souhaite%20passer%20commande%20pour%20un%20service%20(site%20web%2C%20formation%20ou%20Trust%20RDC)." target="_blank" class="btn-rect btn-order-glow w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-extrabold text-base shadow-xl shadow-emerald-500/30 hover:scale-105 transition-all flex items-center justify-center gap-3">
-                    <i class="fas fa-cart-shopping"></i>
-                    <span>Commander un Service Maintenant</span>
-                </a>
-            </div>
-
-            <div class="hero-anim flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-16">
-                <a href="#services-formations" class="btn-rect px-6 py-3 bg-gradient-to-r from-brand-500 to-purple-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-brand-600/30 hover:scale-105 transition-all flex items-center gap-2">
-                    <i class="fas fa-rocket text-amber-300"></i>
-                    <span>Voir Nos Services & Offres</span>
-                </a>
-
-                <a href="trustrdc.html" target="_blank" class="btn-rect px-6 py-3 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/50 backdrop-blur-md font-bold text-sm hover:scale-105 transition-all flex items-center gap-2">
-                    <i class="fas fa-shield-alt text-emerald-400"></i>
-                    <span>Espace Trust RDC</span>
-                </a>
-            </div>
-
-            <div class="hero-anim grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
-                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-400">120+</div>
-                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Projets Web Conçus</div>
-                </div>
-                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-emerald-400">350+</div>
-                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Vendeurs Trust RDC</div>
-                </div>
-                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-purple-400">500+</div>
-                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Élèves Formés IA</div>
-                </div>
-                <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-                    <div class="text-3xl sm:text-4xl font-heading font-extrabold text-amber-400">99%</div>
-                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Satisfaction Client</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services-formations" class="py-24 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 overflow-hidden relative">
-        <div class="reveal-up max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
-            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Solutions Évolutives</span>
-            <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
-                Nos Services & <span class="text-gradient-brand">Formations d'Élite</span>
-            </h2>
-            <p class="text-slate-800 dark:text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
-                Faites défiler ou survolez les cartes pour découvrir nos programmes de création web, automatisation IA et stratégies de vente en ligne.
-            </p>
-        </div>
-
-        <div class="relative w-full overflow-hidden py-4">
-            <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-100 dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-100 dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
-
-            <div id="services-track" class="flex gap-6 w-max animate-infinite-scroll infinite-track px-4"></div>
-        </div>
-    </section>
-
-    <section id="trust-rdc" class="py-24 bg-gradient-to-b from-emerald-950 via-slate-950 to-slate-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="reveal-stagger grid lg:grid-cols-12 gap-12 items-center">
-
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-                        <i class="fas fa-shield-alt text-emerald-400"></i> Label Officiel Anti-Escroquerie RDC
-                    </div>
-
-                    <h2 class="text-3xl sm:text-5xl font-heading font-extrabold leading-tight">
-                        Achetez, Vendez & Collaborez en Toute Sécurité Avec <span class="text-gradient-trust">Trust RDC</span>
-                    </h2>
-
-                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-                        Fini la peur des arnaques en ligne ! <strong>Trust RDC</strong> est la première base de données vérifiée en République Démocratique du Congo. Elle ne certifie pas que des « vendeurs » : elle permet d'authentifier <strong>tous les prestataires en ligne</strong> — vendeurs de produits, <strong>freelances</strong> (graphistes, développeurs, monteurs vidéo...), prestataires de services et boutiques virtuelles — avant tout paiement ou collaboration.
-                    </p>
-
-                    <div class="grid sm:grid-cols-2 gap-4 py-2">
-                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-emerald-900/50 flex items-start gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
-                                <i class="fas fa-user-shield"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm">Pour les Acheteurs & Clients</h4>
-                                <p class="text-xs text-slate-400 mt-1">Vérifiez un numéro (vendeur ou freelance) avant d'effectuer tout paiement Mobile Money.</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-emerald-900/50 flex items-start gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm">Pour les Vendeurs & Freelances</h4>
-                                <p class="text-xs text-slate-400 mt-1">Obtenez votre badge certifié officiel (en ligne ET freelance) et multipliez votre crédibilité.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap items-center gap-4 pt-4">
-                        <a href="trustrdc.html" target="_blank" class="btn-rect px-7 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2">
-                            <i class="fas fa-external-link-alt"></i> Ouvrir le Portail Trust RDC
-                        </a>
-                        <button type="button" id="open-vendor-modal-btn" class="btn-rect px-7 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm transition-all flex items-center gap-2">
-                            <i class="fas fa-id-badge text-emerald-400"></i> Obtenir mon Badge Vendeur / Freelance
-                        </button>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5">
-                    <div class="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-emerald-500/30 shadow-2xl backdrop-blur-xl relative">
-
-                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
-                            <div class="flex items-center gap-2">
-                                <div class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
-                                <span class="font-heading font-bold text-sm tracking-wider uppercase text-slate-300">Testeur de Vérification</span>
-                            </div>
-                            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">ID / TEL SEARCH</span>
-                        </div>
-
-                        <p class="text-xs text-slate-400 mb-4">
-                            Saisissez le numéro WhatsApp du vendeur ou du freelance à vérifier (ex: <code class="text-emerald-400 font-mono">+243 977 092 549</code>) :
-                        </p>
-
-                        <form id="trust-search-form" class="space-y-4">
-                            <div class="relative">
-                                <input type="text" id="trust-input" placeholder="Ex: 0977092549" class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono text-sm transition-colors" required>
-                                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
-                            </div>
-                            <button type="submit" class="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
-                                <i class="fas fa-shield-check"></i> Vérifier le profil maintenant
-                            </button>
-                        </form>
-
-                        <div id="trust-result-box" class="mt-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hidden transition-all"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="demo-ia" class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="reveal-up text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300">Démonstration En Direct</span>
-                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
-                    Testez un <span class="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Agent IA WhatsApp</span>
-                </h2>
-                <p class="text-slate-800 dark:text-slate-400 text-base sm:text-lg">
-                    Découvrez concrètement comment l'assistant IA réagit instantanément aux questions de vos prospects et convertit les ventes automatiquement.
-                </p>
-            </div>
-
-            <div class="reveal-stagger grid lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
-                <div class="lg:col-span-5 space-y-3">
-                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 mb-2">Cliquez pour simuler une question :</h3>
-
-                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Quels sont vos prix pour un site web ?">
-                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Quels sont vos prix pour un site web ?"</span>
-                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-
-                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Comment fonctionne la certification Trust RDC ?">
-                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Comment fonctionne Trust RDC ?"</span>
-                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-
-                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Quels sont les modes de paiement acceptés ?">
-                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Quels modes de paiement acceptés ?"</span>
-                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-
-                    <button class="ai-demo-btn w-full p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-purple-50 dark:hover:bg-purple-950/50 border border-slate-200 dark:border-slate-800 text-left transition-all flex items-center justify-between group" data-q="Où se trouvent vos bureaux à Kinshasa ?">
-                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">"Où se trouvent vos bureaux ?"</span>
-                        <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-
-                    <div class="pt-4">
-                        <a href="https://wa.me/243977092549?text=Bonjour,%20je%20veux%20configurer%20un%20Agent%20IA%20pour%20mon%20entreprise." target="_blank" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-center text-sm shadow-lg block">
-                            <i class="fab fa-whatsapp mr-2"></i> Configurer un Bot pour mon Agence
-                        </a>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7">
-                    <div class="max-w-sm mx-auto rounded-[36px] bg-slate-900 border-8 border-slate-800 shadow-2xl overflow-hidden text-slate-900">
-                        <div class="bg-emerald-800 text-white p-3.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="relative w-9 h-9 rounded-full bg-emerald-700 flex items-center justify-center font-bold text-xs border border-emerald-500">
-                                    <i class="fas fa-robot text-base"></i>
-                                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-emerald-900"></span>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold leading-tight">OptiBot IA — Assistant OptiSite</h4>
-                                    <p class="text-[10px] text-emerald-200">En ligne 24h/24 • Réponse instantanée</p>
-                                </div>
-                            </div>
-                            <i class="fas fa-ellipsis-v text-xs text-emerald-200"></i>
-                        </div>
-
-                        <div id="chat-box-display" class="p-4 h-80 overflow-y-auto bg-[#efeae2] dark:bg-[#0b141a] space-y-3 font-sans text-xs">
-                            <div class="flex flex-col items-start max-w-[85%]">
-                                <div class="bg-white dark:bg-[#202c33] dark:text-slate-100 p-3 rounded-2xl rounded-tl-none shadow-sm leading-relaxed">
-                                    Bonjour ! 👋 Je suis l'Agent IA d'OptiSite Digital. Comment puis-je vous aider aujourd'hui ? Saisissez un message ou choisissez une question à gauche !
-                                    <span class="block text-[9px] text-slate-400 text-right mt-1">10:00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-2.5 bg-[#f0f2f5] dark:bg-[#202c33] flex items-center gap-2">
-                            <input type="text" id="user-chat-input" placeholder="Tapez un message..." class="flex-1 px-3 py-2 rounded-full bg-white dark:bg-[#2a3942] dark:text-white text-xs focus:outline-none">
-                            <button id="send-chat-btn" class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs shrink-0">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="realisations" class="py-24 bg-white dark:bg-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="reveal-up text-center max-w-3xl mx-auto mb-12">
-                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Notre Travail</span>
-                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">
-                    Nos <span class="text-gradient-brand">Réalisations RDC</span>
-                </h2>
-                <p class="text-slate-800 dark:text-slate-400 text-base sm:text-lg">
-                    Un aperçu de nos créations de sites web, bots intelligents et plateformes déployées à Kinshasa et en province.
-                </p>
-            </div>
-        </div>
-
-        <div class="relative w-full overflow-hidden py-2">
-            <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
-
-            <div id="realisations-track" class="flex gap-6 w-max realisations-track px-4"></div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-slate-950 text-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
-            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">Témoignages</span>
-            <h2 class="text-3xl sm:text-5xl font-heading font-extrabold mt-3 mb-4">
-                Ce Que Disent <span class="text-gradient-brand">Nos Clients</span>
-            </h2>
-            <p class="text-slate-400 max-w-2xl mx-auto text-base">
-                Découvrez les retours d'expérience des entrepreneurs et élèves ayant fait confiance à OptiSite Digital.
-            </p>
-        </div>
-
-        <div class="relative w-full overflow-hidden py-4">
-            <div id="testimonials-track" class="flex gap-6 w-max animate-infinite-scroll infinite-track px-4"></div>
-        </div>
-    </section>
-
-    <section id="emplois" class="py-20 bg-slate-100 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-slate-900 via-purple-950 to-slate-900 text-white shadow-2xl relative overflow-hidden border border-slate-800">
-                <div class="reveal-up relative z-10">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-wider mb-4">
-                        <i class="fas fa-briefcase mr-1"></i> Carrières & Opportunités
-                    </span>
-                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold mb-4">Recrutement & Offres d'Emploi</h2>
-                    <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8">
-                        Consultez nos postes ouverts au sein d'OptiSite Digital ou publiez directement votre propre annonce de recrutement.
-                    </p>
-                    <div class="flex flex-wrap items-center justify-center gap-4">
-                        <a href="offres.html" target="_blank" class="btn-rect px-7 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2">
-                            <i class="fas fa-list-ul"></i> Voir les offres disponibles
-                        </a>
-                        <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital,%20je%20souhaite%20publier%20une%20offre%20d'emploi." target="_blank" class="btn-rect px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm transition-all flex items-center gap-2">
-                            <i class="fas fa-bullhorn text-amber-400"></i> Publier une offre
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-white dark:bg-slate-950">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="reveal-up text-center mb-16">
-                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">Aide & Réponses</span>
-                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-4">Questions Fréquemment Posées</h2>
-                <p class="text-slate-800 dark:text-slate-400 text-sm sm:text-base">
-                    Tout ce que vous devez savoir sur nos services web, Trust RDC et nos formations.
-                </p>
-            </div>
-
-            <div class="space-y-4">
-                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
-                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
-                        <span>Quels moyens de paiement sont acceptés en RDC ?</span>
-                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
-                    </button>
-                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
-                        Nous acceptons les paiements via Mobile Money (M-Pesa, Orange Money, Airtel Money) ainsi que les virements et paiements en espèces à nos bureaux à Kinshasa.
-                    </div>
-                </div>
-
-                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
-                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
-                        <span>Combien de temps faut-il pour créer un site web ?</span>
-                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
-                    </button>
-                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
-                        En général, un site vitrine est livré sous 3 à 5 jours ouvrés. Les projets plus complexes (e-commerce ou applications spécifiques) prennent entre 7 et 14 jours.
-                    </div>
-                </div>
-
-                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
-                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
-                        <span>Comment s'inscrire sur la plateforme Trust RDC ?</span>
-                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
-                    </button>
-                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
-                        Trust RDC certifie aussi bien les <strong>vendeurs en ligne</strong> que les <strong>freelances</strong> et prestataires de services. Remplissez le formulaire « Obtenir mon Badge », acceptez les conditions d'inscription, et votre profil est activé pour 3 jours d'essai gratuit. Passé ce délai, un abonnement mensuel est requis pour rester vérifié.
-                    </div>
-                </div>
-
-                <div class="faq-item rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors">
-                    <button class="faq-toggle w-full p-5 text-left font-bold text-slate-900 dark:text-white flex items-center justify-between gap-4">
-                        <span>Faut-il savoir coder pour suivre la formation Agent IA WhatsApp ?</span>
-                        <i class="fas fa-chevron-down text-slate-400 transition-transform"></i>
-                    </button>
-                    <div class="faq-answer px-5 pb-5 text-xs sm:text-sm text-slate-800 dark:text-slate-300 hidden leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 pt-3">
-                        Non, absolument pas ! La formation est conçue pour les débutants. Nous vous apprenons à configurer des outils visuels "No-Code" pour que votre bot réponde automatiquement.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="propos" class="py-20 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-heading font-extrabold text-slate-900 dark:text-white mb-6">À Propos d'<span>OptiSite Digital</span></h2>
-            <p class="text-slate-800 dark:text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
-                OptiSite Digital est une agence numérique basée en RDC dédiée au développement du commerce électronique, à la formation en intelligence artificielle et à la sécurisation des échanges commerciaux sur Internet.
-            </p>
-            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md">
-                <i class="fas fa-user-tie text-brand-600 text-lg"></i>
-                <span class="text-sm font-semibold text-slate-900 dark:text-slate-200">
-                    Fondateur & Dirigeant :
-                    <a href="https://www.facebook.com/profile.php?id=61588260623995" target="_blank" class="text-brand-600 dark:text-brand-400 hover:underline font-bold">
-                        Olivier Tshimbalanga 
-                    </a>
-                </span>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 bg-white dark:bg-slate-950">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="reveal-up text-center mb-12">
-                <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300">Restons en contact</span>
-                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 dark:text-white mt-3 mb-2">Contactez Notre Équipe</h2>
-                <p class="text-slate-800 dark:text-slate-400 text-sm sm:text-base">Une question ou un projet ? Nous répondons sous 30 minutes.</p>
-            </div>
-
-            <div class="reveal-stagger grid md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
-                <a href="mailto:optisitedigital@gmail.com" class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center hover-lift block">
-                    <div class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mx-auto mb-3">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h4 class="text-xs uppercase font-bold text-slate-600 dark:text-slate-400 mb-1">Email Officiel</h4>
-                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-200">optisitedigital@gmail.com</span>
-                </a>
-
-                <a href="https://wa.me/243977092549" target="_blank" class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center hover-lift block">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mx-auto mb-3">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <h4 class="text-xs uppercase font-bold text-slate-600 dark:text-slate-400 mb-1">WhatsApp & Appels</h4>
-                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-200">+243 977 092 549</span>
-                </a>
-
-                <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
-                    <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mx-auto mb-3">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h4 class="text-xs uppercase font-bold text-slate-600 dark:text-slate-400 mb-1">Siège Social</h4>
-                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-200">Kinshasa, RDC</span>
-                </div>
-            </div>
-
-            <div class="flex items-center justify-center gap-4">
-                <a href="https://www.facebook.com/profile.php?id=61588260623995" target="_blank" aria-label="Facebook" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-colors">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://wa.me/243977092549" target="_blank" aria-label="WhatsApp" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-colors">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" aria-label="TikTok" class="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-slate-900 hover:text-white transition-colors">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-8 bg-slate-950 text-slate-400 text-xs border-t border-slate-800 text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p>&copy; 2026 OptiSite Digital — Tous droits réservés. Innovation, Sécurité & IA en RDC.</p>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital" target="_blank" class="hidden lg:flex fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform shadow-emerald-500/50" aria-label="Contact WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- ============================================================
-         BARRE DE COMMANDE FIXE (MOBILE) — pousse au passage de
-         commande immédiat dès l'arrivée sur le site, sur tout l'écran.
-         ============================================================ -->
-    <div id="mobile-order-bar" class="lg:hidden">
-        <a href="https://wa.me/243977092549?text=Bonjour%20OptiSite%20Digital%2C%20je%20souhaite%20passer%20commande%20pour%20un%20service." target="_blank" class="btn-rect w-full py-3.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-extrabold text-sm shadow-lg flex items-center justify-center gap-2">
-            <i class="fas fa-cart-shopping"></i>
-            <span>Commander un service maintenant</span>
-        </a>
-    </div>
-
-    <!-- ============================================================
-         MODALE VENDEUR / FREELANCE — structure corrigée :
-         #vendor-modal-overlay  -> centre la boîte, ne défile plus
-         #vendor-modal-box      -> hauteur max, flex-column
-           #vendor-modal-header -> FIXE, ne bouge jamais
-           #vendor-modal-scroll -> seule zone qui défile (le formulaire
-                                    OU l'écran de confirmation email)
-         ============================================================ -->
-    <div id="vendor-modal-overlay">
-        <div id="vendor-modal-box" class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800">
-
-            <div id="vendor-modal-header" class="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-t-3xl shrink-0">
-                <div>
-                    <h3 id="vendor-modal-title" class="font-heading font-extrabold text-lg sm:text-xl text-slate-900 dark:text-white">Inscription Badge Vendeur / Freelance Trust RDC</h3>
-                    <p id="vendor-modal-subtitle" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Remplissez ce formulaire pour démarrer votre certification (vendeurs en ligne ET freelances).</p>
-                </div>
-                <button type="button" id="close-vendor-modal-btn" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-
-            <div id="vendor-modal-scroll">
-                <form id="vendor-form" class="px-6 sm:px-8 py-6 space-y-5">
-
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Nom complet *</label>
-                            <input type="text" id="v-name" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Jean Kalala">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Numéro WhatsApp *</label>
-                            <input type="tel" id="v-phone" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: 0977092549">
-                        </div>
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Ville *</label>
-                            <input type="text" id="v-city" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Kinshasa">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Catégorie *</label>
-                            <select id="v-category" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500">
-                                <option value="">Choisir...</option>
-                                <option value="Vendeur / Boutique en ligne">Vendeur / Boutique en ligne</option>
-                                <option value="Freelance">Freelance</option>
-                                <option value="Service / Agence">Service / Agence</option>
-                                <option value="Autre">Autre</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Email *</label>
-                            <input type="email" id="v-email" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: jean.kalala@gmail.com">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Compétences / Produits</label>
-                            <input type="text" id="v-skills" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: Design graphique, Montage vidéo, Vente téléphones">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Courte bio / description *</label>
-                        <textarea id="v-bio" required rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500 resize-none" placeholder="Parlez brièvement de votre activité..."></textarea>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Lien direct de votre photo *</label>
-                        <input type="url" id="v-photo" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:border-emerald-500" placeholder="Ex: https://i.postimg.cc/xxxxxxxx/photo.jpg">
-                        <div class="mt-2 p-3 rounded-xl bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800/50 text-[11px] text-sky-800 dark:text-sky-300 leading-relaxed">
-                            <strong>Comment obtenir ce lien ?</strong>
-                            1) Allez sur <a href="https://postimages.org" target="_blank" class="underline font-semibold">postimages.org</a> (aussi appelé postimg.cc).
-                            2) Cliquez sur « Choose images », sélectionnez votre photo et téléversez-la.
-                            3) Une fois l'image en ligne, copiez le lien <strong>« Direct link »</strong>.
-                            4) Collez ce lien exactement dans le champ ci-dessus.
-                        </div>
-                    </div>
-
-                    <div class="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-[11px] sm:text-xs text-amber-800 dark:text-amber-300 leading-relaxed space-y-2">
-                        <div class="flex items-center gap-2 font-bold uppercase tracking-wide text-[11px]">
-                            <i class="fas fa-circle-info"></i> Conditions d'inscription Trust RDC
-                        </div>
-                        <ul class="list-disc list-inside space-y-1.5">
-                            <li>Dès validation, votre profil est activé avec <strong>3 jours d'essai gratuit</strong> pendant lesquels vous apparaissez sur le site.</li>
-                            <li>Passé ce délai de 3 jours, un <strong>abonnement mensuel de 2000 FC</strong> (montant pouvant varier selon le taux de change) est requis pour rester vérifié(e) et visible auprès de vos futurs clients.</li>
-                            <li>Vous recevrez un <strong>email automatique</strong> à la fin de l'essai, avec un lien de paiement Chariow pour confirmer votre abonnement.</li>
-                            <li>Une fois le paiement effectué, contactez-nous sur WhatsApp ou par email : notre équipe réactive votre badge manuellement dans les meilleurs délais.</li>
-                        </ul>
-                    </div>
-
-                    <label class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 cursor-pointer">
-                        <input type="checkbox" id="v-terms" required class="mt-1 w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 shrink-0">
-                        <span class="text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed">
-                            J'accepte les conditions d'inscription ci-dessus : 3 jours d'essai gratuit, puis abonnement mensuel de 2000 FC (pouvant varier selon le taux de change), à confirmer via le lien de paiement Chariow envoyé par email. *
-                        </span>
-                    </label>
-
-                    <div id="vendor-form-status" class="hidden text-xs sm:text-sm p-4 rounded-2xl leading-relaxed"></div>
-
-                    <button type="submit" id="vendor-submit-btn" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
-                        <i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription
-                    </button>
-                </form>
-
-                <!-- ============================================================
-                     ÉCRAN DE CONFIRMATION — remplace le formulaire après une
-                     inscription réussie. Explique comment envoyer l'email
-                     obligatoire pour finaliser l'inscription.
-                     ============================================================ -->
-                <div id="vendor-success-view" class="hidden px-6 sm:px-8 py-8 space-y-5">
-                    <div class="flex flex-col items-center text-center gap-3">
-                        <div class="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-3xl">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h4 class="font-heading font-extrabold text-lg sm:text-xl text-slate-900 dark:text-white">Inscription envoyée avec succès !</h4>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md">
-                            Vous bénéficiez dès maintenant de <strong>3 jours d'essai gratuit</strong> sur le site. Il ne reste plus qu'une seule étape pour finaliser votre inscription : nous envoyer un email de confirmation.
-                        </p>
-                    </div>
-
-                    <div class="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-amber-800 dark:text-amber-300 text-xs sm:text-sm leading-relaxed space-y-2">
-                        <div class="flex items-center gap-2 font-bold uppercase tracking-wide text-[11px] sm:text-xs">
-                            <i class="fas fa-circle-info"></i> Comment envoyer votre email de confirmation ?
-                        </div>
-                        <ol class="list-decimal list-inside space-y-1.5">
-                            <li>Enregistrez d'abord <strong>optisitedigital@gmail.com</strong> dans vos contacts.</li>
-                            <li>Cliquez sur le bouton vert ci-dessous : votre application email s'ouvre avec un message déjà rédigé.</li>
-                            <li>Vérifiez le message puis appuyez simplement sur <strong>« Envoyer »</strong> dans votre appli mail.</li>
-                            <li>Surveillez aussi votre dossier <strong>spam / courrier indésirable</strong> pour ne manquer aucun message de notre part (rappel de fin d'essai, confirmation d'abonnement, etc.).</li>
-                        </ol>
-                    </div>
-
-                    <a href="#" id="vendor-mailto-link" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
-                        <i class="fas fa-envelope text-lg"></i> Ouvrir mon email pour finaliser
-                    </a>
-
-                    <button type="button" id="vendor-success-close-btn" class="w-full py-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-sm transition-all">
-                        Fermer
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            function applyTheme() {
-                if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                }
-            }
-            function toggleTheme() {
-                document.documentElement.classList.toggle('dark');
-                localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-            }
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
-            const themeToggleBtnMobile = document.getElementById('theme-toggle-mobile');
-            if (themeToggleBtnMobile) themeToggleBtnMobile.addEventListener('click', toggleTheme);
-            applyTheme();
-
-            /* ============================================================
-               MENU MOBILE — TIROIR LATÉRAL GAUCHE
-               open/close pilotent à la fois le panneau (#mobile-menu) et
-               le fond assombri (#mobile-menu-overlay), verrouillent le
-               scroll du body, et se ferment au clic sur l'overlay, sur un
-               lien, sur le bouton fermer, ou avec la touche Échap.
-               ============================================================ */
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-            const menuIcon = document.getElementById('menu-icon');
-
-            function closeMenu() {
-                mobileMenu.classList.remove('open');
-                mobileMenuOverlay.classList.remove('open');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-                document.body.style.overflow = '';
-            }
-            function openMenu() {
-                mobileMenu.classList.add('open');
-                mobileMenuOverlay.classList.add('open');
-                mobileMenuBtn.setAttribute('aria-expanded', 'true');
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-xmark');
-                document.body.style.overflow = 'hidden';
-            }
-
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    const isOpen = mobileMenu.classList.contains('open');
-                    isOpen ? closeMenu() : openMenu();
-                });
-                if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMenu);
-                if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
-                document.querySelectorAll('.mobile-link').forEach(link => {
-                    if (link.tagName === 'A') link.addEventListener('click', closeMenu);
-                });
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
-                });
-            }
-
-            const canvas = document.getElementById('hero-canvas');
-            if (canvas) {
-                const ctx = canvas.getContext('2d');
-                let particles = [];
-
-                function resize() {
-                    canvas.width = canvas.parentElement.clientWidth;
-                    canvas.height = canvas.parentElement.clientHeight;
-                }
-                resize();
-                window.addEventListener('resize', resize);
-
-                class Particle {
-                    constructor() {
-                        this.x = Math.random() * canvas.width;
-                        this.y = Math.random() * canvas.height;
-                        this.vx = (Math.random() - 0.5) * 0.8;
-                        this.vy = (Math.random() - 0.5) * 0.8;
-                        this.radius = Math.random() * 2 + 1;
-                    }
-                    update() {
-                        this.x += this.vx; this.y += this.vy;
-                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-                    }
-                    draw() {
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                        ctx.fillStyle = '#3b82f6';
-                        ctx.fill();
-                    }
-                }
-
-                function initParticles() {
-                    particles = [];
-                    const count = Math.min(Math.floor(canvas.width * 0.04), 50);
-                    for (let i = 0; i < count; i++) particles.push(new Particle());
-                }
-                initParticles();
-
-                function render() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    for (let i = 0; i < particles.length; i++) {
-                        particles[i].update();
-                        particles[i].draw();
-                        for (let j = i + 1; j < particles.length; j++) {
-                            const dx = particles[i].x - particles[j].x;
-                            const dy = particles[i].y - particles[j].y;
-                            const dist = Math.sqrt(dx * dx + dy * dy);
-                            if (dist < 100) {
-                                ctx.beginPath();
-                                ctx.moveTo(particles[i].x, particles[i].y);
-                                ctx.lineTo(particles[j].x, particles[j].y);
-                                ctx.strokeStyle = `rgba(59, 130, 246, ${1 - dist / 100})`;
-                                ctx.lineWidth = 0.5;
-                                ctx.stroke();
-                            }
-                        }
-                    }
-                    requestAnimationFrame(render);
-                }
-                render();
-            }
-
-            /* ============================================================
-               TRUST RDC — Vérification par numéro
-               Interroge directement l'Apps Script avec ?phone=XXXX (doGet)
-               au lieu de charger tout le CSV. Plus rapide, plus fiable,
-               et les erreurs réseau/serveur sont maintenant visibles.
-               ============================================================ */
-            const trustForm = document.getElementById('trust-search-form');
-            const trustInput = document.getElementById('trust-input');
-            const trustResult = document.getElementById('trust-result-box');
-            const trustSubmitBtn = trustForm ? trustForm.querySelector('button[type="submit"]') : null;
-
-            // ⚠️ Doit être IDENTIQUE à l'URL /exec de ton déploiement Apps Script à jour
-            const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzL38amTp-JF8g-WYJEAyGwC9hmAy6kh8dJ-dceiuuFznCF8ju9gd1oD5aAXGMHgKE/exec";
-
-            function escapeHtml(str) {
-                return (str || '').toString().replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-            }
-
-            if (trustForm && trustInput && trustResult) {
-                trustForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const query = trustInput.value.trim();
-                    if (!query) return;
-
-                    trustResult.classList.remove('hidden');
-                    trustResult.innerHTML = `
-                        <div class="flex items-center gap-3 text-slate-400 font-semibold text-xs">
-                            <i class="fas fa-circle-notch fa-spin"></i>
-                            <span>Vérification en cours dans la base Trust RDC...</span>
-                        </div>`;
-                    if (trustSubmitBtn) trustSubmitBtn.disabled = true;
-
-                    fetch(`${APPS_SCRIPT_URL}?phone=${encodeURIComponent(query)}`)
-                        .then(res => {
-                            if (!res.ok) throw new Error("Réponse serveur invalide (" + res.status + ")");
-                            return res.json();
-                        })
-                        .then(json => {
-                            if (trustSubmitBtn) trustSubmitBtn.disabled = false;
-
-                            if (json.found && json.vendor) {
-                                const v = json.vendor;
-                                trustResult.innerHTML = `
-                                    <div class="flex items-center gap-3 text-emerald-400 font-bold mb-2">
-                                        <i class="fas fa-check-circle text-lg"></i>
-                                        <span>PROFIL CERTIFIÉ & VÉRIFIÉ TRUST RDC</span>
-                                    </div>
-                                    <p class="text-xs text-slate-300"><strong>Nom :</strong> ${escapeHtml(v.nom)}</p>
-                                    <p class="text-xs text-slate-300"><strong>Ville :</strong> ${escapeHtml(v.ville) || 'RDC'}</p>
-                                    <p class="text-xs text-slate-300"><strong>Catégorie :</strong> ${escapeHtml(v.categorie) || 'Non précisée'}</p>
-                                    <p class="text-xs text-slate-300"><strong>Statut :</strong> Badge ${escapeHtml(v.badge) || 'Vérifié'}</p>
-                                    <div class="mt-3 pt-2 border-t border-slate-800 text-[10px] text-emerald-300">
-                                        100% Fiable. Vous pouvez effectuer votre transaction ou collaboration en toute sécurité.
-                                    </div>`;
-                            } else {
-                                trustResult.innerHTML = `
-                                    <div class="flex items-center gap-3 text-red-400 font-bold mb-2">
-                                        <i class="fas fa-circle-xmark text-lg"></i>
-                                        <span>NUMÉRO INVALIDE / NON ENREGISTRÉ</span>
-                                    </div>
-                                    <p class="text-xs text-slate-300">Le numéro <code class="text-white font-mono">${escapeHtml(query)}</code> ne figure pas dans notre base Trust RDC. Restez prudent avant tout paiement ou collaboration.</p>
-                                    <a href="https://wa.me/243977092549?text=Bonjour,%20je%20souhaite%20demander%20la%20vérification%20du%20profil%20${encodeURIComponent(query)}" target="_blank" class="inline-block mt-3 text-xs text-emerald-400 hover:underline font-bold">
-                                        Demander une vérification manuelle &rarr;
-                                    </a>`;
-                            }
-                        })
-                        .catch((err) => {
-                            if (trustSubmitBtn) trustSubmitBtn.disabled = false;
-                            trustResult.innerHTML = `
-                                <div class="flex items-center gap-3 text-amber-400 font-bold mb-2">
-                                    <i class="fas fa-triangle-exclamation text-lg"></i>
-                                    <span>VÉRIFICATION INDISPONIBLE</span>
-                                </div>
-                                <p class="text-xs text-slate-300">Impossible de contacter la base de données Trust RDC pour le moment (${escapeHtml(err.message)}). Vérifie que le script Apps Script est bien redéployé et accessible à "Tout le monde".</p>`;
-                        });
-                });
-            }
-
-            const chatBoxDisplay = document.getElementById('chat-box-display');
-            const userChatInput = document.getElementById('user-chat-input');
-            const sendChatBtn = document.getElementById('send-chat-btn');
-            const demoBtns = document.querySelectorAll('.ai-demo-btn');
-
-            function getCurrentTime() {
-                const d = new Date();
-                return `${d.getHours()}:${d.getMinutes() < 10 ? '0' : ''}${d.getMinutes()}`;
-            }
-            function appendUserMsg(text) {
-                chatBoxDisplay.insertAdjacentHTML('beforeend', `
-                    <div class="flex flex-col items-end ml-auto max-w-[85%]">
-                        <div class="bg-emerald-700 text-white p-3 rounded-2xl rounded-tr-none shadow-sm leading-relaxed">
-                            ${text}<span class="block text-[9px] text-emerald-200 text-right mt-1">${getCurrentTime()}</span>
-                        </div>
-                    </div>`);
-                chatBoxDisplay.scrollTop = chatBoxDisplay.scrollHeight;
-            }
-            function appendBotMsg(text) {
-                chatBoxDisplay.insertAdjacentHTML('beforeend', `
-                    <div class="flex flex-col items-start max-w-[85%]">
-                        <div class="bg-white dark:bg-[#202c33] dark:text-slate-100 p-3 rounded-2xl rounded-tl-none shadow-sm leading-relaxed">
-                            ${text}<span class="block text-[9px] text-slate-400 text-right mt-1">${getCurrentTime()}</span>
-                        </div>
-                    </div>`);
-                chatBoxDisplay.scrollTop = chatBoxDisplay.scrollHeight;
-            }
-            function generateBotAnswer(q) {
-                const query = q.toLowerCase();
-                if (query.includes('prix') || query.includes('tarif') || query.includes('combien')) {
-                    return "Nos tarifs dépendent de vos besoins ! Contactez notre équipe sur WhatsApp pour recevoir un devis détaillé et personnalisé ! 🚀";
-                } else if (query.includes('trust') || query.includes('escroque') || query.includes('certification')) {
-                    return "Trust RDC vérifie aussi bien les <strong>vendeurs en ligne</strong> que les <strong>freelances</strong> (graphistes, développeurs, monteurs vidéo, etc.) via leur numéro Mobile Money avant tout paiement ou collaboration. Vous êtes protégé contre les fraudes ! 🛡️";
-                } else if (query.includes('paiement') || query.includes('payer')) {
-                    return "Nous acceptons M-Pesa, Orange Money, Airtel Money ainsi que les paiements directs à nos bureaux de Kinshasa ! 💳";
-                } else if (query.includes('bureau') || query.includes('adresse') || query.includes('kinshasa')) {
-                    return "Nos bureaux sont situés à Kinshasa, RDC. Nous offrons également un accompagnement à distance dans toute la sous-région ! 📍";
-                } else {
-                    return "Merci pour votre message ! Je suis un bot de démo. Discutez directement avec un conseiller humain sur notre WhatsApp officiel (+243 977 092 549) ! ✨";
-                }
-            }
-            function handleSend(text) {
-                if (!text.trim()) return;
-                appendUserMsg(text);
-                setTimeout(() => appendBotMsg(generateBotAnswer(text)), 600);
-            }
-            demoBtns.forEach(btn => btn.addEventListener('click', () => handleSend(btn.getAttribute('data-q'))));
-            if (sendChatBtn && userChatInput) {
-                sendChatBtn.addEventListener('click', () => { handleSend(userChatInput.value); userChatInput.value = ''; });
-                userChatInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') { handleSend(userChatInput.value); userChatInput.value = ''; }
-                });
-            }
-
-            document.querySelectorAll('.faq-toggle').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const answer = btn.nextElementSibling;
-                    const icon = btn.querySelector('i');
-                    const isHidden = answer.classList.contains('hidden');
-                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
-                    document.querySelectorAll('.faq-toggle i').forEach(i => i.classList.remove('rotate-180'));
-                    if (isHidden) { answer.classList.remove('hidden'); icon.classList.add('rotate-180'); }
-                });
-            });
-
-            const services = [
-                { icon: 'fa-laptop-code', color: 'brand', tag: 'Service Agence', title: 'Création de Sites Web Pro', desc: "Sites vitrines, e-commerce et e-learning ultra-rapides, adaptés à tous les écrans de téléphones et optimisés pour le réseau RDC.", cta: 'Commander mon site', msg: "Bonjour OptiSite Digital, je souhaite commander un site web." },
-                { icon: 'fa-whatsapp', brand: true, color: 'purple', tag: 'Formation IA Stars', title: 'Agent Chatbot IA WhatsApp', desc: "Concevez un assistant IA virtuel autonome capable de répondre à vos prospects, prendre les commandes et vendre 24h/24.", cta: "S'inscrire à l'IA", msg: "Bonjour, je souhaite m'inscrire à la formation Agent IA WhatsApp." },
-                { icon: 'fa-layer-group', color: 'amber', tag: 'Formation Web', title: 'Création de Sites Sans Code', desc: "Apprenez à concevoir des sites web captivants et fonctionnels pour vous-même ou pour vos clients sans toucher une seule ligne de code.", cta: "S'inscrire", msg: "Bonjour, je veux la formation Création de sites sans code." },
-                { icon: 'fa-bullseye', color: 'emerald', tag: 'Formation Business', title: 'Trouver des Clients Qualifiés', desc: "Méthodes concrètes et prospection directe pour attirer un flux constant d'acheteurs en RDC et monétiser vos compétences.", cta: "S'inscrire", msg: "Bonjour, je souhaite m'inscrire à la formation Trouver des clients." },
-                { icon: 'fa-cart-arrow-down', color: 'sky', tag: 'E-Commerce & Digital', title: 'Vendre sur Chariow', desc: "Plateforme pour commercialiser vos e-books, cours vidéos et produits numériques de façon automatisée.", cta: "S'inscrire", msg: "Bonjour, je veux la formation Vendre sur Chariow." },
-                { icon: 'fa-facebook-f', brand: true, color: 'indigo', tag: 'Formation Ads', title: 'Facebook & Instagram Ads', desc: "Maîtrisez le gestionnaire de publicités pour générer des prospects ciblés avec un budget optimisé.", cta: "S'inscrire", msg: "Bonjour, je souhaite suivre la formation Facebook Ads." }
-            ];
-
-            const serviceColorMap = {
-                brand: ['bg-brand-100 dark:bg-brand-900/50', 'text-brand-600 dark:text-brand-400', 'bg-brand-50 dark:bg-brand-900/30', 'text-brand-700 dark:text-brand-300', 'bg-brand-600 hover:bg-brand-700'],
-                purple: ['bg-purple-100 dark:bg-purple-900/50', 'text-purple-600 dark:text-purple-400', 'bg-purple-50 dark:bg-purple-900/30', 'text-purple-700 dark:text-purple-300', 'bg-purple-600 hover:bg-purple-700'],
-                amber: ['bg-amber-100 dark:bg-amber-900/50', 'text-amber-600 dark:text-amber-400', 'bg-amber-50 dark:bg-amber-900/30', 'text-amber-700 dark:text-amber-300', 'bg-amber-600 hover:bg-amber-700'],
-                emerald: ['bg-emerald-100 dark:bg-emerald-900/50', 'text-emerald-600 dark:text-emerald-400', 'bg-emerald-50 dark:bg-emerald-900/30', 'text-emerald-700 dark:text-emerald-300', 'bg-emerald-600 hover:bg-emerald-700'],
-                sky: ['bg-sky-100 dark:bg-sky-900/50', 'text-sky-600 dark:text-sky-400', 'bg-sky-50 dark:bg-sky-900/30', 'text-sky-700 dark:text-sky-300', 'bg-sky-600 hover:bg-sky-700'],
-                indigo: ['bg-indigo-100 dark:bg-indigo-900/50', 'text-indigo-600 dark:text-indigo-400', 'bg-indigo-50 dark:bg-indigo-900/30', 'text-indigo-700 dark:text-indigo-300', 'bg-indigo-600 hover:bg-indigo-700']
-            };
-
-            function serviceCardHTML(s) {
-                const [iconBg, iconText, tagBg, tagText, btnBg] = serviceColorMap[s.color];
-                const iconClass = s.brand ? `fab ${s.icon}` : `fas ${s.icon}`;
-                return `
-                <div class="w-80 sm:w-96 p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 shadow-lg hover-lift flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 rounded-2xl ${iconBg} ${iconText} flex items-center justify-center text-2xl mb-4"><i class="${iconClass}"></i></div>
-                        <span class="inline-block px-3 py-1 rounded-full ${tagBg} ${tagText} text-xs font-bold mb-3 uppercase tracking-wider">${s.tag}</span>
-                        <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white mb-2">${s.title}</h3>
-                        <p class="text-sm text-slate-800 dark:text-slate-400 leading-relaxed mb-6">${s.desc}</p>
-                    </div>
-                    <a href="https://wa.me/243977092549?text=${encodeURIComponent(s.msg)}" target="_blank" class="w-full py-3 rounded-xl ${btnBg} text-white font-bold text-center text-sm transition-colors flex items-center justify-center gap-2 shadow-md">
-                        <i class="fab fa-whatsapp"></i> ${s.cta}
-                    </a>
-                </div>`;
-            }
-
-            const servicesTrack = document.getElementById('services-track');
-            if (servicesTrack) {
-                const html = services.map(serviceCardHTML).join('');
-                servicesTrack.innerHTML = html + html;
-            }
-
-            const realisationImages = [
-                { src: 'site1.jpg', alt: 'Boutique Mode & Tech RDC', fallback: 'https://placehold.co/560x680/1e293b/ffffff?text=Boutique+E-Commerce' },
-                { src: 'site2.jpg', alt: "Site Agence de Services Kinshasa", fallback: 'https://placehold.co/560x680/1e40af/ffffff?text=Vitrine+Entreprise' },
-                { src: 'site3.jpg', alt: 'Plateforme Trust RDC', fallback: 'https://placehold.co/560x680/065f46/ffffff?text=Plateforme+Trust+RDC' },
-                { src: 'site4.jpg', alt: 'Chatbot Vendeur Immo & Auto', fallback: 'https://placehold.co/560x680/5b21b6/ffffff?text=Agent+IA+WhatsApp' },
-                { src: 'site5.jpg', alt: 'Portail de Cours Numériques', fallback: 'https://placehold.co/560x680/0f172a/ffffff?text=Portail+Formation' }
-            ];
-
-            function realisationFrameHTML(r) {
-                return `
-                <div class="realisation-frame">
-                    <img src="${r.src}" alt="${r.alt}" loading="lazy" onerror="this.onerror=null; this.src='${r.fallback}';">
-                </div>`;
-            }
-
-            const realisationsTrack = document.getElementById('realisations-track');
-            if (realisationsTrack) {
-                const html = realisationImages.map(realisationFrameHTML).join('');
-                realisationsTrack.innerHTML = html + html;
-            }
-
-            const testimonials = [
-                { initials: 'CK', color: 'bg-brand-600', name: 'Christian K.', role: 'Commerçant — Kinshasa', quote: "Grâce au site créé par OptiSite Digital, mes ventes sur WhatsApp ont triplé à Kinshasa en 2 semaines. Service réactif et professionnel !" },
-                { initials: 'MN', color: 'bg-purple-600', name: 'Mireille N.', role: 'Freelance — Lubumbashi', quote: "La formation Agent IA WhatsApp m'a fait gagner un temps précieux. Mon bot répond désormais seul à mes clients même pendant la nuit !" },
-                { initials: 'PT', color: 'bg-emerald-600', name: 'Patrick T.', role: 'Vendeur Tech — Goma', quote: "Je me suis fait certifier sur Trust RDC. Depuis, mes nouveaux acheteurs n'hésitent plus avant de m'envoyer les acomptes." },
-                { initials: 'SB', color: 'bg-pink-600', name: 'Sarah B.', role: 'Entrepreneuse — Kinshasa', quote: "La formation Facebook Ads m'a permis d'atteindre exactement ma cible sur Kinshasa sans gaspiller de budget. Je recommande !" }
-            ];
-
-            function testimonialCardHTML(t) {
-                return `
-                <div class="w-80 sm:w-96 p-6 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-amber-400 text-sm gap-1 mb-3">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed mb-6">"${t.quote}"</p>
-                    </div>
-                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
-                        <div class="w-10 h-10 rounded-full ${t.color} font-bold flex items-center justify-center text-xs">${t.initials}</div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">${t.name}</h4>
-                            <p class="text-[10px] text-slate-400">${t.role}</p>
-                        </div>
-                    </div>
-                </div>`;
-            }
-
-            const testimonialsTrack = document.getElementById('testimonials-track');
-            if (testimonialsTrack) {
-                const html = testimonials.map(testimonialCardHTML).join('');
-                testimonialsTrack.innerHTML = html + html;
-            }
-
-            const vendorOverlay = document.getElementById('vendor-modal-overlay');
-            const openVendorBtn = document.getElementById('open-vendor-modal-btn');
-            const closeVendorBtn = document.getElementById('close-vendor-modal-btn');
-            const vendorForm = document.getElementById('vendor-form');
-            const vendorSuccessView = document.getElementById('vendor-success-view');
-            const vendorSuccessCloseBtn = document.getElementById('vendor-success-close-btn');
-            const vendorModalTitle = document.getElementById('vendor-modal-title');
-            const vendorModalSubtitle = document.getElementById('vendor-modal-subtitle');
-            const vendorModalScroll = document.getElementById('vendor-modal-scroll');
-
-            const DEFAULT_MODAL_TITLE = vendorModalTitle ? vendorModalTitle.textContent : '';
-            const DEFAULT_MODAL_SUBTITLE = vendorModalSubtitle ? vendorModalSubtitle.textContent : '';
-
-            function showVendorForm() {
-                if (vendorForm) vendorForm.classList.remove('hidden');
-                if (vendorSuccessView) vendorSuccessView.classList.add('hidden');
-                if (vendorModalTitle) vendorModalTitle.textContent = DEFAULT_MODAL_TITLE;
-                if (vendorModalSubtitle) vendorModalSubtitle.textContent = DEFAULT_MODAL_SUBTITLE;
-                if (vendorModalScroll) vendorModalScroll.scrollTop = 0;
-            }
-
-            function showVendorSuccess() {
-                if (vendorForm) vendorForm.classList.add('hidden');
-                if (vendorSuccessView) vendorSuccessView.classList.remove('hidden');
-                if (vendorModalTitle) vendorModalTitle.textContent = 'Inscription reçue !';
-                if (vendorModalSubtitle) vendorModalSubtitle.textContent = 'Une dernière étape par email pour finaliser votre badge.';
-                if (vendorModalScroll) vendorModalScroll.scrollTop = 0;
-            }
-
-            function openVendorModal() {
-                vendorOverlay.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            }
-            function closeVendorModal() {
-                vendorOverlay.classList.remove('open');
-                document.body.style.overflow = '';
-            }
-            if (openVendorBtn) openVendorBtn.addEventListener('click', () => { showVendorForm(); openVendorModal(); });
-            if (closeVendorBtn) closeVendorBtn.addEventListener('click', closeVendorModal);
-            if (vendorSuccessCloseBtn) vendorSuccessCloseBtn.addEventListener('click', closeVendorModal);
-            if (vendorOverlay) {
-                vendorOverlay.addEventListener('click', (e) => { if (e.target === vendorOverlay) closeVendorModal(); });
-            }
-
-            // ⚠️ Doit être la MÊME URL que APPS_SCRIPT_URL plus haut (le même déploiement gère formulaire + vérification)
-            const GOOGLE_SCRIPT_URL = APPS_SCRIPT_URL;
-
-            function formatDateFR(d) {
-                const dd = String(d.getDate()).padStart(2, '0');
-                const mm = String(d.getMonth() + 1).padStart(2, '0');
-                const yyyy = d.getFullYear();
-                return `${dd}/${mm}/${yyyy}`;
-            }
-
-            if (vendorForm) {
-                vendorForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-
-                    const name = document.getElementById('v-name').value.trim();
-                    const phone = document.getElementById('v-phone').value.trim();
-                    const city = document.getElementById('v-city').value.trim();
-                    const category = document.getElementById('v-category').value.trim();
-                    const skills = document.getElementById('v-skills').value.trim();
-                    const bio = document.getElementById('v-bio').value.trim();
-                    const email = document.getElementById('v-email').value.trim();
-                    const photo = document.getElementById('v-photo').value.trim();
-                    const termsAccepted = document.getElementById('v-terms').checked;
-                    const statusBox = document.getElementById('vendor-form-status');
-                    const submitBtn = document.getElementById('vendor-submit-btn');
-
-                    if (!name || !phone || !city || !category || !bio || !email || !photo) {
-                        alert("Merci de remplir tous les champs obligatoires (*) avant d'envoyer, y compris l'email et le lien direct de votre photo.");
-                        return;
-                    }
-                    if (!termsAccepted) {
-                        alert("Merci de cocher la case d'acceptation des conditions d'inscription avant d'envoyer.");
-                        return;
-                    }
-
-                    const today = new Date();
-                    const finDate = new Date();
-                    finDate.setDate(today.getDate() + 3);
-
-                    // Ordre exact des colonnes du Google Sheet :
-                    // Nom complet | Numéro WhatsApp | Ville | Catégorie | Compétences / Produits | Courte bio / description | Email | badge | date | fin | photo
-                    const payload = {
-                        nom: name,
-                        telephone: phone,
-                        ville: city,
-                        categorie: category,
-                        competences: skills || 'Non précisé',
-                        bio: bio,
-                        email: email,
-                        badge: "Essai gratuit",
-                        date: formatDateFR(today),
-                        fin: formatDateFR(finDate),
-                        photo: photo
-                    };
-
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> Envoi en cours...`;
-
-                    /* IMPORTANT :
-                       - Content-Type "text/plain" évite le preflight CORS (OPTIONS) que
-                         Apps Script ne gère pas nativement, tout en laissant doPost()
-                         parser le JSON normalement via e.postData.contents.
-                       - On n'utilise PLUS mode:'no-cors', donc on peut enfin lire la
-                         vraie réponse du serveur et afficher un vrai message d'erreur
-                         si l'envoi échoue (au lieu d'un faux succès systématique). */
-                    fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                        body: JSON.stringify(payload)
-                    })
-                    .then(res => {
-                        if (!res.ok) throw new Error("Réponse serveur invalide (" + res.status + ")");
-                        return res.json();
-                    })
-                    .then(json => {
-                        if (json.result !== 'success') {
-                            throw new Error(json.message || "Erreur inconnue côté serveur.");
-                        }
-
-                        /* ============================================================
-                           ÉTAPE EMAIL OBLIGATOIRE — anti-spam
-                           Une fois l'inscription enregistrée, on prépare un mailto:
-                           vers optisitedigital@gmail.com avec un objet + message
-                           pré-remplis ("J'aimerais m'inscrire..."). Le client email
-                           de l'utilisateur s'ouvre automatiquement ; il ne reste plus
-                           qu'à cliquer sur "Envoyer" dans son app mail.
-                           Comme c'est LUI qui écrit à optisitedigital@gmail.com en
-                           premier, sa boîte mail considère ensuite notre adresse comme
-                           un contact connu : le futur email automatique de fin d'essai
-                           / rappel d'abonnement a beaucoup moins de risque de tomber
-                           dans ses spams.
-
-                           Au lieu d'afficher ces instructions sous l'ancien formulaire,
-                           on masque désormais le formulaire et on affiche un nouvel
-                           écran dédié (#vendor-success-view) qui explique la marche à
-                           suivre pour envoyer cet email.
-                           ============================================================ */
-                        const emailSubject = `Je veux finaliser mon inscription`;
-                        const emailBody =
-                            `Bonjour OptiSite Digital,\n\n` +
-                            `Je veux finaliser mon inscription. Je vous ai enregistré au contact.\n\n` +
-                            `Nom complet : ${name}\n` +
-                            `Numéro WhatsApp : ${phone}\n` +
-                            `Ville : ${city}\n` +
-                            `Catégorie : ${category}\n\n` +
-                            `Cordialement,\n${name}`;
-                        const mailtoLink = `mailto:optisitedigital@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
-                        const mailtoBtn = document.getElementById('vendor-mailto-link');
-                        if (mailtoBtn) mailtoBtn.setAttribute('href', mailtoLink);
-
-                        // Réinitialise le formulaire et bascule vers l'écran de confirmation.
-                        vendorForm.reset();
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = `<i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription`;
-                        if (statusBox) { statusBox.classList.add('hidden'); statusBox.innerHTML = ''; }
-
-                        showVendorSuccess();
-                    })
-                    .catch((err) => {
-                        statusBox.classList.remove('hidden');
-                        statusBox.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
-                        statusBox.innerHTML = `<i class="fas fa-triangle-exclamation mr-1"></i> Erreur lors de l'envoi : ${escapeHtml(err.message)}. Vérifie que le script Apps Script est bien redéployé (Déployer > Gérer les déploiements > Nouvelle version) et accessible à "Tout le monde", ou contacte-nous sur WhatsApp.`;
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = `<i class="fas fa-paper-plane text-lg"></i> Envoyer mon inscription`;
-                    });
-                });
-            }
-
-            /* ============================================================
-               ANIMATIONS "WAHOU" — GSAP
-               1) Entrée du héro en cascade dès l'ouverture du site
-               2) Révélation au défilement pour toutes les autres sections
-               Respecte prefers-reduced-motion (aucune animation si activé).
-               ============================================================ */
-            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            if (window.gsap && !reduceMotion) {
-                gsap.registerPlugin(ScrollTrigger);
-
-                // --- 1) Entrée du héro : badge -> titre -> texte -> boutons -> stats ---
-                gsap.timeline({ defaults: { ease: 'power2.out' } })
-                    .from('#hero-bg-img', { opacity: 0, scale: 1.18, duration: 1.4, ease: 'power1.out' }, 0)
-                    .from('.hero-anim', { opacity: 0, y: 26, duration: 0.6, stagger: 0.12 }, 0.15);
-
-                // Léger parallaxe de l'image de fond au défilement (effet premium)
-                gsap.to('#hero-bg-img', {
-                    yPercent: 12,
-                    ease: 'none',
-                    scrollTrigger: { trigger: '#accueil', start: 'top top', end: 'bottom top', scrub: 0.6 }
-                });
-
-                // --- 2) Révélation au scroll pour le reste du site ---
-                document.querySelectorAll('.reveal-up').forEach((el) => {
-                    gsap.from(el, {
-                        opacity: 0, y: 28, duration: 0.6, ease: 'power2.out',
-                        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none reverse' }
-                    });
-                });
-
-                document.querySelectorAll('.reveal-stagger').forEach((el) => {
-                    gsap.from(el.children, {
-                        opacity: 0, y: 24, duration: 0.5, stagger: 0.1, ease: 'power2.out',
-                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' }
-                    });
-                });
-
-                // Cartes générées dynamiquement (services, réalisations, avis) : petit effet d'entrée
-                ['#services-track', '#realisations-track', '#testimonials-track'].forEach((sel) => {
-                    const track = document.querySelector(sel);
-                    if (track && track.children.length) {
-                        gsap.from(track.children, {
-                            opacity: 0, y: 20, duration: 0.5, stagger: 0.06, ease: 'power2.out',
-                            scrollTrigger: { trigger: track, start: 'top 90%' }
-                        });
-                    }
-                });
-            }
-        });
-    </script>
+<body>
+<div id="root"></div>
+<noscript>
+  <div style="padding:100px 24px;max-width:640px;margin:auto;font-family:sans-serif;color:#fff">
+    <h1>Optisite Digital</h1>
+    <p>Création de sites web, d'applications web et formation en ligne.</p>
+    <p><a style="color:#8CC0FF" href="https://wa.me/243977092549">Demander un devis sur WhatsApp : +243 97 709 2549</a></p>
+  </div>
+</noscript>
+
+<!-- ============================================================
+     CONFIGURATION — le seul endroit à modifier
+     ============================================================ -->
+<script>
+window.SITE_CONFIG = {
+  whatsapp: "243977092549",              // indicatif + numéro, sans "+" ni espaces
+  whatsappDisplay: "+243 97 709 2549",
+  email: "optisite.digital@gmail.com",
+
+  // Logo de l'en-tête : le 1er fichier trouvé dans ton repo est utilisé
+  logo: ["logo.png", "apple-touch-icon.png"],
+  showBrandName: true,                   // false si ton logo contient déjà le nom "Optisite Digital"
+
+  // Image d'accueil : LIEN DIRECT d'une image (colle n'importe quelle URL d'image, ou "" pour la retirer)
+  heroImage: "https://images.unsplash.com/photo-1763568258492-9569a0af2127?fm=jpg&q=70&w=1600&auto=format&fit=crop",
+
+  kontraUrl: "https://kontra-africa-app.onrender.com/",
+  kontraSignup: "https://kontra-africa-app.onrender.com/inscription.html",
+
+  // Tes 5 projets : image = fichier du repo, url = lien direct du site
+  // (si url est vide, le clic ouvre WhatsApp : "je veux un site comme celui-ci")
+  projects: [
+    { image: "site1.jpg", url: "" },
+    { image: "site2.jpg", url: "" },
+    { image: "site3.jpg", url: "" },
+    { image: "site4.jpg", url: "" },
+    { image: "site5.jpg", url: "" }
+  ]
+};
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script>
+const{useState,useEffect,useRef,useCallback}=React,C=window.SITE_CONFIG,REDUCED=typeof window.matchMedia=="function"&&window.matchMedia("(prefers-reduced-motion: reduce)").matches,waLink=e=>`https://wa.me/${C.whatsapp}?text=${encodeURIComponent(e)}`,ICONS={whatsapp:"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z",monitor:"M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8 21h8M12 17v4",layers:"M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5",cap:"M22 10v6M2 10l10-5 10 5-10 5-10-5zM6 12v5c3 3 9 3 12 0v-5",server:"M4 2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM4 14h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2zM6 6h.01M6 18h.01",mail:"M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM22 7l-10 6L2 7",ext:"M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6",up:"M7 17 17 7M7 7h10v10",check:"M20 6 9 17l-5-5",menu:"M4 7h16M4 12h16M4 17h16",x:"M6 6l12 12M18 6 6 18",file:"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 2v6h6M8 13h8M8 17h5",box:"M21 8 12 3 3 8v8l9 5 9-5V8zM3 8l9 5 9-5M12 13v8",chart:"M3 3v18h18M7 15l4-4 3 3 5-6",phone:"M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2"};function Icon({name:e,size:a=20,fill:s=!1,className:n=""}){return React.createElement("svg",{className:n,width:a,height:a,viewBox:"0 0 24 24",fill:s?"currentColor":"none",stroke:s?"none":"currentColor",strokeWidth:"1.8",strokeLinecap:"round",strokeLinejoin:"round","aria-hidden":"true",focusable:"false"},React.createElement("path",{d:ICONS[e]}))}function LogoMark({size:e=36}){const a=[].concat(C.logo||[]),[s,n]=useState(0);return s<a.length?React.createElement("img",{src:a[s],alt:"",width:e,height:e,style:{height:e,width:"auto",maxWidth:e*3},onError:()=>n(s+1)}):React.createElement("svg",{width:e,height:e,viewBox:"0 0 64 64","aria-hidden":"true"},React.createElement("circle",{cx:"32",cy:"32",r:"20",fill:"none",stroke:"#2D8CFF",strokeWidth:"9",strokeLinecap:"round",strokeDasharray:"99 26.66",transform:"rotate(8 32 32)"}),React.createElement("circle",{cx:"49.3",cy:"22",r:"5.6",fill:"#F7D618"}))}function Brand({light:e=!0,onClick:a}){return React.createElement("a",{href:"#top",onClick:a,className:"brand "+(e?"brand--light":""),"aria-label":"Optisite Digital, retour en haut"},React.createElement(LogoMark,null),C.showBrandName!==!1&&React.createElement("span",{className:"brand__name"},"Optisite ",React.createElement("span",null,"Digital")))}function useInView(e,a=.25){const[s,n]=useState(REDUCED);return useEffect(()=>{if(REDUCED||!e.current)return;if(!("IntersectionObserver"in window)){n(!0);return}const r=new IntersectionObserver(([o])=>{o.isIntersecting&&(n(!0),r.disconnect())},{threshold:a});return r.observe(e.current),()=>r.disconnect()},[]),s}function SplitTitle({text:e,as:a="h2",className:s=""}){const n=useRef(null),r=useInView(n,.4),o=e.split(" ");return React.createElement(a,{ref:n,className:`split ${r?"is-in":""} ${s}`,"aria-label":e},o.map((l,c)=>React.createElement(React.Fragment,{key:c},React.createElement("span",{className:"split__mask","aria-hidden":"true"},React.createElement("span",{className:"split__word",style:{"--i":c}},l))," ")))}function Reveal({children:e,delay:a=0,className:s=""}){const n=useRef(null),r=useInView(n,.15);return React.createElement("div",{ref:n,className:`reveal ${r?"is-in":""} ${s}`,style:{"--d":`${a}ms`}},e)}function Rail({children:e,className:a="",auto:s=!1,label:n}){const r=useRef(null),o=useRef(0),l=useRef(!0),[c,p]=useState(0),u=React.Children.count(e),d=t=>{const i=r.current;if(!i||!i.children[t])return;const m=parseFloat(getComputedStyle(i).paddingLeft)||0;i.scrollTo({left:i.children[t].offsetLeft-m,behavior:REDUCED?"auto":"smooth"})};return useEffect(()=>{const t=r.current;if(!t)return;const i=()=>{if(t.scrollWidth<=t.clientWidth+4)return;const v=t.children,b=v.length>1?v[1].offsetLeft-v[0].offsetLeft:t.clientWidth;let f=Math.round(t.scrollLeft/(b||1));t.scrollLeft>=t.scrollWidth-t.clientWidth-4&&(f=v.length-1),p(Math.max(0,Math.min(v.length-1,f)))},m=()=>{o.current=Date.now()};t.addEventListener("scroll",i,{passive:!0}),t.addEventListener("pointerdown",m,{passive:!0}),t.addEventListener("wheel",m,{passive:!0});let h;return"IntersectionObserver"in window&&(h=new IntersectionObserver(([v])=>{l.current=v.isIntersecting},{threshold:.4}),h.observe(t)),()=>{t.removeEventListener("scroll",i),t.removeEventListener("pointerdown",m),t.removeEventListener("wheel",m),h&&h.disconnect()}},[]),useEffect(()=>{if(!s||REDUCED)return;const t=setInterval(()=>{const i=r.current;!i||!l.current||document.hidden||i.scrollWidth<=i.clientWidth+4||Date.now()-o.current<7e3||d(c+1>=u?0:c+1)},3800);return()=>clearInterval(t)},[s,c,u]),React.createElement("div",{className:"railwrap"},React.createElement("div",{className:`rail ${a}`,ref:r,role:"group","aria-label":n},e),React.createElement("div",{className:"dots",role:"tablist","aria-label":`Position : ${n}`},Array.from({length:u}).map((t,i)=>React.createElement("button",{key:i,type:"button",role:"tab","aria-selected":i===c,"aria-label":`${n} ${i+1}`,className:i===c?"is-on":"",onClick:()=>{o.current=Date.now(),d(i)}},React.createElement("span",null)))))}const TONES=["#2D8CFF","#F7D618","#5B3FE0","#25D366","#FF6B4A"];function Mock({n:e}){const a=TONES[e%TONES.length];return React.createElement("div",{className:"mock",style:{"--tone":a},"aria-hidden":"true"},React.createElement("div",{className:"mock__nav"},React.createElement("i",null),React.createElement("b",null),React.createElement("b",null),React.createElement("b",null),React.createElement("em",null)),React.createElement("div",{className:"mock__hero"},React.createElement("div",null,React.createElement("span",{style:{width:"78%"}}),React.createElement("span",{style:{width:"54%"}}),React.createElement("u",null)),React.createElement("div",{className:"mock__art"})),React.createElement("div",{className:"mock__row"},React.createElement("i",null),React.createElement("i",null),React.createElement("i",null)))}function Shot({src:e,n:a,alt:s}){const[n,r]=useState(!1);return n||!e?React.createElement(Mock,{n:a}):React.createElement("img",{src:e,alt:s,loading:"lazy",decoding:"async",onError:()=>r(!0)})}function projectHref(e,a){return e.url?e.url:waLink(`Bonjour Optisite Digital, j'ai vu votre projet n\xB0${a+1} et je voudrais un site similaire.`)}function hostOf(e){try{return new URL(e.url).hostname.replace(/^www\./,"")}catch(a){return"Optisite Digital"}}const NAV=[["Services","#services"],["R\xE9alisations","#realisations"],["Formation","#formation"],["Kontra Africa","#kontra"],["Commander","#commande"]];function Header(){const[e,a]=useState(!1),[s,n]=useState(!1),r=()=>a(!1);return useEffect(()=>{const o=()=>n(window.scrollY>24);return o(),window.addEventListener("scroll",o,{passive:!0}),()=>window.removeEventListener("scroll",o)},[]),useEffect(()=>{document.body.style.overflow=e?"hidden":"";const o=c=>c.key==="Escape"&&a(!1),l=()=>window.innerWidth>=900&&a(!1);return window.addEventListener("keydown",o),window.addEventListener("resize",l),()=>{window.removeEventListener("keydown",o),window.removeEventListener("resize",l)}},[e]),React.createElement(React.Fragment,null,React.createElement("header",{className:`hdr ${s?"hdr--solid":""}`},React.createElement("div",{className:"wrap hdr__in"},React.createElement(Brand,null),React.createElement("nav",{className:"nav","aria-label":"Navigation principale"},NAV.map(([o,l])=>React.createElement("a",{key:l,href:l},o))),React.createElement("a",{className:"btn btn--wa btn--sm hdr__cta",href:waLink("Bonjour Optisite Digital, je voudrais un devis."),target:"_blank",rel:"noopener"},React.createElement(Icon,{name:"whatsapp",size:18,fill:!0}),React.createElement("span",null,"Devis WhatsApp")),React.createElement("button",{className:"burger","aria-expanded":e,"aria-controls":"drawer","aria-label":"Ouvrir le menu",onClick:()=>a(!0)},React.createElement(Icon,{name:"menu",size:26})))),React.createElement("div",{className:`scrim ${e?"is-on":""}`,onClick:r,"aria-hidden":"true"}),React.createElement("aside",{id:"drawer",className:`drawer ${e?"is-open":""}`,"aria-label":"Menu","aria-hidden":!e},React.createElement("div",{className:"drawer__top"},React.createElement(Brand,{onClick:r}),React.createElement("button",{className:"drawer__close","aria-label":"Fermer le menu",onClick:r},React.createElement(Icon,{name:"x",size:22}))),React.createElement("nav",{"aria-label":"Menu mobile",className:"drawer__nav"},NAV.map(([o,l],c)=>React.createElement("a",{key:l,href:l,style:{"--i":c},onClick:r},o))),React.createElement("div",{className:"drawer__foot"},React.createElement("a",{className:"btn btn--wa btn--lg btn--block",href:waLink("Bonjour Optisite Digital, je voudrais un devis."),target:"_blank",rel:"noopener",onClick:r},React.createElement(Icon,{name:"whatsapp",size:22,fill:!0}),"Demander un devis"),React.createElement("a",{className:"drawer__mail",href:`mailto:${C.email}`},React.createElement(Icon,{name:"mail",size:18})," ",C.email),React.createElement("span",{className:"drawer__tel"},C.whatsappDisplay))))}function Typer({words:e}){const[a,s]=useState(0),[n,r]=useState(REDUCED?e[0]:""),[o,l]=useState(!1);return useEffect(()=>{if(REDUCED)return;const c=e[a];let p;return!o&&n===c?p=setTimeout(()=>l(!0),1700):o&&n===""?(l(!1),s((a+1)%e.length)):p=setTimeout(()=>r(c.slice(0,n.length+(o?-1:1))),o?32:70),()=>clearTimeout(p)},[n,o,a]),React.createElement("span",{className:"typer","aria-live":"off"},n,React.createElement("span",{className:"typer__caret","aria-hidden":"true"}))}function HeroStage(){const e=C.projects,[a,s]=useState(0),[n,r]=useState(!1),o=useRef(null),l=useRef(0);useEffect(()=>{if(REDUCED||n)return;const d=setInterval(()=>s(t=>(t+1)%e.length),4200);return()=>clearInterval(d)},[n,e.length]);const c=d=>{if(REDUCED||d.pointerType==="touch")return;const t=o.current;if(!t)return;const i=d.currentTarget.getBoundingClientRect(),m=(d.clientX-i.left)/i.width-.5,h=(d.clientY-i.top)/i.height-.5;cancelAnimationFrame(l.current),l.current=requestAnimationFrame(()=>{t.style.setProperty("--ry",`${m*14}deg`),t.style.setProperty("--rx",`${-h*12}deg`)})},p=()=>{r(!1);const d=o.current;d&&(d.style.setProperty("--ry","-8deg"),d.style.setProperty("--rx","4deg"))},u=e[a];return React.createElement("div",{className:"stage",onPointerMove:c,onPointerEnter:()=>r(!0),onPointerLeave:p},React.createElement("div",{className:"win",ref:o},React.createElement("div",{className:"win__bar"},React.createElement("i",null),React.createElement("i",null),React.createElement("i",null),React.createElement("span",{className:"win__url"},React.createElement(Icon,{name:"check",size:12}),hostOf(u))),React.createElement("div",{className:"win__screen"},e.map((d,t)=>React.createElement("a",{key:t,href:projectHref(d,t),target:"_blank",rel:"noopener",className:`slide ${t===a?"is-on":""}`,tabIndex:t===a?0:-1,"aria-hidden":t!==a,"aria-label":`Ouvrir le projet ${t+1}`},React.createElement(Shot,{src:d.image,n:t,alt:`Projet ${t+1}`})))),React.createElement("div",{className:"win__dots",role:"tablist","aria-label":"Choisir un projet"},e.map((d,t)=>React.createElement("button",{key:t,role:"tab","aria-selected":t===a,"aria-label":`Projet ${t+1}`,className:t===a?"is-on":"",onClick:()=>s(t)},React.createElement("span",null)))),React.createElement("div",{className:"chip chip--a"},React.createElement(Icon,{name:"check",size:16})," S'adapte au t\xE9l\xE9phone"),React.createElement("div",{className:"chip chip--b"},React.createElement(Icon,{name:"whatsapp",size:16,fill:!0})," Commande sur WhatsApp")))}function Hero(){const[e,a]=useState(!!C.heroImage),s=useRef(null),n=useRef(0),r=["Un","site","web","qui","fait","dire","\xAB\xA0wahou\xA0\xBB."];return React.createElement("section",{id:"top",className:"hero",ref:s,onPointerMove:l=>{if(REDUCED)return;const c=s.current,p=c.getBoundingClientRect();cancelAnimationFrame(n.current),n.current=requestAnimationFrame(()=>{c.style.setProperty("--mx",`${l.clientX-p.left}px`),c.style.setProperty("--my",`${l.clientY-p.top}px`)})}},e&&React.createElement("div",{className:"hero__bg","aria-hidden":"true"},React.createElement("img",{src:C.heroImage,alt:"",decoding:"async",onError:()=>a(!1)})),React.createElement("div",{className:"hero__glow","aria-hidden":"true"}),React.createElement("div",{className:"wrap hero__in"},React.createElement("div",{className:"hero__copy"},React.createElement("h1",{"aria-label":"Un site web qui fait dire \xAB wahou \xBB"},r.map((l,c)=>React.createElement(React.Fragment,{key:c},React.createElement("span",{className:"hw","aria-hidden":"true"},React.createElement("span",{className:"hw__in",style:{"--i":c}},l))," "))),React.createElement("p",{className:"hero__type"},"Nous cr\xE9ons ",React.createElement(Typer,{words:["des sites vitrines","des boutiques en ligne","des applications web","des formations en ligne"]})),React.createElement("p",{className:"hero__lead"},"Optisite Digital con\xE7oit des sites et des applications web rapides, et forme celles et ceux qui veulent apprendre \xE0 en cr\xE9er."),React.createElement("div",{className:"hero__cta"},React.createElement("a",{className:"btn btn--wa btn--lg",href:waLink("Bonjour Optisite Digital, je voudrais un devis pour mon projet."),target:"_blank",rel:"noopener"},React.createElement(Icon,{name:"whatsapp",size:22,fill:!0}),"Demander un devis"),React.createElement("a",{className:"btn btn--ghost btn--lg",href:"#realisations"},"Nos r\xE9alisations")),React.createElement("p",{className:"hero__note"},React.createElement("span",{className:"dot","aria-hidden":"true"})," On vous r\xE9pond directement sur WhatsApp")),React.createElement(HeroStage,null)))}const TICKER=["Sites vitrines","Boutiques en ligne","Applications web","Formation en ligne","Kontra Africa","Devis sur WhatsApp"];function Ticker(){const e=[...TICKER,...TICKER];return React.createElement("div",{className:"ticker","aria-hidden":"true"},React.createElement("div",{className:"ticker__track"},e.map((a,s)=>React.createElement("span",{key:s},a,React.createElement("i",null)))))}const SERVICES=[{icon:"monitor",title:"Sites web",text:"Site vitrine, boutique en ligne ou page de vente : un site clair et rapide, qui s'affiche bien sur t\xE9l\xE9phone et donne envie de vous contacter.",tags:["Vitrine","Boutique en ligne","Portfolio"]},{icon:"layers",title:"Applications web",text:"Gestion de stock, contrats, r\xE9servations, tableaux de bord : nous construisons l'outil dont votre activit\xE9 a besoin, accessible depuis n'importe quel appareil.",tags:["Sur mesure","Tableau de bord","Espace client"]},{icon:"cap",title:"Formation en ligne",text:"Apprenez \xE0 cr\xE9er des sites et des applications web pas \xE0 pas, avec des projets concrets et un accompagnement.",tags:["D\xE9butants","Projets r\xE9els","\xC0 votre rythme"]},{icon:"server",title:"Mise en ligne et suivi",text:"Nom de domaine, h\xE9bergement, mises \xE0 jour et corrections : votre site reste en ligne, rapide et \xE0 jour.",tags:["Domaine","H\xE9bergement","Maintenance"]}];function Services(){return React.createElement("section",{id:"services",className:"sect sect--light"},React.createElement("div",{className:"wrap"},React.createElement("div",{className:"sect__head"},React.createElement(SplitTitle,{text:"Ce que nous construisons pour vous"}),React.createElement("p",{className:"sect__sub"},"Un seul interlocuteur, du premier message WhatsApp jusqu'\xE0 la mise en ligne.")),React.createElement(Rail,{className:"svc",label:"Services"},SERVICES.map(e=>React.createElement("a",{key:e.title,className:"svc__row",href:waLink(`Bonjour Optisite Digital, je suis int\xE9ress\xE9 par : ${e.title}.`),target:"_blank",rel:"noopener"},React.createElement("span",{className:"svc__icon"},React.createElement(Icon,{name:e.icon,size:26})),React.createElement("span",{className:"svc__main"},React.createElement("strong",null,e.title),React.createElement("span",null,e.text)),React.createElement("span",{className:"svc__tags"},e.tags.map(a=>React.createElement("em",{key:a},a))),React.createElement("span",{className:"svc__go","aria-label":"Demander ce service sur WhatsApp"},React.createElement(Icon,{name:"up",size:20})))))))}function Projects(){return React.createElement("section",{id:"realisations",className:"sect sect--dark"},React.createElement("div",{className:"wrap"},React.createElement("div",{className:"sect__head"},React.createElement(SplitTitle,{text:"Nos r\xE9alisations"}),React.createElement("p",{className:"sect__sub"},"Cliquez sur une image pour ouvrir le site en direct.")),React.createElement(Rail,{className:"prj",auto:!0,label:"Projet"},C.projects.map((e,a)=>React.createElement(Reveal,{key:a,delay:a%3*90,className:`prj__cell prj__cell--${a}`},React.createElement("a",{className:"card",href:projectHref(e,a),target:"_blank",rel:"noopener","aria-label":`Projet ${a+1} : ${e.url?"ouvrir le site":"demander un site similaire"}`},React.createElement("div",{className:"card__shot"},React.createElement(Shot,{src:e.image,n:a,alt:`Projet ${a+1}`}),React.createElement("span",{className:"card__open"},e.url?"Ouvrir le site":"Je veux le m\xEAme",React.createElement(Icon,{name:e.url?"ext":"whatsapp",size:16,fill:!e.url}))))))),React.createElement("div",{className:"prj__more"},React.createElement("p",null,"Votre projet peut \xEAtre le prochain de cette liste."),React.createElement("a",{className:"btn btn--wa btn--lg",href:waLink("Bonjour Optisite Digital, j'ai vu vos r\xE9alisations et je voudrais un site."),target:"_blank",rel:"noopener"},React.createElement(Icon,{name:"whatsapp",size:22,fill:!0}),"Lancer mon projet"))))}const STEPS=[{t:"Les bases du web",d:"HTML, CSS et JavaScript : vous construisez vos premi\xE8res pages et comprenez comment un site fonctionne."},{t:"Des interfaces modernes",d:"Composants, React et mise en page responsive : des pages propres sur t\xE9l\xE9phone comme sur ordinateur."},{t:"Une application compl\xE8te",d:"Donn\xE9es, comptes utilisateurs et fonctionnalit\xE9s : vous cr\xE9ez une vraie application web de A \xE0 Z."},{t:"La mise en ligne",d:"Nom de domaine, h\xE9bergement, puis pr\xE9sentation de votre travail pour trouver vos premiers clients."}];function Training(){return React.createElement("section",{id:"formation",className:"sect sect--paper"},React.createElement("div",{className:"wrap train"},React.createElement("div",{className:"train__side"},React.createElement(SplitTitle,{text:"Apprenez \xE0 cr\xE9er des sites et des applications web"}),React.createElement("p",{className:"sect__sub"},"Une formation en ligne, pour d\xE9buter de z\xE9ro et finir avec des projets que vous pouvez montrer."),React.createElement("div",{className:"train__card"},React.createElement("ul",null,React.createElement("li",null,React.createElement(Icon,{name:"check",size:18})," En ligne, \xE0 votre rythme"),React.createElement("li",null,React.createElement(Icon,{name:"check",size:18})," Des projets r\xE9els \xE0 construire"),React.createElement("li",null,React.createElement(Icon,{name:"check",size:18})," Questions et suivi par WhatsApp")),React.createElement("a",{className:"btn btn--wa btn--lg",href:waLink("Bonjour Optisite Digital, je veux m'inscrire \xE0 la formation en cr\xE9ation de sites et d'applications web."),target:"_blank",rel:"noopener"},React.createElement(Icon,{name:"whatsapp",size:22,fill:!0}),"Je m'inscris"))),React.createElement(Rail,{className:"steps",label:"\xC9tape"},STEPS.map((e,a)=>React.createElement("div",{className:"steps__item",key:e.t},React.createElement("span",{className:"steps__n"},a+1),React.createElement("h3",null,e.t),React.createElement("p",null,e.d))))))}function Kontra(){return React.createElement("section",{id:"kontra",className:"sect sect--violet"},React.createElement("div",{className:"wrap kon"},React.createElement("div",{className:"kon__copy"},React.createElement(SplitTitle,{text:"D\xE9couvrez notre application web Kontra Africa"}),React.createElement("p",{className:"sect__sub"},"G\xE9rez vos stocks, vos finances et vos ventes, et faites signer vos contrats, dans une seule application."),React.createElement(Rail,{className:"kon__feats",label:"Fonctionnalit\xE9"},[["file","Contrats","Cr\xE9ez un contrat, faites-le signer sur WhatsApp, recevez le PDF sign\xE9."],["box","Stock et ventes","Vos produits, vos ventes et votre b\xE9n\xE9fice calcul\xE9 automatiquement."],["chart","Finances","Entr\xE9es, sorties et objectif d'\xE9pargne, dans votre monnaie."],["phone","Installable","Sur t\xE9l\xE9phone ou ordinateur, sans passer par un store."]].map(([a,s,n])=>React.createElement("div",{className:"kon__feat",key:s},React.createElement("span",null,React.createElement(Icon,{name:a,size:22})),React.createElement("div",null,React.createElement("strong",null,s),React.createElement("p",null,n))))),React.createElement("div",{className:"kon__cta"},React.createElement("a",{className:"btn btn--sun btn--lg",href:C.kontraUrl,target:"_blank",rel:"noopener"},"D\xE9couvrir Kontra Africa",React.createElement(Icon,{name:"ext",size:18})),React.createElement("a",{className:"btn btn--ghost-light btn--lg",href:C.kontraSignup,target:"_blank",rel:"noopener"},"Essai gratuit")),React.createElement("p",{className:"kon__price"},"3 jours d'essai gratuit, sans carte bancaire. Ensuite 5 $ par mois.")),React.createElement("div",{className:"kon__visual","aria-hidden":"true"},React.createElement("div",{className:"phone"},React.createElement("div",{className:"phone__top"},"Kontra Africa"),React.createElement("div",{className:"ph-card ph-card--sign"},React.createElement("div",{className:"ph-line"},React.createElement("span",null,"Contrat de vente"),React.createElement("b",{className:"ph-ok"},React.createElement(Icon,{name:"check",size:12})," Sign\xE9")),React.createElement("div",{className:"ph-sub"},React.createElement(Icon,{name:"whatsapp",size:13,fill:!0})," Envoy\xE9 sur WhatsApp")),React.createElement("div",{className:"ph-card"},React.createElement("div",{className:"ph-line"},React.createElement("span",null,"Sac de riz 25 kg"),React.createElement("b",{className:"ph-low"},"Stock bas")),React.createElement("div",{className:"ph-bar"},React.createElement("i",{style:{width:"18%"}}))),React.createElement("div",{className:"ph-card"},React.createElement("div",{className:"ph-line"},React.createElement("span",null,"B\xE9n\xE9fice du jour"),React.createElement("b",null,"Calcul\xE9")),React.createElement("div",{className:"ph-chart"},React.createElement("i",{style:{height:"35%"}}),React.createElement("i",{style:{height:"55%"}}),React.createElement("i",{style:{height:"42%"}}),React.createElement("i",{style:{height:"78%"}}),React.createElement("i",{style:{height:"64%"}}),React.createElement("i",{style:{height:"92%"}})))))))}const TYPES=["Site web","Boutique en ligne","Application web","Formation en ligne","Kontra Africa"];function Order(){const[e,a]=useState(""),[s,n]=useState(TYPES[0]),[r,o]=useState(""),[l,c]=useState(""),p=`Bonjour Optisite Digital \u{1F44B}
+Je m'appelle ${e.trim()||"\u2026"}.
+Je souhaite : ${s}.`+(r.trim()?`
+Mon projet : ${r.trim()}`:""),u=()=>e.trim()?(c(""),!0):(c("Indiquez votre nom pour continuer."),!1),d=i=>{i.preventDefault(),u()&&window.open(waLink(p),"_blank","noopener")},t=()=>{u()&&(window.location.href=`mailto:${C.email}?subject=${encodeURIComponent("Demande de devis : "+s)}&body=${encodeURIComponent(p)}`)};return React.createElement("section",{id:"commande",className:"sect sect--light"},React.createElement("div",{className:"wrap ord"},React.createElement("div",{className:"ord__copy"},React.createElement(SplitTitle,{text:"Passez commande ou demandez un devis"}),React.createElement("p",{className:"sect__sub"},"D\xE9crivez votre projet en quelques mots. Votre message part sur WhatsApp, et nous vous r\xE9pondons directement."),React.createElement("ul",{className:"ord__contact"},React.createElement("li",null,React.createElement("a",{href:waLink("Bonjour Optisite Digital,"),target:"_blank",rel:"noopener"},React.createElement("span",{className:"ico ico--wa"},React.createElement(Icon,{name:"whatsapp",size:22,fill:!0})),React.createElement("span",null,React.createElement("small",null,"WhatsApp"),React.createElement("strong",null,C.whatsappDisplay)))),React.createElement("li",null,React.createElement("a",{href:`mailto:${C.email}`},React.createElement("span",{className:"ico ico--mail"},React.createElement(Icon,{name:"mail",size:22})),React.createElement("span",null,React.createElement("small",null,"E-mail"),React.createElement("strong",null,C.email)))))),React.createElement("form",{className:"ord__form",onSubmit:d,noValidate:!0},React.createElement("label",{className:"fld"},React.createElement("span",null,"Votre nom"),React.createElement("input",{value:e,onChange:i=>a(i.target.value),autoComplete:"name",placeholder:"Ex. Gr\xE2ce Mbuyi","aria-invalid":!!l,"aria-describedby":"ord-err"})),React.createElement("fieldset",{className:"fld"},React.createElement("legend",null,"Ce dont vous avez besoin"),React.createElement("div",{className:"chips",role:"radiogroup"},TYPES.map(i=>React.createElement("button",{type:"button",role:"radio","aria-checked":s===i,key:i,className:s===i?"is-on":"",onClick:()=>n(i)},i)))),React.createElement("label",{className:"fld"},React.createElement("span",null,"Votre projet ",React.createElement("small",null,"(facultatif)")),React.createElement("textarea",{rows:"2",value:r,onChange:i=>o(i.target.value),placeholder:"Ex. Un site pour mon restaurant"})),React.createElement("div",{className:"bubble","aria-label":"Aper\xE7u du message WhatsApp"},React.createElement("small",null,"Aper\xE7u du message"),React.createElement("p",null,p)),React.createElement("p",{id:"ord-err",className:"ord__err",role:"alert"},l),React.createElement("button",{className:"btn btn--wa btn--lg btn--block",type:"submit"},React.createElement(Icon,{name:"whatsapp",size:22,fill:!0}),"Envoyer sur WhatsApp"),React.createElement("button",{className:"linkbtn",type:"button",onClick:t},"ou envoyer par e-mail"))))}function Footer(){return React.createElement("footer",{className:"ftr"},React.createElement("div",{className:"wrap ftr__in"},React.createElement("div",null,React.createElement(Brand,null),React.createElement("p",{className:"ftr__tag"},"Sites web, applications web et formation en ligne.")),React.createElement("nav",{"aria-label":"Pied de page",className:"ftr__nav"},NAV.map(([e,a])=>React.createElement("a",{key:a,href:a},e))),React.createElement("div",{className:"ftr__contact"},React.createElement("a",{href:waLink("Bonjour Optisite Digital,"),target:"_blank",rel:"noopener"},C.whatsappDisplay),React.createElement("a",{href:`mailto:${C.email}`},C.email))),React.createElement("div",{className:"wrap ftr__copy"},"\xA9 ",new Date().getFullYear()," Optisite Digital. Tous droits r\xE9serv\xE9s."))}function FloatingWa(){const[e,a]=useState(!1);return useEffect(()=>{const s=()=>a(window.scrollY>500);return s(),window.addEventListener("scroll",s,{passive:!0}),()=>window.removeEventListener("scroll",s)},[]),React.createElement("a",{className:`fab ${e?"is-on":""}`,href:waLink("Bonjour Optisite Digital, je voudrais un devis."),target:"_blank",rel:"noopener","aria-label":"Discuter sur WhatsApp",tabIndex:e?0:-1},React.createElement(Icon,{name:"whatsapp",size:28,fill:!0}))}function App(){return React.createElement(React.Fragment,null,React.createElement(Header,null),React.createElement("main",null,React.createElement(Hero,null),React.createElement(Ticker,null),React.createElement(Services,null),React.createElement(Projects,null),React.createElement(Training,null),React.createElement(Kontra,null),React.createElement(Order,null)),React.createElement(Footer,null),React.createElement(FloatingWa,null))}ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App,null));
+
+</script>
 </body>
 </html>
