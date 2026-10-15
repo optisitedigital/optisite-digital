@@ -367,7 +367,18 @@
     }
     burger.addEventListener('click', () => toggleMenu());
     overlay.addEventListener('click', () => toggleMenu(false));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      toggleMenu(false);
+      if (id && id.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(id);
+        if (target) setTimeout(() => {
+          const y = target.getBoundingClientRect().top + window.scrollY - 72;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        }, 60);
+      }
+    }));
     window.addEventListener('resize', () => { if (window.innerWidth > 980) toggleMenu(false); });
 
     // ----- Scroll : progression, header, retour en haut, lien actif -----
