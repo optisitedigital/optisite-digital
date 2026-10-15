@@ -301,6 +301,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: 0 0 auto; fill: none; stroke: curre
   .about-photo { max-width: 300px; }
 
   /* En-tête mobile : menu à gauche, logo, WhatsApp à droite */
+  .header { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; }
   .nav { justify-content: flex-start; gap: 12px; }
   .burger { display: block; order: -2; width: 50px; height: 50px; flex: 0 0 auto; background: var(--grad); border: 0; cursor: pointer; position: relative; z-index: 260; box-shadow: 3px 3px 0 rgba(71, 33, 122, .3); }
   .burger span { position: absolute; left: 13px; width: 24px; height: 3px; background: #fff; transition: transform .3s ease, opacity .3s ease, top .3s ease; }
@@ -332,7 +333,7 @@ svg.i { width: 1.25em; height: 1.25em; flex: 0 0 auto; fill: none; stroke: curre
   .nav-links a.link::after { display: none; }
   .nav-links a.link:active, .nav-links a.link.active { background: var(--bg-soft); color: var(--indigo); border-left: 4px solid var(--indigo); }
   .nav-links .nav-cta { margin-top: 22px; width: 100%; min-height: 58px; font-size: 1rem; }
-  .overlay { position: fixed; inset: 0; background: rgba(18, 21, 58, .55); opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 240; }
+  .overlay { position: fixed; inset: 0; background: rgba(18, 21, 58, .55); opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 190; }
   .overlay.show { opacity: 1; pointer-events: auto; }
 }
 
