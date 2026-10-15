@@ -32,6 +32,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- ================= ICÔNES (SVG) ================= -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
+      <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></symbol>
+      <symbol id="i-trend" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+      <symbol id="i-dollar" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+      <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+      <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+      <symbol id="i-go" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+      <symbol id="i-ext" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+    </defs>
+  </svg>
+
   <div class="progress" id="progress"></div>
   <div class="overlay" id="overlay"></div>
 
@@ -43,15 +69,17 @@
         <span>Optisite <b>Digital</b></span>
       </a>
       <ul class="nav-links" id="navLinks">
+        <li class="menu-title">Aller à une section</li>
         <li><a class="link" href="#accueil">Accueil</a></li>
         <li><a class="link" href="#services">Services</a></li>
         <li><a class="link" href="#formations">Formations</a></li>
         <li><a class="link" href="#realisations">Réalisations</a></li>
         <li><a class="link" href="#kontra">Kontra-Africa</a></li>
         <li><a class="link" href="#apropos">À propos</a></li>
-        <li><a class="btn btn-primary nav-cta" href="https://wa.me/243977092549" target="_blank" rel="noopener">Me contacter</a></li>
+        <li><a class="btn btn-wa nav-cta" href="https://wa.me/243977092549" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Me contacter</a></li>
       </ul>
       <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a class="nav-wa" href="https://wa.me/243977092549" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
     </div>
   </header>
 
@@ -71,8 +99,8 @@
           et je te forme à gagner de l'argent avec le digital et l'IA en 2026.
         </p>
         <div class="hero-actions reveal d4">
-          <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-primary">Démarrer mon projet →</a>
-          <a href="#kontra" class="btn btn-outline">Découvrir Kontra-Africa</a>
+          <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-wa"><svg class="i"><use href="#i-wa"/></svg>Démarrer mon projet</a>
+          <a href="#kontra" class="btn btn-outline">Découvrir Kontra-Africa<svg class="i i-go"><use href="#i-go"/></svg></a>
         </div>
         <div class="stats reveal d5">
           <div class="stat"><b class="gradient-text" data-count="4">0</b><span>Projets réalisés</span></div>
@@ -85,18 +113,16 @@
         <div class="tilt" id="tilt">
           <div class="photo-ring"></div><div class="photo-ring r2"></div>
           <div class="photo-frame"><img src="olivier.jpg" alt="Olivier Digital Income, vibe codeur"></div>
-          <div class="float-card fc1"><span class="dot">⚡</span> Vibe Codeur</div>
-          <div class="float-card fc2"><span class="dot">🚀</span> Solutions numériques</div>
-          <div class="float-card fc3"><span class="dot">🤖</span> IA & Web</div>
+          <div class="float-card fc1"><span class="dot"><svg class="i"><use href="#i-zap"/></svg></span>Vibe Codeur</div>
+          <div class="float-card fc2"><span class="dot"><svg class="i"><use href="#i-code"/></svg></span>Solutions numériques</div>
+          <div class="float-card fc3"><span class="dot"><svg class="i"><use href="#i-cpu"/></svg></span>IA & Web</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ================= BANDEAU ================= -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track" id="marquee"></div>
-  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
 
   <!-- ================= SERVICES ================= -->
   <section id="services">
@@ -106,24 +132,24 @@
         <h2>Des solutions digitales <span class="gradient-text">sur mesure</span></h2>
         <p>Des sites et des applications modernes, rapides, adaptés au mobile et connectés à ton business.</p>
       </div>
-      <div class="cards">
+      <div class="cards hscroll">
         <article class="card reveal d1">
           <span class="num">01</span>
-          <div class="icon">🌐</div>
+          <div class="icon"><svg class="i"><use href="#i-globe"/></svg></div>
           <h3>Sites web professionnels</h3>
           <p>Site vitrine, boutique, portfolio : un design moderne, rapide et responsive, connecté à WhatsApp.</p>
           <span class="badge">Mobile & PC</span>
         </article>
         <article class="card reveal d2">
           <span class="num">02</span>
-          <div class="icon">📱</div>
+          <div class="icon"><svg class="i"><use href="#i-phone"/></svg></div>
           <h3>Applications web (PWA)</h3>
           <p>Des applications installables sur téléphone, avec connexion, base de données et paiements.</p>
           <span class="badge">Installable</span>
         </article>
         <article class="card reveal d3">
           <span class="num">03</span>
-          <div class="icon">🤖</div>
+          <div class="icon"><svg class="i"><use href="#i-cpu"/></svg></div>
           <h3>Solutions avec l'IA</h3>
           <p>Automatisation, bots WhatsApp et outils intelligents pour gagner du temps et vendre plus.</p>
           <span class="badge">Intelligence artificielle</span>
@@ -140,31 +166,31 @@
         <h2>Apprends et <span class="gradient-text">gagne de l'argent</span> en ligne</h2>
         <p>Des formations pratiques, simples et accessibles, pour passer de zéro à des revenus digitaux.</p>
       </div>
-      <div class="cards">
+      <div class="cards hscroll">
         <article class="card reveal d1">
           <span class="num">01</span>
-          <div class="icon">🎬</div>
+          <div class="icon"><svg class="i"><use href="#i-film"/></svg></div>
           <h3>Montage vidéo CapCut</h3>
           <p>Crée des vidéos avec les templates CapCut et apprends à les vendre.</p>
           <span class="badge">CapCut · Templates</span>
         </article>
         <article class="card reveal d2">
           <span class="num">02</span>
-          <div class="icon">📣</div>
+          <div class="icon"><svg class="i"><use href="#i-trend"/></svg></div>
           <h3>Publicité Facebook</h3>
           <p>Lance tes publicités et boost tes publications pour attirer des clients.</p>
           <span class="badge">Facebook Ads · Boost</span>
         </article>
         <article class="card reveal d3">
           <span class="num">03</span>
-          <div class="icon">💰</div>
+          <div class="icon"><svg class="i"><use href="#i-dollar"/></svg></div>
           <h3>Vente de produits digitaux</h3>
           <p>Crée et vends des produits numériques : méthode, outils et stratégie.</p>
           <span class="badge">Produits numériques</span>
         </article>
         <article class="card reveal d4">
           <span class="num">04</span>
-          <div class="icon">🧠</div>
+          <div class="icon"><svg class="i"><use href="#i-code"/></svg></div>
           <h3>Créer des apps web avec l'IA en 2026</h3>
           <p>Construis des applications web avec l'IA et transforme-les en revenus.</p>
           <span class="badge">Vibe coding · IA</span>
@@ -179,43 +205,43 @@
       <div class="section-head reveal">
         <span class="tag">Mes réalisations</span>
         <h2>Des projets <span class="gradient-text">concrets</span> déjà en ligne</h2>
-        <p>Mes 4 réalisations : des sites et applications web créés pour des projets réels.</p>
+        <p>Mes 4 réalisations : clique sur « Voir le site » pour les ouvrir.</p>
       </div>
-      <div class="works">
+      <div class="works hscroll">
         <article class="work reveal d1">
           <div class="browser-bar"><i></i><i></i><i></i><em>male-tacos-app.onrender.com</em></div>
-          <div class="work-img"><img src="site1.jpg" alt="Site Malé Tacos" loading="lazy"></div>
+          <a class="work-img" href="https://male-tacos-app.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Malé Tacos"><img src="site1.jpg" alt="Site Malé Tacos" loading="lazy"></a>
           <div class="work-body">
             <h3>Malé Tacos</h3>
             <p>Site de street food à Kinshasa avec commande en ligne.</p>
-            <a class="work-link" href="https://male-tacos-app.onrender.com" target="_blank" rel="noopener">Voir le site →</a>
+            <a class="btn btn-primary btn-block" href="https://male-tacos-app.onrender.com/" target="_blank" rel="noopener">Voir le site<svg class="i"><use href="#i-ext"/></svg></a>
           </div>
         </article>
         <article class="work reveal d2">
-          <div class="browser-bar"><i></i><i></i><i></i><em>Kongo Na Biso</em></div>
-          <div class="work-img"><img src="site2.jpg" alt="Site Kongo Na Biso" loading="lazy"></div>
+          <div class="browser-bar"><i></i><i></i><i></i><em>kongo-na-biso.onrender.com</em></div>
+          <a class="work-img" href="https://kongo-na-biso.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Kongo Na Biso"><img src="site2.jpg" alt="Site Kongo Na Biso" loading="lazy"></a>
           <div class="work-body">
             <h3>Kongo Na Biso</h3>
             <p>Site d'un mouvement citoyen avec adhésion en ligne.</p>
-            <a class="work-link" href="#" target="_blank" rel="noopener">Voir le site →</a>
+            <a class="btn btn-primary btn-block" href="https://kongo-na-biso.onrender.com/" target="_blank" rel="noopener">Voir le site<svg class="i"><use href="#i-ext"/></svg></a>
           </div>
         </article>
-        <article class="work reveal d1">
-          <div class="browser-bar"><i></i><i></i><i></i><em>Gerbo Express</em></div>
-          <div class="work-img"><img src="site3.jpg" alt="Site Gerbo Express" loading="lazy"></div>
+        <article class="work reveal d3">
+          <div class="browser-bar"><i></i><i></i><i></i><em>gerbo-express.onrender.com</em></div>
+          <a class="work-img" href="https://gerbo-express.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Gerbo Express"><img src="site3.jpg" alt="Site Gerbo Express" loading="lazy"></a>
           <div class="work-body">
             <h3>Gerbo Express</h3>
             <p>Entreposage, logistique et livraison rapide.</p>
-            <a class="work-link" href="#" target="_blank" rel="noopener">Voir le site →</a>
+            <a class="btn btn-primary btn-block" href="https://gerbo-express.onrender.com/" target="_blank" rel="noopener">Voir le site<svg class="i"><use href="#i-ext"/></svg></a>
           </div>
         </article>
-        <article class="work reveal d2">
+        <article class="work reveal d4">
           <div class="browser-bar"><i></i><i></i><i></i><em>kontra-africa-app.onrender.com</em></div>
-          <div class="work-img"><img src="site4.jpg" alt="Application Kontra-Africa" loading="lazy"></div>
+          <a class="work-img" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir l'application Kontra-Africa"><img src="site4.jpg" alt="Application Kontra-Africa" loading="lazy"></a>
           <div class="work-body">
             <h3>Kontra-Africa (PWA)</h3>
             <p>Notre application web : contrats signés sur WhatsApp, stock et finances.</p>
-            <a class="work-link" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener">Voir l'application →</a>
+            <a class="btn btn-primary btn-block" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener">Voir l'application<svg class="i"><use href="#i-ext"/></svg></a>
           </div>
         </article>
       </div>
@@ -233,33 +259,34 @@
           <p><b>Kontra-Africa</b> est l'application web créée par Optisite Digital pour les entrepreneurs africains : tu crées le contrat, tu envoies le lien de signature, tu reçois le PDF signé.</p>
           <p>Tu suis aussi ton stock et tes finances dans la même application, depuis ton téléphone.</p>
           <div class="kontra-pills">
-            <span>📝 Contrats</span><span>✍️ Signatures</span><span>📦 Stock</span><span>💰 Finances</span>
+            <span><svg class="i"><use href="#i-file"/></svg>Contrats</span>
+            <span><svg class="i"><use href="#i-pen"/></svg>Signatures</span>
+            <span><svg class="i"><use href="#i-box"/></svg>Stock</span>
+            <span><svg class="i"><use href="#i-chart"/></svg>Finances</span>
           </div>
           <div class="hero-actions">
-            <a href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" class="btn btn-primary">Essayer gratuitement →</a>
-            <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-outline">Demander une démo</a>
+            <a href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" class="btn btn-primary">Essayer gratuitement<svg class="i i-go"><use href="#i-go"/></svg></a>
+            <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-wa"><svg class="i"><use href="#i-wa"/></svg>Demander une démo</a>
           </div>
         </div>
         <div class="kontra-visual reveal right">
           <div class="glow"></div>
-          <div class="phone"><img src="site4.jpg" alt="Application Kontra-Africa sur mobile" loading="lazy"></div>
-          <div class="float-card fc1"><span class="dot">✍️</span> Signature WhatsApp</div>
-          <div class="float-card fc2"><span class="dot">📊</span> Stock & finances</div>
+          <a class="phone" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir Kontra-Africa" style="display:block"><img src="site4.jpg" alt="Application Kontra-Africa sur mobile" loading="lazy"></a>
         </div>
       </div>
 
       <h3 class="sub-title reveal">Ce que <span class="gradient-text">Kontra-Africa</span> te permet de faire</h3>
-      <div class="features">
-        <div class="feature reveal d1"><div class="icon">📝</div><div><h4>Créer des contrats</h4><p>Rédige ton contrat en quelques minutes, directement dans l'application.</p></div></div>
-        <div class="feature reveal d2"><div class="icon">🔗</div><div><h4>Envoyer un lien de signature</h4><p>Partage le lien sur WhatsApp : ton client signe depuis son téléphone.</p></div></div>
-        <div class="feature reveal d3"><div class="icon">📄</div><div><h4>Recevoir le PDF signé</h4><p>Le contrat signé te revient en PDF, prêt à être conservé ou partagé.</p></div></div>
-        <div class="feature reveal d1"><div class="icon">📦</div><div><h4>Suivre ton stock</h4><p>Garde un œil sur tes produits et tes quantités, au même endroit.</p></div></div>
-        <div class="feature reveal d2"><div class="icon">💰</div><div><h4>Suivre tes finances</h4><p>Visualise tes entrées et tes sorties pour mieux piloter ton activité.</p></div></div>
-        <div class="feature reveal d3"><div class="icon">📲</div><div><h4>L'installer sur ton téléphone</h4><p>Application web (PWA) : elle s'installe comme une app et marche sur mobile et PC.</p></div></div>
+      <div class="features hscroll">
+        <div class="feature reveal d1"><div class="icon"><svg class="i"><use href="#i-file"/></svg></div><div><h4>Créer des contrats</h4><p>Rédige ton contrat en quelques minutes, directement dans l'application.</p></div></div>
+        <div class="feature reveal d2"><div class="icon"><svg class="i"><use href="#i-link"/></svg></div><div><h4>Envoyer un lien de signature</h4><p>Partage le lien sur WhatsApp : ton client signe depuis son téléphone.</p></div></div>
+        <div class="feature reveal d3"><div class="icon"><svg class="i"><use href="#i-download"/></svg></div><div><h4>Recevoir le PDF signé</h4><p>Le contrat signé te revient en PDF, prêt à être conservé ou partagé.</p></div></div>
+        <div class="feature reveal d1"><div class="icon"><svg class="i"><use href="#i-box"/></svg></div><div><h4>Suivre ton stock</h4><p>Garde un œil sur tes produits et tes quantités, au même endroit.</p></div></div>
+        <div class="feature reveal d2"><div class="icon"><svg class="i"><use href="#i-chart"/></svg></div><div><h4>Suivre tes finances</h4><p>Visualise tes entrées et tes sorties pour mieux piloter ton activité.</p></div></div>
+        <div class="feature reveal d3"><div class="icon"><svg class="i"><use href="#i-phone"/></svg></div><div><h4>L'installer sur ton téléphone</h4><p>Application web (PWA) : elle s'installe comme une app et marche sur mobile et PC.</p></div></div>
       </div>
 
       <h3 class="sub-title reveal">Comment ça marche ?</h3>
-      <div class="steps">
+      <div class="steps hscroll">
         <div class="step reveal d1"><div class="n">1</div><h4>Crée le contrat</h4><p>Remplis les informations et génère ton contrat.</p></div>
         <div class="step reveal d2"><div class="n">2</div><h4>Envoie le lien</h4><p>Partage le lien de signature à ton client sur WhatsApp.</p></div>
         <div class="step reveal d3"><div class="n">3</div><h4>Reçois le PDF signé</h4><p>Ton client signe et tu récupères le PDF signé.</p></div>
@@ -269,8 +296,8 @@
         <h3>3 jours gratuits, sans carte bancaire</h3>
         <p>Crée ton compte et essaie Kontra-Africa dès maintenant.</p>
         <div class="hero-actions">
-          <a href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" class="btn btn-white">Créer mon compte →</a>
-          <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-outline">Poser une question</a>
+          <a href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" class="btn btn-white">Créer mon compte<svg class="i i-go"><use href="#i-go"/></svg></a>
+          <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-wa"><svg class="i"><use href="#i-wa"/></svg>Poser une question</a>
         </div>
       </div>
     </div>
@@ -289,7 +316,7 @@
           <li>Connexion directe avec WhatsApp pour recevoir les commandes</li>
           <li>Formations pratiques pour apprendre et monétiser</li>
         </ul>
-        <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-primary">Discutons de ton projet →</a>
+        <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-wa"><svg class="i"><use href="#i-wa"/></svg>Discutons de ton projet</a>
       </div>
     </div>
   </section>
@@ -300,7 +327,7 @@
       <div class="cta-box reveal zoom">
         <h2>Prêt à lancer ton site ou ton application ?</h2>
         <p>Écris-moi sur WhatsApp et recevons ensemble une solution professionnelle pour ton business.</p>
-        <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-white">Écrire sur WhatsApp</a>
+        <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-wa"><svg class="i"><use href="#i-wa"/></svg>Écrire sur WhatsApp</a>
       </div>
     </div>
   </section>
@@ -311,22 +338,22 @@
       <div class="footer-grid">
         <a href="#accueil" class="brand"><img src="logo.png" alt="Logo Optisite Digital"><span>Optisite <b>Digital</b></span></a>
         <nav class="footer-links">
-          <a href="#services">Services</a><a href="#formations">Formations</a><a href="#realisations">Réalisations</a><a href="#kontra">Kontra-Africa</a>
+          <a href="#services">Services</a><a href="#formations">Formations</a><a href="#realisations">Réalisations</a><a href="#kontra">Kontra-Africa</a><a href="#apropos">À propos</a>
         </nav>
-        <div class="socials">
-          <a href="https://wa.me/243977092549" target="_blank" rel="noopener" aria-label="WhatsApp">W</a>
-          <a href="mailto:optisitedigital@gmail.com" aria-label="Email">@</a>
-        </div>
+      </div>
+      <div class="footer-contact">
+        <a class="btn btn-wa" href="https://wa.me/243977092549" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>+243 977 092 549</a>
+        <a class="btn btn-outline" href="mailto:optisitedigital@gmail.com"><svg class="i"><use href="#i-mail"/></svg>optisitedigital@gmail.com</a>
       </div>
       <small>© <span id="year"></span> Optisite Digital — Olivier Digital Income. Tous droits réservés.</small>
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/243977092549" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
-  <button class="to-top" id="toTop" aria-label="Remonter">↑</button>
+  <a class="wa-float" href="https://wa.me/243977092549" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
+  <button class="to-top" id="toTop" aria-label="Remonter"><svg class="i"><use href="#i-up"/></svg></button>
 
   <script>
-    // ----- Menu hamburger -----
+    // ----- Menu hamburger (s'ouvre à gauche) -----
     const burger = document.getElementById('burger');
     const navLinks = document.getElementById('navLinks');
     const overlay = document.getElementById('overlay');
@@ -379,7 +406,7 @@
     // ----- Apparition au scroll -----
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
     // ----- Compteurs -----
@@ -399,6 +426,23 @@
     const marquee = document.getElementById('marquee');
     const html = words.map(w => '<span>' + w + '</span>').join('');
     marquee.innerHTML = html + html;
+
+    // ----- Indicateurs du défilement horizontal (mobile) -----
+    document.querySelectorAll('.hscroll').forEach(sc => {
+      const items = [...sc.children];
+      const dots = document.createElement('div');
+      dots.className = 'hs-dots';
+      items.forEach(() => dots.appendChild(document.createElement('span')));
+      sc.after(dots);
+      const upd = () => {
+        const w = items[0].getBoundingClientRect().width + 16;
+        let i = Math.round(sc.scrollLeft / w);
+        i = Math.min(items.length - 1, Math.max(0, i));
+        [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
+      };
+      sc.addEventListener('scroll', upd, { passive: true });
+      upd();
+    });
 
     // ----- Effet 3D de la photo (souris + toucher) -----
     const tilt = document.getElementById('tilt');
