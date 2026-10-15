@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Optisite Digital — Sites web, applications web & formations | Olivier Digital Income</title>
-  <meta name="description" content="Optisite Digital : création de sites web et d'applications web professionnels, formations CapCut, publicité Facebook, vente de produits digitaux et création d'apps avec l'IA en 2026.">
+  <meta name="description" content="Optisite Digital : création de sites web et d'applications web professionnels, formations CapCut, publicité Facebook, vente de produits digitaux et création d'apps avec l'IA en 2026. Découvrez Kontra-Africa, notre application web.">
   <meta name="theme-color" content="#2f4a9e">
 
   <!-- Favicon (logo) -->
@@ -32,6 +32,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="progress" id="progress"></div>
+  <div class="overlay" id="overlay"></div>
 
   <!-- ================= HEADER ================= -->
   <header class="header" id="header">
@@ -41,49 +43,60 @@
         <span>Optisite <b>Digital</b></span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#formations">Formations</a></li>
-        <li><a href="#realisations">Réalisations</a></li>
-        <li><a href="#apropos">À propos</a></li>
+        <li><a class="link" href="#accueil">Accueil</a></li>
+        <li><a class="link" href="#services">Services</a></li>
+        <li><a class="link" href="#formations">Formations</a></li>
+        <li><a class="link" href="#realisations">Réalisations</a></li>
+        <li><a class="link" href="#kontra">Kontra-Africa</a></li>
+        <li><a class="link" href="#apropos">À propos</a></li>
         <li><a class="btn btn-primary nav-cta" href="https://wa.me/243977092549" target="_blank" rel="noopener">Me contacter</a></li>
       </ul>
-      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
   <!-- ================= HERO ================= -->
   <section class="hero" id="accueil">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
+    <div class="mesh">
+      <div class="grid-bg"></div>
+      <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    </div>
     <div class="container hero-grid">
       <div>
         <span class="tag reveal">Optisite Digital · Kinshasa, RDC</span>
-        <h1 class="reveal d1">Je suis <span class="gradient-text">Olivier Digital Income</span></h1>
+        <h1 class="reveal d1"><span class="hi">Salut, je suis</span><span class="gradient-text">Olivier Digital Income</span></h1>
         <div class="typing-line reveal d2"><span id="typing"></span><span class="cursor"></span></div>
         <p class="lead reveal d3">
           Je crée des sites web et des applications web professionnels pour développer ton business,
-          et je te forme pour gagner de l'argent avec le digital et l'IA en 2026.
+          et je te forme à gagner de l'argent avec le digital et l'IA en 2026.
         </p>
         <div class="hero-actions reveal d4">
           <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-primary">Démarrer mon projet →</a>
-          <a href="#realisations" class="btn btn-outline">Voir mes réalisations</a>
+          <a href="#kontra" class="btn btn-outline">Découvrir Kontra-Africa</a>
         </div>
-        <div class="stats reveal d4">
+        <div class="stats reveal d5">
           <div class="stat"><b class="gradient-text" data-count="4">0</b><span>Projets réalisés</span></div>
           <div class="stat"><b class="gradient-text" data-count="4">0</b><span>Formations</span></div>
           <div class="stat"><b class="gradient-text" data-count="100" data-suffix="%">0</b><span>Mobile & PC</span></div>
         </div>
       </div>
 
-      <div class="hero-photo reveal right">
-        <div class="photo-ring"></div>
-        <div class="photo-frame"><img src="olivier.jpg" alt="Olivier Digital Income, vibe codeur"></div>
-        <div class="float-card fc1"><span class="dot">⚡</span> Vibe Codeur</div>
-        <div class="float-card fc2"><span class="dot">🚀</span> Solutions numériques</div>
+      <div class="hero-photo reveal zoom d2">
+        <div class="tilt" id="tilt">
+          <div class="photo-ring"></div><div class="photo-ring r2"></div>
+          <div class="photo-frame"><img src="olivier.jpg" alt="Olivier Digital Income, vibe codeur"></div>
+          <div class="float-card fc1"><span class="dot">⚡</span> Vibe Codeur</div>
+          <div class="float-card fc2"><span class="dot">🚀</span> Solutions numériques</div>
+          <div class="float-card fc3"><span class="dot">🤖</span> IA & Web</div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ================= BANDEAU ================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee"></div>
+  </div>
 
   <!-- ================= SERVICES ================= -->
   <section id="services">
@@ -95,18 +108,21 @@
       </div>
       <div class="cards">
         <article class="card reveal d1">
+          <span class="num">01</span>
           <div class="icon">🌐</div>
-          <h3>Création de sites web professionnels</h3>
+          <h3>Sites web professionnels</h3>
           <p>Site vitrine, boutique, portfolio : un design moderne, rapide et responsive, connecté à WhatsApp.</p>
           <span class="badge">Mobile & PC</span>
         </article>
         <article class="card reveal d2">
+          <span class="num">02</span>
           <div class="icon">📱</div>
           <h3>Applications web (PWA)</h3>
           <p>Des applications installables sur téléphone, avec connexion, base de données et paiements.</p>
           <span class="badge">Installable</span>
         </article>
         <article class="card reveal d3">
+          <span class="num">03</span>
           <div class="icon">🤖</div>
           <h3>Solutions avec l'IA</h3>
           <p>Automatisation, bots WhatsApp et outils intelligents pour gagner du temps et vendre plus.</p>
@@ -126,26 +142,30 @@
       </div>
       <div class="cards">
         <article class="card reveal d1">
+          <span class="num">01</span>
           <div class="icon">🎬</div>
           <h3>Montage vidéo CapCut</h3>
           <p>Crée des vidéos avec les templates CapCut et apprends à les vendre.</p>
           <span class="badge">CapCut · Templates</span>
         </article>
         <article class="card reveal d2">
+          <span class="num">02</span>
           <div class="icon">📣</div>
           <h3>Publicité Facebook</h3>
           <p>Lance tes publicités et boost tes publications pour attirer des clients.</p>
           <span class="badge">Facebook Ads · Boost</span>
         </article>
         <article class="card reveal d3">
+          <span class="num">03</span>
           <div class="icon">💰</div>
           <h3>Vente de produits digitaux</h3>
           <p>Crée et vends des produits numériques : méthode, outils et stratégie.</p>
           <span class="badge">Produits numériques</span>
         </article>
         <article class="card reveal d4">
+          <span class="num">04</span>
           <div class="icon">🧠</div>
-          <h3>Créer des applications web avec l'IA en 2026</h3>
+          <h3>Créer des apps web avec l'IA en 2026</h3>
           <p>Construis des applications web avec l'IA et transforme-les en revenus.</p>
           <span class="badge">Vibe coding · IA</span>
         </article>
@@ -163,6 +183,7 @@
       </div>
       <div class="works">
         <article class="work reveal d1">
+          <div class="browser-bar"><i></i><i></i><i></i><em>male-tacos-app.onrender.com</em></div>
           <div class="work-img"><img src="site1.jpg" alt="Site Malé Tacos" loading="lazy"></div>
           <div class="work-body">
             <h3>Malé Tacos</h3>
@@ -171,6 +192,7 @@
           </div>
         </article>
         <article class="work reveal d2">
+          <div class="browser-bar"><i></i><i></i><i></i><em>Kongo Na Biso</em></div>
           <div class="work-img"><img src="site2.jpg" alt="Site Kongo Na Biso" loading="lazy"></div>
           <div class="work-body">
             <h3>Kongo Na Biso</h3>
@@ -178,7 +200,8 @@
             <a class="work-link" href="#" target="_blank" rel="noopener">Voir le site →</a>
           </div>
         </article>
-        <article class="work reveal d3">
+        <article class="work reveal d1">
+          <div class="browser-bar"><i></i><i></i><i></i><em>Gerbo Express</em></div>
           <div class="work-img"><img src="site3.jpg" alt="Site Gerbo Express" loading="lazy"></div>
           <div class="work-body">
             <h3>Gerbo Express</h3>
@@ -186,14 +209,69 @@
             <a class="work-link" href="#" target="_blank" rel="noopener">Voir le site →</a>
           </div>
         </article>
-        <article class="work reveal d4">
+        <article class="work reveal d2">
+          <div class="browser-bar"><i></i><i></i><i></i><em>kontra-africa-app.onrender.com</em></div>
           <div class="work-img"><img src="site4.jpg" alt="Application Kontra-Africa" loading="lazy"></div>
           <div class="work-body">
             <h3>Kontra-Africa (PWA)</h3>
-            <p>Contrats signés sur WhatsApp, suivi du stock et des finances.</p>
-            <a class="work-link" href="#" target="_blank" rel="noopener">Voir l'application →</a>
+            <p>Notre application web : contrats signés sur WhatsApp, stock et finances.</p>
+            <a class="work-link" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener">Voir l'application →</a>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KONTRA-AFRICA ================= -->
+  <section id="kontra" class="kontra">
+    <div class="container">
+
+      <div class="kontra-hero">
+        <div class="reveal left">
+          <span class="tag">Notre application web (PWA)</span>
+          <h2>Faites signer vos contrats sur <span class="gradient-text">WhatsApp</span>, sans papier ni déplacement</h2>
+          <p><b>Kontra-Africa</b> est l'application web créée par Optisite Digital pour les entrepreneurs africains : tu crées le contrat, tu envoies le lien de signature, tu reçois le PDF signé.</p>
+          <p>Tu suis aussi ton stock et tes finances dans la même application, depuis ton téléphone.</p>
+          <div class="kontra-pills">
+            <span>📝 Contrats</span><span>✍️ Signatures</span><span>📦 Stock</span><span>💰 Finances</span>
+          </div>
+          <div class="hero-actions">
+            <a href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" class="btn btn-primary">Essayer gratuitement →</a>
+            <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-outline">Demander une démo</a>
+          </div>
+        </div>
+        <div class="kontra-visual reveal right">
+          <div class="glow"></div>
+          <div class="phone"><img src="site4.jpg" alt="Application Kontra-Africa sur mobile" loading="lazy"></div>
+          <div class="float-card fc1"><span class="dot">✍️</span> Signature WhatsApp</div>
+          <div class="float-card fc2"><span class="dot">📊</span> Stock & finances</div>
+        </div>
+      </div>
+
+      <h3 class="sub-title reveal">Ce que <span class="gradient-text">Kontra-Africa</span> te permet de faire</h3>
+      <div class="features">
+        <div class="feature reveal d1"><div class="icon">📝</div><div><h4>Créer des contrats</h4><p>Rédige ton contrat en quelques minutes, directement dans l'application.</p></div></div>
+        <div class="feature reveal d2"><div class="icon">🔗</div><div><h4>Envoyer un lien de signature</h4><p>Partage le lien sur WhatsApp : ton client signe depuis son téléphone.</p></div></div>
+        <div class="feature reveal d3"><div class="icon">📄</div><div><h4>Recevoir le PDF signé</h4><p>Le contrat signé te revient en PDF, prêt à être conservé ou partagé.</p></div></div>
+        <div class="feature reveal d1"><div class="icon">📦</div><div><h4>Suivre ton stock</h4><p>Garde un œil sur tes produits et tes quantités, au même endroit.</p></div></div>
+        <div class="feature reveal d2"><div class="icon">💰</div><div><h4>Suivre tes finances</h4><p>Visualise tes entrées et tes sorties pour mieux piloter ton activité.</p></div></div>
+        <div class="feature reveal d3"><div class="icon">📲</div><div><h4>L'installer sur ton téléphone</h4><p>Application web (PWA) : elle s'installe comme une app et marche sur mobile et PC.</p></div></div>
+      </div>
+
+      <h3 class="sub-title reveal">Comment ça marche ?</h3>
+      <div class="steps">
+        <div class="step reveal d1"><div class="n">1</div><h4>Crée le contrat</h4><p>Remplis les informations et génère ton contrat.</p></div>
+        <div class="step reveal d2"><div class="n">2</div><h4>Envoie le lien</h4><p>Partage le lien de signature à ton client sur WhatsApp.</p></div>
+        <div class="step reveal d3"><div class="n">3</div><h4>Reçois le PDF signé</h4><p>Ton client signe et tu récupères le PDF signé.</p></div>
+      </div>
+
+      <div class="kontra-cta reveal zoom">
+        <h3>3 jours gratuits, sans carte bancaire</h3>
+        <p>Crée ton compte et essaie Kontra-Africa dès maintenant.</p>
+        <div class="hero-actions">
+          <a href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" class="btn btn-white">Créer mon compte →</a>
+          <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-outline">Poser une question</a>
+        </div>
       </div>
     </div>
   </section>
@@ -201,7 +279,7 @@
   <!-- ================= À PROPOS ================= -->
   <section id="apropos" class="alt">
     <div class="container about-grid">
-      <div class="about-photo reveal left"><img src="olivier.jpg" alt="Olivier Digital Income" loading="lazy"></div>
+      <div class="about-photo reveal left"><div class="pic"><img src="olivier.jpg" alt="Olivier Digital Income" loading="lazy"></div></div>
       <div class="about-text reveal right">
         <span class="tag">À propos</span>
         <h2>Olivier Digital Income, <span class="gradient-text">vibe codeur & créateur de solutions numériques</span></h2>
@@ -219,10 +297,10 @@
   <!-- ================= CTA ================= -->
   <section>
     <div class="container">
-      <div class="cta-box reveal">
+      <div class="cta-box reveal zoom">
         <h2>Prêt à lancer ton site ou ton application ?</h2>
         <p>Écris-moi sur WhatsApp et recevons ensemble une solution professionnelle pour ton business.</p>
-        <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn">Écrire sur WhatsApp</a>
+        <a href="https://wa.me/243977092549" target="_blank" rel="noopener" class="btn btn-white">Écrire sur WhatsApp</a>
       </div>
     </div>
   </section>
@@ -232,6 +310,9 @@
     <div class="container">
       <div class="footer-grid">
         <a href="#accueil" class="brand"><img src="logo.png" alt="Logo Optisite Digital"><span>Optisite <b>Digital</b></span></a>
+        <nav class="footer-links">
+          <a href="#services">Services</a><a href="#formations">Formations</a><a href="#realisations">Réalisations</a><a href="#kontra">Kontra-Africa</a>
+        </nav>
         <div class="socials">
           <a href="https://wa.me/243977092549" target="_blank" rel="noopener" aria-label="WhatsApp">W</a>
           <a href="mailto:optisitedigital@gmail.com" aria-label="Email">@</a>
@@ -242,65 +323,95 @@
   </footer>
 
   <a class="wa-float" href="https://wa.me/243977092549" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+  <button class="to-top" id="toTop" aria-label="Remonter">↑</button>
 
   <script>
-    // Menu mobile
+    // ----- Menu hamburger -----
     const burger = document.getElementById('burger');
     const navLinks = document.getElementById('navLinks');
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('open');
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      burger.classList.remove('open');
-      navLinks.classList.remove('open');
-    }));
+    const overlay = document.getElementById('overlay');
+    function toggleMenu(open) {
+      const state = typeof open === 'boolean' ? open : !navLinks.classList.contains('open');
+      navLinks.classList.toggle('open', state);
+      burger.classList.toggle('open', state);
+      overlay.classList.toggle('show', state);
+      document.body.classList.toggle('lock', state);
+      burger.setAttribute('aria-expanded', state);
+    }
+    burger.addEventListener('click', () => toggleMenu());
+    overlay.addEventListener('click', () => toggleMenu(false));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+    window.addEventListener('resize', () => { if (window.innerWidth > 980) toggleMenu(false); });
 
-    // Ombre du header au scroll
+    // ----- Scroll : progression, header, retour en haut, lien actif -----
     const header = document.getElementById('header');
-    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
+    const progress = document.getElementById('progress');
+    const toTop = document.getElementById('toTop');
+    const links = [...document.querySelectorAll('.nav-links a.link')];
+    const sections = links.map(l => document.querySelector(l.getAttribute('href')));
+    function onScroll() {
+      const y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+      header.classList.toggle('scrolled', y > 10);
+      toTop.classList.toggle('show', y > 600);
+      let current = 0;
+      sections.forEach((s, i) => { if (s && s.offsetTop - 140 <= y) current = i; });
+      links.forEach((l, i) => l.classList.toggle('active', i === current));
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Effet d'écriture (machine à écrire)
-    const phrases = [
-      'Vibe codeur',
-      'Créateur de solutions numériques',
-      'Créateur de sites web & applications web',
-      'Formateur digital & IA'
-    ];
+    // ----- Effet d'écriture -----
+    const phrases = ['Vibe codeur', 'Créateur de solutions numériques', 'Créateur de sites web & applications web', 'Formateur digital & IA'];
     const typingEl = document.getElementById('typing');
     let p = 0, c = 0, deleting = false;
     function type() {
-      const current = phrases[p];
-      typingEl.textContent = current.substring(0, c);
-      if (!deleting && c < current.length) { c++; setTimeout(type, 70); }
+      const cur = phrases[p];
+      typingEl.textContent = cur.substring(0, c);
+      if (!deleting && c < cur.length) { c++; setTimeout(type, 70); }
       else if (!deleting) { deleting = true; setTimeout(type, 1600); }
       else if (c > 0) { c--; setTimeout(type, 35); }
       else { deleting = false; p = (p + 1) % phrases.length; setTimeout(type, 300); }
     }
     type();
 
-    // Apparition au scroll
-    const io = new IntersectionObserver((entries) => {
+    // ----- Apparition au scroll -----
+    const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Compteurs
+    // ----- Compteurs -----
     document.querySelectorAll('[data-count]').forEach(el => {
       const target = +el.dataset.count, suffix = el.dataset.suffix || '+';
-      const counter = new IntersectionObserver(([entry]) => {
-        if (!entry.isIntersecting) return;
-        let n = 0;
-        const step = Math.max(1, Math.ceil(target / 40));
-        const t = setInterval(() => {
-          n = Math.min(target, n + step);
-          el.textContent = n + (n === target ? suffix : '');
-          if (n === target) clearInterval(t);
-        }, 30);
-        counter.disconnect();
+      const obs = new IntersectionObserver(([en]) => {
+        if (!en.isIntersecting) return;
+        let n = 0; const step = Math.max(1, Math.ceil(target / 40));
+        const t = setInterval(() => { n = Math.min(target, n + step); el.textContent = n + (n === target ? suffix : ''); if (n === target) clearInterval(t); }, 30);
+        obs.disconnect();
       });
-      counter.observe(el);
+      obs.observe(el);
     });
+
+    // ----- Bandeau défilant -----
+    const words = ['Sites web', 'Applications web', 'PWA', 'Formations', 'CapCut', 'Publicité Facebook', 'Produits digitaux', 'IA 2026', 'Kontra-Africa'];
+    const marquee = document.getElementById('marquee');
+    const html = words.map(w => '<span>' + w + '</span>').join('');
+    marquee.innerHTML = html + html;
+
+    // ----- Effet 3D de la photo (souris + toucher) -----
+    const tilt = document.getElementById('tilt');
+    function moveTilt(x, y) {
+      const r = tilt.getBoundingClientRect();
+      const px = (x - r.left) / r.width - .5, py = (y - r.top) / r.height - .5;
+      tilt.style.transform = 'rotateY(' + (px * 14) + 'deg) rotateX(' + (-py * 14) + 'deg)';
+    }
+    function resetTilt() { tilt.style.transform = ''; }
+    tilt.addEventListener('mousemove', e => moveTilt(e.clientX, e.clientY));
+    tilt.addEventListener('mouseleave', resetTilt);
+    tilt.addEventListener('touchmove', e => moveTilt(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    tilt.addEventListener('touchend', resetTilt);
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
