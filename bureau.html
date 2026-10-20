@@ -301,7 +301,7 @@ document.documentElement.classList.add('js');
    ===================================================================== */
 const CONFIG={
   API_URL:'https://script.google.com/macros/s/AKfycbzWf1vvNfWG8N-xrvruNVyHHKugUlNrfOTkqUPHGPvSjNqbB_jyGNpvNMnVgW6izXbzZg/exec', // adresse Apps Script (finit par /exec)
-  DEPARTEMENTS:['Vente','Design','Support'],
+  DEPARTEMENTS:['Prospection','Création de contenu'],
   CHEF_CODE_DEMO:'chef2026',
   POLL_MS:5000,         // démo : contrôle toutes les 5 s
   POLL_REMOTE_MS:30000  // en ligne : contrôle léger toutes les 30 s (économise le quota Apps Script)
@@ -591,7 +591,7 @@ function vPending(){
    +'<div class="rv" style="align-self:flex-start">'+ava(m,84)+'</div>'
    +'<span class="tag rv">Dossier envoyé</span>'
    +'<h1 data-split>'+(m?esc(first(m.nom))+', ':'')+'ton inscription est en attente.</h1>'
-   +'<p class="lead rv">Le chef a reçu ta photo et tes informations sur Discord. Dès qu’il accepte, ton espace de travail se débloque ici automatiquement.</p>'
+   +'<p class="lead rv">Ton dossier a bien été envoyé au chef. Dès qu’il l’accepte, ton espace de travail se débloque ici automatiquement.</p>'
    +'<button class="btn btn-primary btn-block rv" data-act="pending-check">Vérifier mon statut</button>'
    +'<button class="link-btn rv" data-act="logout">Quitter</button>'
    +'</div></div>';
