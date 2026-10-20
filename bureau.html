@@ -189,6 +189,10 @@ small,.sm{color:var(--muted);font-size:.78rem}
 .toast.discord{background:#2b2d6e;color:#fff;border-color:#2b2d6e;border-left-color:#5865f2}
 .toast.discord b{display:block;font-size:.66rem;letter-spacing:1.2px;text-transform:uppercase;opacity:.75;margin-bottom:2px}
 
+/* ---------- Barre de chargement (appels au serveur) ---------- */
+#app.loading::before{content:"";position:absolute;top:0;left:0;height:4px;width:40%;background:var(--grad);z-index:90;animation:slide 1s ease-in-out infinite}
+@keyframes slide{0%{transform:translateX(-100%)}100%{transform:translateX(260%)}}
+
 /* ---------- Déblocage ---------- */
 .unlock{position:fixed;inset:0;z-index:200;background:var(--grad);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px;animation:fade .3s ease}
 .unlock.out{opacity:0;transition:opacity .5s}
@@ -224,16 +228,17 @@ document.documentElement.classList.add('js');
 
 /* =====================================================================
    CONFIGURATION
-   DEMO:true  -> les données restent dans le navigateur (localStorage).
-   DEMO:false -> chaque action est envoyée à API_URL (Google Apps Script).
+   API_URL vide  -> MODE DÉMO : les données restent dans le navigateur (localStorage).
+   API_URL rempli -> chaque action est envoyée à Google Apps Script (Sheet + Discord).
    ===================================================================== */
 const CONFIG={
-  DEMO:true,
-  API_URL:'',
+  API_URL:'', // colle ici l'adresse Apps Script qui finit par /exec
   DEPARTEMENTS:['Vente','Design','Support'],
   CHEF_CODE_DEMO:'chef2026',
-  POLL_MS:5000
+  POLL_MS:5000,         // démo : contrôle toutes les 5 s
+  POLL_REMOTE_MS:30000  // en ligne : contrôle léger toutes les 30 s (économise le quota Apps Script)
 };
+CONFIG.DEMO=!CONFIG.API_URL;
 
 /* ---------- Utilitaires ---------- */
 const KEY='bd_demo_v1',SESS='bd_session_v1';
@@ -310,13 +315,25 @@ const store={
 };
 
 /* ---------- Couche API : démo (localStorage) ou Apps Script ---------- */
-async function remote(action,data){
-  const r=await fetch(CONFIG.API_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({action:action},data))});
-  return r.json();
+let pend=0;
+function bar(d){pend=Math.max(0,pend+d);const a=document.getElementById('app');if(a)a.classList.toggle('loading',pend>0)}
+async function remote(action,data,quiet){
+  if(!quiet)bar(1);
+  try{
+    const body=JSON.stringify(Object.assign({action:action,auth:S.auth},data));
+    const r=await fetch(CONFIG.API_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body});
+    return await r.json();
+  }finally{if(!quiet)bar(-1)}
 }
 const api={};
 const def=(name,fn)=>{api[name]=a=>CONFIG.DEMO?Promise.resolve().then(()=>fn(a||{})):remote(name,a||{})};
-def('load',()=>store.load());
+api.load=async()=>{
+  if(CONFIG.DEMO)return store.load();
+  const r=await remote('load',{});
+  if(!r||!r.ok){const e=new Error((r&&r.error)||'load');e.auth=!!r&&r.error==='auth';throw e}
+  S.ver=r.v;return r.data;
+};
+api.ping=async()=>{const r=await remote('ping',{},true);return r&&r.ok?r.v:null};
 def('inscrire',a=>{
   const d=store.load();
   if(d.membres.some(m=>m.nom.toLowerCase()===a.nom.toLowerCase()))return{ok:false,error:'Ce nom est déjà utilisé.'};
@@ -339,12 +356,12 @@ def('ajouterMission',a=>{const d=store.load();a.membres.forEach(id=>d.missions.p
 def('majMission',a=>{const d=store.load();const m=d.missions.find(x=>x.id===a.id);if(m){m.statut=a.statut;store.save(d)}return{ok:true}});
 
 /* ---------- Message Discord (simulé en démo) ---------- */
-function discord(text){toast(text,'discord')}
+function discord(text){if(CONFIG.DEMO)toast(text,'discord')}
 
 /* =====================================================================
    ÉTAT
    ===================================================================== */
-const S={screen:'welcome',role:null,uid:null,tab:'home',thread:null,sheet:null,data:null,sig:'',evIds:null,reg:null,stream:null,installEvt:null,busy:false};
+const S={auth:null,ver:null,screen:'welcome',role:null,uid:null,tab:'home',thread:null,sheet:null,data:null,sig:'',evIds:null,reg:null,stream:null,installEvt:null,busy:false};
 const D=()=>S.data;
 const member=id=>D().membres.find(m=>m.id===id);
 const validMembers=()=>D().membres.filter(m=>m.statut==='valide');
@@ -388,7 +405,7 @@ function markSeen(){try{localStorage.setItem(seenKey(),JSON.stringify(events().m
    ===================================================================== */
 function ava(m,size){
   const s=size||44;
-  const inner=m&&m.photo_url?'<img alt="" src="'+esc(m.photo_url)+'">':esc(initials(m?m.nom:'?'));
+  const inner=m&&m.photo_url?'<img alt="" referrerpolicy="no-referrer" src="'+esc(m.photo_url)+'">':esc(initials(m?m.nom:'?'));
   return '<span class="ava" style="width:'+s+'px;height:'+s+'px;font-size:'+Math.round(s*.36)+'px">'+inner+'</span>';
 }
 const pill=s=>s==='terminee'?'<span class="pill p-done">Terminée</span>':s==='en_cours'?'<span class="pill p-doing">En cours</span>':'<span class="pill p-todo">À faire</span>';
@@ -455,7 +472,7 @@ function vWelcome(){
    +'<button class="btn btn-primary btn-block rv" data-act="go-register">Je suis nouveau — m’inscrire '+ic('go')+'</button>'
    +'<button class="btn btn-outline btn-block rv" data-act="go-login">J’ai déjà mon code</button>'
    +'<button class="link-btn rv" data-act="go-chef">Espace chef</button>'
-   +'<p class="demo-note rv">Mode démonstration : les données restent sur cet appareil.</p>'
+   +(CONFIG.DEMO?'<p class="demo-note rv">Mode démonstration : les données restent sur cet appareil.</p>':'')
    +'</div></div>';
 }
 function vLogin(chef){
@@ -468,7 +485,7 @@ function vLogin(chef){
    +'<div class="field"><label for="lc">'+(chef?'Code chef':'Ton code d’accès')+'</label><input id="lc" name="code" type="password" inputmode="'+(chef?'text':'numeric')+'" required autocomplete="off" placeholder="••••"></div>'
    +'<div class="err" id="err"></div>'
    +'<button class="btn btn-primary btn-block">Entrer '+ic('go')+'</button></form>'
-   +'<p class="demo-note">'+(chef?'Démo — code chef : <b>'+esc(CONFIG.CHEF_CODE_DEMO)+'</b>':'Démo — <b>Jonathan Kabeya</b> ou <b>Grâce Mbuyi</b>, code <b>1234</b>')+'</p>'
+   +(CONFIG.DEMO?'<p class="demo-note">'+(chef?'Démo — code chef : <b>'+esc(CONFIG.CHEF_CODE_DEMO)+'</b>':'Démo — <b>Jonathan Kabeya</b> ou <b>Grâce Mbuyi</b>, code <b>1234</b>')+'</p>':'')
    +'</div></div>';
 }
 function vRegister(){
@@ -732,7 +749,7 @@ function renderScreen(){
   after(r,true);
   if(S.screen==='register'&&S.reg&&S.reg.step===2&&!S.reg.photo)startCam();
 }
-function saveSession(){try{localStorage.setItem(SESS,JSON.stringify({role:S.role,uid:S.uid}))}catch(e){}}
+function saveSession(){try{localStorage.setItem(SESS,JSON.stringify({role:S.role,uid:S.uid,token:S.auth?S.auth.token:null}))}catch(e){}}
 function clearSession(){try{localStorage.removeItem(SESS)}catch(e){}}
 async function enterApp(role,id){
   S.role=role;S.uid=id;S.tab=role==='chef'?'dash':'home';S.thread=null;S.evIds=null;
@@ -742,7 +759,7 @@ async function enterApp(role,id){
   go('app');
 }
 function logout(){
-  stopCam();clearSession();S.role=null;S.uid=null;S.evIds=null;S.sheet=null;S.thread=null;
+  stopCam();clearSession();S.auth=null;S.ver=null;S.role=null;S.uid=null;S.evIds=null;S.sheet=null;S.thread=null;
   go('welcome');
 }
 
@@ -750,7 +767,11 @@ function logout(){
    ACTUALISATION (sondage toutes les 5 s)
    ===================================================================== */
 async function refresh(force){
-  let d;try{d=await api.load()}catch(e){return}
+  if(!CONFIG.DEMO){
+    if(!S.auth)return;
+    if(!force){try{const v=await api.ping();if(v&&v===S.ver)return}catch(e){return}}
+  }
+  let d;try{d=await api.load()}catch(e){if(e&&e.auth){logout();toast('Session expirée. Reconnecte-toi.','err')}return}
   const sig=JSON.stringify(d),changed=sig!==S.sig;
   S.sig=sig;S.data=d;
   if(S.screen==='pending'){
@@ -793,10 +814,12 @@ const A={
   'cam-retake':()=>{S.reg.photo='';renderScreen()},
   'reg-submit':async el=>{
     if(S.busy)return;S.busy=true;el.disabled=true;
-    const r=await api.inscrire({nom:S.reg.nom,departement:S.reg.departement,code:S.reg.code,photo:S.reg.photo});
+    let r;
+    try{r=await api.inscrire({nom:S.reg.nom,departement:S.reg.departement,code:S.reg.code,photo:S.reg.photo})}
+    catch(e){S.busy=false;el.disabled=false;const x=$('#err');if(x)x.textContent='Connexion impossible. Vérifie internet et réessaie.';return}
     S.busy=false;
     if(!r.ok){el.disabled=false;const e=$('#err');if(e)e.textContent=r.error||'Erreur.';return}
-    S.role='membre';S.uid=r.id;saveSession();S.data=await api.load();S.sig=JSON.stringify(S.data);
+    S.role='membre';S.uid=r.id;S.auth=CONFIG.DEMO?null:{role:'membre',id:r.id,token:r.token};saveSession();S.data=await api.load();S.sig=JSON.stringify(S.data);
     discord('Nouvelle inscription : '+S.reg.nom+' ('+S.reg.departement+') — photo envoyée, en attente de validation');
     S.reg=null;go('pending');
   },
@@ -841,16 +864,17 @@ const F={
   'login':async f=>{
     const r=await api.connexion({nom:f.elements.nom.value,code:f.elements.code.value});
     if(!r.ok){$('#err').textContent=r.error;return}
-    S.uid=r.id;S.role='membre';
+    S.uid=r.id;S.role='membre';S.auth=CONFIG.DEMO?null:{role:'membre',id:r.id,token:r.token};
     S.data=await api.load();S.sig=JSON.stringify(S.data);
     const m=member(r.id);
     if(m.statut==='valide'){await enterApp('membre',r.id)}
     else if(m.statut==='en_attente'){saveSession();go('pending')}
-    else{S.role=null;S.uid=null;$('#err').textContent='Ton inscription a été refusée.'}
+    else{S.role=null;S.uid=null;S.auth=null;$('#err').textContent='Ton inscription a été refusée.'}
   },
   'login-chef':async f=>{
     const r=await api.connexionChef({code:f.elements.code.value});
     if(!r.ok){$('#err').textContent=r.error;return}
+    S.auth=CONFIG.DEMO?null:{role:'chef',id:'chef',token:r.token};
     await enterApp('chef','chef');
   },
   'reg-next':async f=>{
@@ -921,6 +945,7 @@ document.addEventListener('pointerdown',e=>{
 /* ---------- Installation PWA ---------- */
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();S.installEvt=e;if(S.screen==='app'&&!isChef()&&S.tab==='profil')renderMain(true)});
 window.addEventListener('appinstalled',()=>{S.installEvt=null});
+window.addEventListener('unhandledrejection',()=>{S.busy=false;toast('Connexion impossible. Réessaie.','err')});
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){
   window.addEventListener('load',()=>navigator.serviceWorker.register('bureau-sw.js',{scope:'./bureau.html'}).catch(()=>{}));
 }
@@ -929,8 +954,18 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
    DÉMARRAGE
    ===================================================================== */
 (async function init(){
-  S.data=await api.load();S.sig=JSON.stringify(S.data);
   let ses=null;try{ses=JSON.parse(localStorage.getItem(SESS)||'null')}catch(e){}
+  if(!CONFIG.DEMO){
+    if(ses&&ses.token&&ses.uid)S.auth={role:ses.role==='chef'?'chef':'membre',id:ses.uid,token:ses.token};
+    else ses=null;
+  }
+  if(CONFIG.DEMO||ses){
+    try{S.data=await api.load();S.sig=JSON.stringify(S.data)}
+    catch(e){
+      if(e&&e.auth)clearSession();else toast('Connexion impossible. Vérifie internet.','err',4000);
+      S.auth=null;ses=null;
+    }
+  }
   if(ses&&ses.role==='chef'){await enterApp('chef','chef')}
   else if(ses&&ses.role==='membre'){
     const m=member(ses.uid);
@@ -938,7 +973,7 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
     else if(m&&m.statut==='en_attente'){S.role='membre';S.uid=m.id;go('pending')}
     else{clearSession();go('welcome')}
   }else go('welcome');
-  setInterval(()=>{if(!document.hidden)refresh(false)},CONFIG.POLL_MS);
+  setInterval(()=>{if(!document.hidden)refresh(false)},CONFIG.DEMO?CONFIG.POLL_MS:CONFIG.POLL_REMOTE_MS);
   window.addEventListener('storage',e=>{if(e.key===KEY)refresh(false)});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh(false)});
 })();
