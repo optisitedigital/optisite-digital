@@ -227,6 +227,60 @@ small,.sm{color:var(--muted);font-size:.78rem}
 @keyframes float{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(-14px)}}
 @keyframes rip{to{transform:translate(-50%,-50%) scale(26);opacity:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- Survol (souris) ---------- */
+@media (hover:hover){
+  .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(71,33,122,.3)}
+  .btn-ok:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(10,90,40,.3)}
+  .btn-no:hover{background:#fef2f2}
+  .btn-outline:hover{background-size:100% 100%;color:#fff}
+  .list-row:hover,.opt:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(47,74,158,.14)}
+  .btn-primary:hover:active,.btn-ok:hover:active{transform:translate(4px,4px);box-shadow:1px 1px 0 rgba(71,33,122,.3)}
+  .link-btn:hover,.back:hover{color:var(--purple)}
+}
+
+/* ---------- Ordinateur et grands écrans ---------- */
+@media (min-width:860px){
+  #app{max-width:none;box-shadow:none}
+
+  /* écrans d'entrée : une carte centrée sur le fond coloré */
+  .auth{align-items:center;justify-content:center;padding:40px}
+  .auth-in{margin:auto;width:min(480px,100%);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:38px 36px;border:1px solid var(--line);box-shadow:14px 14px 0 rgba(47,74,158,.16)}
+  .b1{width:480px;height:480px}.b2{width:440px;height:440px}
+  .cam{max-width:380px;margin-left:auto;margin-right:auto}
+
+  /* application : en-tête en haut, menu à gauche, contenu large */
+  #root.shell{display:grid;grid-template-columns:250px minmax(0,1fr);grid-template-rows:auto minmax(0,1fr)}
+  #root.shell .top{grid-column:1/-1;grid-row:1;padding:12px 28px}
+  #root.shell .nav{grid-column:1;grid-row:2;display:flex;flex-direction:column;justify-content:flex-start;gap:6px;padding:18px 14px;border-top:0;border-right:1px solid var(--line);box-shadow:none;overflow-y:auto}
+  #root.shell .main{grid-column:2;grid-row:2;padding:32px clamp(24px,4vw,56px) 48px}
+  #root.shell .main.chatmode{padding:24px clamp(24px,4vw,56px)}
+  .main>*{max-width:920px;margin-left:auto;margin-right:auto}
+  .main.chatmode>*{width:100%;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+  .main.chatmode>.chat-head{border-top:1px solid var(--line)}
+  .main.chatmode>.composer{border-bottom:1px solid var(--line)}
+  .grid2{grid-template-columns:repeat(4,1fr)}
+
+  /* menu latéral */
+  .nav button{height:auto;flex-direction:row;justify-content:flex-start;gap:14px;padding:13px 16px;font-size:.95rem;text-align:left}
+  .nav button svg{width:1.35em;height:1.35em}
+  .nav button:hover{background:var(--bg)}
+  .nav button.on{background:var(--bg)}
+  .nav button.on svg{transform:none}
+  .nav button.on::before{top:0;bottom:0;left:0;right:auto;width:4px;height:auto;animation:none}
+  .nav button[data-act="plus"]{order:-1;margin-bottom:12px;padding:0}
+  .nav button[data-act="plus"]:hover{background:none}
+  .plus-btn{width:100%;height:52px;margin:0;display:flex;align-items:center;justify-content:center;gap:10px}
+  .plus-btn::after{content:"Nouvelle action";font-size:.92rem;font-weight:700}
+  .bn{position:static;margin-left:auto;animation:none}
+
+  /* fenêtre centrée au lieu du panneau du bas */
+  .sheet{left:50%;right:auto;bottom:auto;top:50%;width:min(520px,92%);max-height:88%;padding:24px;transform:translate(-50%,-46%);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .25s;box-shadow:14px 14px 0 rgba(18,21,58,.25)}
+  .sheet.open{transform:translate(-50%,-50%);opacity:1;pointer-events:auto}
+
+  /* notifications en haut à droite */
+  #toasts{left:auto;right:24px;top:84px;width:min(380px,calc(100% - 48px))}
+}
 </style>
 </head>
 <body>
@@ -550,6 +604,7 @@ const NAV_MEMBER=[{k:'home',l:'Accueil',i:'home'},{k:'missions',l:'Missions',i:'
 const NAV_CHEF=[{k:'dash',l:'Tableau',i:'grid'},{k:'team',l:'Équipe',i:'team'},{k:'plus'},{k:'inbox',l:'Messages',i:'chat'},{k:'reports',l:'Rapports',i:'file'}];
 
 function renderApp(){
+  $('#root').classList.add('shell');
   $('#root').innerHTML='<div class="top"><img src="icon-192.png" alt=""><b>Bureau Digital</b><span class="chip">'+(isChef()?'CHEF':'ÉQUIPE')+'</span>'
     +(isChef()?'<button class="icon-btn" data-act="logout" aria-label="Quitter">'+ic('out')+'</button>':'')+'</div>'
     +'<main class="main" id="main"></main><nav class="nav" id="nav"></nav>'
@@ -758,6 +813,7 @@ function go(screen){
 function renderScreen(){
   const r=$('#root');
   if(S.screen==='app'){renderApp();return}
+  r.classList.remove('shell');
   const map={welcome:vWelcome,register:vRegister,pending:vPending,login:()=>vLogin(false),chefLogin:()=>vLogin(true)};
   r.innerHTML=(map[S.screen]||vWelcome)();
   after(r,true);
