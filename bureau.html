@@ -281,6 +281,7 @@ small,.sm{color:var(--muted);font-size:.78rem}
   /* notifications en haut à droite */
   #toasts{left:auto;right:24px;top:84px;width:min(380px,calc(100% - 48px))}
 }
+.row small a{color:var(--indigo);font-weight:600;text-decoration:none}
 </style>
 </head>
 <body>
@@ -319,6 +320,18 @@ const fmtNum=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(
 const money=(n,d)=>fmtNum(n)+' '+d;
 const fmtDate=iso=>{try{return new Date(iso).toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}catch(e){return ''}};
 const first=n=>String(n||'').split(' ')[0];
+const RESEAUX=['M-Pesa','Airtel Money','Orange Money','Afrimoney'];
+function normTel(s){let t=String(s==null?'':s).replace(/[\s.\-()]/g,'');if(/^00/.test(t))t='+'+t.slice(2);if(/^0\d{9}$/.test(t))t='+243'+t.slice(1);else if(/^243\d{9}$/.test(t))t='+'+t;else if(/^\d{9}$/.test(t))t='+243'+t;return /^\+\d{9,15}$/.test(t)?t:''}
+const telFmt=t=>String(t||'').replace(/^(\+243)(\d{3})(\d{3})(\d{3})$/,'$1 $2 $3 $4');
+function mobileBlock(m,withCopy){
+  if(!m.telephone)return '<p class="note">Numéro Mobile Money non renseigné.</p>';
+  return '<div class="row" style="margin:8px 0"><div class="grow"><b style="white-space:normal">'+esc(m.reseau||'Mobile Money')+'</b><small><a href="tel:'+esc(m.telephone)+'">'+esc(telFmt(m.telephone))+'</a></small></div>'
+   +(withCopy?'<button type="button" class="btn btn-outline btn-sm" data-act="copy-tel" data-tel="'+esc(m.telephone)+'">Copier</button>':'')+'</div>';
+}
+function mobileFields(reseau,tel,pre){
+  return '<div class="field"><label for="'+pre+'r">Réseau Mobile Money</label><select id="'+pre+'r" name="reseau">'+RESEAUX.map(x=>'<option'+(x===reseau?' selected':'')+'>'+esc(x)+'</option>').join('')+'</select></div>'
+   +'<div class="field"><label for="'+pre+'t">Numéro Mobile Money (en entier)</label><input id="'+pre+'t" name="telephone" type="tel" inputmode="tel" required maxlength="20" value="'+esc(tel)+'" placeholder="Ex. 0812345678"></div>';
+}
 const initials=n=>String(n||'?').split(' ').filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join('');
 const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return(h>>>0).toString(16)};
 
@@ -353,9 +366,9 @@ function seed(){
   const iso=ms=>new Date(t-ms).toISOString();
   return{
     membres:[
-      {id:'m1',nom:'Grâce Mbuyi',departement:'Design',photo_url:'',code_hash:hash('1234'),statut:'valide',date_inscription:iso(9*d)},
-      {id:'m2',nom:'Jonathan Kabeya',departement:'Vente',photo_url:'',code_hash:hash('1234'),statut:'valide',date_inscription:iso(5*d)},
-      {id:'m3',nom:'Patrick Ilunga',departement:'Vente',photo_url:'',code_hash:hash('1234'),statut:'en_attente',date_inscription:iso(2*h)}
+      {id:'m1',nom:'Grâce Mbuyi',departement:'Création de contenu',photo_url:'',code_hash:hash('1234'),statut:'valide',date_inscription:iso(9*d),reseau:'Airtel Money',telephone:'+243991234567'},
+      {id:'m2',nom:'Jonathan Kabeya',departement:'Prospection',photo_url:'',code_hash:hash('1234'),statut:'valide',date_inscription:iso(5*d),reseau:'M-Pesa',telephone:'+243812345678'},
+      {id:'m3',nom:'Patrick Ilunga',departement:'Prospection',photo_url:'',code_hash:hash('1234'),statut:'en_attente',date_inscription:iso(2*h),reseau:'Orange Money',telephone:'+243899876543'}
     ],
     missions:[
       {id:'t1',membre_id:'m1',titre:'Refaire la page d’accueil du client Bobokoli',description:'Version mobile en priorité, couleurs de la marque.',statut:'en_cours',date:iso(3*d)},
@@ -405,7 +418,9 @@ api.ping=async()=>{const r=await remote('ping',{},true);return r&&r.ok?r.v:null}
 def('inscrire',a=>{
   const d=store.load();
   if(d.membres.some(m=>m.nom.toLowerCase()===a.nom.toLowerCase()))return{ok:false,error:'Ce nom est déjà utilisé.'};
-  const m={id:'m'+uid(),nom:a.nom,departement:a.departement,photo_url:a.photo,code_hash:hash(a.code),statut:'en_attente',date_inscription:now()};
+  const tel=normTel(a.telephone);
+  if(RESEAUX.indexOf(a.reseau)<0||!tel)return{ok:false,error:'Numéro Mobile Money invalide. Écris-le en entier, ex. 0812345678.'};
+  const m={id:'m'+uid(),nom:a.nom,departement:a.departement,photo_url:a.photo,code_hash:hash(a.code),statut:'en_attente',date_inscription:now(),reseau:a.reseau,telephone:tel};
   d.membres.push(m);store.save(d);return{ok:true,id:m.id};
 });
 def('connexion',a=>{
@@ -414,6 +429,7 @@ def('connexion',a=>{
   return m?{ok:true,id:m.id}:{ok:false,error:'Nom ou code incorrect.'};
 });
 def('connexionChef',a=>a.code===CONFIG.CHEF_CODE_DEMO?{ok:true}:{ok:false,error:'Code chef incorrect.'});
+def('majMobileMoney',a=>{const d=store.load();const m=d.membres.find(x=>x.id===a.membre_id);const tel=normTel(a.telephone);if(!m||RESEAUX.indexOf(a.reseau)<0||!tel)return{ok:false,error:'Numéro Mobile Money invalide. Écris-le en entier, ex. 0812345678.'};m.reseau=a.reseau;m.telephone=tel;store.save(d);return{ok:true}});
 def('changerCode',a=>{const d=store.load();const m=d.membres.find(x=>x.id===a.membre_id);if(!m)return{ok:false,error:'Membre introuvable.'};m.code_hash=hash(a.code);store.save(d);return{ok:true}});
 def('decider',a=>{const d=store.load();const m=d.membres.find(x=>x.id===a.id);if(m){m.statut=a.statut;store.save(d)}return{ok:true}});
 def('envoyerMessage',a=>{const d=store.load();d.messages.push({id:'g'+uid(),membre_id:a.membre_id,de:a.de,texte:a.texte,lu:false,date:now()});store.save(d);return{ok:true}});
@@ -568,6 +584,7 @@ function vRegister(){
      +'<form data-form="reg-next" autocomplete="off">'
      +'<div class="field"><label for="rn">Nom et prénom</label><input id="rn" name="nom" required maxlength="50" value="'+esc(r.nom)+'" placeholder="Ex. Marie Kalala"></div>'
      +'<div class="field"><label for="rd">Département</label><select id="rd" name="departement">'+CONFIG.DEPARTEMENTS.map(x=>'<option'+(x===r.departement?' selected':'')+'>'+esc(x)+'</option>').join('')+'</select></div>'
+     +mobileFields(r.reseau,r.telephone,'rm')
      +'<div class="field"><label for="rc">Choisis un code (4 à 6 chiffres)</label><input id="rc" name="code" type="password" inputmode="numeric" pattern="[0-9]{4,6}" maxlength="6" required value="'+esc(r.code)+'" placeholder="••••"></div>'
      +'<div class="err" id="err"></div>'
      +'<button class="btn btn-primary btn-block">Continuer '+ic('go')+'</button></form>'
@@ -675,6 +692,7 @@ V.m_profil=function(){
   const me=member(S.uid),pays=D().paiements.filter(p=>p.membre_id===S.uid).sort((a,b)=>b.date.localeCompare(a.date));
   const ios=/iphone|ipad|ipod/i.test(navigator.userAgent),standalone=window.matchMedia&&matchMedia('(display-mode: standalone)').matches;
   return '<div class="card rv"><div class="row">'+ava(me,72)+'<div class="grow"><b style="white-space:normal">'+esc(me.nom)+'</b><small>'+esc(me.departement)+' · membre depuis le '+fmtDate(me.date_inscription).split(',')[0]+'</small></div></div></div>'
+   +'<h2 class="h2 rv">Mon Mobile Money</h2><form class="rv" data-form="mobile" autocomplete="off">'+mobileFields(me.reseau||RESEAUX[0],me.telephone||'','pm')+'<button class="btn btn-outline btn-block">Enregistrer mon numéro</button></form>'
    +'<h2 class="h2 rv">Mes paiements</h2>'
    +(pays.length?pays.map(p=>'<div class="act rv">'+ic('wallet')+'<div><p>'+esc(money(p.montant,p.devise))+'</p><small>'+esc(p.note||'Paiement')+' · '+fmtDate(p.date)+'</small></div></div>').join(''):empty('Aucun paiement enregistré','Ton solde est à 0 CDF.'))
    +(standalone?'':(S.installEvt?'<button class="btn btn-primary btn-block rv" style="margin-top:14px" data-act="install">'+ic('down')+' Installer l’application</button>'
@@ -691,6 +709,7 @@ V.c_dash=function(){
    +'<div class="card bal rv"><div class="lbl">Total versé à l’équipe</div><div class="bal-row"><div><b data-count="'+t.CDF+'">0</b><small>CDF</small></div><div><b data-count="'+t.USD+'">0</b><small>USD</small></div></div></div>'
    +'<h2 class="h2 rv">Inscriptions à valider</h2>'
    +(pend.length?pend.map(m=>'<div class="card rv"><div class="row">'+ava(m,60)+'<div class="grow"><b>'+esc(m.nom)+'</b><small>'+esc(m.departement)+' · '+fmtDate(m.date_inscription)+'</small></div></div>'
+     +mobileBlock(m,false)
      +'<div class="btns"><button class="btn btn-ok btn-sm" data-act="accept" data-id="'+esc(m.id)+'">'+ic('check')+' Accepter</button><button class="btn btn-no btn-sm" data-act="refuse" data-id="'+esc(m.id)+'">'+ic('x')+' Refuser</button></div></div>').join('')
     :empty('Aucune inscription en attente','Envoie le lien du bureau à tes nouveaux vendeurs.'));
 };
@@ -749,6 +768,7 @@ function sheetHtml(){
   if(k==='paiement'){
     return sheetTop('Enregistrer un paiement')
      +(validMembers().length?'<form data-form="pay" autocomplete="off"><div class="field"><label for="pm">Membre</label><select id="pm" name="membre">'+memberOptions(S.sheet.mid)+'</select></div>'
+     +(S.sheet.mid&&member(S.sheet.mid)?mobileBlock(member(S.sheet.mid),true):'')
      +'<div class="field"><label for="pa">Montant</label><input id="pa" name="montant" type="number" inputmode="decimal" min="0" step="any" required placeholder="0"></div>'
      +'<div class="field"><label>Devise</label><div class="seg"><label><input type="radio" name="devise" value="CDF" checked><span>CDF</span></label><label><input type="radio" name="devise" value="USD"><span>USD</span></label></div></div>'
      +'<div class="field"><label for="pn">Note (facultatif)</label><input id="pn" name="note" maxlength="80" placeholder="Ex. Paie de la semaine"></div>'
@@ -770,6 +790,7 @@ function sheetHtml(){
     const ms=d.missions.filter(x=>x.membre_id===m.id).sort((a,c)=>c.date.localeCompare(a.date)).slice(0,5);
     return sheetTop('Fiche membre')
      +'<div class="row" style="margin-bottom:14px">'+ava(m,64)+'<div class="grow"><b style="white-space:normal">'+esc(m.nom)+'</b><small>'+esc(m.departement)+'</small></div></div>'
+     +'<h2 class="h2">Mobile Money</h2>'+mobileBlock(m,true)
      +'<div class="card bal"><div class="lbl">Solde</div><div class="bal-row"><div><b>'+esc(fmtNum(b.CDF))+'</b><small>CDF</small></div><div><b>'+esc(fmtNum(b.USD))+'</b><small>USD</small></div></div></div>'
      +'<div class="btns"><button class="btn btn-primary btn-sm" data-act="sheet" data-kind="paiement" data-mid="'+esc(m.id)+'">Payer</button><button class="btn btn-outline btn-sm" data-act="sheet" data-kind="mission" data-mid="'+esc(m.id)+'">Mission</button></div>'
      +'<h2 class="h2">Code oublié ?</h2><form data-form="newcode" data-mid="'+esc(m.id)+'" autocomplete="off"><div class="field"><label for="nc">Nouveau code (4 à 6 chiffres)</label><input id="nc" name="code" type="text" inputmode="numeric" pattern="[0-9]{4,6}" maxlength="6" required placeholder="Ex. 4821"></div><button class="btn btn-outline btn-block">Changer son code</button></form><p class="note">Donne-lui ensuite ce code. L’ancien ne marche plus.</p>'
@@ -873,7 +894,8 @@ async function refresh(force){
    ACTIONS (clics)
    ===================================================================== */
 const A={
-  'go-register':()=>{S.reg={step:1,nom:'',departement:CONFIG.DEPARTEMENTS[0],code:'',photo:''};go('register')},
+  'go-register':()=>{S.reg={step:1,nom:'',departement:CONFIG.DEPARTEMENTS[0],reseau:RESEAUX[0],telephone:'',code:'',photo:''};go('register')},
+  'copy-tel':el=>{const t=el.dataset.tel;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Numéro copié.','ok'),()=>toast(t,'info'))},
   'go-login':()=>go('login'),
   'go-chef':()=>go('chefLogin'),
   'go-welcome':()=>go('welcome'),
@@ -887,7 +909,7 @@ const A={
   'reg-submit':async el=>{
     if(S.busy)return;S.busy=true;el.disabled=true;
     let r;
-    try{r=await api.inscrire({nom:S.reg.nom,departement:S.reg.departement,code:S.reg.code,photo:S.reg.photo})}
+    try{r=await api.inscrire({nom:S.reg.nom,departement:S.reg.departement,reseau:S.reg.reseau,telephone:S.reg.telephone,code:S.reg.code,photo:S.reg.photo})}
     catch(e){S.busy=false;el.disabled=false;const x=$('#err');if(x)x.textContent='Connexion impossible. Vérifie internet et réessaie.';return}
     S.busy=false;
     if(!r.ok){el.disabled=false;const e=$('#err');if(e)e.textContent=r.error||'Erreur.';return}
@@ -953,7 +975,9 @@ const F={
     const nom=f.elements.nom.value.trim(),code=f.elements.code.value.trim();
     if(nom.length<2){$('#err').textContent='Écris ton nom complet.';return}
     if(!/^\d{4,6}$/.test(code)){$('#err').textContent='Le code doit avoir 4 à 6 chiffres.';return}
-    Object.assign(S.reg,{nom:nom,code:code,departement:f.elements.departement.value,step:2,photo:''});
+    const tel=normTel(f.elements.telephone.value);
+    if(!tel){$('#err').textContent='Numéro Mobile Money invalide. Écris-le en entier, ex. 0812345678.';return}
+    Object.assign(S.reg,{nom:nom,code:code,departement:f.elements.departement.value,reseau:f.elements.reseau.value,telephone:tel,step:2,photo:''});
     go('register');
   },
   'send-msg':async f=>{
@@ -982,6 +1006,13 @@ const F={
     const m=member(f.elements.membre.value);
     await api.ajouterPaiement({membre_id:f.elements.membre.value,montant:montant,devise:f.elements.devise.value,note:f.elements.note.value.trim()});
     closeSheet();toast('Paiement de '+money(montant,f.elements.devise.value)+' enregistré pour '+(m?m.nom:'le membre')+'.','ok');await refresh(true);
+  },
+  'mobile':async f=>{
+    const tel=normTel(f.elements.telephone.value);
+    if(!tel){toast('Numéro invalide. Écris-le en entier, ex. 0812345678.','err');return}
+    const r=await api.majMobileMoney({membre_id:S.uid,reseau:f.elements.reseau.value,telephone:tel});
+    if(r&&r.ok===false){toast(r.error||'Impossible d’enregistrer.','err');return}
+    toast('Numéro enregistré.','ok');await refresh(true);
   },
   'newcode':async f=>{
     const code=f.elements.code.value.trim(),m=member(f.dataset.mid);
