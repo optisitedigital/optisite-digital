@@ -414,6 +414,7 @@ def('connexion',a=>{
   return m?{ok:true,id:m.id}:{ok:false,error:'Nom ou code incorrect.'};
 });
 def('connexionChef',a=>a.code===CONFIG.CHEF_CODE_DEMO?{ok:true}:{ok:false,error:'Code chef incorrect.'});
+def('changerCode',a=>{const d=store.load();const m=d.membres.find(x=>x.id===a.membre_id);if(!m)return{ok:false,error:'Membre introuvable.'};m.code_hash=hash(a.code);store.save(d);return{ok:true}});
 def('decider',a=>{const d=store.load();const m=d.membres.find(x=>x.id===a.id);if(m){m.statut=a.statut;store.save(d)}return{ok:true}});
 def('envoyerMessage',a=>{const d=store.load();d.messages.push({id:'g'+uid(),membre_id:a.membre_id,de:a.de,texte:a.texte,lu:false,date:now()});store.save(d);return{ok:true}});
 def('marquerLus',a=>{const d=store.load();let n=0;d.messages.forEach(m=>{if(m.membre_id===a.membre_id&&m.de===a.de&&!m.lu){m.lu=true;n++}});if(n)store.save(d);return{ok:true}});
@@ -771,6 +772,7 @@ function sheetHtml(){
      +'<div class="row" style="margin-bottom:14px">'+ava(m,64)+'<div class="grow"><b style="white-space:normal">'+esc(m.nom)+'</b><small>'+esc(m.departement)+'</small></div></div>'
      +'<div class="card bal"><div class="lbl">Solde</div><div class="bal-row"><div><b>'+esc(fmtNum(b.CDF))+'</b><small>CDF</small></div><div><b>'+esc(fmtNum(b.USD))+'</b><small>USD</small></div></div></div>'
      +'<div class="btns"><button class="btn btn-primary btn-sm" data-act="sheet" data-kind="paiement" data-mid="'+esc(m.id)+'">Payer</button><button class="btn btn-outline btn-sm" data-act="sheet" data-kind="mission" data-mid="'+esc(m.id)+'">Mission</button></div>'
+     +'<h2 class="h2">Code oublié ?</h2><form data-form="newcode" data-mid="'+esc(m.id)+'" autocomplete="off"><div class="field"><label for="nc">Nouveau code (4 à 6 chiffres)</label><input id="nc" name="code" type="text" inputmode="numeric" pattern="[0-9]{4,6}" maxlength="6" required placeholder="Ex. 4821"></div><button class="btn btn-outline btn-block">Changer son code</button></form><p class="note">Donne-lui ensuite ce code. L’ancien ne marche plus.</p>'
      +'<h2 class="h2">Derniers paiements</h2>'+(pays.length?pays.map(p=>'<div class="act">'+ic('wallet')+'<div><p>'+esc(money(p.montant,p.devise))+'</p><small>'+esc(p.note||'Paiement')+' · '+fmtDate(p.date)+'</small></div></div>').join(''):'<p class="note">Aucun paiement.</p>')
      +'<h2 class="h2">Missions</h2>'+(ms.length?ms.map(x=>'<div class="act">'+ic('list')+'<div><p>'+esc(x.titre)+'</p><small>'+pill(x.statut)+'</small></div></div>').join(''):'<p class="note">Aucune mission.</p>');
   }
@@ -980,6 +982,13 @@ const F={
     const m=member(f.elements.membre.value);
     await api.ajouterPaiement({membre_id:f.elements.membre.value,montant:montant,devise:f.elements.devise.value,note:f.elements.note.value.trim()});
     closeSheet();toast('Paiement de '+money(montant,f.elements.devise.value)+' enregistré pour '+(m?m.nom:'le membre')+'.','ok');await refresh(true);
+  },
+  'newcode':async f=>{
+    const code=f.elements.code.value.trim(),m=member(f.dataset.mid);
+    if(!/^\d{4,6}$/.test(code)){toast('Le code doit avoir 4 à 6 chiffres.','err');return}
+    const r=await api.changerCode({membre_id:f.dataset.mid,code:code});
+    if(r&&r.ok===false){toast(r.error||'Impossible de changer le code.','err');return}
+    f.reset();toast('Nouveau code enregistré pour '+(m?m.nom:'le membre')+'.','ok');
   },
   'mission':async f=>{
     const ids=f.elements.membre.value==='*'?validMembers().map(m=>m.id):[f.elements.membre.value];
