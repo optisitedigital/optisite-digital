@@ -7,6 +7,9 @@
   <meta name="description" content="Optisite Digital : création de sites web et d'applications web professionnels, formations CapCut, publicité Facebook, vente de produits digitaux et création d'apps avec l'IA en 2026. Découvrez Kontra-Africa, notre application web.">
   <meta name="theme-color" content="#2f4a9e">
 
+  <!-- Active les animations uniquement si JavaScript fonctionne -->
+  <script>document.documentElement.classList.add('js');</script>
+
   <!-- Favicon (logo) -->
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
@@ -37,9 +40,9 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
-      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
-      <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6" rx="1"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
+      <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></symbol>
       <symbol id="i-trend" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
       <symbol id="i-dollar" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
       <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
@@ -57,6 +60,14 @@
       <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
     </defs>
   </svg>
+
+  <!-- ================= ÉCRAN D'INTRODUCTION ================= -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <img src="logo.png" alt="">
+      <span class="loader-bar"><i></i></span>
+    </div>
+  </div>
 
   <div class="progress" id="progress"></div>
   <div class="overlay" id="overlay"></div>
@@ -90,10 +101,18 @@
       <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
     </div>
     <div class="container hero-grid">
-      <div>
+      <div class="hero-copy">
         <span class="tag reveal">Optisite Digital · Kinshasa, RDC</span>
-        <h1 class="reveal d1"><span class="hi">Salut, je suis</span><span class="gradient-text">Olivier Digital Income</span></h1>
-        <div class="typing-line reveal d2"><span id="typing"></span><span class="cursor"></span></div>
+        <h1>
+          <span class="line hi"><span class="line-in">Salut, je suis</span></span>
+          <span class="line"><span class="line-in gradient-text">Olivier Digital Income</span></span>
+        </h1>
+        <div class="rotator reveal d2" id="rotator" aria-label="Vibe codeur, créateur de solutions numériques, créateur de sites web et applications web, formateur digital et IA">
+          <span>Vibe codeur</span>
+          <span>Créateur de solutions numériques</span>
+          <span>Créateur de sites web & applications web</span>
+          <span>Formateur digital & IA</span>
+        </div>
         <p class="lead reveal d3">
           Je crée des sites web et des applications web professionnels pour développer ton business,
           et je te forme à gagner de l'argent avec le digital et l'IA en 2026.
@@ -111,8 +130,8 @@
 
       <div class="hero-photo reveal zoom d2">
         <div class="tilt" id="tilt">
-          <div class="photo-ring"></div><div class="photo-ring r2"></div>
-          <div class="photo-frame"><img src="olivier.jpg" alt="Olivier Digital Income, vibe codeur"></div>
+          <div class="photo-halo"></div>
+          <div class="photo-frame"><img src="olivier.jpg" alt="Olivier Digital Income, vibe codeur" data-parallax="0.035"></div>
           <div class="float-card fc1"><span class="dot"><svg class="i"><use href="#i-zap"/></svg></span>Vibe Codeur</div>
           <div class="float-card fc2"><span class="dot"><svg class="i"><use href="#i-code"/></svg></span>Solutions numériques</div>
           <div class="float-card fc3"><span class="dot"><svg class="i"><use href="#i-cpu"/></svg></span>IA & Web</div>
@@ -271,7 +290,7 @@
         </div>
         <div class="kontra-visual reveal right">
           <div class="glow"></div>
-          <a class="phone" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir Kontra-Africa" style="display:block"><img src="site4.jpg" alt="Application Kontra-Africa sur mobile" loading="lazy"></a>
+          <a class="phone" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir Kontra-Africa"><img src="site4.jpg" alt="Application Kontra-Africa sur mobile" loading="lazy"></a>
         </div>
       </div>
 
@@ -306,7 +325,7 @@
   <!-- ================= À PROPOS ================= -->
   <section id="apropos" class="alt">
     <div class="container about-grid">
-      <div class="about-photo reveal left"><div class="pic"><img src="olivier.jpg" alt="Olivier Digital Income" loading="lazy"></div></div>
+      <div class="about-photo reveal left"><div class="pic"><img src="olivier.jpg" alt="Olivier Digital Income" loading="lazy" data-parallax="0.03"></div></div>
       <div class="about-text reveal right">
         <span class="tag">À propos</span>
         <h2>Olivier Digital Income, <span class="gradient-text">vibe codeur & créateur de solutions numériques</span></h2>
@@ -353,122 +372,232 @@
   <button class="to-top" id="toTop" aria-label="Remonter"><svg class="i"><use href="#i-up"/></svg></button>
 
   <script>
-    // ----- Menu hamburger (s'ouvre à gauche) -----
-    const burger = document.getElementById('burger');
-    const navLinks = document.getElementById('navLinks');
-    const overlay = document.getElementById('overlay');
+  (function () {
+    var root = document.documentElement;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    /* ========== MENU HAMBURGER (s'ouvre à gauche) ========== */
+    var burger = document.getElementById('burger');
+    var navLinks = document.getElementById('navLinks');
+    var overlay = document.getElementById('overlay');
     function toggleMenu(open) {
-      const state = typeof open === 'boolean' ? open : !navLinks.classList.contains('open');
+      var state = typeof open === 'boolean' ? open : !navLinks.classList.contains('open');
       navLinks.classList.toggle('open', state);
       burger.classList.toggle('open', state);
       overlay.classList.toggle('show', state);
       document.body.classList.toggle('lock', state);
       burger.setAttribute('aria-expanded', state);
     }
-    burger.addEventListener('click', () => toggleMenu());
-    overlay.addEventListener('click', () => toggleMenu(false));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      toggleMenu(false);
-      if (id && id.startsWith('#')) {
+    burger.addEventListener('click', function () { toggleMenu(); });
+    overlay.addEventListener('click', function () { toggleMenu(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 980) toggleMenu(false); });
+
+    /* ========== DÉFILEMENT DOUX VERS LES SECTIONS ========== */
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href');
+        if (!id || id.length < 2) return;
+        var target = document.querySelector(id);
+        if (!target) return;
         e.preventDefault();
-        const target = document.querySelector(id);
-        if (target) setTimeout(() => {
-          const y = target.getBoundingClientRect().top + window.scrollY - 72;
-          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-        }, 60);
-      }
-    }));
-    window.addEventListener('resize', () => { if (window.innerWidth > 980) toggleMenu(false); });
-
-    // ----- Scroll : progression, header, retour en haut, lien actif -----
-    const header = document.getElementById('header');
-    const progress = document.getElementById('progress');
-    const toTop = document.getElementById('toTop');
-    const links = [...document.querySelectorAll('.nav-links a.link')];
-    const sections = links.map(l => document.querySelector(l.getAttribute('href')));
-    function onScroll() {
-      const y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight;
-      progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
-      header.classList.toggle('scrolled', y > 10);
-      toTop.classList.toggle('show', y > 600);
-      let current = 0;
-      sections.forEach((s, i) => { if (s && s.offsetTop - 140 <= y) current = i; });
-      links.forEach((l, i) => l.classList.toggle('active', i === current));
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // ----- Effet d'écriture -----
-    const phrases = ['Vibe codeur', 'Créateur de solutions numériques', 'Créateur de sites web & applications web', 'Formateur digital & IA'];
-    const typingEl = document.getElementById('typing');
-    let p = 0, c = 0, deleting = false;
-    function type() {
-      const cur = phrases[p];
-      typingEl.textContent = cur.substring(0, c);
-      if (!deleting && c < cur.length) { c++; setTimeout(type, 70); }
-      else if (!deleting) { deleting = true; setTimeout(type, 1600); }
-      else if (c > 0) { c--; setTimeout(type, 35); }
-      else { deleting = false; p = (p + 1) % phrases.length; setTimeout(type, 300); }
-    }
-    type();
-
-    // ----- Apparition au scroll -----
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // ----- Compteurs -----
-    document.querySelectorAll('[data-count]').forEach(el => {
-      const target = +el.dataset.count, suffix = el.dataset.suffix || '+';
-      const obs = new IntersectionObserver(([en]) => {
-        if (!en.isIntersecting) return;
-        let n = 0; const step = Math.max(1, Math.ceil(target / 40));
-        const t = setInterval(() => { n = Math.min(target, n + step); el.textContent = n + (n === target ? suffix : ''); if (n === target) clearInterval(t); }, 30);
-        obs.disconnect();
+        var wasOpen = navLinks.classList.contains('open');
+        toggleMenu(false);
+        setTimeout(function () {
+          var y = target.getBoundingClientRect().top + window.scrollY - 72;
+          window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
+        }, wasOpen ? 80 : 0);
       });
-      obs.observe(el);
     });
 
-    // ----- Bandeau défilant -----
-    const words = ['Sites web', 'Applications web', 'PWA', 'Formations', 'CapCut', 'Publicité Facebook', 'Produits digitaux', 'IA 2026', 'Kontra-Africa'];
-    const marquee = document.getElementById('marquee');
-    const html = words.map(w => '<span>' + w + '</span>').join('');
-    marquee.innerHTML = html + html;
+    /* ========== SCROLL : progression, header, retour en haut, lien actif, parallaxe ========== */
+    var header = document.getElementById('header');
+    var progress = document.getElementById('progress');
+    var toTop = document.getElementById('toTop');
+    var links = [].slice.call(document.querySelectorAll('.nav-links a.link'));
+    var sections = links.map(function (l) { return document.querySelector(l.getAttribute('href')); });
+    var parallaxEls = [].slice.call(document.querySelectorAll('[data-parallax]'));
+    var ticking = false;
 
-    // ----- Indicateurs du défilement horizontal (mobile) -----
-    document.querySelectorAll('.hscroll').forEach(sc => {
-      const items = [...sc.children];
-      const dots = document.createElement('div');
+    function parallax() {
+      if (reduce) return;
+      var vh = window.innerHeight;
+      parallaxEls.forEach(function (el) {
+        var box = el.parentElement.getBoundingClientRect();
+        if (box.bottom < -100 || box.top > vh + 100) return;
+        var offset = (box.top + box.height / 2 - vh / 2) * parseFloat(el.dataset.parallax);
+        el.style.transform = 'translate3d(0,' + (-offset).toFixed(1) + 'px,0) scale(1.14)';
+      });
+    }
+
+    function onScroll() {
+      var y = window.scrollY;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+      header.classList.toggle('scrolled', y > 10);
+      toTop.classList.toggle('show', y > 600);
+      var current = 0;
+      sections.forEach(function (s, i) { if (s && s.offsetTop - 140 <= y) current = i; });
+      links.forEach(function (l, i) { l.classList.toggle('active', i === current); });
+      parallax();
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+    toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
+    /* ========== TITRES ROTATIFS (glissement vertical, sans curseur) ========== */
+    var rot = document.getElementById('rotator');
+    var rotItems = [].slice.call(rot.children);
+    var ri = 0;
+    rotItems[0].classList.add('is-active');
+    if (!reduce) {
+      setInterval(function () {
+        var prev = rotItems[ri];
+        prev.classList.remove('is-active');
+        prev.classList.add('is-out');
+        setTimeout(function () { prev.classList.remove('is-out'); }, 900);
+        ri = (ri + 1) % rotItems.length;
+        rotItems[ri].classList.add('is-active');
+      }, 3200);
+    }
+
+    /* ========== BANDEAU DÉFILANT ========== */
+    var words = ['Sites web', 'Applications web', 'PWA', 'Formations', 'CapCut', 'Publicité Facebook', 'Produits digitaux', 'IA 2026', 'Kontra-Africa'];
+    var marquee = document.getElementById('marquee');
+    var mhtml = words.map(function (w) { return '<span>' + w + '</span>'; }).join('');
+    marquee.innerHTML = mhtml + mhtml;
+
+    /* ========== INDICATEURS DU DÉFILEMENT HORIZONTAL (mobile) ========== */
+    document.querySelectorAll('.hscroll').forEach(function (sc) {
+      var items = [].slice.call(sc.children);
+      var dots = document.createElement('div');
       dots.className = 'hs-dots';
-      items.forEach(() => dots.appendChild(document.createElement('span')));
+      items.forEach(function () { dots.appendChild(document.createElement('span')); });
       sc.after(dots);
-      const upd = () => {
-        const w = items[0].getBoundingClientRect().width + 16;
-        let i = Math.round(sc.scrollLeft / w);
+      function upd() {
+        var w = items[0].getBoundingClientRect().width + 16;
+        var i = Math.round(sc.scrollLeft / w);
         i = Math.min(items.length - 1, Math.max(0, i));
-        [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
-      };
+        [].slice.call(dots.children).forEach(function (d, k) { d.classList.toggle('on', k === i); });
+      }
       sc.addEventListener('scroll', upd, { passive: true });
       upd();
     });
 
-    // ----- Effet 3D de la photo (souris + toucher) -----
-    const tilt = document.getElementById('tilt');
-    function moveTilt(x, y) {
-      const r = tilt.getBoundingClientRect();
-      const px = (x - r.left) / r.width - .5, py = (y - r.top) / r.height - .5;
-      tilt.style.transform = 'rotateY(' + (px * 14) + 'deg) rotateX(' + (-py * 14) + 'deg)';
+    /* ========== EFFET 3D DE LA PHOTO ========== */
+    var tilt = document.getElementById('tilt');
+    if (finePointer && !reduce) {
+      tilt.addEventListener('mousemove', function (e) {
+        var r = tilt.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        tilt.style.transform = 'rotateY(' + (px * 10) + 'deg) rotateX(' + (-py * 10) + 'deg)';
+      });
+      tilt.addEventListener('mouseleave', function () { tilt.style.transform = ''; });
     }
-    function resetTilt() { tilt.style.transform = ''; }
-    tilt.addEventListener('mousemove', e => moveTilt(e.clientX, e.clientY));
-    tilt.addEventListener('mouseleave', resetTilt);
-    tilt.addEventListener('touchmove', e => moveTilt(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
-    tilt.addEventListener('touchend', resetTilt);
+
+    /* ========== BOUTONS MAGNÉTIQUES ========== */
+    if (finePointer && !reduce) {
+      document.querySelectorAll('.btn, .wa-float').forEach(function (b) {
+        b.addEventListener('pointermove', function (e) {
+          var r = b.getBoundingClientRect();
+          var x = e.clientX - r.left - r.width / 2;
+          var y = e.clientY - r.top - r.height / 2;
+          b.style.setProperty('--tx', (x * 0.16).toFixed(1) + 'px');
+          b.style.setProperty('--ty', (y * 0.26).toFixed(1) + 'px');
+        });
+        b.addEventListener('pointerleave', function () {
+          b.style.setProperty('--tx', '0px');
+          b.style.setProperty('--ty', '0px');
+        });
+      });
+    }
+
+    /* ========== LUMIÈRE QUI SUIT LA SOURIS SUR LES CARTES ========== */
+    if (finePointer) {
+      document.querySelectorAll('.card, .feature, .work').forEach(function (c) {
+        c.addEventListener('pointermove', function (e) {
+          var r = c.getBoundingClientRect();
+          c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+          c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        });
+      });
+    }
+
+    /* ========== COMPTEURS ========== */
+    function runCount(el) {
+      var target = +el.dataset.count, suffix = el.dataset.suffix || '+';
+      if (reduce) { el.textContent = target + suffix; return; }
+      var dur = 1500, start = performance.now();
+      (function frame(now) {
+        var p = Math.min(1, (now - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 4);
+        el.textContent = Math.round(target * eased) + (p === 1 ? suffix : '');
+        if (p < 1) requestAnimationFrame(frame);
+      })(start);
+    }
+
+    /* ========== APPARITION AU SCROLL (avec décalage progressif) ========== */
+    function startReveals() {
+      var cls = ['reveal', 'visible', 'left', 'right', 'zoom'];
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.remove.apply(el.classList, cls); });
+        document.querySelectorAll('[data-count]').forEach(runCount);
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var el = en.target;
+          var m = el.className.match(/\bd(\d)\b/);
+          var delay = m ? (+m[1]) * 90 : 0;
+          el.style.transitionDelay = delay + 'ms';
+          el.classList.add('visible');
+          // Une fois l'animation finie, on rend l'élément à son style normal (pour que le survol fonctionne)
+          setTimeout(function () {
+            el.style.transitionDelay = '';
+            el.classList.remove.apply(el.classList, cls);
+          }, delay + 1100);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -4% 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+      var co = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); }
+        });
+      }, { threshold: 0.6 });
+      document.querySelectorAll('[data-count]').forEach(function (el) { co.observe(el); });
+    }
+
+    /* ========== INTRODUCTION (écran de chargement puis révélation) ========== */
+    var loader = document.getElementById('loader');
+    var started = performance.now();
+    var launched = false;
+    function launch() {
+      if (launched) return;
+      launched = true;
+      root.classList.add('ready');
+      setTimeout(startReveals, reduce ? 0 : 450);
+      setTimeout(function () { if (loader) loader.style.display = 'none'; }, 1400);
+    }
+    if (reduce) {
+      launch();
+    } else {
+      window.addEventListener('load', function () {
+        var wait = Math.max(0, 1000 - (performance.now() - started));
+        setTimeout(launch, wait);
+      });
+      setTimeout(launch, 3500); // sécurité si une image tarde
+    }
 
     document.getElementById('year').textContent = new Date().getFullYear();
+  })();
   </script>
 </body>
 </html>
