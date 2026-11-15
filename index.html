@@ -1,791 +1,241 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Optisite Digital — Sites web, applications web et formation motion design avec l'IA | Olivier Digital Income</title>
-  <meta name="description" content="Optisite Digital à Kinshasa : création de sites web et d'applications web professionnels, formation motion design vidéo avec l'IA, CapCut, publicité Facebook et produits digitaux. Commande directe sur WhatsApp.">
-  <meta name="theme-color" content="#2f4a9e">
-
-  <!-- Active les animations uniquement si JavaScript fonctionne -->
-  <script>document.documentElement.classList.add('js');</script>
-
-  <!-- Favicon (logo) -->
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
-
-  <!-- Aperçu lors du partage (WhatsApp, Facebook, etc.) -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Optisite Digital">
-  <meta property="og:title" content="Optisite Digital — Sites web, applications web et formation motion design avec l'IA">
-  <meta property="og:description" content="Création de sites web et d'applications web (PWA), formation motion design vidéo avec l'IA et formations digitales par Olivier Digital Income, vibe codeur.">
-  <meta property="og:url" content="https://optisite-digital.onrender.com/">
-  <meta property="og:image" content="https://optisite-digital.onrender.com/logo.png">
-  <meta property="og:image:width" content="1024">
-  <meta property="og:image:height" content="1024">
-  <meta property="og:locale" content="fr_FR">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Optisite Digital — Sites web, applications web et formation motion design avec l'IA">
-  <meta name="twitter:description" content="Sites web, applications web (PWA) et formations digitales. Commande sur WhatsApp.">
-  <meta name="twitter:image" content="https://optisite-digital.onrender.com/logo.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Optisite Digital — Sites web, applications et formation motion design avec l'IA</title>
+<meta name="description" content="Optisite Digital à Kinshasa : sites web et applications web professionnels, formation motion design vidéo avec l'IA. Commande directe sur WhatsApp.">
+<meta name="theme-color" content="#fafaf8">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<svg class="sprite" aria-hidden="true"><defs>
+<symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</defs></svg>
 
-  <!-- ================= ICÔNES (SVG) ================= -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="ldGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b8ccf"/><stop offset=".6" stop-color="#2f4a9e"/><stop offset="1" stop-color="#47217a"/></linearGradient>
-      <symbol id="i-site" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4.5"/><path d="M3 9.5h18"/></symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="3.8"/><path d="M10.5 18.5h3"/></symbol>
-      <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M10 8.6v6.8l5.6-3.4z" fill="currentColor" stroke="none"/></symbol>
-      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.7 4.7 2.5 6.5 7 7-4.5.7-6.3 2.5-7 7-.7-4.5-2.5-6.3-7-7 4.5-.5 6.3-2.3 7-7z"/><path d="M19 15.5c.2 1.6.9 2.3 2.5 2.5-1.6.2-2.3.9-2.5 2.5-.2-1.6-.9-2.3-2.5-2.5 1.6-.2 2.3-.9 2.5-2.5z"/></symbol>
-      <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="12.5" height="12" rx="3.8"/><path d="M15.5 10.5 21 8v8l-5.5-2.5"/></symbol>
-      <symbol id="i-mega" viewBox="0 0 24 24"><path d="M4 10.2v3.6h3.2l7.3 4V6.2l-7.3 4H4z"/><path d="M18 9.3a4.2 4.2 0 0 1 0 5.4"/></symbol>
-      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.2 8h13.6l-1 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5.2 8z"/><path d="M9 8V6.6a3 3 0 0 1 6 0V8"/></symbol>
-      <symbol id="i-code" viewBox="0 0 24 24"><path d="m8.5 7.5-4.5 4.5 4.5 4.5M15.5 7.5l4.5 4.5-4.5 4.5"/></symbol>
-      <symbol id="i-box" viewBox="0 0 24 24"><path d="M20.5 16.2V7.8a2 2 0 0 0-1-1.7l-6.5-3.7a2 2 0 0 0-2 0L4.5 6.1a2 2 0 0 0-1 1.7v8.4a2 2 0 0 0 1 1.7l6.5 3.7a2 2 0 0 0 2 0l6.5-3.7a2 2 0 0 0 1-1.7z"/><path d="M3.8 7 12 11.8 20.2 7M12 11.8v9.4"/></symbol>
-      <symbol id="i-cash" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="4"/><circle cx="12" cy="12" r="2.6"/></symbol>
-      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.2a7 7 0 0 1 14 0"/></symbol>
-      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 6.8A3.8 3.8 0 0 1 7.8 3h8.4A3.8 3.8 0 0 1 20 6.8v5.4a3.8 3.8 0 0 1-3.8 3.8H11l-4.6 4v-4A3.8 3.8 0 0 1 4 12.2z"/></symbol>
-      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M6 20v-6M12 20V5M18 20v-9"/></symbol>
-      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.5 11 12 15.5l4.5-4.5"/><path d="M5 19.5h14"/></symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-      <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
-      <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m4 8 8 5.5L20 8"/></symbol>
-      <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v3.5A2.5 2.5 0 0 1 15.5 20h-9A2.5 2.5 0 0 1 4 17.5v-9A2.5 2.5 0 0 1 6.5 6H10"/></symbol>
-      <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
-    </defs>
-  </svg>
+<header class="header" id="header">
+  <div class="container nav">
+    <a href="#accueil" class="brand"><img src="logo.png" alt="Optisite Digital">Optisite Digital</a>
+    <ul class="links" id="links">
+      <li><a class="l" href="#services">Services</a></li>
+      <li><a class="l" href="#formation">Formation</a></li>
+      <li><a class="l" href="#projets">Projets</a></li>
+      <li><a class="l" href="#kontra">Kontra</a></li>
+      <li><a class="btn btn-main btn-sm" data-wa="general" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Commander</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
 
-  <!-- ================= ÉCRAN D'INTRODUCTION ================= -->
-  <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader-inner">
-      <svg class="ld-ring" viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="54"/><circle class="fg" id="ldRing" cx="60" cy="60" r="54"/></svg>
-      <img src="logo.png" alt="">
-      <span class="ld-pct"><span id="ldPct">0</span> %</span>
+<main>
+<section class="hero" id="accueil">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow rv">Agence digitale · Kinshasa</span>
+      <h1 data-split>Des sites web qui <span class="hl">vendent</span> pour toi.</h1>
+      <p class="lead rv" style="--d:.25s">Je crée ton site ou ton application web, et je t'apprends le motion design vidéo avec l'IA.</p>
+      <p class="typed-line rv" style="--d:.3s">Au programme : <b id="typed"></b><span class="cursor"></span></p>
+      <div class="hero-actions rv" style="--d:.35s">
+        <a class="btn btn-main" data-wa="site" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Commander mon site</a>
+        <a class="btn btn-ghost" href="#formation">Voir la formation<svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="proof rv" style="--d:.45s">
+        <div><b data-count="4" data-suffix="+">4+</b>projets en ligne</div>
+        <div><b data-count="5" data-suffix="+">5+</b>formations</div>
+        <div><b>WhatsApp</b>réponse rapide</div>
+      </div>
+    </div>
+    <div class="stage rv" id="heroStage" style="--d:.2s">
+      <canvas id="heroCanvas" aria-label="Aperçu 3D d'un site et d'une application"></canvas>
+      <img class="fallback" src="olivier.jpg" alt="Olivier Digital Income">
+      <span class="stage-hint">Fais glisser pour tourner</span>
     </div>
   </div>
+</section>
 
-  <div class="progress" id="progress"></div>
-  <div class="overlay" id="overlay"></div>
-
-  <!-- ================= HEADER ================= -->
-  <header class="header" id="header">
-    <div class="container nav">
-      <a href="#accueil" class="brand">
-        <img src="logo.png" alt="Logo Optisite Digital">
-        <span>Optisite <b>Digital</b></span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li class="menu-title">Aller à une section</li>
-        <li><a class="link" href="#accueil">Accueil</a></li>
-        <li><a class="link" href="#services">Services</a></li>
-        <li><a class="link" href="#formations">Formations</a></li>
-        <li><a class="link" href="#realisations">Réalisations</a></li>
-        <li><a class="link" href="#kontra">Kontra Africa</a></li>
-        <li><a class="link" href="#apropos">À propos</a></li>
-        <li><a class="btn btn-wa nav-cta btn-sm" data-wa="general" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Me contacter</a></li>
-      </ul>
-      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <a class="nav-wa" data-wa="general" href="https://wa.me/243969187344" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
+<section id="services">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow rv">Services</span>
+      <h2 data-split>Ce que je fais pour toi</h2>
+      <p class="rv">Trois choses simples, faites proprement, livrées vite.</p>
     </div>
-  </header>
-
-  <!-- ================= HERO ================= -->
-  <section class="hero" id="accueil">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="pill-status reveal">Optisite Digital · Kinshasa, RDC</span>
-        <h1 data-split data-hero><span class="hi">Salut, je suis</span><br><span class="gradient-text">Olivier Digital Income</span></h1>
-        <p class="typer reveal d2" id="typer" aria-label="Vibe codeur, créateur de sites web et applications web, formateur motion design avec l'IA, créateur de solutions numériques"><span id="typerText">Vibe codeur</span><i class="caret"></i></p>
-        <p class="lead words" data-words>Je crée des sites web et des applications web professionnels qui font vendre ton business, et je te forme au motion design vidéo et au digital avec l'IA.</p>
-        <div class="hero-actions reveal d4">
-          <a href="https://wa.me/243969187344" data-wa="site" data-mag target="_blank" rel="noopener" class="btn btn-wa"><svg class="i"><use href="#i-wa"/></svg>Commander mon site</a>
-          <a href="#formations" data-mag class="btn btn-outline">Voir les formations<svg class="i i-go"><use href="#i-arrow"/></svg></a>
-        </div>
-        <div class="stats reveal d5">
-          <div class="stat"><b class="gradient-text" data-count="4">0</b><span>Projets réalisés</span></div>
-          <div class="stat"><b class="gradient-text" data-count="5">0</b><span>Formations</span></div>
-          <div class="stat"><b class="gradient-text" data-count="100" data-suffix="%">0</b><span>Mobile & PC</span></div>
-        </div>
-      </div>
-
-      <div class="hero-stage reveal zoom d2" id="heroStage">
-        <canvas id="heroCanvas" aria-hidden="true"></canvas>
-        <img class="stage-fallback" src="olivier.jpg" alt="Olivier Digital Income, vibe codeur">
-        <span class="stage-chip c1"><span class="dot"><svg class="i"><use href="#i-site"/></svg></span>Sites web</span>
-        <span class="stage-chip c2"><span class="dot"><svg class="i"><use href="#i-phone"/></svg></span>Applications</span>
-        <span class="stage-chip c3"><span class="dot"><svg class="i"><use href="#i-play"/></svg></span>Motion design</span>
-        <span class="stage-chip c4"><span class="dot"><svg class="i"><use href="#i-spark"/></svg></span>IA</span>
-        <span class="stage-hint"><svg class="i"><use href="#i-left"/></svg>Fais pivoter<svg class="i" style="transform:scaleX(-1)"><use href="#i-left"/></svg></span>
-      </div>
+    <div class="grid3">
+      <article class="tile rv"><span class="n">01</span><h3>Site web professionnel</h3><p>Un site rapide, beau sur mobile et sur ordinateur, qui donne envie de t'écrire.</p></article>
+      <article class="tile rv" style="--d:.1s"><span class="n">02</span><h3>Application web</h3><p>Une application installable sur le téléphone pour gérer ton activité : stock, commandes, clients.</p></article>
+      <article class="tile rv" style="--d:.2s"><span class="n">03</span><h3>Vidéo et IA</h3><p>Des vidéos animées et des outils d'intelligence artificielle pour faire grandir ta marque.</p></article>
     </div>
-  </section>
-
-  <!-- ================= BANDEAU TYPOGRAPHIQUE ================= -->
-  <div class="mq" aria-hidden="true">
-    <div class="mq-row"><div class="mq-track" data-speed="60" data-words="Sites web|Applications web|Motion design|Montage vidéo|IA 2026|PWA"></div></div>
-    <div class="mq-row alt-row"><div class="mq-track" data-speed="-48" data-words="Publicité Facebook|Produits digitaux|CapCut|Gestion de stock|Vibe coding|WhatsApp"></div></div>
+    <div class="center rv"><a class="btn btn-main" data-wa="site" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Demander un devis</a></div>
   </div>
+</section>
 
-  <!-- ================= SERVICES ================= -->
-  <section id="services">
-    <div class="container">
-      <div class="section-head">
-        <span class="tag reveal">Mes services</span>
-        <h2 data-split>Des solutions digitales <span class="gradient-text">sur mesure</span></h2>
-        <p class="words" data-words>Des sites et des applications modernes, rapides, adaptés au mobile et connectés à ton business.</p>
-      </div>
-      <div class="cards">
-        <article class="card reveal d1" data-tilt>
-          <span class="num">01</span>
-          <div class="icon"><svg class="i"><use href="#i-site"/></svg></div>
-          <h3>Sites web professionnels</h3>
-          <p>Site vitrine, boutique en ligne, portfolio : un design moderne, rapide et adapté au mobile, connecté à ton WhatsApp.</p>
-          <span class="badge">Mobile & PC</span>
-          <a class="card-link" data-wa="site" href="https://wa.me/243969187344" target="_blank" rel="noopener">Demander un devis<svg class="i"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="card reveal d2" data-tilt>
-          <span class="num">02</span>
-          <div class="icon"><svg class="i"><use href="#i-phone"/></svg></div>
-          <h3>Applications web (PWA)</h3>
-          <p>Des applications installables sur téléphone, avec connexion, base de données et paiements.</p>
-          <span class="badge">Installable</span>
-          <a class="card-link" data-wa="app" href="https://wa.me/243969187344" target="_blank" rel="noopener">Demander un devis<svg class="i"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="card reveal d3" data-tilt>
-          <span class="num">03</span>
-          <div class="icon"><svg class="i"><use href="#i-spark"/></svg></div>
-          <h3>Solutions avec l'IA</h3>
-          <p>Automatisation, bots WhatsApp et outils intelligents pour gagner du temps et vendre plus.</p>
-          <span class="badge">Intelligence artificielle</span>
-          <a class="card-link" data-wa="ia" href="https://wa.me/243969187344" target="_blank" rel="noopener">Demander un devis<svg class="i"><use href="#i-arrow"/></svg></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= COMMENT COMMANDER ================= -->
-  <section class="alt" id="commande">
-    <div class="container">
-      <div class="section-head">
-        <span class="tag reveal">Comment commander</span>
-        <h2 data-split>Ton projet en <span class="gradient-text">4 étapes</span></h2>
-        <p class="words" data-words>Tout se passe sur WhatsApp : simple, rapide et sans te déplacer.</p>
-      </div>
-      <div class="steps">
-        <div class="step reveal d1" data-tilt><div class="n">1</div><h4>Écris-moi sur WhatsApp</h4><p>Explique-moi ton idée et ton besoin en quelques lignes.</p></div>
-        <div class="step reveal d2" data-tilt><div class="n">2</div><h4>On définit ton projet</h4><p>Je te propose la solution adaptée et un devis clair.</p></div>
-        <div class="step reveal d3" data-tilt><div class="n">3</div><h4>Je crée, tu valides</h4><p>Tu vois l'avancement et tu valides chaque étape.</p></div>
-        <div class="step reveal d4" data-tilt><div class="n">4</div><h4>Mise en ligne</h4><p>Ton site ou ton application est publié et prêt à vendre.</p></div>
-      </div>
-      <div class="center-cta reveal">
-        <a class="btn btn-wa" data-mag data-wa="general" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Démarrer mon projet</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FORMATIONS ================= -->
-  <section id="formations">
-    <div class="container">
-      <div class="section-head">
-        <span class="tag reveal">Mes formations</span>
-        <h2 data-split>Apprends et <span class="gradient-text">gagne de l'argent</span> avec le digital</h2>
-        <p class="words" data-words>Des formations pratiques, simples et accessibles, pour passer de zéro à des revenus digitaux.</p>
-      </div>
-
-      <!-- Formation phare : motion design vidéo avec l'IA -->
-      <div class="flagship">
-        <div class="flag-copy">
-          <span class="badge badge-new reveal">Nouvelle formation</span>
-          <h3 data-split>Motion design vidéo avec l'IA</h3>
-          <p class="words" data-words>Apprends à créer des vidéos animées professionnelles, avec des textes en mouvement, des transitions fluides et les outils d'intelligence artificielle, pour tes réseaux, tes clients ou ta propre marque.</p>
-          <ul class="checks reveal">
-            <li>Les bases du motion design : rythme, timing et fluidité</li>
-            <li>Créer des visuels et des vidéos avec les outils d'IA</li>
-            <li>Animer des textes et des logos</li>
-            <li>Transitions et montage dynamiques</li>
-            <li>Voix off et sons générés avec l'IA</li>
-            <li>Exporter pour Reels, TikTok et YouTube, puis vendre tes vidéos</li>
-          </ul>
-          <div class="chip-row reveal">
-            <span>100 % pratique</span><span>Débutants bienvenus</span><span>Sur mobile ou PC</span>
-          </div>
-          <div class="hero-actions reveal">
-            <a class="btn btn-wa" data-mag data-wa="motion" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Je veux cette formation</a>
-            <a class="btn btn-outline" data-mag data-wa="question" href="https://wa.me/243969187344" target="_blank" rel="noopener">Poser une question</a>
-          </div>
-        </div>
-        <div class="flag-stage reveal zoom d2" id="motionStage">
-          <canvas id="motionCanvas" aria-hidden="true"></canvas>
-          <span class="stage-chip c1"><span class="dot"><svg class="i"><use href="#i-play"/></svg></span>Motion design</span>
-          <span class="stage-chip c4"><span class="dot"><svg class="i"><use href="#i-spark"/></svg></span>Propulsé par l'IA</span>
-        </div>
-      </div>
-
-      <h3 class="sub-title" data-split>Mes autres formations</h3>
-      <div class="cards four">
-        <article class="card reveal d1" data-tilt>
-          <div class="icon"><svg class="i"><use href="#i-video"/></svg></div>
-          <h3>Montage vidéo CapCut</h3>
-          <p>Crée des vidéos avec les templates CapCut et apprends à les vendre.</p>
-          <span class="badge">CapCut · Templates</span>
-          <a class="card-link" data-wa="capcut" href="https://wa.me/243969187344" target="_blank" rel="noopener">Je m'inscris<svg class="i"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="card reveal d2" data-tilt>
-          <div class="icon"><svg class="i"><use href="#i-mega"/></svg></div>
-          <h3>Publicité Facebook</h3>
-          <p>Lance tes publicités et booste tes publications pour attirer des clients.</p>
-          <span class="badge">Facebook Ads · Boost</span>
-          <a class="card-link" data-wa="ads" href="https://wa.me/243969187344" target="_blank" rel="noopener">Je m'inscris<svg class="i"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="card reveal d3" data-tilt>
-          <div class="icon"><svg class="i"><use href="#i-bag"/></svg></div>
-          <h3>Vente de produits digitaux</h3>
-          <p>Crée et vends des produits numériques : méthode, outils et stratégie.</p>
-          <span class="badge">Produits numériques</span>
-          <a class="card-link" data-wa="digital" href="https://wa.me/243969187344" target="_blank" rel="noopener">Je m'inscris<svg class="i"><use href="#i-arrow"/></svg></a>
-        </article>
-        <article class="card reveal d4" data-tilt>
-          <div class="icon"><svg class="i"><use href="#i-code"/></svg></div>
-          <h3>Créer des apps web avec l'IA en 2026</h3>
-          <p>Construis des applications web avec l'IA et transforme-les en revenus.</p>
-          <span class="badge">Vibe coding · IA</span>
-          <a class="card-link" data-wa="appia" href="https://wa.me/243969187344" target="_blank" rel="noopener">Je m'inscris<svg class="i"><use href="#i-arrow"/></svg></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= RÉALISATIONS ================= -->
-  <section class="alt" id="realisations">
-    <div class="container">
-      <div class="section-head">
-        <span class="tag reveal">Mes réalisations</span>
-        <h2 data-split>Des projets <span class="gradient-text">concrets</span> déjà en ligne</h2>
-        <p class="words" data-words>Fais glisser pour découvrir mes 4 réalisations, puis clique sur « Voir le site » pour les ouvrir.</p>
-      </div>
-      <div class="slider" id="worksSlider">
-        <article class="work reveal d1">
-          <div class="browser-bar"><i></i><i></i><i></i><em>male-tacos-app.onrender.com</em></div>
-          <a class="work-img" href="https://male-tacos-app.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Malé Tacos"><img src="site1.jpg" alt="Site Malé Tacos" loading="lazy" draggable="false"></a>
-          <div class="work-body">
-            <h3>Malé Tacos</h3>
-            <p>Site de street food à Kinshasa avec commande en ligne.</p>
-            <a class="btn btn-primary btn-block" href="https://male-tacos-app.onrender.com/" target="_blank" rel="noopener">Voir le site<svg class="i"><use href="#i-ext"/></svg></a>
-          </div>
-        </article>
-        <article class="work reveal d2">
-          <div class="browser-bar"><i></i><i></i><i></i><em>kongo-na-biso.onrender.com</em></div>
-          <a class="work-img" href="https://kongo-na-biso.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Kongo Na Biso"><img src="site2.jpg" alt="Site Kongo Na Biso" loading="lazy" draggable="false"></a>
-          <div class="work-body">
-            <h3>Kongo Na Biso</h3>
-            <p>Site d'un mouvement citoyen avec adhésion en ligne.</p>
-            <a class="btn btn-primary btn-block" href="https://kongo-na-biso.onrender.com/" target="_blank" rel="noopener">Voir le site<svg class="i"><use href="#i-ext"/></svg></a>
-          </div>
-        </article>
-        <article class="work reveal d3">
-          <div class="browser-bar"><i></i><i></i><i></i><em>gerbo-express.onrender.com</em></div>
-          <a class="work-img" href="https://gerbo-express.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Gerbo Express"><img src="site3.jpg" alt="Site Gerbo Express" loading="lazy" draggable="false"></a>
-          <div class="work-body">
-            <h3>Gerbo Express</h3>
-            <p>Entreposage, logistique et livraison rapide.</p>
-            <a class="btn btn-primary btn-block" href="https://gerbo-express.onrender.com/" target="_blank" rel="noopener">Voir le site<svg class="i"><use href="#i-ext"/></svg></a>
-          </div>
-        </article>
-        <article class="work reveal d4">
-          <div class="browser-bar"><i></i><i></i><i></i><em>kontra-africa-app.onrender.com</em></div>
-          <a class="work-img" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener" aria-label="Ouvrir l'application Kontra Africa"><img src="site4.jpg" alt="Application Kontra Africa" loading="lazy" draggable="false"></a>
-          <div class="work-body">
-            <h3>Kontra Africa (PWA)</h3>
-            <p>Notre application web de gestion de stock, de ventes et de dettes clients.</p>
-            <a class="btn btn-primary btn-block" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener">Voir l'application<svg class="i"><use href="#i-ext"/></svg></a>
-          </div>
-        </article>
-      </div>
-      <div class="sl-ctrl">
-        <button class="sl-btn" type="button" data-slide="-1" aria-label="Réalisation précédente"><svg class="i"><use href="#i-left"/></svg></button>
-        <div class="hs-dots"></div>
-        <button class="sl-btn" type="button" data-slide="1" aria-label="Réalisation suivante"><svg class="i"><use href="#i-arrow"/></svg></button>
-      </div>
-      <div class="center-cta reveal">
-        <a class="btn btn-wa" data-mag data-wa="like" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Je veux un site comme ceux-là</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= KONTRA AFRICA ================= -->
-  <section id="kontra" class="kontra">
-    <div class="container">
-      <div class="kontra-hero">
-        <div>
-          <span class="tag reveal">Notre application web (PWA)</span>
-          <h2 data-split>Ton stock, tes ventes et tes dettes clients <span class="gradient-text">sous contrôle</span></h2>
-          <p class="lead words" data-words><b>Kontra Africa</b> est l'application de gestion de stock créée par Optisite Digital pour les boutiques d'Afrique francophone. Fini le cahier qui se perd et le stock qui disparaît : tout est rangé dans ton téléphone.</p>
-          <div class="kontra-pills reveal">
-            <span><svg class="i"><use href="#i-box"/></svg>Stock</span>
-            <span><svg class="i"><use href="#i-cash"/></svg>Caisse</span>
-            <span><svg class="i"><use href="#i-user"/></svg>Dettes clients</span>
-            <span><svg class="i"><use href="#i-chart"/></svg>Bénéfices</span>
-          </div>
-          <div class="hero-actions reveal">
-            <a href="https://kontra-africa-app.onrender.com/login.html?mode=signup" target="_blank" rel="noopener" data-mag class="btn btn-primary">Essai gratuit 14 jours<svg class="i i-go"><use href="#i-arrow"/></svg></a>
-            <a href="https://wa.me/243969187344" data-wa="kontra" data-mag target="_blank" rel="noopener" class="btn btn-wa"><svg class="i"><use href="#i-wa"/></svg>Demander une démo</a>
-          </div>
-        </div>
-        <div class="kontra-visual reveal right d2" aria-hidden="true">
-          <div class="mock" id="mock">
-            <div class="mock-screen">
-              <div class="mock-top"><b><img src="logo.png" alt="">Kontra Africa</b><span>Aperçu</span></div>
-              <div class="mock-hero"><small>Ventes aujourd'hui</small><strong>187 500 FCFA</strong><em>Bénéfice : 52 300 FCFA</em></div>
-              <div class="mock-grid">
-                <div class="mock-tile warn"><small>Stock bas</small><strong>3</strong></div>
-                <div class="mock-tile danger"><small>Dettes à relancer</small><strong>8</strong></div>
-              </div>
-              <ul class="mock-list">
-                <li><span>Sac de riz 25 kg</span><b>14 en stock</b></li>
-                <li><span>Huile 5 L</span><b class="low">2 en stock</b></li>
-                <li><span>Awa K. · crédit</span><b>12 000 FCFA</b></li>
-              </ul>
-              <div class="mock-cta">+ Nouvelle vente</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="sub-title" data-split>Ce que <span class="gradient-text">Kontra Africa</span> fait pour toi</h3>
-      <div class="features">
-        <div class="feature reveal d1" data-tilt><div class="icon"><svg class="i"><use href="#i-box"/></svg></div><div><h4>Gestion de stock</h4><p>Ajoute tes produits, suis les entrées et les sorties, et reçois une alerte quand un article est presque épuisé.</p></div></div>
-        <div class="feature reveal d2" data-tilt><div class="icon"><svg class="i"><use href="#i-cash"/></svg></div><div><h4>Caisse rapide</h4><p>Enregistre une vente en quelques touches : le stock se met à jour tout seul.</p></div></div>
-        <div class="feature reveal d3" data-tilt><div class="icon"><svg class="i"><use href="#i-user"/></svg></div><div><h4>Carnet de dettes</h4><p>Chaque client à crédit a sa fiche : tu vois qui te doit combien, depuis quand.</p></div></div>
-        <div class="feature reveal d1" data-tilt><div class="icon"><svg class="i"><use href="#i-chat"/></svg></div><div><h4>Relances prêtes à envoyer</h4><p>Un message de relance poli, déjà rédigé, à envoyer en un clic par WhatsApp ou SMS.</p></div></div>
-        <div class="feature reveal d2" data-tilt><div class="icon"><svg class="i"><use href="#i-chart"/></svg></div><div><h4>Bénéfices en clair</h4><p>Ventes du jour, bénéfice du mois, dépenses : ta vraie situation sur un seul écran.</p></div></div>
-        <div class="feature reveal d3" data-tilt><div class="icon"><svg class="i"><use href="#i-download"/></svg></div><div><h4>Installable, même en réseau faible</h4><p>Ajoute l'application sur l'écran d'accueil de ton téléphone : elle reste utilisable quand le réseau est lent.</p></div></div>
-      </div>
-
-      <div class="countries reveal">
-        <p>Disponible dans <b>8 pays</b>, avec paiement par Mobile Money : Orange Money, MTN MoMo, Wave, Moov Money, Airtel Money, Vodacom.</p>
-        <div class="country-row"><span>Bénin</span><span>Burkina Faso</span><span>Cameroun</span><span>Côte d'Ivoire</span><span>Mali</span><span>RD Congo</span><span>Sénégal</span><span>Togo</span></div>
-      </div>
-
-      <div class="big-cta reveal zoom">
-        <h3>14 jours gratuits, sans carte bancaire</h3>
-        <p>Crée ton compte et prends le contrôle de ta boutique dès aujourd'hui. Prêt en 5 minutes.</p>
-        <div class="hero-actions">
-          <a href="https://kontra-africa-app.onrender.com/login.html?mode=signup" target="_blank" rel="noopener" data-mag class="btn btn-white">Créer mon compte<svg class="i i-go"><use href="#i-arrow"/></svg></a>
-          <a href="https://wa.me/243969187344" data-wa="kontra" data-mag target="_blank" rel="noopener" class="btn btn-wa"><svg class="i"><use href="#i-wa"/></svg>Poser une question</a>
-        </div>
-        <small>Offres à partir de 2 900 FCFA par mois.</small>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= À PROPOS ================= -->
-  <section id="apropos" class="alt">
-    <div class="container about-grid">
-      <div class="about-photo reveal left"><div class="pic"><img src="olivier.jpg" alt="Olivier Digital Income" loading="lazy" data-parallax="0.03"></div></div>
-      <div class="about-text">
-        <span class="tag reveal">À propos</span>
-        <h2 data-split>Olivier Digital Income, <span class="gradient-text">vibe codeur et formateur</span></h2>
-        <p class="words" data-words>Je conçois des sites web et des applications web avec l'IA pour aider les commerçants, les entrepreneurs et les créateurs à vendre en ligne, et je forme ceux qui veulent vivre du motion design et du digital.</p>
-        <ul class="checks reveal">
-          <li>Sites rapides, modernes et adaptés au mobile et au PC</li>
-          <li>Commande et suivi directement sur WhatsApp</li>
-          <li>Formations pratiques : motion design avec l'IA, CapCut, publicité et produits digitaux</li>
+<section id="formation" style="padding-top:0">
+  <div class="container">
+    <div class="dark rv">
+      <div>
+        <span class="eyebrow">Nouvelle formation</span>
+        <h2 data-split>Motion design vidéo avec l'IA</h2>
+        <p>Apprends à créer des vidéos animées professionnelles pour tes réseaux, tes clients ou ta marque.</p>
+        <ul class="list">
+          <li>Les bases : rythme, timing, fluidité</li>
+          <li>Créer visuels et vidéos avec les outils d'IA</li>
+          <li>Animer textes et logos, transitions, montage</li>
+          <li>Exporter pour Reels, TikTok et YouTube</li>
         </ul>
-        <a href="https://wa.me/243969187344" data-wa="general" data-mag target="_blank" rel="noopener" class="btn btn-wa reveal"><svg class="i"><use href="#i-wa"/></svg>Discutons de ton projet</a>
+        <a class="btn btn-light" data-wa="motion" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Rejoindre la formation</a>
+      </div>
+      <div class="reel" aria-hidden="true">
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <div class="tl"><i></i><i></i><i></i></div><div class="head-dot"></div>
       </div>
     </div>
-  </section>
+    <p class="more-title rv">Autres formations</p>
+    <div class="scroller rv">
+      <div class="pill-card"><b>Montage vidéo CapCut</b><span>Des vidéos propres avec ton téléphone</span></div>
+      <div class="pill-card"><b>Publicité Facebook</b><span>Trouver des clients avec des pubs</span></div>
+      <div class="pill-card"><b>Produits digitaux</b><span>Créer et vendre en ligne</span></div>
+      <div class="pill-card"><b>Apps web avec l'IA</b><span>Créer ton application sans coder</span></div>
+    </div>
+  </div>
+</section>
 
-  <!-- ================= CTA FINAL ================= -->
-  <section>
-    <div class="container">
-      <div class="big-cta reveal zoom">
-        <h2 data-split>Prêt à lancer ton site ou à te former ?</h2>
-        <p>Écris-moi sur WhatsApp : on trouve ensemble la solution professionnelle qui convient à ton business.</p>
-        <div class="hero-actions">
-          <a class="btn btn-white" data-mag data-wa="site" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-site"/></svg>Commander un site</a>
-          <a class="btn btn-wa" data-mag data-wa="motion" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Rejoindre la formation</a>
+<section id="projets" style="padding-top:40px">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow rv">Projets</span>
+      <h2 data-split>Déjà en ligne</h2>
+      <p class="rv">Fais glisser, puis touche un projet pour l'ouvrir.</p>
+    </div>
+  </div>
+  <div class="container"><div class="works" id="works">
+    <a class="work" href="https://male-tacos-app.onrender.com/" target="_blank" rel="noopener"><div class="shot"><img src="site1.jpg" alt="Malé Tacos" loading="lazy" draggable="false"></div><div class="meta"><h3>Malé Tacos</h3><span class="arrow-dot"><svg class="i"><use href="#i-arrow"/></svg></span></div><p>Street food à Kinshasa, avec commande en ligne.</p></a>
+    <a class="work" href="https://kongo-na-biso.onrender.com/" target="_blank" rel="noopener"><div class="shot"><img src="site2.jpg" alt="Kongo Na Biso" loading="lazy" draggable="false"></div><div class="meta"><h3>Kongo Na Biso</h3><span class="arrow-dot"><svg class="i"><use href="#i-arrow"/></svg></span></div><p>Mouvement citoyen, adhésion en ligne.</p></a>
+    <a class="work" href="https://gerbo-express.onrender.com/" target="_blank" rel="noopener"><div class="shot"><img src="site3.jpg" alt="Gerbo Express" loading="lazy" draggable="false"></div><div class="meta"><h3>Gerbo Express</h3><span class="arrow-dot"><svg class="i"><use href="#i-arrow"/></svg></span></div><p>Entreposage, logistique et livraison rapide.</p></a>
+    <a class="work" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener"><div class="shot"><img src="site4.jpg" alt="Kontra Africa" loading="lazy" draggable="false"></div><div class="meta"><h3>Kontra Africa</h3><span class="arrow-dot"><svg class="i"><use href="#i-arrow"/></svg></span></div><p>Application de gestion de stock et de ventes.</p></a>
+  </div></div>
+</section>
+
+<section id="kontra" style="padding-top:40px">
+  <div class="container">
+    <div class="kontra rv">
+      <div>
+        <span class="eyebrow">Notre application</span>
+        <h2 data-split>Kontra Africa</h2>
+        <p class="lead">L'application de gestion de stock pour les boutiques. Fini le cahier qui se perd : stock, ventes et dettes clients dans ton téléphone.</p>
+        <ul class="list">
+          <li>Stock avec alerte quand un produit est bas</li>
+          <li>Caisse rapide, en quelques touches</li>
+          <li>Dettes clients et bénéfices du jour</li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-main" href="https://kontra-africa-app.onrender.com/" target="_blank" rel="noopener">Essayer gratuitement<svg class="i"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" data-wa="kontra" href="https://wa.me/243969187344" target="_blank" rel="noopener">Demander une démo</a>
         </div>
       </div>
+      <div class="phone" aria-hidden="true"><div class="scr">
+        <div class="top">Kontra Africa<small>Aujourd'hui</small></div>
+        <div class="big"><small>Ventes</small><b>187 500 FCFA</b></div>
+        <div class="row">Sac de riz 25 kg<em>14 en stock</em></div>
+        <div class="row">Huile 5 L<em class="low">2 en stock</em></div>
+        <div class="row">Awa K. · crédit<em>12 000 FCFA</em></div>
+        <div class="add">+ Nouvelle vente</div>
+      </div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <a href="#accueil" class="brand"><img src="logo.png" alt="Logo Optisite Digital"><span>Optisite <b>Digital</b></span></a>
-        <nav class="footer-links">
-          <a href="#services">Services</a><a href="#formations">Formations</a><a href="#realisations">Réalisations</a><a href="#kontra">Kontra Africa</a><a href="#apropos">À propos</a>
-        </nav>
-      </div>
-      <div class="footer-contact">
-        <a class="btn btn-wa" data-wa="general" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>+243 969 187 344</a>
-        <a class="btn btn-outline" href="mailto:optisitedigital@gmail.com"><svg class="i"><use href="#i-mail"/></svg>optisitedigital@gmail.com</a>
-      </div>
-      <small>© <span id="year"></span> Optisite Digital — Olivier Digital Income. Tous droits réservés.</small>
+<section id="apropos" style="padding-top:40px">
+  <div class="container about">
+    <div class="pic rv"><img src="olivier.jpg" alt="Olivier Digital Income" loading="lazy"></div>
+    <div>
+      <span class="eyebrow rv">À propos</span>
+      <h2 data-split style="margin-top:16px">Olivier Digital Income</h2>
+      <p class="rv">Je crée des sites et des applications web avec l'IA pour aider les commerçants et les entrepreneurs à vendre en ligne, et je forme ceux qui veulent vivre du motion design et du digital.</p>
+      <a class="btn btn-main rv" data-wa="general" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Discutons de ton projet</a>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <a class="wa-float" data-wa="general" href="https://wa.me/243969187344" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
-  <button class="to-top" id="toTop" aria-label="Remonter"><svg class="i"><use href="#i-up"/></svg></button>
+<section style="padding-top:20px">
+  <div class="container"><div class="final rv">
+    <h2 data-split>Prêt à commencer&nbsp;?</h2>
+    <p>Écris-moi sur WhatsApp. Je te réponds et on lance ton projet.</p>
+    <a class="btn btn-light" data-wa="general" href="https://wa.me/243969187344" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Écrire sur WhatsApp</a>
+  </div></div>
+</section>
+</main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script>
-  (function () {
-    'use strict';
-    var root = document.documentElement;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    function $(s, c) { return (c || document).querySelector(s); }
-    function $$(s, c) { return [].slice.call((c || document).querySelectorAll(s)); }
-    function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
-    function lerp(a, b, t) { return a + (b - a) * t; }
+<footer class="footer"><div class="container row">
+  <span>© <span id="year"></span> Optisite Digital · Kinshasa, RDC</span>
+  <span><a href="https://wa.me/243969187344" data-wa="general" target="_blank" rel="noopener">+243 969 187 344</a> · <a href="mailto:optisitedigital@gmail.com">optisitedigital@gmail.com</a></span>
+</div></footer>
 
-    /* =========================================================
-       WHATSAPP : tous les boutons envoient un message adapté
-       ========================================================= */
-    var WA = '243969187344';
-    var MSG = {
-      general: "Bonjour Optisite Digital, je voudrais discuter de mon projet.",
-      site: "Bonjour, je souhaite commander un site web professionnel.",
-      app: "Bonjour, je souhaite créer une application web (PWA).",
-      ia: "Bonjour, je souhaite une solution avec l'IA pour mon activité.",
-      motion: "Bonjour, je souhaite rejoindre la formation Motion design vidéo avec l'IA.",
-      question: "Bonjour, j'ai une question sur la formation Motion design vidéo avec l'IA.",
-      capcut: "Bonjour, je suis intéressé par la formation Montage vidéo CapCut.",
-      ads: "Bonjour, je suis intéressé par la formation Publicité Facebook.",
-      digital: "Bonjour, je suis intéressé par la formation Vente de produits digitaux.",
-      appia: "Bonjour, je suis intéressé par la formation Créer des apps web avec l'IA.",
-      like: "Bonjour, je voudrais un site comme ceux de vos réalisations.",
-      kontra: "Bonjour, je voudrais une démo de Kontra Africa."
-    };
-    $$('[data-wa]').forEach(function (a) {
-      var m = MSG[a.getAttribute('data-wa')] || MSG.general;
-      a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(m);
-    });
+<a class="wa-float" data-wa="general" href="https://wa.me/243969187344" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
 
-    /* =========================================================
-       TEXTE ANIMÉ : lettres (titres) et mots (paragraphes)
-       ========================================================= */
-    function splitText(el) {
-      var idx = 0;
-      var clone = el.cloneNode(false);
-      function walk(node, parent, grad) {
-        [].slice.call(node.childNodes).forEach(function (n) {
-          if (n.nodeType === 3) {
-            n.textContent.split(/(\s+)/).forEach(function (tok) {
-              if (!tok) return;
-              if (/^\s+$/.test(tok)) { parent.appendChild(document.createTextNode(' ')); return; }
-              var w = document.createElement('span'); w.className = 'w';
-              if (grad) {
-                var c = document.createElement('span'); c.className = 'c gradient-text'; c.textContent = tok; c.style.setProperty('--i', idx++ * 2); w.appendChild(c);
-              } else {
-                [].slice.call(tok).forEach(function (ch) {
-                  var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; c.style.setProperty('--i', idx++); w.appendChild(c);
-                });
-              }
-              parent.appendChild(w);
-            });
-          } else if (n.nodeType === 1) {
-            if (n.tagName === 'BR') { parent.appendChild(n.cloneNode()); return; }
-            var isGrad = n.classList.contains('gradient-text');
-            var cl = n.cloneNode(false);
-            if (isGrad) cl.classList.remove('gradient-text');
-            parent.appendChild(cl);
-            walk(n, cl, grad || isGrad);
-          }
-        });
-      }
-      var label = el.textContent.replace(/\s+/g, ' ').trim();
-      walk(el, clone, false);
-      el.innerHTML = '';
-      while (clone.firstChild) el.appendChild(clone.firstChild);
-      el.setAttribute('aria-label', label);
-    }
-    $$('[data-split]').forEach(splitText);
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+var root=document.documentElement, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(s,c){return (c||document).querySelector(s)} function $$(s,c){return [].slice.call((c||document).querySelectorAll(s))}
+function clamp(v,a,b){return Math.min(b,Math.max(a,v))} function lerp(a,b,t){return a+(b-a)*t}
 
-    $$('[data-words]').forEach(function (el) {
-      if (el.classList.contains('mq-track')) return;
-      var i = 0;
-      (function walk(node) {
-        [].slice.call(node.childNodes).forEach(function (n) {
-          if (n.nodeType === 3) {
-            var frag = document.createDocumentFragment();
-            n.textContent.split(/(\s+)/).forEach(function (tok) {
-              if (!tok) return;
-              if (/^\s+$/.test(tok)) { frag.appendChild(document.createTextNode(' ')); return; }
-              var s = document.createElement('span'); s.className = 'wd'; s.textContent = tok; s.style.setProperty('--i', i++); frag.appendChild(s);
-            });
-            node.replaceChild(frag, n);
-          } else if (n.nodeType === 1) { walk(n); }
-        });
-      })(el);
-    });
+/* WhatsApp : message adapté à chaque bouton */
+var WA='243969187344', MSG={
+ general:"Bonjour Optisite Digital, je voudrais discuter de mon projet.",
+ site:"Bonjour, je souhaite commander un site web professionnel.",
+ motion:"Bonjour, je souhaite rejoindre la formation Motion design vidéo avec l'IA.",
+ kontra:"Bonjour, je voudrais une démo de Kontra Africa."};
+$$('[data-wa]').forEach(function(a){a.href='https://wa.me/'+WA+'?text='+encodeURIComponent(MSG[a.dataset.wa]||MSG.general)});
+$('#year').textContent=new Date().getFullYear();
 
-    /* =========================================================
-       MENU, SCROLL, PROGRESSION
-       ========================================================= */
-    var burger = $('#burger'), navLinks = $('#navLinks'), overlay = $('#overlay');
-    function toggleMenu(open) {
-      var state = typeof open === 'boolean' ? open : !navLinks.classList.contains('open');
-      navLinks.classList.toggle('open', state);
-      burger.classList.toggle('open', state);
-      overlay.classList.toggle('show', state);
-      document.body.classList.toggle('lock', state);
-      burger.setAttribute('aria-expanded', state);
-    }
-    burger.addEventListener('click', function () { toggleMenu(); });
-    overlay.addEventListener('click', function () { toggleMenu(false); });
-    window.addEventListener('resize', function () { if (window.innerWidth > 980) toggleMenu(false); });
+/* titres : mots qui montent */
+$$('[data-split]').forEach(function(el){
+  var i=0; (function walk(n){ [].slice.call(n.childNodes).forEach(function(c){
+    if(c.nodeType===3){ var f=document.createDocumentFragment(); c.textContent.split(/(\s+)/).forEach(function(p){
+      if(!p) return; if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(' '));return}
+      var w=document.createElement('span'); w.className='w'; var s=document.createElement('span'); s.textContent=p; s.style.setProperty('--i',i++); w.appendChild(s); f.appendChild(w);});
+      n.replaceChild(f,c);
+    } else if(c.nodeType===1) walk(c);
+  });})(el);
+});
+function show(el){ if(el.hasAttribute('data-split')) el.classList.add('split-in'); else el.classList.add('in'); }
+var io='IntersectionObserver' in window ? new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){show(e.target);io.unobserve(e.target)} })},{threshold:.15,rootMargin:'0px 0px -6% 0px'}) : null;
+$$('.rv,[data-split]').forEach(function(el){ io?io.observe(el):show(el) });
+setTimeout(function(){root.classList.add('reveal-all')},6000);
 
-    $$('a[href^="#"]').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        var id = a.getAttribute('href');
-        if (!id || id.length < 2) return;
-        var target = $(id);
-        if (!target) return;
-        e.preventDefault();
-        var wasOpen = navLinks.classList.contains('open');
-        toggleMenu(false);
-        setTimeout(function () {
-          var y = target.getBoundingClientRect().top + window.scrollY - 64;
-          window.scrollTo({ top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth' });
-        }, wasOpen ? 80 : 0);
-      });
-    });
+/* machine à écrire */
+var words=['Sites web.','Applications.','Vidéos IA.','Formations.'], tEl=$('#typed'), wi=0, ci=0, del=false;
+(function type(){ if(reduce){tEl.textContent='';return}
+  var w=words[wi]; ci+=del?-1:1; tEl.textContent=w.slice(0,ci); var d=del?35:75;
+  if(!del&&ci===w.length){del=true;d=1400} else if(del&&ci===0){del=false;wi=(wi+1)%words.length;d=350}
+  setTimeout(type,d); })();
 
-    var header = $('#header'), progress = $('#progress'), toTop = $('#toTop');
-    var links = $$('.nav-links a.link');
-    var sections = links.map(function (l) { return $(l.getAttribute('href')); });
-    var parallaxEls = $$('[data-parallax]');
-    var drifts = $$('[data-drift]');
-    var ticking = false, lastY = window.scrollY, scrollVel = 0;
+/* menu mobile */
+var burger=$('#burger'), links=$('#links'), header=$('#header');
+function menu(o){links.classList.toggle('open',o);header.classList.toggle('menu-open',o);burger.setAttribute('aria-expanded',o);burger.innerHTML='<svg class="i"><use href="#'+(o?'i-x':'i-menu')+'"/></svg>';document.body.style.overflow=o?'hidden':''}
+burger.addEventListener('click',function(){menu(!links.classList.contains('open'))});
+$$('#links a').forEach(function(a){a.addEventListener('click',function(){menu(false)})});
+var wf=$('.wa-float');addEventListener('scroll',function(){header.classList.toggle('scrolled',scrollY>20);wf.classList.toggle('show',scrollY>500)},{passive:true});
 
-    function onScroll() {
-      var y = window.scrollY, vh = window.innerHeight;
-      var max = document.documentElement.scrollHeight - vh;
-      progress.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
-      header.classList.toggle('scrolled', y > 10);
-      toTop.classList.toggle('show', y > 600);
-      var current = -1;
-      sections.forEach(function (s, i) { if (s && s.offsetTop - 180 <= y) current = i; });
-      links.forEach(function (l, i) { l.classList.toggle('active', i === current); });
-      if (!reduce) {
-        parallaxEls.forEach(function (el) {
-          var box = el.parentElement.getBoundingClientRect();
-          if (box.bottom < -100 || box.top > vh + 100) return;
-          var off = (box.top + box.height / 2 - vh / 2) * parseFloat(el.dataset.parallax);
-          el.style.transform = 'translate3d(0,' + (-off).toFixed(1) + 'px,0) scale(1.14)';
-        });
-        drifts.forEach(function (el) { el.style.transform = 'translate3d(0,' + (y * parseFloat(el.dataset.drift)).toFixed(1) + 'px,0)'; });
-      }
-      ticking = false;
-    }
-    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
-    window.addEventListener('resize', onScroll);
-    onScroll();
-    toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+/* projets : glisser à la souris */
+var wk=$('#works'), down=false, sx=0, sl=0, moved=false;
+wk.addEventListener('pointerdown',function(e){ if(e.pointerType!=='mouse')return; down=true;moved=false;sx=e.clientX;sl=wk.scrollLeft});
+addEventListener('pointermove',function(e){ if(!down)return; var dx=e.clientX-sx; if(Math.abs(dx)>5){moved=true;wk.classList.add('drag')} wk.scrollLeft=sl-dx});
+addEventListener('pointerup',function(){down=false;wk.classList.remove('drag')});
+wk.addEventListener('click',function(e){ if(moved){e.preventDefault();moved=false} },true);
 
-    /* =========================================================
-       MACHINE À ÉCRIRE (rôles)
-       ========================================================= */
-    var typerText = $('#typerText');
-    var roles = ['Vibe codeur', 'Créateur de sites web & applications web', "Formateur motion design avec l'IA", 'Créateur de solutions numériques'];
-    if (!reduce) {
-      var ri = 0, ci = 0, del = false;
-      (function typeLoop() {
-        var word = roles[ri], delay;
-        if (!del) {
-          ci++; typerText.textContent = word.slice(0, ci);
-          delay = 55;
-          if (ci === word.length) { del = true; delay = 1700; }
-        } else {
-          ci--; typerText.textContent = word.slice(0, ci);
-          delay = 26;
-          if (ci === 0) { del = false; ri = (ri + 1) % roles.length; delay = 350; }
-        }
-        setTimeout(typeLoop, delay);
-      })();
-    }
-
-    /* =========================================================
-       BANDEAU TYPOGRAPHIQUE (accélère avec le scroll)
-       ========================================================= */
-    var tracks = $$('.mq-track').map(function (t) {
-      var words = t.dataset.words.split('|');
-      var html = words.map(function (w) { return '<span>' + w + '</span>'; }).join('');
-      t.innerHTML = html + html + html + html;
-      return { el: t, speed: parseFloat(t.dataset.speed), x: 0 };
-    });
-    function mqLoop(now) {
-      requestAnimationFrame(mqLoop);
-      var dt = Math.min((now - (mqLoop.t || now)) / 1000, .1); mqLoop.t = now;
-      var y = window.scrollY; scrollVel = lerp(scrollVel, Math.min(Math.abs(y - lastY) / Math.max(dt, .001) / 40, 120), .1); lastY = y;
-      tracks.forEach(function (tr) {
-        var half = tr.el.scrollWidth / 2;
-        var dir = tr.speed > 0 ? -1 : 1;
-        tr.x += dir * (Math.abs(tr.speed) + scrollVel) * dt;
-        if (dir < 0 && tr.x <= -half) tr.x += half;
-        if (dir > 0 && tr.x >= 0) tr.x -= half;
-        tr.el.style.transform = 'translate3d(' + tr.x.toFixed(1) + 'px,0,0)';
-      });
-    }
-    if (!reduce) requestAnimationFrame(mqLoop);
-
-    /* =========================================================
-       DÉFILEMENT HORIZONTAL : points, flèches, glisser à la souris
-       ========================================================= */
-    $$('.slider, .cards, .steps, .features').forEach(function (sc) {
-      var isSlider = sc.classList.contains('slider');
-      var items = [].slice.call(sc.children);
-      if (items.length < 2) return;
-      var dots = isSlider ? $('.hs-dots', sc.parentNode) : document.createElement('div');
-      if (!isSlider) { dots.className = 'hs-dots'; sc.after(dots); }
-      dots.innerHTML = '';
-      items.forEach(function () { dots.appendChild(document.createElement('span')); });
-      function upd() {
-        var best = 0, bd = 1e9;
-        items.forEach(function (it, i) { var d = Math.abs(it.offsetLeft - sc.offsetLeft - sc.scrollLeft - parseFloat(getComputedStyle(sc).paddingLeft)); if (d < bd) { bd = d; best = i; } });
-        if (sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 4) best = items.length - 1;
-        [].slice.call(dots.children).forEach(function (d, k) { d.classList.toggle('on', k === best); });
-      }
-      sc.addEventListener('scroll', upd, { passive: true });
-      window.addEventListener('resize', upd);
-      upd();
-      if (isSlider) {
-        $$('[data-slide]', sc.parentNode).forEach(function (b) {
-          b.addEventListener('click', function () {
-            var step = items[0].getBoundingClientRect().width + 22;
-            sc.scrollBy({ left: step * parseInt(b.dataset.slide, 10), behavior: reduce ? 'auto' : 'smooth' });
-          });
-        });
-        var down = false, sx = 0, sl = 0, moved = 0;
-        sc.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') return; down = true; sx = e.clientX; sl = sc.scrollLeft; moved = 0; });
-        window.addEventListener('pointermove', function (e) {
-          if (!down) return;
-          var dx = e.clientX - sx; moved = Math.max(moved, Math.abs(dx));
-          if (moved > 6) { sc.classList.add('dragging'); sc.scrollLeft = sl - dx; }
-        });
-        window.addEventListener('pointerup', function () { if (!down) return; down = false; setTimeout(function () { sc.classList.remove('dragging'); }, 0); });
-        sc.addEventListener('click', function (e) { if (moved > 6) { e.preventDefault(); e.stopPropagation(); moved = 0; } }, true);
-      }
-    });
-
-    /* =========================================================
-       EFFETS AU POINTEUR : inclinaison, boutons magnétiques, curseur
-       ========================================================= */
-    if (finePointer && !reduce) {
-      $$('[data-tilt], .work').forEach(function (c) {
-        c.addEventListener('pointermove', function (e) {
-          var r = c.getBoundingClientRect();
-          var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
-          c.style.setProperty('--mx', (px * 100).toFixed(1) + '%'); c.style.setProperty('--my', (py * 100).toFixed(1) + '%');
-          if (c.hasAttribute('data-tilt')) { c.style.setProperty('--ry', ((px - .5) * 9).toFixed(2) + 'deg'); c.style.setProperty('--rx', ((.5 - py) * 9).toFixed(2) + 'deg'); }
-        });
-        c.addEventListener('pointerleave', function () { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); });
-      });
-      $$('[data-mag], .wa-float').forEach(function (b) {
-        b.addEventListener('pointermove', function (e) {
-          var r = b.getBoundingClientRect();
-          b.style.setProperty('--tx', ((e.clientX - r.left - r.width / 2) * .18).toFixed(1) + 'px');
-          b.style.setProperty('--ty', ((e.clientY - r.top - r.height / 2) * .28).toFixed(1) + 'px');
-        });
-        b.addEventListener('pointerleave', function () { b.style.setProperty('--tx', '0px'); b.style.setProperty('--ty', '0px'); });
-      });
-      var mock = $('#mock');
-      if (mock) {
-        var kv = mock.parentNode;
-        kv.addEventListener('pointermove', function (e) {
-          var r = kv.getBoundingClientRect();
-          mock.style.transform = 'rotateY(' + (((e.clientX - r.left) / r.width - .5) * 14).toFixed(2) + 'deg) rotateX(' + ((.5 - (e.clientY - r.top) / r.height) * 10).toFixed(2) + 'deg)';
-        });
-        kv.addEventListener('pointerleave', function () { mock.style.transform = ''; });
-      }
-    }
-
-    /* =========================================================
-       COMPTEURS + APPARITIONS AU SCROLL
-       ========================================================= */
-    function runCount(el) {
-      var target = +el.dataset.count, suffix = el.dataset.suffix || '+';
-      if (reduce) { el.textContent = target + suffix; return; }
-      var dur = 1500, start = performance.now();
-      (function frame(now) {
-        var p = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - p, 4);
-        el.textContent = Math.round(target * e) + (p === 1 ? suffix : '');
-        if (p < 1) requestAnimationFrame(frame);
-      })(start);
-    }
-    var cls = ['reveal', 'in', 'left', 'right', 'zoom'];
-    function startReveals() {
-      if (!('IntersectionObserver' in window)) { root.classList.add('reveal-all'); $$('[data-count]').forEach(runCount); return; }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (!en.isIntersecting) return;
-          var el = en.target;
-          if (el.hasAttribute('data-split')) { el.classList.add('split-in'); }
-          else if (el.hasAttribute('data-words')) { el.classList.add('words-in'); }
-          else {
-            var m = el.className.match(/\bd(\d)\b/), delay = m ? (+m[1]) * 90 : 0;
-            el.style.transitionDelay = delay + 'ms';
-            el.classList.add('in');
-            setTimeout(function () { el.style.transitionDelay = ''; el.classList.remove.apply(el.classList, cls); }, delay + 1300);
-          }
-          io.unobserve(el);
-        });
-      }, { threshold: .14, rootMargin: '0px 0px -4% 0px' });
-      $$('.reveal, [data-split], [data-words]').forEach(function (el) { if (!el.classList.contains('mq-track')) io.observe(el); });
-      var co = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } });
-      }, { threshold: .6 });
-      $$('[data-count]').forEach(function (el) { co.observe(el); });
-    }
-
-    /* =========================================================
-       INTRODUCTION : anneau de chargement puis révélation
-       ========================================================= */
-    var loader = $('#loader'), ldRing = $('#ldRing'), ldPct = $('#ldPct');
-    var started = performance.now(), launched = false, pct = 0, pageReady = document.readyState === 'complete';
-    window.addEventListener('load', function () { pageReady = true; });
-    function launch() {
-      if (launched) return; launched = true;
-      root.classList.add('ready');
-      setTimeout(function () { startReveals(); $$('#accueil [data-split]').forEach(function (e) { e.classList.add('split-in'); }); $$('#accueil [data-words]').forEach(function (e) { e.classList.add('words-in'); }); }, reduce ? 0 : 500);
-      setTimeout(function () { if (loader) loader.style.display = 'none'; }, 1500);
-    }
-    if (reduce) { launch(); }
-    else {
-      (function step() {
-        if (launched) return;
-        var target = pageReady ? 100 : 88;
-        pct += (target - pct) * .06 + .2; if (pct > 100) pct = 100;
-        ldPct.textContent = Math.floor(pct);
-        ldRing.style.strokeDashoffset = (339.3 * (1 - pct / 100)).toFixed(1);
-        if (pct >= 99.5 && pageReady && performance.now() - started > 1000) { setTimeout(launch, 200); return; }
-        requestAnimationFrame(step);
-      })();
-      setTimeout(launch, 4500);
-    }
-    setTimeout(function () { root.classList.add('reveal-all'); }, 9000); // sécurité : tout afficher si un script a échoué
-    $('#year').textContent = new Date().getFullYear();
-
-    /* =========================================================
-       3D : scène du hero (site + application + vidéo + IA)
-              et scène de la formation motion design
-       ========================================================= */
-    var TH = window.THREE;
-    var stages = [];
-
-    function lin(hex) { return new TH.Color(hex).convertSRGBToLinear(); }
+/* 3D : un seul objet — téléphone + fenêtre de site */
+var TH=window.THREE;
+function lin(h){return new TH.Color(h).convertSRGBToLinear()}
     function rrShape(w, h, r) {
       var s = new TH.Shape(), x = -w / 2, y = -h / 2;
       s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.absarc(x + w - r, y + r, r, -Math.PI / 2, 0, false);
@@ -828,228 +278,69 @@
       x.beginPath(); x.moveTo(a + r, b); x.arcTo(a + w, b, a + w, b + h, r); x.arcTo(a + w, b + h, a, b + h, r); x.arcTo(a, b + h, a, b, r); x.arcTo(a, b, a + w, b, r); x.closePath();
     }
     function lg(x, x0, y0, x1, y1, stops) { var g = x.createLinearGradient(x0, y0, x1, y1); stops.forEach(function (s, i) { g.addColorStop(i / (stops.length - 1), s); }); return g; }
-    function dotTexture() {
-      var c = document.createElement('canvas'); c.width = c.height = 64; var x = c.getContext('2d');
-      var g = x.createRadialGradient(32, 32, 0, 32, 32, 32); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(.5, 'rgba(255,255,255,.9)'); g.addColorStop(1, 'rgba(255,255,255,0)');
-      x.fillStyle = g; x.fillRect(0, 0, 64, 64); return new TH.CanvasTexture(c);
-    }
-    function shadowTexture() {
-      var c = document.createElement('canvas'); c.width = c.height = 128; var x = c.getContext('2d');
-      var g = x.createRadialGradient(64, 64, 0, 64, 64, 64); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(1, 'rgba(255,255,255,0)');
-      x.fillStyle = g; x.fillRect(0, 0, 128, 128); return new TH.CanvasTexture(c);
-    }
-    function makeEnv(renderer) {
-      var pm = new TH.PMREMGenerator(renderer), s = new TH.Scene();
-      s.add(new TH.Mesh(new TH.BoxGeometry(24, 24, 24), new TH.MeshBasicMaterial({ color: 0xc9d6f2, side: TH.BackSide })));
-      function panel(w, h, x, y, z, k, col) {
-        var m = new TH.Mesh(new TH.PlaneGeometry(w, h), new TH.MeshBasicMaterial({ color: new TH.Color(col || 0xffffff).multiplyScalar(k), side: TH.DoubleSide }));
-        m.position.set(x, y, z); m.lookAt(0, 0, 0); s.add(m);
-      }
-      panel(14, 4, 0, 9, 2, 5); panel(4, 10, -9, 1, 3, 3.4, 0xffffff); panel(4, 10, 9, 0, -2, 2.8, 0x9fc4ff);
-      panel(10, 3, 0, -6, 9, 1.8, 0xe8d8ff); panel(8, 8, 0, 2, -10, 2.6, 0xffffff);
-      var rt = pm.fromScene(s, .02); pm.dispose(); return rt.texture;
-    }
 
-    /* ----- écrans animés dessinés en canvas 2D ----- */
-    function drawPhone(x, t) {
-      var W = 512, H = 1024;
-      x.fillStyle = lg(x, 0, 0, 0, H, ['#f6f9ff', '#e8f0fc']); x.fillRect(0, 0, W, H);
-      x.fillStyle = '#0f1535'; rr(x, W / 2 - 54, 20, 108, 32, 16); x.fill();
-      x.fillStyle = lg(x, 36, 80, 90, 130, ['#1b8ccf', '#47217a']); x.beginPath(); x.arc(64, 112, 26, 0, 7); x.fill();
-      x.fillStyle = '#0f1535'; x.font = '700 28px Poppins, Arial, sans-serif'; x.textBaseline = 'middle'; x.fillText('Optisite', 102, 112);
-      x.fillStyle = '#c9d4ec'; [0, 1, 2].forEach(function (i) { x.beginPath(); x.arc(400 + i * 24, 112, 6, 0, 7); x.fill(); });
-      // carte hero
-      x.fillStyle = lg(x, 36, 160, 476, 470, ['#1b8ccf', '#2f4a9e', '#47217a']); rr(x, 36, 160, 440, 300, 38); x.fill();
-      x.fillStyle = 'rgba(255,255,255,.14)'; rr(x, 330 + Math.sin(t) * 10, 190, 120, 40, 20); x.fill();
-      x.fillStyle = '#fff'; x.font = '800 46px Poppins, Arial, sans-serif'; x.fillText('Ton site,', 68, 236); x.fillText('ton business.', 68, 292);
-      x.font = '500 21px Poppins, Arial, sans-serif'; x.fillStyle = 'rgba(255,255,255,.88)'; x.fillText('Rapide. Moderne. Mobile.', 68, 340);
-      x.fillStyle = '#fff'; rr(x, 68, 376, 214, 56, 28); x.fill();
-      x.fillStyle = '#2f4a9e'; x.font = '700 22px Poppins, Arial, sans-serif'; x.fillText('Commander', 96, 405);
-      // 3 pastilles
-      var labels = ['Sites', 'Apps', 'Vidéos'], cols = [['#1b8ccf', '#2f4a9e'], ['#2f4a9e', '#47217a'], ['#47217a', '#8a3fd1']];
-      for (var i = 0; i < 3; i++) {
-        var px = 36 + i * 150, pulse = 1 + Math.sin(t * 1.6 + i) * .03;
-        x.fillStyle = '#fff'; rr(x, px, 492, 140, 124, 30); x.fill();
-        x.save(); x.translate(px + 70, 540); x.scale(pulse, pulse);
-        x.fillStyle = lg(x, -26, -26, 26, 26, cols[i]); x.beginPath(); x.arc(0, 0, 28, 0, 7); x.fill(); x.restore();
-        x.fillStyle = '#fff'; x.beginPath(); if (i === 2) { x.moveTo(px + 63, 528); x.lineTo(px + 63, 552); x.lineTo(px + 83, 540); x.closePath(); x.fill(); } else { x.arc(px + 70, 540, 8, 0, 7); x.fill(); }
-        x.fillStyle = '#0f1535'; x.font = '600 21px Poppins, Arial, sans-serif'; x.textAlign = 'center'; x.fillText(labels[i], px + 70, 592); x.textAlign = 'left';
-      }
-      // graphique
-      x.fillStyle = '#fff'; rr(x, 36, 640, 440, 190, 34); x.fill();
-      x.fillStyle = '#0f1535'; x.font = '700 22px Poppins, Arial, sans-serif'; x.fillText('Croissance', 68, 678);
-      for (var b = 0; b < 8; b++) {
-        var hh = 40 + (Math.sin(t * 1.3 + b * .7) * .5 + .5) * 70 + b * 4;
-        x.fillStyle = lg(x, 0, 806 - hh, 0, 806, ['#1b8ccf', '#47217a']); rr(x, 70 + b * 48, 806 - hh, 28, hh, 14); x.fill();
-      }
-      // lecteur vidéo
-      x.fillStyle = '#fff'; rr(x, 36, 852, 440, 100, 34); x.fill();
-      x.fillStyle = lg(x, 60, 868, 130, 936, ['#2f4a9e', '#47217a']); x.beginPath(); x.arc(94, 902, 32, 0, 7); x.fill();
-      x.fillStyle = '#fff'; x.beginPath(); x.moveTo(86, 886); x.lineTo(86, 918); x.lineTo(112, 902); x.closePath(); x.fill();
-      x.fillStyle = '#e4eaf6'; rr(x, 148, 894, 296, 16, 8); x.fill();
-      x.fillStyle = lg(x, 148, 0, 444, 0, ['#1b8ccf', '#47217a']); rr(x, 148, 894, 20 + ((t * .12) % 1) * 276, 16, 8); x.fill();
-    }
-    function drawBrowser(x, t) {
-      var W = 1024, H = 700;
-      x.fillStyle = '#ffffff'; x.fillRect(0, 0, W, H);
-      x.fillStyle = '#eef3fc'; x.fillRect(0, 0, W, 76);
-      ['#ff7a7a', '#ffc857', '#4ddc8f'].forEach(function (c, i) { x.fillStyle = c; x.beginPath(); x.arc(44 + i * 30, 38, 9, 0, 7); x.fill(); });
-      x.fillStyle = '#fff'; rr(x, 190, 16, 520, 44, 22); x.fill();
-      x.fillStyle = '#5a6385'; x.font = '500 22px Poppins, Arial, sans-serif'; x.textBaseline = 'middle'; x.fillText('optisite-digital.com', 222, 39);
-      x.fillStyle = lg(x, 0, 76, W, H, ['#f3f7fd', '#e4ecfb']); x.fillRect(0, 76, W, H - 76);
-      x.fillStyle = '#0f1535'; x.font = '800 56px Poppins, Arial, sans-serif'; x.fillText('Ton site', 60, 180); x.fillText('professionnel', 60, 246);
-      x.fillStyle = '#5a6385'; x.font = '500 22px Poppins, Arial, sans-serif'; x.fillText('Design moderne, rapide, mobile.', 62, 300);
-      x.fillStyle = lg(x, 60, 330, 260, 390, ['#1b8ccf', '#47217a']); rr(x, 60, 330, 220, 62, 31); x.fill();
-      x.fillStyle = '#fff'; x.font = '700 22px Poppins, Arial, sans-serif'; x.fillText('Commander', 96, 362);
-      x.fillStyle = lg(x, 560, 120, 960, 420, ['#1b8ccf', '#2f4a9e', '#47217a']); rr(x, 560, 120, 400, 300, 40); x.fill();
-      x.fillStyle = '#fff'; x.beginPath(); x.arc(760, 270, 46, 0, 7); x.fill();
-      x.fillStyle = '#2f4a9e'; x.beginPath(); x.moveTo(748, 248); x.lineTo(748, 292); x.lineTo(786, 270); x.closePath(); x.fill();
-      for (var i = 0; i < 3; i++) { x.fillStyle = '#fff'; rr(x, 60 + i * 300, 470, 270, 160, 34); x.fill(); x.fillStyle = lg(x, 0, 0, 80, 80, ['#1b8ccf', '#47217a']); x.beginPath(); x.arc(110 + i * 300, 522, 26, 0, 7); x.fill(); x.fillStyle = '#e4eaf6'; rr(x, 90 + i * 300, 572, 190, 14, 7); x.fill(); rr(x, 90 + i * 300, 598, 130, 14, 7); x.fill(); }
-      var cx = 300 + Math.sin(t * .9) * 160, cy = 350 + Math.cos(t * .7) * 70;
-      x.fillStyle = 'rgba(15,21,53,.85)'; x.beginPath(); x.arc(cx, cy, 12, 0, 7); x.fill();
-    }
-    function drawFrame(x, kind) {
-      var W = 512, H = 320;
-      var sets = [['#47217a', '#2f4a9e', '#1b8ccf'], ['#1b8ccf', '#2f4a9e', '#47217a'], ['#2f4a9e', '#8a3fd1', '#ff7ab6']];
-      x.fillStyle = lg(x, 0, 0, W, H, sets[kind]); x.fillRect(0, 0, W, H);
-      x.fillStyle = '#fff'; x.font = '800 52px Poppins, Arial, sans-serif'; x.textBaseline = 'middle';
-      x.fillText(['Motion', 'Titre', 'Vidéo IA'][kind], 40, 120);
-      x.fillStyle = 'rgba(255,255,255,.35)'; rr(x, 40, 200, 432, 16, 8); x.fill();
-      x.fillStyle = '#fff'; rr(x, 40, 200, [260, 170, 330][kind], 16, 8); x.fill();
-      x.beginPath(); x.arc(40 + [260, 170, 330][kind], 208, 14, 0, 7); x.fill();
-      x.fillStyle = 'rgba(255,255,255,.3)'; rr(x, 40, 250, 120, 30, 15); x.fill(); rr(x, 172, 250, 80, 30, 15); x.fill();
-    }
-
-    function makeStage(canvas, container, builder, opts) {
-      var renderer = new TH.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-      renderer.setClearColor(0x000000, 0);
-      renderer.outputEncoding = TH.sRGBEncoding; renderer.toneMapping = TH.ACESFilmicToneMapping; renderer.toneMappingExposure = opts.exposure || 1.05;
-      var lowEnd = (navigator.hardwareConcurrency || 8) <= 4;
-      var maxDpr = window.innerWidth < 760 ? 1.5 : 2; if (lowEnd) maxDpr = Math.min(maxDpr, 1.25);
-      var scene = new TH.Scene(), camera = new TH.PerspectiveCamera(30, 1, .1, 100);
-      scene.environment = makeEnv(renderer);
-      var key = new TH.DirectionalLight(0xffffff, .8); key.position.set(3, 5, 6); scene.add(key);
-      var rim = new TH.PointLight(0x1b8ccf, 14, 24); rim.position.set(-5, 2, -3); scene.add(rim);
-      scene.add(new TH.AmbientLight(0xffffff, .35));
-      var st = { px: 0, py: 0, yaw: 0, drag: false, lx: 0 };
-      var api = builder(scene, st, renderer);
-      var stage = { active: true, container: container, renderer: renderer, camera: camera, scene: scene, api: api, st: st };
-
-      function fit() {
-        var w = container.clientWidth, h = container.clientHeight; if (!w || !h) return;
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxDpr)); renderer.setSize(w, h, false);
-        camera.aspect = w / h;
-        var t = Math.tan(camera.fov * Math.PI / 360);
-        camera.position.set(0, 0, Math.max(opts.fitW / (2 * t * camera.aspect), opts.fitH / (2 * t)));
-        camera.updateProjectionMatrix();
-        if (reduce) stage.render(0, 0);
-      }
-      stage.fit = fit;
-      stage.render = function (t, dt) { api.update(t, dt, st, container); renderer.render(scene, camera); };
-      if ('ResizeObserver' in window) new ResizeObserver(fit).observe(container); else window.addEventListener('resize', fit);
-      fit();
-      if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { stage.active = e[0].isIntersecting; }, { rootMargin: '80px' }).observe(container);
-
-      container.addEventListener('pointermove', function (e) {
-        var r = container.getBoundingClientRect();
-        if (e.pointerType === 'mouse') { st.px = ((e.clientX - r.left) / r.width - .5) * 2; st.py = ((e.clientY - r.top) / r.height - .5) * 2; }
-        if (st.drag) { st.yaw += (e.clientX - st.lx) * .009; st.lx = e.clientX; }
-      });
-      container.addEventListener('pointerdown', function (e) { st.drag = true; st.lx = e.clientX; container.classList.add('grab'); try { container.setPointerCapture(e.pointerId); } catch (_) {} });
-      function end() { st.drag = false; container.classList.remove('grab'); }
-      container.addEventListener('pointerup', end); container.addEventListener('pointercancel', end);
-      container.addEventListener('pointerleave', function () { st.px = 0; st.py = 0; });
-      stages.push(stage);
-      return stage;
-    }
-
-    /* ----- Scène 1 : téléphone + fenêtre de site + bouton lecture ----- */
-    function buildHero(scene, st) {
-      var group = new TH.Group(); scene.add(group);
-      var navy = new TH.MeshPhysicalMaterial({ color: lin('#141c52'), metalness: .45, roughness: .3, clearcoat: 1, clearcoatRoughness: .1 });
-      var phone = new TH.Group(); group.add(phone);
-      phone.add(new TH.Mesh(rrSlab(1.5, 3.0, .3, .1, .035), navy));
-      var pt = cv(512, 1024);
-      var scr = new TH.Mesh(faceGeo(1.42, 2.92, .26), new TH.MeshBasicMaterial({ map: pt.t, toneMapped: false })); scr.position.z = .139; phone.add(scr);
-      phone.rotation.y = -.22;
-
-      var browser = new TH.Group(); group.add(browser);
-      browser.add(new TH.Mesh(rrSlab(2.5, 1.7, .2, .05, .02), new TH.MeshPhysicalMaterial({ color: lin('#eef3ff'), metalness: .1, roughness: .35, clearcoat: .6 })));
-      var bt = cv(1024, 700);
-      var bs = new TH.Mesh(faceGeo(2.5, 1.7, .2), new TH.MeshBasicMaterial({ map: bt.t, toneMapped: false })); bs.position.z = .047; browser.add(bs);
-      browser.position.set(-1.35, .95, -.8); browser.rotation.set(-.04, .5, 0);
-
-      var bubble = new TH.Group(); group.add(bubble);
-      var disc = new TH.Mesh(new TH.CylinderGeometry(.52, .52, .16, 72), new TH.MeshPhysicalMaterial({ color: lin('#47217a'), metalness: .3, roughness: .22, clearcoat: 1 }));
-      disc.rotation.x = Math.PI / 2; bubble.add(disc);
-      var play = new TH.Mesh(playGeo(.26, .06), new TH.MeshPhysicalMaterial({ color: 0xffffff, metalness: .05, roughness: .2, clearcoat: 1 })); play.position.set(.03, 0, .12); bubble.add(play);
-      bubble.position.set(1.45, -1.0, .8);
-
-      var frameN = 0;
-      return {
-        update: function (t, dt, s, container) {
-          var rect = container.getBoundingClientRect(), sp = clamp(-rect.top / Math.max(rect.height, 1), 0, 1);
-          s.yaw *= (s.drag ? 1 : .94);
-          group.rotation.y = lerp(group.rotation.y, -.2 + Math.sin(t * .5) * .12 + s.px * .3 + s.yaw, .08);
-          group.rotation.x = lerp(group.rotation.x, s.py * .08, .08);
-          group.position.y = sp * .7; group.scale.setScalar(1 - sp * .12);
-          phone.position.y = Math.sin(t * .9) * .07; phone.rotation.z = Math.sin(t * .6) * .02;
-          browser.position.y = .95 + Math.sin(t * .8 + 1) * .09;
-          bubble.position.y = -1.0 + Math.sin(t * 1.0 + 2) * .09; bubble.rotation.y = Math.sin(t * .7) * .3;
-          if ((frameN++ & 1) === 0) { drawPhone(pt.x, t); pt.t.needsUpdate = true; drawBrowser(bt.x, t); bt.t.needsUpdate = true; }
-        }
-      };
-    }
-
-    /* ----- Scène 2 : bouton lecture + cadres vidéo en orbite ----- */
-    function buildMotion(scene) {
-      var group = new TH.Group(); scene.add(group);
-      var center = new TH.Group(); group.add(center);
-      var disc = new TH.Mesh(new TH.CylinderGeometry(1.0, 1.0, .3, 96), new TH.MeshPhysicalMaterial({ color: lin('#47217a'), metalness: .3, roughness: .2, clearcoat: 1 }));
-      disc.rotation.x = Math.PI / 2; center.add(disc);
-      var tri = new TH.Mesh(playGeo(.5, .1), new TH.MeshPhysicalMaterial({ color: 0xffffff, metalness: .05, roughness: .2, clearcoat: 1 })); tri.position.set(.05, 0, .2); center.add(tri);
-
-      var frames = [], tex = [cv(512, 320), cv(512, 320), cv(512, 320)];
-      var defs = [{ r: 2.0, y: .95, a: 0, s: .95 }, { r: 2.1, y: -.75, a: 2.1, s: .85 }, { r: 2.0, y: .1, a: 4.2, s: .8 }];
-      defs.forEach(function (d, i) {
-        drawFrame(tex[i].x, i); tex[i].t.needsUpdate = true;
-        var g = new TH.Group();
-        g.add(new TH.Mesh(rrSlab(1.5, .94, .14, .04, .015), new TH.MeshPhysicalMaterial({ color: 0xffffff, roughness: .3, clearcoat: .6 })));
-        var f = new TH.Mesh(faceGeo(1.5, .94, .14), new TH.MeshBasicMaterial({ map: tex[i].t, toneMapped: false })); f.position.z = .037; g.add(f);
-        g.scale.setScalar(d.s); group.add(g); frames.push({ g: g, d: d });
-      });
-      return {
-        update: function (t, dtm, s) {
-          s.yaw *= (s.drag ? 1 : .94);
-          group.rotation.y = lerp(group.rotation.y, s.px * .3 + s.yaw, .08);
-          group.rotation.x = lerp(group.rotation.x, s.py * .1, .08);
-          center.rotation.y = Math.sin(t * .6) * .3; center.position.y = Math.sin(t) * .06;
-          frames.forEach(function (o) {
-            var a = o.d.a + t * .38;
-            o.g.position.set(Math.cos(a) * o.d.r, o.d.y + Math.sin(t * .9 + o.d.a) * .08, Math.sin(a) * o.d.r * .6);
-            o.g.rotation.y = -group.rotation.y * .5 + Math.cos(a) * -.35;
-          });
-        }
-      };
-    }
-
-    function initGL() {
-      if (!TH) throw new Error('Three.js indisponible');
-      var hs = $('#heroStage'), ms = $('#motionStage');
-      makeStage($('#heroCanvas'), hs, buildHero, { fitW: 6.0, fitH: 4.6, exposure: 1.05 });
-      makeStage($('#motionCanvas'), ms, buildMotion, { fitW: 6.2, fitH: 4.2, exposure: 1.1 });
-      if (!reduce) {
-        var last = performance.now();
-        (function loop(now) {
-          requestAnimationFrame(loop);
-          if (document.hidden) { last = now; return; }
-          var dt = Math.min((now - last) / 1000, .1); last = now;
-          stages.forEach(function (s) { if (s.active) s.render(now / 1000, dt); });
-        })(last);
-      } else { stages.forEach(function (s) { s.render(0, 0); }); }
-    }
-    try { initGL(); } catch (err) { if (window.console) console.warn(err); root.classList.add('no-gl'); }
-  })();
-  </script>
+function drawPhone(x,t){
+  var W=512,H=1024; x.fillStyle='#fafaf8'; x.fillRect(0,0,W,H); x.textBaseline='middle';
+  x.fillStyle='#0c0c0c'; rr(x,W/2-54,20,108,32,16); x.fill();
+  x.font='700 30px Inter,Arial,sans-serif'; x.fillText('Optisite',40,112);
+  x.fillStyle='#0c0c0c'; rr(x,36,160,440,300,40); x.fill();
+  x.fillStyle='#fff'; x.font='700 50px Inter,Arial,sans-serif'; x.fillText('Ton site,',68,236); x.fillText('ton business.',68,296);
+  x.fillStyle='#ff5a1f'; rr(x,68,356,210,64,32); x.fill(); x.fillStyle='#fff'; x.font='600 24px Inter,Arial,sans-serif'; x.fillText('Commander',98,389);
+  for(var i=0;i<3;i++){ x.fillStyle='#efede8'; rr(x,36+i*150,490,140,120,30); x.fill(); x.fillStyle=i===1?'#ff5a1f':'#0c0c0c'; x.beginPath(); x.arc(106+i*150,540,26,0,7); x.fill(); x.fillStyle='#0c0c0c'; x.font='600 21px Inter,Arial,sans-serif'; x.textAlign='center'; x.fillText(['Sites','Apps','Vidéos'][i],106+i*150,588); x.textAlign='left'; }
+  x.fillStyle='#efede8'; rr(x,36,640,440,200,36); x.fill();
+  for(var b=0;b<8;b++){ var hh=40+(Math.sin(t*1.3+b*.7)*.5+.5)*80+b*5; x.fillStyle=b===7?'#ff5a1f':'#0c0c0c'; rr(x,70+b*48,810-hh,28,hh,14); x.fill(); }
+  x.fillStyle='#0c0c0c'; rr(x,36,866,440,92,46); x.fill(); x.fillStyle='#fff'; x.font='600 26px Inter,Arial,sans-serif'; x.fillText('Écrire sur WhatsApp',92,912);
+  x.fillStyle='#25d366'; x.beginPath(); x.arc(64,912,12,0,7); x.fill();
+}
+function drawBrowser(x,t){
+  var W=1024,H=700; x.fillStyle='#fff'; x.fillRect(0,0,W,H); x.textBaseline='middle';
+  x.fillStyle='#efede8'; x.fillRect(0,0,W,76);
+  ['#d8d5ce','#d8d5ce','#d8d5ce'].forEach(function(c,i){x.fillStyle=c;x.beginPath();x.arc(44+i*30,38,9,0,7);x.fill()});
+  x.fillStyle='#fff'; rr(x,190,16,520,44,22); x.fill(); x.fillStyle='#686862'; x.font='500 22px Inter,Arial,sans-serif'; x.fillText('ton-site.com',222,39);
+  x.fillStyle='#0c0c0c'; x.font='700 58px Inter,Arial,sans-serif'; x.fillText('Vends en ligne',60,190); x.fillText('sans stress.',60,256);
+  x.fillStyle='#686862'; x.font='500 24px Inter,Arial,sans-serif'; x.fillText('Simple. Rapide. Mobile.',62,316);
+  x.fillStyle='#0c0c0c'; rr(x,60,360,230,64,32); x.fill(); x.fillStyle='#fff'; x.font='600 24px Inter,Arial,sans-serif'; x.fillText('Commander',100,393);
+  x.fillStyle='#ff5a1f'; rr(x,580,120,380,320,48); x.fill();
+  var s=1+Math.sin(t*2)*.05; x.save(); x.translate(770,280); x.scale(s,s); x.fillStyle='#fff'; x.beginPath(); x.arc(0,0,52,0,7); x.fill(); x.fillStyle='#ff5a1f'; x.beginPath(); x.moveTo(-12,-24); x.lineTo(-12,24); x.lineTo(26,0); x.closePath(); x.fill(); x.restore();
+  for(var i=0;i<3;i++){ x.fillStyle='#efede8'; rr(x,60+i*310,480,280,150,36); x.fill(); x.fillStyle='#0c0c0c'; rr(x,90+i*310,520,160,16,8); x.fill(); x.fillStyle='#c9c5bb'; rr(x,90+i*310,556,110,14,7); x.fill(); }
+}
+function makeEnv(r){ var pm=new TH.PMREMGenerator(r), s=new TH.Scene();
+  s.add(new TH.Mesh(new TH.BoxGeometry(24,24,24),new TH.MeshBasicMaterial({color:0xdddad2,side:TH.BackSide})));
+  function p(w,h,x,y,z,k){var m=new TH.Mesh(new TH.PlaneGeometry(w,h),new TH.MeshBasicMaterial({color:new TH.Color(0xffffff).multiplyScalar(k),side:TH.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);s.add(m)}
+  p(14,4,0,9,2,5);p(4,10,-9,1,3,3);p(4,10,9,0,-2,2.4);p(8,8,0,2,-10,2.4);
+  var rt=pm.fromScene(s,.02);pm.dispose();return rt.texture}
+function initGL(){
+  if(!TH) throw new Error('no three');
+  var box=$('#heroStage'), canvas=$('#heroCanvas');
+  var R=new TH.WebGLRenderer({canvas:canvas,antialias:true,alpha:true}); R.setClearColor(0,0);
+  R.outputEncoding=TH.sRGBEncoding; R.toneMapping=TH.ACESFilmicToneMapping; R.toneMappingExposure=1.05;
+  var sc=new TH.Scene(), cam=new TH.PerspectiveCamera(30,1,.1,100); sc.environment=makeEnv(R);
+  var key=new TH.DirectionalLight(0xffffff,.8); key.position.set(3,5,6); sc.add(key); sc.add(new TH.AmbientLight(0xffffff,.4));
+  var g=new TH.Group(); sc.add(g);
+  var black=new TH.MeshPhysicalMaterial({color:lin('#0c0c0c'),metalness:.4,roughness:.3,clearcoat:1,clearcoatRoughness:.12});
+  var phone=new TH.Group(); g.add(phone); phone.add(new TH.Mesh(rrSlab(1.5,3.0,.3,.1,.035),black));
+  var pt=cv(512,1024), scr=new TH.Mesh(faceGeo(1.42,2.92,.26),new TH.MeshBasicMaterial({map:pt.t,toneMapped:false})); scr.position.z=.139; phone.add(scr); phone.rotation.y=-.2;
+  var br=new TH.Group(); g.add(br); br.add(new TH.Mesh(rrSlab(2.5,1.7,.2,.05,.02),new TH.MeshPhysicalMaterial({color:0xffffff,roughness:.4,clearcoat:.5})));
+  var bt=cv(1024,700), bs=new TH.Mesh(faceGeo(2.5,1.7,.2),new TH.MeshBasicMaterial({map:bt.t,toneMapped:false})); bs.position.z=.047; br.add(bs);
+  br.position.set(-1.35,.95,-.8); br.rotation.set(-.04,.5,0);
+  var st={px:0,py:0,yaw:0,drag:false,lx:0}, active=true, frame=0;
+  function fit(){ var w=box.clientWidth,h=box.clientHeight; if(!w||!h)return; R.setPixelRatio(Math.min(devicePixelRatio||1,innerWidth<760?1.5:2)); R.setSize(w,h,false); cam.aspect=w/h;
+    var t=Math.tan(cam.fov*Math.PI/360); cam.position.set(0,0,Math.max(5.0/(2*t*cam.aspect),4.3/(2*t))); cam.updateProjectionMatrix(); }
+  fit(); 'ResizeObserver' in window?new ResizeObserver(fit).observe(box):addEventListener('resize',fit);
+  if('IntersectionObserver' in window) new IntersectionObserver(function(e){active=e[0].isIntersecting}).observe(box);
+  box.addEventListener('pointermove',function(e){var r=box.getBoundingClientRect(); if(e.pointerType==='mouse'){st.px=((e.clientX-r.left)/r.width-.5)*2;st.py=((e.clientY-r.top)/r.height-.5)*2} if(st.drag){st.yaw+=(e.clientX-st.lx)*.009;st.lx=e.clientX}});
+  box.addEventListener('pointerdown',function(e){st.drag=true;st.lx=e.clientX;box.classList.add('grab');try{box.setPointerCapture(e.pointerId)}catch(_){}});
+  function end(){st.drag=false;box.classList.remove('grab')} box.addEventListener('pointerup',end); box.addEventListener('pointercancel',end); box.addEventListener('pointerleave',function(){st.px=st.py=0});
+  function draw(t){ st.yaw*=st.drag?1:.94;
+    g.rotation.y=lerp(g.rotation.y,-.2+Math.sin(t*.5)*.12+st.px*.3+st.yaw,.08); g.rotation.x=lerp(g.rotation.x,st.py*.08,.08);
+    phone.position.y=Math.sin(t*.9)*.07; br.position.y=.95+Math.sin(t*.8+1)*.09;
+    if((frame++&1)===0){drawPhone(pt.x,t);pt.t.needsUpdate=true;drawBrowser(bt.x,t);bt.t.needsUpdate=true}
+    R.render(sc,cam); }
+  if(reduce){draw(0);return}
+  (function loop(now){requestAnimationFrame(loop); if(document.hidden||!active)return; draw(now/1000)})(0);
+}
+try{initGL()}catch(e){console.warn(e);root.classList.add('no-gl')}
+})();
+</script>
 </body>
 </html>
